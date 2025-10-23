@@ -9,8 +9,19 @@ Imaging without Borders (IMAGINE) summer school is a hybrid training initiative 
 Hardware and firmware developed for the IMAGINE field mapping robot are available here:  
 ➡️ [https://github.com/SipanHovsep/Field_mapper_robot](https://github.com/SipanHovsep/Field_mapper_robot)
 
+
 ### Halbach Design Genetic Algorithm
 Code to the Magnet design Genetic Algorithm developed and used during IMAGINE can be accessed here: 
+
+➡️ [https://github.com/tmachtelinckx/halbacharray-GA](https://github.com/tmachtelinckx/halbacharray-GA)
+
+
+### The Control System used is MaRCoS [cite]
+➡️ [MaRCoS MRI](https://github.com/marcos-mri)
+
+
+### The GUI used is MARGE
+➡️ [https://github.com/josalggui/MaRGE](https://github.com/josalggui/MaRGE)
 
 - CAD design of gradients
 - CAD design for Magnets
@@ -22,3 +33,10 @@ Code to the Magnet design Genetic Algorithm developed and used during IMAGINE ca
 - Equipment list
 - Images of ESMRMB build
 
+## ESRMRMB Workshop: a Hands-on Halbach Magnet and Field Mapping Robot Build
+
+
+## Citations
+- MaRCoS
+- MARGE
+- 
