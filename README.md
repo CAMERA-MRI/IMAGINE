@@ -7,7 +7,7 @@ Imaging without Borders (IMAGINE) summer school is a hybrid training initiative 
 
 ### Field Mapping Robot
 Hardware and firmware developed for the IMAGINE field mapping robot are available here:  
-➡️ [https://github.com/SipanHovsep/Field_mapper_robot](https://github.com/SipanHovsep/Field_mapper_robot)](https://github.com/FieldRobotTeam/FieldMapper)
+➡️ [https://github.com/SipanHovsep/Field_mapper_robot](https://github.com/SipanHovsep/Field_mapper_robot)
 
 ### Halbach Design Genetic Algorithm
 Code to the Magnet design Genetic Algorithm developed and used during IMAGINE can be accessed here: 
