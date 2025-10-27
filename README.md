@@ -10,33 +10,18 @@ Hardware and firmware developed for the IMAGINE field mapping robot are availabl
 ➡️ [https://github.com/SipanHovsep/Field_mapper_robot](https://github.com/SipanHovsep/Field_mapper_robot)
 
 
-### Halbach Design Genetic Algorithm
-Code to the Magnet design Genetic Algorithm developed and used during IMAGINE can be accessed here: 
 
+### Halbach Design Genetic Algorithm
+Code to the Magnet design Genetic Algorithm developed and used during IMAGINE can be accessed here: \
 ➡️ [https://github.com/tmachtelinckx/halbacharray-GA](https://github.com/tmachtelinckx/halbacharray-GA)
 
 
-### The Control System used is MaRCoS [cite]
-➡️ [MaRCoS MRI](https://github.com/marcos-mri)
 
-
-### The GUI used is MARGE
-➡️ [https://github.com/josalggui/MaRGE](https://github.com/josalggui/MaRGE)
-
-- CAD design of gradients
-- CAD design for Magnets
-- CAD design for
-- Tuning Matching Circuit
-- LNA and RFPA
-- Design for Switch
-- MaRCoS & MARGE
-- Equipment list
-- Images of ESMRMB build
-
-## ESRMRMB Workshop: a Hands-on Halbach Magnet and Field Mapping Robot Build
+### The Control System used is MaRCoS [1] controlled from the MARGE GUI [2]
+➡️ [MaRCoS MRI](https://github.com/marcos-mri) \
+➡️ [MaRGE: A graphical environment for MaRCoS](https://github.com/josalggui/MaRGE)
 
 
 ## Citations
-- MaRCoS
-- MARGE
-- 
+[1] Negnevitsky, V., Vives-gilabert, Y., Algarín, J. M., Craven-Brightman, L., Pellicer-guridi, R., O'Reilly, T., Stockmann, J. P., Webb, A., Alonso, J., & Menküc, B. (2023). MaRCoS, an open-source electronic control system for low-field MRI. Journal of Magnetic Resonance, 350, 107424. https://doi.org/10.1016/j.jmr.2023.107424  \
+[2] Algarín, J. M., Guallart-Naval, T., Borreguero, J., Galve, F., & Alonso, J. (2024). MaRGE: A graphical environment for MaRCoS. Journal of Magnetic Resonance, 361, 107662. https://doi.org/10.1016/j.jmr.2024.107662
