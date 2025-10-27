@@ -32,7 +32,7 @@ Participants then constructed and tested a **field-mapping robot** used to measu
 |------|--------------|-------|
 | 1 | Assembly and wiring | ![Robot step 2](https://media.licdn.com/dms/image/v2/D4D22AQFXj9VcTapnOg/feedshare-shrink_2048_1536/B4DZnEuAsdJIAw-/0/1759942020542?e=1762992000&v=beta&t=mN7yY15xYnlkaAHfh8mngmEUzHAKhkHBF-0un8x_sIg) |
 | 2 | Field-mapping test run | ![Robot step 3](https://media.licdn.com/dms/image/v2/D4D22AQEBAWurck5Xgw/feedshare-shrink_2048_1536/B4DZnE00OBHwAw-/0/1759943808792?e=1762992000&v=beta&t=_XWsfFYtXu2DR-q8d9PpZSGSGNtWCkldrBrws5PWgDo) |
-| 3 | Magnet homogeneity | ![Robot step 1](https://drive.google.com/file/d/1Fq8Ltr89tbAZIhDMNxN7A6inkyU4oM0O/view) |
+| 3 | Magnet homogeneity | ![Robot step 1](ESMRMB Workshop/image/WhatsApp Image 2025-10-10 at 14.13.03.jpeg) |
 
 ---
 
