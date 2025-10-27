@@ -48,5 +48,4 @@ A selection of photos from the day:
 
 ## 📫 Contact
 
-More information at [cameraMRIafrica.org](https://cameraMRIafrica.org)  
 📧 **info.camera.mri@gmail.com**
