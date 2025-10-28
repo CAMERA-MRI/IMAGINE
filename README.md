@@ -17,11 +17,13 @@ Code to the Magnet design Genetic Algorithm developed and used during IMAGINE ca
 
 
 
-### The Control System used is MaRCoS [1] controlled from the MARGE GUI [2]
+### The Control System used is MaRCoS controlled from the MARGE GUI
 ➡️ [MaRCoS MRI](https://github.com/marcos-mri) \
 ➡️ [MaRGE: A graphical environment for MaRCoS](https://github.com/josalggui/MaRGE)
 
 
 ## Citations
-[1] Negnevitsky, V., Vives-gilabert, Y., Algarín, J. M., Craven-Brightman, L., Pellicer-guridi, R., O'Reilly, T., Stockmann, J. P., Webb, A., Alonso, J., & Menküc, B. (2023). MaRCoS, an open-source electronic control system for low-field MRI. Journal of Magnetic Resonance, 350, 107424. https://doi.org/10.1016/j.jmr.2023.107424  \
-[2] Algarín, J. M., Guallart-Naval, T., Borreguero, J., Galve, F., & Alonso, J. (2024). MaRGE: A graphical environment for MaRCoS. Journal of Magnetic Resonance, 361, 107662. https://doi.org/10.1016/j.jmr.2024.107662
+[1] Anazodo, Udunna C et al. “A framework for advancing sustainable magnetic resonance imaging access in Africa.” NMR in biomedicine vol. 36,3 (2023): e4846. doi:10.1002/nbm.4846
+[2] Murali, Sanjana et al. “Bringing MRI to low- and middle-income countries: Directions, challenges and potential solutions.” NMR in biomedicine vol. 37,7 (2024): e4992. doi:10.1002/nbm.4992
+[3] Negnevitsky, V., Vives-gilabert, Y., Algarín, J. M., Craven-Brightman, L., Pellicer-guridi, R., O'Reilly, T., Stockmann, J. P., Webb, A., Alonso, J., & Menküc, B. (2023). MaRCoS, an open-source electronic control system for low-field MRI. Journal of Magnetic Resonance, 350, 107424. https://doi.org/10.1016/j.jmr.2023.107424  \
+[4] Algarín, J. M., Guallart-Naval, T., Borreguero, J., Galve, F., & Alonso, J. (2024). MaRGE: A graphical environment for MaRCoS. Journal of Magnetic Resonance, 361, 107662. https://doi.org/10.1016/j.jmr.2024.107662
