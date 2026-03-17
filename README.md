@@ -18,8 +18,10 @@ Code to the Magnet design Genetic Algorithm developed and used during IMAGINE ca
 The files needed for the magnet configuration used for the scanner build in the IMAGINE Summer School are in the Halbach Array folder. These files are meant to be opened in Autodesk Inventor or Fusion360. There are also .stp files for the individual rings so you can see how it would print.
 
 ### RF Coil 
-.stp files to print the RF Coil holder and description of all the necessary parameters are provided in the RF Coil folder. 
+.stp files to print the RF Coil holder and description of all the necessary parameters are provided in the RF Coil folder.
 
+### TR Switch
+The switch used is the passive switch from the [Open Source Imaging Initiative](https://gitlab.com/osii/rf-system/tr-switches/passive-tr-switch). 
 
 ### The Control System used is MaRCoS controlled from the MARGE GUI
 ➡️ [MaRCoS MRI](https://github.com/marcos-mri) \
