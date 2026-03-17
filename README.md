@@ -15,6 +15,8 @@ Hardware and firmware developed for the IMAGINE field mapping robot are availabl
 Code to the Magnet design Genetic Algorithm developed and used during IMAGINE can be accessed here: \
 ➡️ [https://github.com/tmachtelinckx/halbacharray-GA](https://github.com/tmachtelinckx/halbacharray-GA)
 
+The files needed for the magnet configuration used for the scanner build in the IMAGINE Summer School are in the Halbach Array folder. These files are meant to be opened in Autodesk Inventor or Fusion360. There are also .stp files for the individual rings so you can see how it would print.
+
 
 
 ### The Control System used is MaRCoS controlled from the MARGE GUI
