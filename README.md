@@ -1,4 +1,4 @@
-<br/><br/><p align="center"><img src="https://fourwaves-prod.imgix.net/static/media/headers/d5bc8631-0d8a-48ae-9b29-95864741a685/bceb6468-c14e-46bb-a219-bef65c8864de.png?w=2000&fit=max&auto=format" alt="Banner." /></p>
+<br/><br/><p align="center"><img src="./images/banner.png" alt="Banner." /></p>
 
 # IMAGINE: Imaging Without Borders: Building a low-cost open-source low-field preclinical MR scanner. 
 
@@ -17,6 +17,8 @@ Code to the Magnet design Genetic Algorithm developed and used during IMAGINE ca
 
 The files needed for the magnet configuration used for the scanner build in the IMAGINE Summer School are in the Halbach Array folder. These files are meant to be opened in Autodesk Inventor or Fusion360. There are also .stp files for the individual rings so you can see how it would print.
 
+### RF Coil 
+.stp files to print the RF Coil holder and description of all the necessary parameters are provided in the RF Coil folder. 
 
 
 ### The Control System used is MaRCoS controlled from the MARGE GUI
