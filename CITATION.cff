@@ -2,12 +2,10 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: >-
-  IMAGINE: Low-field MRI education and system development
-  resources
-message: >-
-  If you use the IMAGINE resources, please cite this
-  repository.
+title: "IMAGINE: Low-field MRI education and system development
+  resources"
+message: "If you use the IMAGINE resources, please cite this
+  repository."
 type: software
 authors:
   - family-names: Maureen
