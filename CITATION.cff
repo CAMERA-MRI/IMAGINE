@@ -1,0 +1,45 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  IMAGINE: Low-field MRI education and system development
+  resources
+message: >-
+  If you use the IMAGINE resources, please cite this
+  repository.
+type: software
+authors:
+  - family-names: Maureen
+    given-names: Nayebare
+  - family-names: Fernández-García
+    given-names: Marina
+  - family-names: Kassahun
+    given-names: Haile B
+  - family-names: Sahonero-Alvarez
+    given-names: Guillermo
+  - family-names: Hovsepian
+    given-names: Sipan
+  - family-names: Machtelinckx
+    given-names: Timon
+  - family-names: Brahimi
+    given-names: Ihssene
+  - family-names: Yazdanbakhsh
+    given-names: Pedram
+  - family-names: Akbarzadeh-Sharbaf
+    given-names: Ali
+  - family-names: Confidence
+    given-names: Raymond
+  - family-names: Adewole
+    given-names: Maruf
+  - family-names: Abdullah
+    given-names: Osama
+  - family-names: Obungoloch
+    given-names: Johnes
+  - family-names: du Plessis
+    given-names: Stefan
+  - family-names: Anazodo
+    given-names: Udunna
+repository-code: 'https://github.com/CAMERA-MRI/IMAGINE'
+version: 1.0.0
+date-released: '2025-08-01'
