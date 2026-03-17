@@ -33,12 +33,12 @@ Total Points Hardware: XX / 17
 
 ### Readme
 
-1. [ ] **Is a README file (or equivalent) available with a project description?** (1)
+1. [x] **Is a README file (or equivalent) available with a project description?** (1)
 2. [ ] Have the design considerations been explained? (1)
 
 ### Bill of Materials
 
-1. [ ] **Is a Bill of Materials (BoM) provided to reproduce the design?** (1)
+1. [x] **Is a Bill of Materials (BoM) provided to reproduce the design?** (1)
 2. [ ] Is the Bill of Materials complete/complies with our [best practices](https://gitlab.com/osiiev/cab/-/blob/main/guidelines/bill-of-materials.md)? (1)
 
 ### Source Files
@@ -47,22 +47,22 @@ Total Points Hardware: XX / 17
 
 ### Status of Freedom
 
-1. [ ] Are all source files editable with open-source software (e.g. FreeCAD, KiCAD)? (1)
+1. [x] Are all source files editable with open-source software (e.g. FreeCAD, KiCAD)? (1)
 
 ### Production Files
 
-1. [ ] **Are all files needed to reproduce the project according to the project description available in a generally accessible export file format (e.g. STP, STL, GRB)?** (1)
+1. [x] **Are all files needed to reproduce the project according to the project description available in a generally accessible export file format (e.g. STP, STL, GRB)?** (1)
 2. [ ] Is the manufacturing environment (e.g. machine parameters) well defined or sufficiently explained to reproduce the production as intended? (1)
     > For instance, this is already given for a PCB, when complete Gerber files are provided. Then please grant this point.
 
 ### Assembly
 
-1. [ ] **Is the assembly of the project sufficiently explained, allowing for the complete replication of the project, e.g. by an assembly guide?** (1)
+1. [x] **Is the assembly of the project sufficiently explained, allowing for the complete replication of the project, e.g. by an assembly guide?** (1)
     > For some projects the assembly is clearly self-explanatory or not even needed, e.g. for one-piece 3D prints. Then please grant this point. 
 
 ### Development Tracking
 
-1. [ ] **Is a versioning scheme implemented (e.g. git repository)** (1)
+1. [x] **Is a versioning scheme implemented (e.g. git repository)** (1)
 2. [ ] Is an issue tracking implemented publicly? (1) 
 3. [ ] Does the project have a communication space for questions, ideas, exchange with the developers or a user community? (1)
 
