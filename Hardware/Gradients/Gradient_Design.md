@@ -1,6 +1,7 @@
 # How to build your own MRI Gradients
-##CAD Design
-The steps for the CAD design and 3D printing of the gradient coils 
+## CAD Design
+The steps for the CAD design and 3D printing of the gradient coils using Autodesk AutoCAD
+
 **Phase 1: Coordinate Import and Path Creation**
 
 1. Data Preparation: Copy the x, y, and z coordinates into Excel and save them as a CSV file. Ensure that coordinates for each quadrant are saved separately.
@@ -22,8 +23,8 @@ The steps for the CAD design and 3D printing of the gradient coils
 11. Base Geometry: Draw a circle at the center (0, 0) with a radius equal to the outer radius of the gradient coil.
 12. Shelling: Offset this circle inward by 3mm to create an inscribed circle.
 13. Initial Extrusion: Extrude these circles to half the total height of the gradient coil (L/2) to create a half-cylinder.
-14. Secondary Geometry: Draw a second set of circles (using the same offsets from steps 11 and 12) at center $(0, 0)$, positioned at either the top or bottom face of the first cylinder.
-15. Full Extrusion: Extrude these circles in the opposite direction (positive or negative $Z$) to complete the other half of the coil height.
+14. Secondary Geometry: Draw a second set of circles (using the same offsets from steps 11 and 12) at the center (0, 0), positioned at either the top or bottom face of the first cylinder.
+15. Full Extrusion: Extrude these circles in the opposite direction (positive or negative Z) to complete the other half of the coil height.
 16. Merging Cylinder: Use the UNION command to merge the two half-cylinders into one solid, full-length cylinder for the gradient coil former.
 17. Merging Coil Paths: Use the UNION command to merge all four coil quadrants into a single object.
 18. Groove Creation: Use the SUBTRACT command to remove the quadrant coil objects from the cylinder, thereby creating the winding grooves.
@@ -36,4 +37,6 @@ The steps for the CAD design and 3D printing of the gradient coils
 
 
   
-##Gradient Optimization 
+## Gradient Optimization 
+The optimization details for the gradient coils are available in this paper: 
+Kassahun, H.B., Nayebare, M., Machtelinckx, T., Yazdanbakhsh, P., Obungoloch, J., Du Plessis, S. and Anazodo, U., 2025, July. Design and Optimization of Gradient Coils for Low-field Halbach Array Scanners Using the Discrete Wire Method. In 2025, the 47th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC) (pp. 1-6). IEEE.
