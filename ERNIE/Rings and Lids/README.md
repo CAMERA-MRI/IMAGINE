@@ -1,5 +1,5 @@
 <p align="justify">
-The **genetic algorithm (GA)** optimizes a multi-ring Halbach array design using: 
+The _genetic algorithm (GA)_ optimizes a multi-ring Halbach array design using: 
 1) A predefined dataset of individual ring designs
 2) A magnetic field simulator.
 3) Fitness evaluation.
