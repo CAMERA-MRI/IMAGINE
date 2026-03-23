@@ -1,6 +1,6 @@
   # 🧲 ESMRMB 2025 Pre-Congress CAMERA Workshop
 
-At this year’s **ESMRMB 2025 Pre-Congress CAMERA Workshop**, the IMAGINE team and participants successfully assembled a **50 mT Halbach low-field MRI magnet** and a **field-mapping robot — all in one day!**
+At this year’s **ESMRMB 2025 Pre-Congress CAMERA Workshop**, the IMAGINE team and participants successfully assembled a **50 mT Halbach low-field MRI magnet** and a **field-mapping robot — all in one day!** (ERNIE 1a)
 
 This hands-on workshop was led by alumni of the **IMAGINE Summer School** and guided participants through the practical steps of building and characterizing a low-field MRI system.
 
@@ -35,7 +35,11 @@ Participants then constructed and tested a **field-mapping robot** used to measu
 | 3 | Magnet homogeneity | ![Robot step 1](ESMRMB Workshop/image/WhatsApp Image 2025-10-10 at 14.13.03.jpeg) |
 
 ---
-
+**Results**
+After the assembly, the teams came together to map the field of ERNIE 1a using a robot field mapper. They particiapnts mapped a Diameter to Spherical Volume of 50mm and the ppm obtained was ~15000ppm.
+These results were presented during the CAMERA- ESMRMB Workshop under the topic: Multisite Construction of Open Source Preclinical Scanners
+## 📊 Workshop Presentation
+👉 [View the PowerPoint](https://docs.google.com/presentation/d/1CYLzkYTsImd0gSuccIC2js87r-6GJLwF)
 ## 📷 Gallery
 
 A selection of photos from the day:
@@ -45,6 +49,7 @@ A selection of photos from the day:
 ![Group working on magnet](https://media.licdn.com/dms/image/v2/D4D22AQFOYCgh4ozCUA/feedshare-shrink_2048_1536/B4DZnEuAsQKsA4-/0/1759942020644?e=1762992000&v=beta&t=9V8PoYbJkoMEpoqedfkUFriynIYQ8kN1zUtiZrTVV50)
 
 ---
+
 
 ## 📫 Contact
 
