@@ -35,11 +35,13 @@ Participants then constructed and tested a **field-mapping robot** used to measu
 | 3 | Magnet homogeneity | ![Robot step 1](ESMRMB Workshop/image/WhatsApp Image 2025-10-10 at 14.13.03.jpeg) |
 
 ---
-**Results**
-After the assembly, the teams came together to map the field of ERNIE 1a using a robot field mapper. They particiapnts mapped a Diameter to Spherical Volume of 50mm and the ppm obtained was ~15000ppm.
-These results were presented during the CAMERA- ESMRMB Workshop under the topic: Multisite Construction of Open Source Preclinical Scanners
+## 📈 Field map Results
+After the assembly, the teams came together to map the magnetic field of ERNIE 1a using a robotic field mapper. The participants mapped a 50 mm diameter spherical volume (DSV), achieving a field homogeneity of approximately 15,000 ppm.
+
+These results were presented at the CAMERA–ESMRMB Workshop under the topic: Multisite Construction of Open-Source Preclinical Scanners.
 ## 📊 Workshop Presentation
 👉 [View the PowerPoint](https://docs.google.com/presentation/d/1CYLzkYTsImd0gSuccIC2js87r-6GJLwF)
+
 ## 📷 Gallery
 
 A selection of photos from the day:
