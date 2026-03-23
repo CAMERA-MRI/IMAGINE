@@ -41,7 +41,7 @@ Table 1 below shows the parameters set during the optimization of the ERNIE 1 ma
 | Diameter to Spherical Volume | 40 mm       |
 
 After optimisation, a combination of the best rings is attained. For this case, the best rings were **#321**, **#252**, **#288** and **#42**. These were designed using Autodesk inventor/, AutoCAD/ Solid Works.
-![CAD Designs](rings_and_lids/cad_designs_of_rings.png)
+![CAD Designs](Rings_and_Lids/CAD_Designs_of_rings.png)
 Corresponding lids to cover the rings were also designed using Autodesk Inventor. An assembly was made using Fusion 360 to check if all the rings fit together alongside the Brass rods, screws, nuts, and other parts that will be discussed in the next section.
 To evaluate the genetic Algorithm approach, a 50 mT scanner is designed and constructed.
 </p>
