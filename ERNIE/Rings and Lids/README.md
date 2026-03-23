@@ -7,7 +7,21 @@ To initialize the optimisation process, a user defines specific parameters inner
 The Halbach arrays were then created from** ring combinations** using rings from a predefined dataset. Each of these arrays forms an individual in the GA population, which is then evaluated and evolved to minimize the field inhomogeneity and target field error.
 The simulated magnetic field strength on the spherical volume F is approximated by the superposition of each magnet, individual contributions on each ring, using the single dipole model.
  Finally, the fitness function is implemented as;
-$$ f(x)=0.8 EH(x)+0.2ET(x) $$, where $$ EH(x)=max(F)-min(F)F ET(x)=|F-T| $$ are the homogeneity and mean magnetic field strength error functions, respectively. Note that F is the mean value of F, T is the target mean field strength, and x is the configuration vector that describes which rings from the dataset are being used. The GA is executed using the island model.
+$$
+f(x) = 0.8\,E_H(x) + 0.2\,E_T(x)
+$$
+
+where
+
+$$
+E_H(x) = \big(\max(F) - \min(F)\big)\,F
+$$
+
+$$
+E_T(x) = |F - T|
+$$
+ 
+ are the homogeneity and mean magnetic field strength error functions, respectively. Note that F is the mean value of F, T is the target mean field strength, and x is the configuration vector that describes which rings from the dataset are being used. The GA is executed using the island model.
 To optimize ERNIE 1, we set specific parameters to develop a mouse-brain-like inner bore diameter Halbach array scanner. These parameters were selected based on the size of a mouse brain being about 30mm. Henceforth, the Diameter to Spherical Volume was set as 40mm. 
 
 Table 1 below shows the parameters set during the optimization of the ERNIE 1 magnet.
