@@ -1,3 +1,5 @@
+## Part description and how to arrange them
+
 **Brass_Rod_M4.ipt:**
 
 4mm Threaded brass rod 262 mm long. 8 of these rods are used to fasten the rings together, structurally connect them and provide the means to create the necessary spacing between the rings.
@@ -67,8 +69,7 @@ Part file for ring housing Ring_10. Designed to hold 12x12x12mm magnets in place
 **Ring_842_Sub.iam:**
 
 Subassembly for Ring_842. This includes the Ring housing Ring_842, Lid_Loose and the 13 M3x8 screws used to fasten the lid to the housing.
- 
- 
+
 **Ring_842.ipt:**
 
 Part file for ring housing Ring_842. Designed to hold 12x12x12mm magnets in place at a designed radius and orientation. Follows Halbach array structure. The ring contains 13 4.2mm holes to give space for heat inserts to be placed so that M3x8 screws can be fastened into the 3D print. This ring is the central ring of the assembly.
@@ -96,6 +97,6 @@ Part file for the shim tray. The shim tray is to be slotted into any of the 8 sl
 **Notes:**
 
 The assembly must be constructed utilising a mirrored fashion, with Ring 842 being the central ring and the others stacked in their precise positions on either side, such as in the figure below:
-<br/><br/><p align="center"><img src="./images/Ring_ordering.png" alt="Ring order." /></p>
+<br/><br/><p align="center"><img src="../../images/Ring_ordering.png" alt="Ring order." /></p>
 
 Although the rings positions are mirrored, the direction they face is not. All rings must be stacked and assembled with the Ring housing side that contains the magnets facing in the same direction. Therefore, on the ends of the assembly, the “front” side of the assembly will be the magnet facing side of Ring_10.ipt and the end of the assembly will be the back facing side of Ring_10_back.ipt. Remember when positioning the rings that the position is based on the center of the 12mm magnets within the ring, and not the centre of the ring housing itself (which has a width of 14mm).
