@@ -1,5 +1,5 @@
 <p style="text-align: justify;">
-We introduce the ESMRMB-IMAGINE- MRI Education (ERNIE) toolkit, designed to extend this hands-on collaborative model through a train-the-trainer approach. ERNIE is a **frugal educational toolkit** for on-site construction of a 50 mT OS-LF ‘mice-like’ brain MRI scanner that can be readily reproduced in any setting using common assembly tools and without prior MRI engineering experience. The toolkit was designed as a reusable teaching resource consists of:</p>
+We introduce the ESMRMB-IMAGINE- MRI Education (ERNIE) toolkit, designed to extend this hands-on collaborative model through a train-the-trainer approach. ERNIE is a frugal educational toolkit for on-site construction of a 50 mT OS-LF ‘mice-like’ brain MRI scanner that can be readily reproduced in any setting using common assembly tools and without prior MRI engineering experience. The toolkit was designed as a reusable teaching resource consists of:</p>
 
    1) a 30-minute lecture on OS-LF MRI concepts
    2) an animation of step-by-step guide of scanner and robot assembly and field mapping (quality assurance)
