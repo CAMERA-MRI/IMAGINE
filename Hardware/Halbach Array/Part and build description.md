@@ -1,5 +1,40 @@
 ## Part description and how to arrange them
 
+### File types
+
+🔹 **.ipt – Part file (Autodesk Inventor)**
+
+- Used by: Autodesk Inventor
+-	Purpose: Single 3D part
+-	Contains:
+	-	Geometry of one component
+	-	Features (extrusions, sketches, etc.)
+	-	Material properties
+
+🔹 **.iam – Assembly file (Autodesk Inventor)**
+ 
+-	Used by: Autodesk Inventor
+-	Purpose: Assembly of multiple parts
+-	Contains:
+	 -	References to .ipt files
+	 - Constraints (how parts fit together)
+	 -	Positioning and motion relationships
+
+
+🔹 **.stp / .step – Neutral exchange format**
+
+-	Full name: STEP (Standard for the Exchange of Product Data)
+-	Used by: Almost all CAD software (e.g., SolidWorks, Fusion 360, etc.)
+-	Purpose: Interoperability between CAD programs
+-	Contains:
+	-	3D geometry (solids/surfaces)
+	-	Sometimes basic assembly structure
+	-	Does NOT preserve:
+	-	Parametric history (features, sketches)
+	-	Full constraints
+
+
+### Part description
 **Brass_Rod_M4.ipt:**
 
 4mm Threaded brass rod 262 mm long. 8 of these rods are used to fasten the rings together, structurally connect them and provide the means to create the necessary spacing between the rings.
@@ -93,6 +128,7 @@ Part file for ring housing Ring_1050. Designed to hold 12x12x12mm magnets in pla
 **Shim_Tray.ipt:**
 
 Part file for the shim tray. The shim tray is to be slotted into any of the 8 slots in the magnet assembly. There are 8 slots on the front side of the assembly and 8 on the back. The tray is designed to house cartridges that contain the shim magnets. This tray has not been tested yet.
+
 
 **Notes:**
 
