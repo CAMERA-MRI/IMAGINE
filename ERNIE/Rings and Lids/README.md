@@ -7,9 +7,7 @@ To initialize the optimisation process, a user defines specific parameters inner
 The Halbach arrays were then created from** ring combinations** using rings from a predefined dataset. Each of these arrays forms an individual in the GA population, which is then evaluated and evolved to minimize the field inhomogeneity and target field error.
 The simulated magnetic field strength on the spherical volume F is approximated by the superposition of each magnet, individual contributions on each ring, using the single dipole model.
  Finally, the fitness function is implemented as;
-$$
-f(x) = 0.8\,E_H(x) + 0.2\,E_T(x)
-$$
+$f(x) = 0.8\,E_H(x) + 0.2\,E_T(x)$
 
 where
 
