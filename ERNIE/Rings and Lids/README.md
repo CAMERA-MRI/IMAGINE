@@ -7,24 +7,15 @@ To optimize ERNIE 1, we set specific parameters to develop a mouse-brain-like in
 
 Table 1 below shows the parameters set during the optimization of the ERNIE 1 magnet.
 
- 
-Parameters
-Values
-Inner Bore
-80mm
-Outer Bore
-160mm
-Magnet Size
-12X12X12mm
-Target field strength
-50mT
-Array length
-156mm
-Number of Rings
-7
-Diameter to Spherical Volume
-40mm
-
+| Parameter                     | Value        |
+|-----------------------------|-------------|
+| Inner Bore                  | 80 mm       |
+| Outer Bore                  | 160 mm      |
+| Magnet Size                 | 12 × 12 × 12 mm |
+| Target Field Strength       | 50 mT       |
+| Array Length                | 156 mm      |
+| Number of Rings             | 7           |
+| Diameter to Spherical Volume | 40 mm       |
 
 After optimisation, a combination of the best rings is attained. For this case, the best rings were #321, #251, #288,  and #42. These were designed using Autodesk inventor/, AutoCAD/ Solid Works. The designs are shown in Figure 1. Corresponding lids to cover the rings were also designed using Autodesk Inventor. An assembly was made using Fusion 360 to check if all the rings fit together alongside the Brass rods, screws, nuts, and other parts that will be discussed in the next section.
 To evaluate the genetic Algorithm approach, a 50 mT scanner is designed and constructed.
