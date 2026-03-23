@@ -1,3 +1,6 @@
+### How to build your own MRI Gradients
+- CAD Design
+- Gradient Optimization 
 # How to build your own MRI Gradients
 ## CAD Design
 The steps for the CAD design and 3D printing of the gradient coils using Autodesk AutoCAD
