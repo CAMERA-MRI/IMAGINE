@@ -14,10 +14,12 @@ Practical experience in assembling low-field MRI scanners is rarely available to
 <p style="text-align: justify;">
 The CAMERA-IMAGINE MRI Education (ERNIE) toolkit was developed and implemented to teach MR engineering and physics through a train-the-trainer approach.
 </p>
-<p style="text-align: justify;">
+
  
 **Impact**
-Open-source tools for teaching MRI engineering and physics, such as ERNIE, can rapidly advance MRI knowledge through experiential learning, promoting accessibility, innovation, and collaboration in democratizing MRI.  
+<p style="text-align: justify;">
+ Open-source tools for teaching MRI engineering and physics, such as ERNIE, can rapidly advance MRI knowledge through experiential learning, promoting accessibility, innovation, and collaboration in democratizing MRI.  
 Keywords: MRI Education, Low-field MRI, Halbach Array Magnet, MRI Engineering. </p>
 <img width="694" height="392" alt="New Impact" src="https://github.com/user-attachments/assets/3175d2d5-86b9-46b9-ae9f-65c350f5e461" />
+</p>
 
