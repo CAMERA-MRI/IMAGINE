@@ -23,3 +23,7 @@ Keywords: MRI Education, Low-field MRI, Halbach Array Magnet, MRI Engineering. <
 <img width="694" height="392" alt="New Impact" src="https://github.com/user-attachments/assets/3175d2d5-86b9-46b9-ae9f-65c350f5e461" />
 </p>
 
+*Disclaimer*
+<p style="text-align: justify;">
+ Figures in this section were created using figureslab.ai so some of them includes things like coils which we have not yet included in the toolkit
+</p>
