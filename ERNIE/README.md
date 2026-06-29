@@ -15,7 +15,8 @@ This section, describes the **CAMERA-IMAGINE-MRI Education (ERNIE) toolkit**, de
 <img width="323" height="229" alt="toolkit" src="https://github.com/user-attachments/assets/dee969d4-955b-49de-9c2b-86df2e470bb4" />
 </p>
 <p style="text-align: justify;">
-Objective: 
+Objective:To provide a low-cost/open-source/hands-on educational toolkit for practical learning of Halbach-based MRI scanner assembly and field mapping. 
+   
 <img width="675" height="355" alt="Objective" src="https://github.com/user-attachments/assets/124ef696-8c70-4f60-a23d-90029bd1d4ff" />
    
 Motivation:
