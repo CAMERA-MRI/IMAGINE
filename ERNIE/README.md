@@ -7,8 +7,11 @@ This section, describes the **CAMERA-IMAGINE-MRI Education (ERNIE) toolkit**, de
    4) Tools for onsite assembly.
    5) Instructions and software to build the magnet and map its field’s homogeneity.
    6) The magnet, a 7-ring 80mm (inner bore diameter) Halbach array producing ~50 mT, made from 99 neodymium (N48) magnets.
-      
-<img width="394" height="313" alt="ERNIE toolkit entire set" src="C:\Users\user\Desktop\ernie\toolkit.png" />
+
+<p align="center">
+<img width="323" height="229" alt="toolkit" src="https://github.com/user-attachments/assets/dee969d4-955b-49de-9c2b-86df2e470bb4" />
+</p>
+
 
  **Components of this github section**  
  
