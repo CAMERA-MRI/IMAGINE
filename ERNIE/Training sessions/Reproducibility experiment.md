@@ -12,10 +12,8 @@ To evaluate the reproducibility of the ERNIE toolkit, we conducted multi-site re
 **Outcome**
  
 All participating sites successfully reconstructed the scanner and robot using the same ERNIE kit. These sites included ESMRMB (ERNIE 1), The Neuro (ERNIE 2), Polytechnique Montreal(ERNIE 2), Montreal General Hospital (ERNIE 2), and The Douglas (ERNIE 2). 
-The reproducibility experiment is summarized in the table below: 
 </p>
 
-<img width="638" height="363" alt="Reproducibility experiment" src="https://github.com/user-attachments/assets/3d124d49-5d3e-41b0-a34e-75fa26f5b323" />
   
 
 
