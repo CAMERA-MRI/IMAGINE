@@ -2,7 +2,7 @@
 
 Using a VNA calibrated to the magnets working frequency, go through the following combinations in reflection and transmit mode. All components not being tested at a given moment need to be connected to a 50 Ohm load. 
 
-<br/><br/><p align="center"><img src="./images/banner.png" alt="Banner." /></p>
+<br/><br/><p align="center"><img src=".././images/Switch diagram.png" alt="Switch." /></p>
 
 | **Reflection (S11/S22 on VNA)** | Signal Source | E.g. Working active switch | Your switch |
 | --- | --- | --- | --- |
