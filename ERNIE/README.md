@@ -30,6 +30,7 @@ This section, describes the **CAMERA-IMAGINE-MRI Education (ERNIE) toolkit**, de
 
 **Impact** : This toolkit was used to train participants at the ESMRMB 2025 Conference, The Montreal Neurological Institute, The Douglas, Polytech Montreal, Montreal General Hospital and ISMRM 2026 Conference. 
 
-The table below shows the build sessions conducted and at the different sites and field map results.
+<img width="432" height="86" alt="table" src="https://github.com/user-attachments/assets/e918b0c8-ac26-4787-bfb5-76e825da20de" />
+
 
 </p>
