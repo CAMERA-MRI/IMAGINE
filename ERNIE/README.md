@@ -1,12 +1,12 @@
 <p style="text-align: justify;">
-This section, describes the **CAMERA-IMAGINE-MRI Education (ERNIE) toolkit**, designed to facilitate immersive hands-on collaborative learning of open source (OS) low-field (LF) MRI engineering. ERNIE is a frugal educational toolkit for on-site construction of a 50 mT OS-LF ‘mice-like’ brain MRI scanner that can be readily reproduced in any setting using common assembly tools and without prior MRI engineering experience. The toolkit was designed as a reusable teaching resource consisting of:</p>
+This section, describes the <b>CAMERA-IMAGINE-MRI Education (ERNIE) toolkit</b>, designed to facilitate immersive hands-on collaborative learning of open source (OS) low-field (LF) MRI engineering. ERNIE is a frugal educational toolkit for on-site construction of a 50 mT OS-LF ‘mice-like’ brain MRI scanner that can be readily reproduced in any setting using common assembly tools and without prior MRI engineering experience. The toolkit was designed as a reusable teaching resource consisting of:</p>
 
    1) A 30-minute lecture on OS-LF MR engineering concepts
    2) An animation of step-by-step guide of scanner and robot assembly and field mapping (quality assurance)
    3) Bill of materials and 3D printing instructions for the magnet and robotic field mapping parts.
    4) Tools for onsite assembly.
    5) Instructions and software to build the magnet and map its field’s homogeneity.
-   6) The magnet, a 7-ring 80mm (inner bore diameter) Halbach array producing ~50 mT, made from 98 neodymium (N48) magnets.
+   6) The magnet, a 7-ring 80mm (inner bore diameter) Halbach array producing ~50 mT, made from <b>98</b> neodymium (N48) magnets.
 
 <p style="text-align: justify;">
    <b>ERNIE 1& ERNIE 2 </b>  are the <b>same kit </b> first built at <b>2</b> different sites. ERNIE 1 was first assembled at the ESMRMB pre-congress workshop and then assembled at the ISMRM 2026 conference in Cape Town, South Africa. ERNIE 2 on the other hand was first assembled at the Montreal Neurological institute and then at the Montreal General Hospital, Polytechnique Montreal, The Douglas Health Hospital and ISMRM.</p>
