@@ -32,5 +32,6 @@ This section, describes the **CAMERA-IMAGINE-MRI Education (ERNIE) toolkit**, de
 
 <img width="432" height="86" alt="table" src="https://github.com/user-attachments/assets/e918b0c8-ac26-4787-bfb5-76e825da20de" />
 
+**Participants at different sites.**
 
 </p>
