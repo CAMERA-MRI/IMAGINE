@@ -3,7 +3,8 @@ This section includes the animation, ERNIE scanner optimisation information, ste
  </p>
  
  <p align="center"> Magnet checklist  </p>
-  <img width="1275" height="1650" alt="Magnet checklist" src="https://github.com/user-attachments/assets/78ade62e-b95b-4c3d-b901-15d570e5ba84" />
+ 
+ <img width="800" height="1000" alt="Magnet checklist" src="https://github.com/user-attachments/assets/78ade62e-b95b-4c3d-b901-15d570e5ba84" />
   <img width="1275" height="1650" alt="Magnet checklist (2)" src="https://github.com/user-attachments/assets/fed204e1-4495-4fce-8bc1-8a25d5e4ac42" />
   
  <p align="center"> Robot checklist  </p>
