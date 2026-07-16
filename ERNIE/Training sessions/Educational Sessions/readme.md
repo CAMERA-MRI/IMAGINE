@@ -1,6 +1,11 @@
 **Educational Sessions**
 <p style="text-align: justify;">
-We conducted educational sessions to test the reproducibility of the ERNIE toolkit. This section includes Agendas and safety agreement used during the training sessions.
+We conducted educational sessions to test the reproducibility of the ERNIE toolkit. This section includes educational apprach used and agendas used during the training sessions.
+   <p align="center"> <b> ESMRMB workshop Agenda</b>  </p>
+   
+  <p align="center"> <img width="547" height="365" alt="educational approach" src="https://github.com/user-attachments/assets/f6cb1b86-9449-4ced-8241-87f74372781e" />
+</p>
+
   <p align="center"> <b> ESMRMB workshop Agenda</b> </p>
 <p align="center"> <img width="700" height="1000" alt="esmrmb agenda" src="https://github.com/user-attachments/assets/56a405d5-95d9-4dd6-9db1-d5059caa6699" /></p>
 <p align="center"> <b> Montreal General Hospital (MGH) workshop Agenda </b>  </p>
