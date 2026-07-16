@@ -3,10 +3,14 @@
 This section includes the guidelines to follow during disassembly of the ERNIE magnet and robot, and a disassembly tray where magnets are placed after tray disassembly. We also included the dissassembly tray.stl file and the disassembly tray cover.
 Disassembly must be done in a very careful way, to ensure that the magnets do not bang onto each other and crack.
 Magnet ousters are used in the process. First, a cutter is used to sharpen the ends of the ousters so they can push the pagnets out of the rings with ease.
+ 
+<p style="text-align: justify;">
 <b>Note : </b> Never use a screw driver of any sharp metallic tool to push out magnets from the scanner rings because these scratch the surfaces of the neodymium magnets.
 As magnets are pushed out of their slots in the rings, the permanent mark ( arrow ) might be erased. Permanent markers are then used to re-fraw the arrow. 
 To ensure the arrows are re-drawn in the right direction, reference magnets are used to check those magnets.
 When the magnets are pushed out of the ring, they are pushed into the magnet slots in the magnet disassembly tray.
+</p>
+
 </p>
 
 <p style="text-align: justify;">
