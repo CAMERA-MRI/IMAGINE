@@ -13,7 +13,7 @@ This section, describes the **CAMERA-IMAGINE-MRI Education (ERNIE) toolkit**, de
    </p>
    
 <p align="center">
-<img width="323" height="229" alt="toolkit" src="https://github.com/user-attachments/assets/dee969d4-955b-49de-9c2b-86df2e470bb4" />
+<img width="500" height="400" alt="toolkit" src="https://github.com/user-attachments/assets/dee969d4-955b-49de-9c2b-86df2e470bb4" />
 </p>
 <p style="text-align: justify;">
    
