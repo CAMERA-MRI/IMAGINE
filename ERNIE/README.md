@@ -36,12 +36,12 @@ This section, describes the **CAMERA-IMAGINE-MRI Education (ERNIE) toolkit**, de
 **Participants at different sites.**
    </p>
 <p align="center">
-   <img width="500" height="300" alt="Figure 4" src="https://github.com/user-attachments/assets/1d410395-0703-4fbb-9232-38be7c49674b" />
-   <img width="500" height="300" alt="poly and neuro" src="https://github.com/user-attachments/assets/ca1a32fb-5c50-423b-9b5a-867156eb410c" />
+   <img width="400" height="300" alt="Figure 4" src="https://github.com/user-attachments/assets/1d410395-0703-4fbb-9232-38be7c49674b" />
+   <img width="400" height="300" alt="poly and neuro" src="https://github.com/user-attachments/assets/ca1a32fb-5c50-423b-9b5a-867156eb410c" />
 </p>
 <p align="center">
-   <img width="500" height="300" alt="ismrm git" src="https://github.com/user-attachments/assets/fb4d52db-a03a-4cac-9e7a-ccc508461425" />
-   <img width="500" height="300" alt="mgh and douglas pic for git" src="https://github.com/user-attachments/assets/38632a6f-1cea-48a3-bbc2-efb779ef46c4" />
+   <img width="400" height="300" alt="ismrm git" src="https://github.com/user-attachments/assets/fb4d52db-a03a-4cac-9e7a-ccc508461425" />
+   <img width="400" height="300" alt="mgh and douglas pic for git" src="https://github.com/user-attachments/assets/38632a6f-1cea-48a3-bbc2-efb779ef46c4" />
  </p>
 
 
