@@ -14,12 +14,15 @@ When the magnets are pushed out of the ring, they are pushed into the magnet slo
 </p>
 
 <p style="text-align: justify;">
-The figure below shows a magnet ouster, Ring_42 with magnets in its magnet slots after disassembly and a disassembly tray with the magnets facing in different directions. </p>
+The figure below shows a magnet ouster, <b>Ring_42</b> with magnets in its magnet slots after disassembly and a disassembly tray with the magnets facing in different directions. </p>
+
+ <p align="center"> <b> Figure showing Ring_42 after scanner disassembly, and disassembly tray with N48 magnets</b> </p>
+
  <p align="center">
 <img width="579" height="296" alt="disassembly tray" src="https://github.com/user-attachments/assets/ad2ad57d-9250-4a05-a16f-d0755e15d8a9" /> </p>
 
 <p style="text-align: justify;">
-The disassembly tray was designed with rows of magnet slots facing in alternating directions to cancel out the magnetic field. This keeps the magnetic field as a result of the magnets placed in the disassembly tray weak. The magnets can then be transported easily.
+The disassembly tray was designed with rows of magnet slots facing in alternating directions to cancel out the magnetic field. This keeps the magnetic field <b>weak</b> as a result of the magnets placed in the disassembly tray weak. The magnets can then be transported easily.
 </p>
 
 </p>
