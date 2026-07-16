@@ -1,5 +1,5 @@
 <p style="text-align: justify;">
-This section includes the animation, ERNIE scanner optimisation information, steps on how to assemble the magnet, and steps on how to design ERNIE rings using Autodesk inventor.
+This section includes the animation, ERNIE scanner optimisation information, steps on how to assemble the magnet, and steps on how to design ERNIE rings using Autodesk inventor. It also includes the magnet and robot assembly checklists.
  </p>
  
  <p align="center"> Magnet checklist  </p>
