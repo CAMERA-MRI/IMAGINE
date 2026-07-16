@@ -5,7 +5,7 @@ Below are some of survey responses from the participants. We also includes a fig
   <b>Combined Survey responses from all the workshops </b>
   </p>
 <p align= "center">
-  <img width="770" height="382" alt="general survey responses" src="https://github.com/user-attachments/assets/e474003f-c318-44ef-ac73-fe5ffe676f25" />
+  <img width="900" height="382" alt="general survey responses" src="https://github.com/user-attachments/assets/e474003f-c318-44ef-ac73-fe5ffe676f25" />
 <p align= "center">
 <b>Robot and magnet setup during field mapping, field map results and 3D plot of field map data </b>
   </p>
