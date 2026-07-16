@@ -17,6 +17,6 @@ https://github.com/CAMERAMRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design
 </p>
 
 <p style="text-align: justify;">
-The sequence of steps for the scanner magnet assembly is summarized, from determining magnet polarities (A), to installation of magnets in ring slots and alignment check for each ring using a compass (B). Each ring is then covered with a lid (C), screwed down (D), and all 7 rings are assembled with brass rods, supported by spacers (E), to make a complete array as designed (F).
+The sequence of steps for the scanner magnet assembly is summarized, from determining magnet polarities <b> (A) </b>, to installation of magnets in ring slots and alignment check for each ring using a compass <b> (B). Each ring is then covered with a lid  <b> (C) </b>, screwed down <b> (D) </b>, and all 7 rings are assembled with brass rods, supported by spacers <b> (E) </b>, to make a complete array as designed <b> (F)</b>.
 </p>
 </p>
