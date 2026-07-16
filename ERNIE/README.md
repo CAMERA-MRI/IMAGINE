@@ -7,8 +7,10 @@ This section, describes the **CAMERA-IMAGINE-MRI Education (ERNIE) toolkit**, de
    3) Bill of materials and 3D printing instructions for the magnet and robotic field mapping parts.
    4) Tools for onsite assembly.
    5) Instructions and software to build the magnet and map its field’s homogeneity.
-   6) The magnet, a 7-ring 80mm (inner bore diameter) Halbach array producing ~50 mT, made from 99 neodymium (N48) magnets.
+   6) The magnet, a 7-ring 80mm (inner bore diameter) Halbach array producing ~50 mT, made from 98 neodymium (N48) magnets.
 <p align="center">
+   ERNIE 1& ERNIE 2 are the same scanner first built at 2 different sites. ERNIE 1 was first assembled at the ESMRMB pre-congress workshop and then assembled at the ISMRM 2026 conference in Cape Town, South Africa. ERNIE 2 on the other hand was first assembled at the Montreal Neurological institute and then at the Montreal General Hospital, Polytechnique Montreal, The Douglas Health Hospital and ISMRM.    </p>
+   <p align="center">
   <b>ERNIE Toolkit for Onsite Assembly and Magnetic Field Mapping with Portable Storage System.</b> 
    </p>
    
