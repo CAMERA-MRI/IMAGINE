@@ -9,9 +9,9 @@ This section, describes the <b>CAMERA-IMAGINE-MRI Education (ERNIE) toolkit</b>,
    6) The magnet, a 7-ring 80mm (inner bore diameter) Halbach array producing ~50 mT, made from <b>98</b> neodymium (N48) magnets.
 
 
+
 <b>Reproducibility</b>
-<p style="text-align: justify;">
-   Two kits were designed as <b>ERNIE 1 & ERNIE 2 </b> as the <b>same kit </b> built at <b>2</b> different sites. ERNIE 1 was first assembled at the 2025 ESMRMB pre-congress workshop and then re-assembled at the 2026 ISMRM conference in Cape Town, South Africa. ERNIE 2 on the other hand was first assembled at the Montreal Neurological Institute (MNI - The Neuro) and then re-assembled multiple times at the Montreal General Hospital, Polytechnique Montreal, The Douglas Health Hospital and 2026 ISMRM.</p>
+<p style="text-align: justify;">Two kits were designed as <b>ERNIE 1 & ERNIE 2 </b> as the <b>same kit </b> built at <b>2</b> different sites. ERNIE 1 was first assembled at the 2025 ESMRMB pre-congress workshop and then re-assembled at the 2026 ISMRM conference in Cape Town, South Africa. ERNIE 2 on the other hand was first assembled at the Montreal Neurological Institute (MNI - The Neuro) and then re-assembled multiple times at the Montreal General Hospital, Polytechnique Montreal, The Douglas Health Hospital and 2026 ISMRM.</p>
    
    <p align="center">
   <b>ERNIE Toolkit for Onsite Assembly and Magnetic Field Mapping with Portable Storage System.</b> 
