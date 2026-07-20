@@ -7,12 +7,6 @@ This section, describes the <b>CAMERA-IMAGINE-MRI Education (ERNIE) toolkit</b>,
    4) Tools for onsite assembly.
    5) Instructions and software to build the magnet and map its field’s homogeneity.
    6) The magnet, a 7-ring 80mm (inner bore diameter) Halbach array producing ~50 mT, made from <b>98</b> neodymium (N48) magnets.
-
-
-
-<b>Reproducibility</b>
-<p style="text-align: justify;">Two kits were designed as <b>ERNIE 1 & ERNIE 2 </b> as the <b>same kit </b> built at <b>2 different sites</b>. ERNIE 1 was first assembled at the 2025 ESMRMB pre-congress workshop and then re-assembled at the 2026 ISMRM conference in Cape Town, South Africa. ERNIE 2 on the other hand was first assembled at the Montreal Neurological Institute (MNI - The Neuro) and then re-assembled multiple times at the Montreal General Hospital, Polytechnique Montreal, The Douglas Health Hospital and 2026 ISMRM.</p>
-   
    <p align="center">
   <b>ERNIE Toolkit for Onsite Assembly and Magnetic Field Mapping with Portable Storage System.</b> 
    </p>
@@ -32,7 +26,10 @@ This section, describes the <b>CAMERA-IMAGINE-MRI Education (ERNIE) toolkit</b>,
 
 <p align="center">
  <img width="658" height="374" alt="New Motivation" src="https://github.com/user-attachments/assets/513a8302-6a50-41c5-9577-960254ff0f31" /> </p>
-
+ 
+<b>Reproducibility</b>
+<p style="text-align: justify;">Two kits were designed as <b>ERNIE 1 & ERNIE 2 </b> as the <b>same kit </b> built at <b>2 different sites</b>. ERNIE 1 was first assembled at the 2025 ESMRMB pre-congress workshop and then re-assembled at the 2026 ISMRM conference in Cape Town, South Africa. ERNIE 2 on the other hand was first assembled at the Montreal Neurological Institute (MNI - The Neuro) and then re-assembled multiple times at the Montreal General Hospital, Polytechnique Montreal, The Douglas Health Hospital and 2026 ISMRM.</p>
+   
 **Impact** : This toolkit was used to train participants at the ESMRMB 2025 Conference, The Montreal Neurological Institute, The Douglas, Polytech Montreal, Montreal General Hospital and ISMRM 2026 Conference. 
 
 <p align="center"> 
