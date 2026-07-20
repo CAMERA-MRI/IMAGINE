@@ -1,6 +1,6 @@
 <p style="text-align: justify;">
 <p style="text-align: justify;">
-This section includes the guidelines to follow during disassembly of the ERNIE magnet and robot, and a disassembly tray where magnets are placed after tray disassembly. We also included the dissassembly tray.stl file and the disassembly tray cover.
+This section includes the guidelines to follow during disassembly of the ERNIE magnet and robot, and a disassembly tray where magnets are placed after tray disassembly. We also included the dissassembly tray <b>.stl</b> file and the disassembly tray cover.
 Disassembly must be done in a very careful way, to ensure that the magnets do not bang onto each other and crack.
 Magnet ousters are used in the process. First, a cutter is used to sharpen the ends of the ousters so they can push the pagnets out of the rings with ease.
  
