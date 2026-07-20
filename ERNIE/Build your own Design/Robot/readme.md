@@ -1,6 +1,6 @@
 <p style="text-align: justify;">
  
-<p align="center"> The Kit includes the IMAGINE Field Mapping Robot. For detailed description on parts and assembly of the robot, <b> refer to </b>:
+<p align="left"> The Kit includes the IMAGINE Field Mapping Robot. For detailed description on parts and assembly of the robot, <b> refer to </b>:
 <b> 1. Introductory Video:  </b>
 <b> 2. Parts and Assembly Guide Repository: https://github.com/SipanHovsep/Field_mapper_robot </b>
 <b> 3. Field Mapping Software: </b>
