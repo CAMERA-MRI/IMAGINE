@@ -26,14 +26,39 @@ description: "Meet the researchers, developers, and supporting institutions behi
     <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">Below is the core research and development group behind the IMAGINE hardware plans and training resources, listed in CITATION.cff. Select a contributor to view their details:</p>
     
     <div class="contributors-two-col-layout">
-      <!-- Left Column: Compact List of Names & Roles -->
-      <div class="contributors-list-column" id="contributors-list-container">
-        {% for person in site.data.people %}
-          <button class="contributor-list-item {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
-            <span class="item-contributor-name">{{ person.name }}</span>
-            <span class="item-contributor-role">{{ person.role }}</span>
-          </button>
-        {% endfor %}
+      <!-- Left Column: Compact List of Names & Roles with Search and Country Filters -->
+      <div class="contributors-list-column">
+        <!-- Search and Filter Controls -->
+        <div class="contributors-controls-container">
+          <div class="contributor-search-box" id="search-box-wrapper">
+            <button class="search-toggle-btn" id="search-toggle" aria-label="Toggle Search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <input type="text" class="search-input-field" id="contributor-search-input" placeholder="Search name, role, bio..." />
+          </div>
+          
+          <div class="contributor-filter-wrapper">
+            <select class="country-filter-select" id="contributor-country-filter">
+              <option value="all">All Regions</option>
+              <option value="Canada">Canada</option>
+              <option value="Spain">Spain</option>
+              <option value="Uganda">Uganda</option>
+              <option value="Chile">Chile</option>
+              <option value="South Africa">South Africa</option>
+              <option value="Belgium">Belgium</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Compact List of Names & Roles -->
+        <div class="contributors-list-items-wrapper" id="contributors-list-container">
+          {% for person in site.data.people %}
+            <button class="contributor-list-item {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+              <span class="item-contributor-name">{{ person.name }}</span>
+              <span class="item-contributor-role">{{ person.role }}</span>
+            </button>
+          {% endfor %}
+        </div>
       </div>
       
       <!-- Right Column: Sticky Details Card -->
@@ -100,10 +125,34 @@ description: "Meet the researchers, developers, and supporting institutions behi
 
   document.addEventListener("DOMContentLoaded", function() {
     // -------------------------------------------------------------
-    // A. Contributors Selection Interactivity
+    // A. Contributors Selection Interactivity & Filters
     // -------------------------------------------------------------
     const activeContributorCard = document.getElementById("active-contributor-card");
     const listItems = document.querySelectorAll(".contributor-list-item");
+    const searchInput = document.getElementById("contributor-search-input");
+    const countryFilter = document.getElementById("contributor-country-filter");
+    const searchToggle = document.getElementById("search-toggle");
+
+    function getCountry(name) {
+      if (name.includes("Anazodo") || name.includes("Maureen") || name.includes("Sipan")) {
+        return "Canada";
+      } else if (name.includes("Marina")) {
+        return "Spain";
+      } else if (name.includes("Haile") || name.includes("Johnes")) {
+        return "Uganda";
+      } else if (name.includes("Guillermo")) {
+        return "Chile";
+      } else if (name.includes("Stefan")) {
+        return "South Africa";
+      }
+      return "Belgium";
+    }
+
+    // Populate country key dynamically on the client side
+    contributorsData.forEach(person => {
+      person.country = getCountry(person.name);
+    });
+    const searchBoxWrapper = document.getElementById("search-box-wrapper");
 
     function getInitials(name) {
       const parts = name.split(" ");
@@ -157,12 +206,80 @@ description: "Meet the researchers, developers, and supporting institutions behi
       });
     });
 
+    // Expand search bar on click
+    searchToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      searchBoxWrapper.classList.toggle("expanded");
+      if (searchBoxWrapper.classList.contains("expanded")) {
+        searchInput.focus();
+      } else {
+        searchInput.value = "";
+        applyFilters();
+      }
+    });
+
+    // Close search bar if clicking outside and empty
+    document.addEventListener("click", (e) => {
+      if (!searchBoxWrapper.contains(e.target) && searchInput.value.trim() === "") {
+        searchBoxWrapper.classList.remove("expanded");
+      }
+    });
+
+    searchInput.addEventListener("input", applyFilters);
+    countryFilter.addEventListener("change", applyFilters);
+
+    function applyFilters() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      const selectedCountry = countryFilter.value;
+      
+      let firstVisibleIndex = -1;
+      
+      contributorsData.forEach((person, index) => {
+        const itemBtn = listItems[index];
+        if (!itemBtn) return;
+        
+        const matchesSearch = 
+          person.name.toLowerCase().includes(searchTerm) ||
+          person.role.toLowerCase().includes(searchTerm) ||
+          person.affiliation.toLowerCase().includes(searchTerm) ||
+          person.bio.toLowerCase().includes(searchTerm);
+          
+        const matchesCountry = (selectedCountry === "all" || person.country === selectedCountry);
+        
+        if (matchesSearch && matchesCountry) {
+          itemBtn.style.display = "flex";
+          if (firstVisibleIndex === -1) {
+            firstVisibleIndex = index;
+          }
+        } else {
+          itemBtn.style.display = "none";
+        }
+      });
+      
+      // If the currently active contributor is hidden, switch to the first visible one
+      const activeBtn = document.querySelector(".contributor-list-item.active");
+      if (activeBtn && activeBtn.style.display === "none") {
+        if (firstVisibleIndex !== -1) {
+          listItems.forEach(i => i.classList.remove("active"));
+          listItems[firstVisibleIndex].classList.add("active");
+          showContributorDetails(firstVisibleIndex);
+        } else {
+          activeContributorCard.innerHTML = `
+            <div class="no-results-message">
+              <i class="fa-solid fa-face-dashed"></i>
+              <p>No contributors found matching your criteria.</p>
+            </div>
+          `;
+        }
+      }
+    }
+
     if (contributorsData.length > 0) {
       showContributorDetails(0);
     }
 
     // -------------------------------------------------------------
-    // B. Leaflet Map Setup & Radial Distribution
+    // B. Leaflet Map Setup & Marker Clustering
     // -------------------------------------------------------------
     function distributeRadially(data) {
       const threshold = 0.5; // in degrees
@@ -217,6 +334,7 @@ description: "Meet the researchers, developers, and supporting institutions behi
       center: [18, 5],
       zoom: 2,
       minZoom: 1.5,
+      maxZoom: 18,
       maxBounds: [[-85, -180], [85, 180]]
     });
 
@@ -224,6 +342,24 @@ description: "Meet the researchers, developers, and supporting institutions behi
     setTimeout(() => {
       map.invalidateSize();
     }, 250);
+
+    // Initialize MarkerClusterGroup with glassmorphism emerald and gold styling
+    const markerClusterGroup = L.markerClusterGroup({
+      showCoverageOnHover: false,
+      spiderfyOnMaxZoom: true,
+      zoomToBoundsOnClick: true,
+      maxClusterRadius: 40,
+      iconCreateFunction: function(cluster) {
+        const childCount = cluster.getChildCount();
+        return L.divIcon({
+          html: `<div class="custom-marker-cluster"><span>${childCount}</span></div>`,
+          className: 'marker-cluster-custom-wrapper',
+          iconSize: [40, 40],
+          iconAnchor: [20, 20]
+        });
+      }
+    });
+    map.addLayer(markerClusterGroup);
 
     const lightTileUrl = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
     const darkTileUrl = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
@@ -262,7 +398,6 @@ description: "Meet the researchers, developers, and supporting institutions behi
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = storedTheme || (systemPrefersDark ? 'dark' : 'light');
 
-    // Create Manual Theme Toggle Button Control using Leaflet L.Control
     const ThemeToggleControl = L.Control.extend({
       options: { position: 'topright' },
       onAdd: function(map) {
@@ -310,7 +445,8 @@ description: "Meet the researchers, developers, and supporting institutions behi
         iconAnchor: [22, 51]
       });
 
-      const marker = L.marker([inst.adjustedLat, inst.adjustedLng], { icon: customIcon }).addTo(map);
+      const marker = L.marker([inst.adjustedLat, inst.adjustedLng], { icon: customIcon });
+      markerClusterGroup.addLayer(marker);
       inst.marker = marker;
 
       marker.on('click', function() {
@@ -365,7 +501,9 @@ description: "Meet the researchers, developers, and supporting institutions behi
       buttonsContainer.appendChild(btn);
 
       btn.addEventListener("click", function() {
-        marker.fire("click");
+        markerClusterGroup.zoomToShowLayer(marker, function() {
+          marker.fire("click");
+        });
       });
 
       inst.btn = btn;
