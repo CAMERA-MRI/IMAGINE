@@ -1,7 +1,3 @@
-**Flow Chart showing contents of the ERNIE github**
-<p style="text-align: justify;">
-  <img width="10585" height="4593" alt="Flowchart Whiteboard in Bright Green Lime Green Pink Corporate Neon Style (1)" src="https://github.com/user-attachments/assets/f384112a-547e-4c81-89bc-f027ca606124" />
-</p> 
 
 **Introduction**
 <p style="text-align: justify;">
