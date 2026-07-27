@@ -1,0 +1,26 @@
+<header class="gradient-header-banner">
+  <div class="header-logo-container">
+    <div class="logo-circle">
+      <i class="fa-solid fa-brain text-gradient"></i>
+    </div>
+    <div class="header-titles">
+      <h1 class="site-main-title">IMAGINE</h1>
+      <span class="site-tagline-text">Imaging Without Borders</span>
+    </div>
+  </div>
+  
+  <nav class="pill-navigation-menu">
+    <a href="{{ site.baseurl }}/" class="nav-pill-btn {% if page.url == '/' %}active{% endif %}">
+      <i class="fa-solid fa-house"></i> Home
+    </a>
+    <a href="{{ site.baseurl }}/about/" class="nav-pill-btn {% if page.url contains '/about/' %}active{% endif %}">
+      <i class="fa-solid fa-users"></i> About Us
+    </a>
+    <a href="{{ site.baseurl }}/scanners/" class="nav-pill-btn {% if page.url contains '/scanners/' %}active{% endif %}">
+      <i class="fa-solid fa-microchip"></i> Scanners
+    </a>
+    <a href="{{ site.baseurl }}/events/" class="nav-pill-btn {% if page.url contains '/events/' %}active{% endif %}">
+      <i class="fa-solid fa-calendar-check"></i> Events
+    </a>
+  </nav>
+</header>

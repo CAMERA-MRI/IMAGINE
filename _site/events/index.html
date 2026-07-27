@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation & Header Header -->
+  <header class="gradient-header-banner">
+  <div class="header-logo-container">
+    <div class="logo-circle">
+      <i class="fa-solid fa-brain text-gradient"></i>
+    </div>
+    <div class="header-titles">
+      <h1 class="site-main-title">IMAGINE</h1>
+      <span class="site-tagline-text">Imaging Without Borders</span>
+    </div>
+  </div>
+  
+  <nav class="pill-navigation-menu">
+    <a href="/" class="nav-pill-btn {% if page.url == '/' %}active{% endif %}">
+      <i class="fa-solid fa-house"></i> Home
+    </a>
+    <a href="/about/" class="nav-pill-btn {% if page.url contains '/about/' %}active{% endif %}">
+      <i class="fa-solid fa-users"></i> About Us
+    </a>
+    <a href="/scanners/" class="nav-pill-btn {% if page.url contains '/scanners/' %}active{% endif %}">
+      <i class="fa-solid fa-microchip"></i> Scanners
+    </a>
+    <a href="/events/" class="nav-pill-btn {% if page.url contains '/events/' %}active{% endif %}">
+      <i class="fa-solid fa-calendar-check"></i> Events
+    </a>
+  </nav>
+</header>
+
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+    {% assign sorted_events = site.events | sort: "date" | reverse %}
+
+<div class="events-page-container">
+  <div class="page-title-banner">
+    <h1 class="page-main-title">Workshops & Training Events</h1>
+    <p class="page-subtitle">Review past and upcoming training schools, hands-on scanner assemblies, and community education workshops led by the IMAGINE team.</p>
+  </div>
+
+  <div class="events-timeline-container">
+    
+                <div class="timeline-event-card">
+                  <div class="timeline-marker">
+                    <div class="marker-dot"></div>
+                    <div class="marker-line"></div>
+                  </div>
+                  <div class="event-card-content">
+                    <div class="event-header-info">
+                      <span class="event-date-tag"><i class="fa-regular fa-calendar-days"></i> June 2026</span>
+                      <span class="event-location-tag"><i class="fa-solid fa-location-dot"></i> Cape Town, South Africa</span>
+                      <h2 class="event-card-title">IMAGINE Summer School & ISMRM Cape Town 2026</h2>
+                    </div>
+                    <div class="event-body-text"><p>The <strong>2026 IMAGINE Summer School</strong> was held in Cape Town, South Africa, aligned with the <strong>ISMRM 2026 Conference</strong>. </p>
+<p>During this event, the <strong>ERNIE 1</strong> scanner was re-assembled and calibrated, and its field homogeneity was mapped using the completed field mapping robot. The workshop successfully demonstrated that two independent sites (in Uganda/South Africa and Montreal) can build identical, high-performance educational scanners using identical open hardware parts, proving the reproducibility of the ERNIE design.</p></div>
+                    <div class="event-meta-section"><h4 class="meta-section-title"><i class="fa-solid fa-map-location-dot"></i> Participating Sites</h4><div class="tags-row"><span class="site-badge-tag">University of Cape Town</span><span class="site-badge-tag">Mbarara University of Science & Technology (MUST)</span><span class="site-badge-tag">The Neuro (Montreal Neurological Institute)</span><span class="site-badge-tag">South African Medical Research Council</span></div></div>
+                    <div class="event-meta-section"><h4 class="meta-section-title"><i class="fa-solid fa-book-open"></i> Training Materials & Resources</h4><div class="materials-links-row"><a href="/ERNIE/Training sessions/Training material/Building your own Low field MRI_Dr Johnes_( MRI Uganda ).mp4" class="material-link-btn" target="_blank"><i class="fa-solid fa-circle-play text-primary"></i> Building your own Low-field MRI Scanner (Dr. Johnes Obungoloch)</a>
+<a href="/ERNIE/Training sessions/Reproducibility experiment.md" class="material-link-btn" ><i class="fa-solid fa-file-lines text-secondary"></i> Low-Field MRI Reproducibility Experiment Guide</a>
+</div></div>
+                    <div class="event-meta-section"><h4 class="meta-section-title"><i class="fa-solid fa-images"></i> Session Gallery</h4><div class="event-photo-gallery">
+                    <div class="gallery-photo-frame">
+                      <img src="/images/Assembled magnet at ESMRMB.jpeg" alt="Completed Magnet Array" class="gallery-img">
+                      <span class="gallery-img-caption">The completed 7-ring Halbach array magnet, producing a homogeneous ~50 mT field.</span>
+                    </div>
+                    
+                    <div class="gallery-photo-frame">
+                      <img src="/images/Scanner assembly team ESMRMB.jpeg" alt="Scanner assembly team" class="gallery-img">
+                      <span class="gallery-img-caption">Trainees adjusting connection rods and spacers to lock magnet rings in place.</span>
+                    </div>
+                    
+                    <div class="gallery-photo-frame">
+                      <img src="/images/Robot assembly team ESMRMB.jpeg" alt="Robot assembly team" class="gallery-img">
+                      <span class="gallery-img-caption">Biomedical engineers assembling the gantry and stepper motors for the field mapping robot.</span>
+                    </div>
+                    
+                    <div class="gallery-photo-frame">
+                      <img src="/images/Team leaders at ESMRMB.jpeg" alt="Team leaders" class="gallery-img">
+                      <span class="gallery-img-caption">Project coordinators and team leaders overseeing the hands-on sessions.</span>
+                    </div>
+                    </div></div>
+                  </div>
+                </div>
+                
+                <div class="timeline-event-card">
+                  <div class="timeline-marker">
+                    <div class="marker-dot"></div>
+                    <div class="marker-line"></div>
+                  </div>
+                  <div class="event-card-content">
+                    <div class="event-header-info">
+                      <span class="event-date-tag"><i class="fa-regular fa-calendar-days"></i> February 2026</span>
+                      <span class="event-location-tag"><i class="fa-solid fa-location-dot"></i> Montreal, Canada</span>
+                      <h2 class="event-card-title">Montreal Hands-on Workshops (ERNIE 2)</h2>
+                    </div>
+                    <div class="event-body-text"><p>Under the leadership of researcher <strong>Maureen Nayebare</strong>, a series of hands-on educational workshops were conducted across several major biomedical research institutions in Montreal.</p>
+<p>These sessions focused on the construction and testing of the <strong>ERNIE 2</strong> kit. Over several weeks, students and engineers at the <strong>Montreal Neurological Institute (The Neuro)</strong>, <strong>Montreal General Hospital</strong>, <strong>Polytechnique Montréal</strong>, and the <strong>Douglas Mental Health University Institute</strong> successfully assembled the 7-ring magnet array and calibrated the field mapping robot. The workshops provided local students with direct exposure to low-field MRI engineering, system integration, and hardware troubleshooting.</p></div>
+                    <div class="event-meta-section"><h4 class="meta-section-title"><i class="fa-solid fa-map-location-dot"></i> Participating Sites</h4><div class="tags-row"><span class="site-badge-tag">Montreal Neurological Institute (The Neuro)</span><span class="site-badge-tag">Montreal General Hospital</span><span class="site-badge-tag">Polytechnique Montréal</span><span class="site-badge-tag">Douglas Mental Health University Institute</span></div></div>
+                    
+                    <div class="event-meta-section"><h4 class="meta-section-title"><i class="fa-solid fa-images"></i> Session Gallery</h4><div class="event-photo-gallery">
+                    <div class="gallery-photo-frame">
+                      <img src="/images/Parts and tools used during IMAGINE Summer school.png" alt="Parts and Tools for ERNIE build" class="gallery-img">
+                      <span class="gallery-img-caption">The set of 3D printed rings, magnets, brass rods, and fasteners laid out for the Montreal trainees.</span>
+                    </div>
+                    </div></div>
+                  </div>
+                </div>
+                
+                <div class="timeline-event-card">
+                  <div class="timeline-marker">
+                    <div class="marker-dot"></div>
+                    <div class="marker-line"></div>
+                  </div>
+                  <div class="event-card-content">
+                    <div class="event-header-info">
+                      <span class="event-date-tag"><i class="fa-regular fa-calendar-days"></i> May 2025</span>
+                      <span class="event-location-tag"><i class="fa-solid fa-location-dot"></i> Vienna, Austria</span>
+                      <h2 class="event-card-title">IMAGINE Summer School & ESMRMB Workshop 2025</h2>
+                    </div>
+                    <div class="event-body-text"><p>The <strong>2025 IMAGINE Summer School</strong> kicked off with a hands-on pre-congress workshop at the <strong>ESMRMB 2025 Conference</strong> in Vienna, Austria. </p>
+<p>Trainees from Africa, Europe, and North America gathered to perform the first live, on-site assembly of the <strong>ERNIE 1</strong> scanner. The session focused on the fundamentals of low-field MRI physics, design thinking strategies, and practical training in assembling Halbach arrays and circuit boards.</p></div>
+                    <div class="event-meta-section"><h4 class="meta-section-title"><i class="fa-solid fa-map-location-dot"></i> Participating Sites</h4><div class="tags-row"><span class="site-badge-tag">Mbarara University of Science & Technology (MUST)</span><span class="site-badge-tag">The Neuro (Montreal Neurological Institute)</span><span class="site-badge-tag">Polytechnique Montréal</span><span class="site-badge-tag">Douglas Research Centre</span></div></div>
+                    <div class="event-meta-section"><h4 class="meta-section-title"><i class="fa-solid fa-book-open"></i> Training Materials & Resources</h4><div class="materials-links-row"><a href="/ERNIE/Training sessions/Training material/Introductory lecture on MRI_Guillermo.mp4" class="material-link-btn" target="_blank"><i class="fa-solid fa-circle-play text-primary"></i> Introductory Lecture on Low-Field MRI (Guillermo)</a>
+<a href="/ERNIE/Training sessions/Training material/List of training materials, Including existing low field MRI publications.pdf" class="material-link-btn" target="_blank"><i class="fa-solid fa-file-pdf text-red"></i> Open-Source Low-Field MRI Publication List</a>
+</div></div>
+                    <div class="event-meta-section"><h4 class="meta-section-title"><i class="fa-solid fa-images"></i> Session Gallery</h4><div class="event-photo-gallery">
+                    <div class="gallery-photo-frame">
+                      <img src="/images/Participants at ESMRMB Workshop.jpeg" alt="Participants at ESMRMB 2025" class="gallery-img">
+                      <span class="gallery-img-caption">Trainees and instructors at the ESMRMB pre-congress workshop in Vienna, assembling the ERNIE 1 scanner.</span>
+                    </div>
+                    
+                    <div class="gallery-photo-frame">
+                      <img src="/images/Magnet assembly team ESMRMB.jpeg" alt="Magnet assembly team" class="gallery-img">
+                      <span class="gallery-img-caption">The assembly team putting together the 7-ring Halbach magnet array.</span>
+                    </div>
+                    
+                    <div class="gallery-photo-frame">
+                      <img src="/images/Magnet team ESMRMB.jpeg" alt="Magnet team" class="gallery-img">
+                      <span class="gallery-img-caption">Instructors and coordinators celebrating the completion of the magnet build.</span>
+                    </div>
+                    </div></div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Training Material Downloads -->
+          {% if ev.materials %}
+            <div class="event-meta-section">
+              <h4 class="meta-section-title"><i class="fa-solid fa-book-open"></i> Training Materials & Resources</h4>
+              <div class="materials-links-row">
+                {% for mat in ev.materials %}
+                  <a href="{{ mat.path }}" class="material-link-btn" {% if mat.path contains '.pdf' or mat.path contains '.mp4' %}target="_blank"{% endif %}>
+                    {% if mat.path contains '.mp4' %}
+                      <i class="fa-solid fa-circle-play text-primary"></i> Watch video: {{ mat.name }}
+                    {% elsif mat.path contains '.pdf' %}
+                      <i class="fa-solid fa-file-pdf text-red"></i> {{ mat.name }} (PDF)
+                    {% else %}
+                      <i class="fa-solid fa-file-lines text-secondary"></i> {{ mat.name }}
+                    {% endif %}
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Event Image Gallery -->
+          {% if ev.images %}
+            <div class="event-meta-section">
+              <h4 class="meta-section-title"><i class="fa-solid fa-images"></i> Session Gallery</h4>
+              <div class="event-photo-gallery">
+                {% for img in ev.images %}
+                  <div class="gallery-photo-frame">
+                    <img src="{{ img.path }}" alt="{{ img.alt | default: ev.title }}" class="gallery-img">
+                    {% if img.caption %}
+                      <span class="gallery-img-caption">{{ img.caption }}</span>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-main-footer">
+  <div class="footer-sections-grid">
+    
+    <!-- Left Column: Mission -->
+    <div class="footer-col-desc">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-earth-africa"></i> IMAGINE Project</h3>
+      <p class="footer-para-text">
+        An open-source preclinical MRI initiative of the Consortium for Advancement of MRI Education and Research in Africa (CAMERA). Sustaining diagnostic health equity globally.
+      </p>
+    </div>
+
+    <!-- Center Column: Standards & Licensing -->
+    <div class="footer-col-licensing">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-scale-balanced"></i> Open Science Compliance</h3>
+      <p class="footer-para-text">
+        All hardware files are released under open-source hardware licenses. This project is developed to satisfy the requirements of the <strong>Open Source Imaging Initiative (OSI²)</strong>.
+      </p>
+    </div>
+
+    <!-- Right Column: Navigation and Quick links -->
+    <div class="footer-col-nav">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-link"></i> Navigation</h3>
+      <ul class="footer-links-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About Us & Team</a></li>
+        <li><a href="/scanners/">Scanner Resources</a></li>
+        <li><a href="/events/">Workshops & Events</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom-bar">
+    <div class="bottom-bar-content">
+      <span class="copyright-span">© 2026 CAMERA-MRI Consortium. Released under CERN OHL-W v2 / CC BY-SA 4.0.</span>
+      <span class="terms-span"><a href="#">Terms & Conditions</a> | <a href="https://www.opensourceimaging.org/" target="_blank">OSI² Portal</a></span>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/assets/js/interaction.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<div class="content-page-container">
+  <div class="page-title-banner">
+    <h1 class="page-main-title">{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="page-subtitle">{{ page.description }}</p>
+    {% endif %}
+  </div>
+  
+  <article class="page-body-content">
+    {{ content }}
+  </article>
+</div>

@@ -1,0 +1,22 @@
+title: "IMAGINE: Imaging Without Borders"
+description: "Open-source low-field preclinical MR scanner training and resources."
+theme: jekyll-theme-cayman
+permalink: pretty
+baseurl: "" # Set to "" if deploying to camera.github.io or custom domain, or "/IMAGINE" if deploying to subfolder.
+
+collections:
+  scanners:
+    output: true
+    permalink: /scanners/:path/
+  components:
+    output: true
+    permalink: /components/:path/
+  events:
+    output: true
+    permalink: /events/:path/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"

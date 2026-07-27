@@ -1,0 +1,51 @@
+---
+layout: default
+title: "About Us & Team"
+description: "Meet the researchers, developers, and supporting institutions behind the IMAGINE open-source MRI project."
+---
+<div class="content-page-container">
+  <div class="page-title-banner">
+    <h1 class="page-main-title">About the IMAGINE Team</h1>
+    <p class="page-subtitle">A global network of neuroscientists, physicists, and engineers collaborating to democratize MRI hardware education and development.</p>
+  </div>
+
+  <!-- Contributor Team Grid -->
+  <section class="contributors-grid-section">
+    <h2 class="section-card-title"><i class="fa-solid fa-users"></i> Contributors & Researchers</h2>
+    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">Below is the core research and development group behind the IMAGINE hardware plans and training resources, listed in CITATION.cff:</p>
+    
+    <div class="contributors-row-grid">
+      {% for person in site.data.people %}
+        <div class="contributor-profile-card">
+          <h3 class="contributor-name">{{ person.name }}</h3>
+          <span class="contributor-role">{{ person.role }}</span>
+          <span class="contributor-affiliation">{{ person.affiliation }}</span>
+          <p class="contributor-bio">{{ person.bio }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Supporting Institutions -->
+  <section class="contributors-grid-section" style="margin-top: 4rem;">
+    <h2 class="section-card-title"><i class="fa-solid fa-building-columns"></i> Supporting Institutions & Partners</h2>
+    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">The IMAGINE project is made possible through the generous support, collaboration, and resources of these international organizations:</p>
+    
+    <div class="partners-row-grid">
+      {% for inst in site.data.institutions %}
+        <div class="partner-logo-card">
+          <h4 class="partner-name-h4">{{ inst.name }}</h4>
+          <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">{{ inst.fullname }}</span>
+          <p class="partner-desc">{{ inst.description }}</p>
+          <a href="{{ inst.link }}" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Compliance Checklist -->
+  <section class="compliance-section" style="margin-top: 4rem;">
+    <h2 class="section-card-title"><i class="fa-solid fa-square-check"></i> OSI² Standard Compliance</h2>
+    {% include checklist.html %}
+  </section>
+</div>

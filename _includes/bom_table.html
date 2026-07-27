@@ -1,0 +1,44 @@
+{% if page.bom %}
+<div class="bom-table-wrapper">
+  <!-- Search/Filter Bar for BOM -->
+  <div class="bom-search-box">
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+  </div>
+
+  <table class="bom-table">
+    <thead>
+      <tr>
+        <th>Part Name / Description</th>
+        <th>Qty</th>
+        <th>Price (Est.)</th>
+        <th>Source / Purchase Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for part in page.bom %}
+        <tr>
+          <td class="part-name"><strong>{{ part.item }}</strong></td>
+          <td class="part-qty">{{ part.qty | default: 1 }}</td>
+          <td class="part-price">{{ part.price | default: "Included" }}</td>
+          <td class="part-link">
+            {% if part.link %}
+              <a href="{{ part.link }}" target="_blank" class="buy-btn">
+                {% if part.link contains 'amazon' %}
+                  <i class="fa-brands fa-amazon"></i> Amazon
+                {% elsif part.link contains 'digikey' %}
+                  <i class="fa-solid fa-microchip"></i> DigiKey
+                {% else %}
+                  <i class="fa-solid fa-cart-shopping"></i> Purchase
+                {% endif %}
+              </a>
+            {% else %}
+              <span class="no-link-badge">Local/Custom</span>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}

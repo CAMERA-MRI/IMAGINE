@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation & Header Header -->
+  <header class="gradient-header-banner">
+  <div class="header-logo-container">
+    <div class="logo-circle">
+      <i class="fa-solid fa-brain text-gradient"></i>
+    </div>
+    <div class="header-titles">
+      <h1 class="site-main-title">IMAGINE</h1>
+      <span class="site-tagline-text">Imaging Without Borders</span>
+    </div>
+  </div>
+  
+  <nav class="pill-navigation-menu">
+    <a href="/" class="nav-pill-btn {% if page.url == '/' %}active{% endif %}">
+      <i class="fa-solid fa-house"></i> Home
+    </a>
+    <a href="/about/" class="nav-pill-btn {% if page.url contains '/about/' %}active{% endif %}">
+      <i class="fa-solid fa-users"></i> About Us
+    </a>
+    <a href="/scanners/" class="nav-pill-btn {% if page.url contains '/scanners/' %}active{% endif %}">
+      <i class="fa-solid fa-microchip"></i> Scanners
+    </a>
+    <a href="/events/" class="nav-pill-btn {% if page.url contains '/events/' %}active{% endif %}">
+      <i class="fa-solid fa-calendar-check"></i> Events
+    </a>
+  </nav>
+</header>
+
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+    {% assign scanner = site.scanners | where: "scanner_id", page.scanner_id | first %}
+
+<div class="component-page-container">
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-nav">
+    <a href="/"><i class="fa-solid fa-house"></i> Home</a> &gt; 
+    <a href="/scanners/">Scanners</a> &gt; 
+    {% if scanner %}
+      <a href="/scanners/{{ scanner.scanner_id }}/">{{ scanner.title }}</a> &gt;
+    {% endif %}
+    <span class="active-breadcrumb">RedPitaya to GPA Adapter Board</span>
+  </div>
+
+  <div class="component-header-section">
+    <span class="component-tag">{{ page.category | upcase }} COMPONENT</span>
+    <h1 class="component-main-title">RedPitaya to GPA Adapter Board</h1>
+    <p class="component-subtitle-desc">Custom adapter interface board matching the RedPitaya analog and digital outputs to the inputs of the GPA-FHDO amplifier.</p>
+  </div>
+
+  <div class="component-grid-layout">
+    
+    <!-- Left Column: Guidelines, Assembly and Testing -->
+    <div class="component-docs-main">
+      
+      <!-- Overview Card -->
+      <section class="docs-section-card">
+        <h2 class="section-card-title"><i class="fa-solid fa-circle-info"></i> Component Overview</h2>
+        <div class="section-card-body">
+          <p>The <strong>RedPitaya GPA Adapter</strong> is an interface board that bridges the Red Pitaya console board and the Gradient Power Amplifiers. It provides buffering, signal isolation, and clean level shifting via Schmitt triggers, protecting the console from currents and ensuring noise-free gradient control signals.</p>
+        </div>
+      </section>
+
+      <!-- Assembly Card -->
+      <section class="docs-section-card">
+        <h2 class="section-card-title"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly Instructions</h2>
+        <div class="section-card-body">
+          {% if page.video_url %}
+            <div class="video-player-container standalone-video">
+              <video controls class="assembly-video">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
+            </div>
+          {% endif %}
+          
+          <div class="markdown-guide-content">
+            {{ page.assembly_guide | markdownify }}
+          </div>
+        </div>
+      </section>
+
+      <!-- Testing Card -->
+      <section class="docs-section-card">
+        <h2 class="section-card-title"><i class="fa-solid fa-flask"></i> Testing & Calibration Procedures</h2>
+        <div class="section-card-body">
+          <div class="markdown-guide-content">
+            {{ page.testing_guide | markdownify }}
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Right Column: BOM & Downloads -->
+    <div class="component-docs-sidebar">
+      
+      <!-- BOM Card -->
+      {% if page.bom %}
+        <section class="docs-section-card sidebar-card">
+          <h2 class="section-card-title"><i class="fa-solid fa-list-check"></i> Bill of Materials</h2>
+          <div class="section-card-body">
+            {% if page.bom %}
+<div class="bom-table-wrapper">
+  <!-- Search/Filter Bar for BOM -->
+  <div class="bom-search-box">
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+  </div>
+
+  <table class="bom-table">
+    <thead>
+      <tr>
+        <th>Part Name / Description</th>
+        <th>Qty</th>
+        <th>Price (Est.)</th>
+        <th>Source / Purchase Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for part in page.bom %}
+        <tr>
+          <td class="part-name"><strong>{{ part.item }}</strong></td>
+          <td class="part-qty">{{ part.qty | default: 1 }}</td>
+          <td class="part-price">{{ part.price | default: "Included" }}</td>
+          <td class="part-link">
+            {% if part.link %}
+              <a href="{{ part.link }}" target="_blank" class="buy-btn">
+                {% if part.link contains 'amazon' %}
+                  <i class="fa-brands fa-amazon"></i> Amazon
+                {% elsif part.link contains 'digikey' %}
+                  <i class="fa-solid fa-microchip"></i> DigiKey
+                {% else %}
+                  <i class="fa-solid fa-cart-shopping"></i> Purchase
+                {% endif %}
+              </a>
+            {% else %}
+              <span class="no-link-badge">Local/Custom</span>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+          </div>
+        </section>
+      {% endif %}
+
+      <!-- Downloads Card -->
+      {% if page.downloads %}
+        <section class="docs-section-card sidebar-card">
+          <h2 class="section-card-title"><i class="fa-solid fa-file-download"></i> Design Files</h2>
+          <div class="section-card-body">
+            <div class="download-links-grid vertical-grid">
+              {% for file in page.downloads %}
+                <a href="{{ file.path }}" download class="download-card">
+                  <div class="download-card-icon">
+                    {% if file.path contains '.stl' %}
+                      <i class="fa-solid fa-cube text-primary"></i>
+                    {% else %}
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    {% endif %}
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">{{ file.name }}</span>
+                    <span class="file-ext">{{ file.path | split: '.' | last | upcase }} File</span>
+                  </div>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-main-footer">
+  <div class="footer-sections-grid">
+    
+    <!-- Left Column: Mission -->
+    <div class="footer-col-desc">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-earth-africa"></i> IMAGINE Project</h3>
+      <p class="footer-para-text">
+        An open-source preclinical MRI initiative of the Consortium for Advancement of MRI Education and Research in Africa (CAMERA). Sustaining diagnostic health equity globally.
+      </p>
+    </div>
+
+    <!-- Center Column: Standards & Licensing -->
+    <div class="footer-col-licensing">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-scale-balanced"></i> Open Science Compliance</h3>
+      <p class="footer-para-text">
+        All hardware files are released under open-source hardware licenses. This project is developed to satisfy the requirements of the <strong>Open Source Imaging Initiative (OSI²)</strong>.
+      </p>
+    </div>
+
+    <!-- Right Column: Navigation and Quick links -->
+    <div class="footer-col-nav">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-link"></i> Navigation</h3>
+      <ul class="footer-links-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About Us & Team</a></li>
+        <li><a href="/scanners/">Scanner Resources</a></li>
+        <li><a href="/events/">Workshops & Events</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom-bar">
+    <div class="bottom-bar-content">
+      <span class="copyright-span">© 2026 CAMERA-MRI Consortium. Released under CERN OHL-W v2 / CC BY-SA 4.0.</span>
+      <span class="terms-span"><a href="#">Terms & Conditions</a> | <a href="https://www.opensourceimaging.org/" target="_blank">OSI² Portal</a></span>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/assets/js/interaction.js"></script>
+</body>
+</html>

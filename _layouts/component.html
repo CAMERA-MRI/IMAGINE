@@ -1,0 +1,110 @@
+---
+layout: default
+---
+{% assign scanner = site.scanners | where: "scanner_id", page.scanner_id | first %}
+
+<div class="component-page-container">
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-nav">
+    <a href="{{ site.baseurl }}/"><i class="fa-solid fa-house"></i> Home</a> &gt; 
+    <a href="{{ site.baseurl }}/scanners/">Scanners</a> &gt; 
+    {% if scanner %}
+      <a href="{{ site.baseurl }}/scanners/{{ scanner.scanner_id }}/">{{ scanner.title }}</a> &gt;
+    {% endif %}
+    <span class="active-breadcrumb">{{ page.title }}</span>
+  </div>
+
+  <div class="component-header-section">
+    <span class="component-tag">{{ page.category | upcase }} COMPONENT</span>
+    <h1 class="component-main-title">{{ page.title }}</h1>
+    <p class="component-subtitle-desc">{{ page.description }}</p>
+  </div>
+
+  <div class="component-grid-layout">
+    
+    <!-- Left Column: Guidelines, Assembly and Testing -->
+    <div class="component-docs-main">
+      
+      <!-- Overview Card -->
+      <section class="docs-section-card">
+        <h2 class="section-card-title"><i class="fa-solid fa-circle-info"></i> Component Overview</h2>
+        <div class="section-card-body">
+          {{ content }}
+        </div>
+      </section>
+
+      <!-- Assembly Card -->
+      <section class="docs-section-card">
+        <h2 class="section-card-title"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly Instructions</h2>
+        <div class="section-card-body">
+          {% if page.video_url %}
+            <div class="video-player-container standalone-video">
+              <video controls class="assembly-video">
+                <source src="{{ site.baseurl }}{{ page.video_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
+            </div>
+          {% endif %}
+          
+          <div class="markdown-guide-content">
+            {{ page.assembly_guide | markdownify }}
+          </div>
+        </div>
+      </section>
+
+      <!-- Testing Card -->
+      <section class="docs-section-card">
+        <h2 class="section-card-title"><i class="fa-solid fa-flask"></i> Testing & Calibration Procedures</h2>
+        <div class="section-card-body">
+          <div class="markdown-guide-content">
+            {{ page.testing_guide | markdownify }}
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Right Column: BOM & Downloads -->
+    <div class="component-docs-sidebar">
+      
+      <!-- BOM Card -->
+      {% if page.bom %}
+        <section class="docs-section-card sidebar-card">
+          <h2 class="section-card-title"><i class="fa-solid fa-list-check"></i> Bill of Materials</h2>
+          <div class="section-card-body">
+            {% include bom_table.html %}
+          </div>
+        </section>
+      {% endif %}
+
+      <!-- Downloads Card -->
+      {% if page.downloads %}
+        <section class="docs-section-card sidebar-card">
+          <h2 class="section-card-title"><i class="fa-solid fa-file-download"></i> Design Files</h2>
+          <div class="section-card-body">
+            <div class="download-links-grid vertical-grid">
+              {% for file in page.downloads %}
+                <a href="{{ site.baseurl }}{{ file.path }}" download class="download-card">
+                  <div class="download-card-icon">
+                    {% if file.path contains '.stl' %}
+                      <i class="fa-solid fa-cube text-primary"></i>
+                    {% else %}
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    {% endif %}
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">{{ file.name }}</span>
+                    <span class="file-ext">{{ file.path | split: '.' | last | upcase }} File</span>
+                  </div>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>

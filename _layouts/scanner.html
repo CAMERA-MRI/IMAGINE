@@ -1,0 +1,395 @@
+---
+layout: default
+---
+{% assign scanner_components = site.components | where: "scanner_id", page.scanner_id %}
+
+<div class="scanner-page-container">
+  <div class="page-title-banner">
+    <h1 class="page-main-title">{{ page.title }}</h1>
+    <p class="page-subtitle">{{ page.description }}</p>
+  </div>
+
+  <div class="scanner-dashboard">
+    <!-- Left Panel: Subsystem Selector and Interactive Diagram Map -->
+    <div class="dashboard-visual-column">
+      
+      <!-- Subsystem Selector Tabs -->
+      <div class="subsystem-selector-tabs">
+        {% if page.scanner_id == 'imagine' %}
+          <button class="subsystem-tab-btn active" data-subsystem="control">
+            <i class="fa-solid fa-microchip"></i> Control System
+          </button>
+          <button class="subsystem-tab-btn" data-subsystem="gradient">
+            <i class="fa-solid fa-wave-square"></i> Gradient Circuit
+          </button>
+          <button class="subsystem-tab-btn" data-subsystem="rf">
+            <i class="fa-solid fa-tower-broadcast"></i> RF Circuit
+          </button>
+        {% else %}
+          <button class="subsystem-tab-btn active" data-subsystem="magnet">
+            <i class="fa-solid fa-magnet"></i> Magnet Array
+          </button>
+          <button class="subsystem-tab-btn" data-subsystem="robot">
+            <i class="fa-solid fa-robot"></i> Field Mapping Robot
+          </button>
+        {% endif %}
+      </div>
+
+      <!-- Diagram Canvas Area -->
+      <div class="interactive-diagram-canvas">
+        <p class="canvas-instruction-text"><i class="fa-solid fa-hand-pointer animate-bounce"></i> Click any block in the schematic below to explore its details</p>
+        
+        <!-- Interactive SVGs based on Scanner ID -->
+        {% if page.scanner_id == 'imagine' %}
+          
+          <!-- Control System Schematic -->
+          <div class="schematic-view active" id="schematic-control">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <!-- Grid background -->
+              <defs>
+                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                </pattern>
+                <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#1b4332" />
+                  <stop offset="100%" stop-color="#0f241a" />
+                </linearGradient>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Connection Lines -->
+              <path d="M 150 150 L 250 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 370 150 L 470 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              
+              <!-- Nodes -->
+              <!-- Computer -->
+              <g class="interactive-node" data-component-id="computer" transform="translate(40, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-desktop node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="85" class="node-text">Host PC (MARGE)</text>
+              </g>
+              <!-- RedPitaya -->
+              <g class="interactive-node" data-component-id="redpitaya" transform="translate(250, 95)">
+                <rect width="120" height="110" rx="8" class="node-rect" />
+                <text x="60" y="45" class="node-icon">🍓</text>
+                <text x="60" y="85" class="node-text">RedPitaya (SDR)</text>
+              </g>
+              <!-- MaRCoS Enclosure -->
+              <g class="interactive-node" data-component-id="marcos-enclosure" transform="translate(470, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-box-open node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="85" class="node-text">MaRCoS Box</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Gradient Circuit Schematic -->
+          <div class="schematic-view" id="schematic-gradient">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Connection Lines -->
+              <path d="M 130 150 L 190 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 310 150 L 370 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 470 150 L 510 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              
+              <!-- Nodes -->
+              <!-- RedPitaya GPA Adapter -->
+              <g class="interactive-node" data-component-id="rp-gpa-adapter" transform="translate(20, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-circle-nodes node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="80" class="node-text">RP GPA</text>
+                <text x="55" y="95" class="node-text">Adapter Board</text>
+              </g>
+              <!-- GPA-FHDO -->
+              <g class="interactive-node" data-component-id="gpa-fhdo" transform="translate(190, 95)">
+                <rect width="120" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-bolt-lightning node-icon-fa" style="transform: translate(45px, 35px);"></i>
+                <text x="60" y="85" class="node-text">GPA FHDO Amp</text>
+              </g>
+              <!-- Filter Schaffner -->
+              <g class="interactive-node" data-component-id="gradient-filter" transform="translate(370, 95)">
+                <rect width="100" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-filter node-icon-fa" style="transform: translate(35px, 35px);"></i>
+                <text x="50" y="85" class="node-text">Low-Pass Filter</text>
+              </g>
+              <!-- Gradient Coils -->
+              <g class="interactive-node" data-component-id="gradients" transform="translate(510, 95)">
+                <rect width="80" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-spiral node-icon-fa" style="transform: translate(25px, 35px);"></i>
+                <text x="40" y="80" class="node-text">Gradient</text>
+                <text x="40" y="95" class="node-text">Coils</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- RF Circuit Schematic -->
+          <div class="schematic-view" id="schematic-rf">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Connection Lines TX path -->
+              <path d="M 120 100 L 170 100" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 270 100 L 320 100" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <!-- TxRx Switch to Coil path -->
+              <path d="M 430 150 L 510 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <!-- RX path switch to LNA -->
+              <path d="M 380 200 L 380 230 L 270 230" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 170 230 L 70 230 L 70 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+
+              <!-- Nodes -->
+              <!-- RedPitaya RF Port -->
+              <g class="interactive-node" data-component-id="redpitaya-rf" transform="translate(20, 50)">
+                <rect width="100" height="90" rx="8" class="node-rect" />
+                <i class="fa-solid fa-microchip node-icon-fa" style="transform: translate(35px, 25px);"></i>
+                <text x="50" y="70" class="node-text">RedPitaya RF</text>
+              </g>
+              <!-- RFPA -->
+              <g class="interactive-node" data-component-id="rfpa" transform="translate(170, 50)">
+                <rect width="100" height="90" rx="8" class="node-rect" />
+                <i class="fa-solid fa-gauge-high node-icon-fa" style="transform: translate(35px, 25px);"></i>
+                <text x="50" y="70" class="node-text">RF Power Amp</text>
+              </g>
+              <!-- TxRx Switch -->
+              <g class="interactive-node" data-component-id="tx-rx-switch" transform="translate(320, 100)">
+                <rect width="110" height="100" rx="8" class="node-rect" />
+                <i class="fa-solid fa-toggle-on node-icon-fa" style="transform: translate(40px, 30px);"></i>
+                <text x="55" y="80" class="node-text">Tx/Rx Switch</text>
+              </g>
+              <!-- LNA -->
+              <g class="interactive-node" data-component-id="lna" transform="translate(170, 185)">
+                <rect width="100" height="90" rx="8" class="node-rect" />
+                <i class="fa-solid fa-signal node-icon-fa" style="transform: translate(35px, 25px);"></i>
+                <text x="50" y="70" class="node-text">LNA Amp</text>
+              </g>
+              <!-- RF Coil -->
+              <g class="interactive-node" data-component-id="rf-coil" transform="translate(510, 100)">
+                <rect width="80" height="100" rx="8" class="node-rect" />
+                <i class="fa-solid fa-ring node-icon-fa" style="transform: translate(25px, 30px);"></i>
+                <text x="40" y="80" class="node-text">RF Coil</text>
+              </g>
+            </svg>
+          </div>
+
+        {% else %}
+          
+          <!-- ERNIE Magnet Schematic -->
+          <div class="schematic-view active" id="schematic-magnet">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Magnet Ring Array drawings -->
+              <g transform="translate(100, 75)">
+                <!-- Axis lines -->
+                <line x1="-50" y1="100" x2="450" y2="100" stroke="rgba(255,255,255,0.2)" stroke-dasharray="4,4" />
+                <line x1="200" y1="-50" x2="200" y2="250" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2" />
+                
+                <!-- Connection rods -->
+                <rect x="-10" y="5" width="420" height="4" fill="#a0a0a0" />
+                <rect x="-10" y="191" width="420" height="4" fill="#a0a0a0" />
+
+                <!-- Rings stack -->
+                <!-- Ring 10 back -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(0, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 10B</text>
+                </g>
+                <!-- Ring 945 -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(50, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 945</text>
+                </g>
+                <!-- Ring 1 -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(100, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 1</text>
+                </g>
+                <!-- Ring 842 (Center) -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(150, 10)">
+                  <rect x="0" y="0" width="40" height="180" rx="4" class="node-rect-highlight" fill="#c5a059" />
+                  <text x="20" y="95" transform="rotate(-90 20 95)" class="node-text" fill="#000" style="font-weight:bold; font-size:10px;">Ring 842</text>
+                </g>
+                <!-- Ring 0 -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(210, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 0</text>
+                </g>
+                <!-- Ring 1050 -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(260, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 1050</text>
+                </g>
+                <!-- Ring 10 (Front) -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(310, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 10</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <!-- ERNIE Robot Schematic -->
+          <div class="schematic-view" id="schematic-robot">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Connection Lines -->
+              <path d="M 130 150 L 220 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 330 150 L 420 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              
+              <!-- Nodes -->
+              <!-- Robot MCU -->
+              <g class="interactive-node" data-component-id="robot-controller" transform="translate(20, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-microchip node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="85" class="node-text">Arduino Mega</text>
+              </g>
+              <!-- Robot Drivers & Steppers -->
+              <g class="interactive-node" data-component-id="robot-actuators" transform="translate(220, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-gears node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="85" class="node-text">Steppers & Drivers</text>
+              </g>
+              <!-- Robot Mechanical Stage -->
+              <g class="interactive-node" data-component-id="robot-mechanics" transform="translate(420, 95)">
+                <rect width="120" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-up-down-left-right node-icon-fa" style="transform: translate(45px, 35px);"></i>
+                <text x="60" y="85" class="node-text">3-Axis Gantry</text>
+              </g>
+            </svg>
+          </div>
+
+        {% endif %}
+      </div>
+      
+      <!-- Component Sidebar List (Synchronized with Map clicks) -->
+      <div class="component-list-sidebar">
+        <h3 class="sidebar-title">Components List</h3>
+        <div class="sidebar-buttons-grid">
+          {% for comp in scanner_components %}
+            <button class="sidebar-node-btn" data-component-id="{{ comp.title | slugify }}" data-subsystem="{{ comp.category }}">
+              {{ comp.title }}
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Panel: Interactive Documentation Card -->
+    <div class="dashboard-docs-column">
+      <div class="docs-card-panel">
+        
+        {% for comp in scanner_components %}
+          <div class="component-detail-view" id="details-{{ comp.title | slugify }}" data-subsystem="{{ comp.category }}">
+            
+            <div class="detail-header-card">
+              <span class="detail-category-tag">{{ comp.category | upcase }}</span>
+              <h2 class="detail-title">{{ comp.title }}</h2>
+              <p class="detail-short-desc">{{ comp.description }}</p>
+            </div>
+            
+            <!-- Detail Section Tabs -->
+            <div class="detail-sections-tabs">
+              <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button>
+              {% if comp.bom %}
+                <button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button>
+              {% endif %}
+              {% if comp.downloads %}
+                <button class="section-tab-btn" data-section="downloads"><i class="fa-solid fa-download"></i> CAD / STL</button>
+              {% endif %}
+              <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+              <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            </div>
+
+            <!-- Tab Content Sheets -->
+            <div class="detail-tab-sheets">
+              
+              <!-- Overview Tab -->
+              <div class="tab-sheet-content active" data-section="overview">
+                <div class="sheet-article">
+                  {{ comp.content }}
+                </div>
+              </div>
+
+              <!-- BOM Tab -->
+              {% if comp.bom %}
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    {% assign page = comp %}
+                    {% include bom_table.html %}
+                  </div>
+                </div>
+              {% endif %}
+
+              <!-- Downloads Tab -->
+              {% if comp.downloads %}
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      {% for file in comp.downloads %}
+                        <a href="{{ site.baseurl }}{{ file.path }}" download class="download-card">
+                          <div class="download-card-icon">
+                            {% if file.path contains '.stl' %}
+                              <i class="fa-solid fa-cube text-primary"></i>
+                            {% elsif file.path contains '.step' or file.path contains '.stp' or file.path contains '.ipt' or file.path contains '.iam' %}
+                              <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                            {% else %}
+                              <i class="fa-solid fa-file-lines"></i>
+                            {% endif %}
+                          </div>
+                          <div class="download-card-info">
+                            <span class="file-title">{{ file.name }}</span>
+                            <span class="file-ext">{{ file.path | split: '.' | last | upcase }} File</span>
+                          </div>
+                          <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                        </a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+
+              <!-- Assembly Tab -->
+              <div class="tab-sheet-content" data-section="assembly">
+                <div class="sheet-article">
+                  <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                  
+                  {% if comp.video_url %}
+                    <div class="video-player-container">
+                      <video controls class="assembly-video">
+                        <source src="{{ site.baseurl }}{{ comp.video_url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                      <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
+                    </div>
+                  {% endif %}
+
+                  <div class="guide-steps-list">
+                    {{ comp.assembly_guide | markdownify }}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testing Tab -->
+              <div class="tab-sheet-content" data-section="testing">
+                <div class="sheet-article">
+                  <h3 class="sheet-sub-title">Testing & Verification</h3>
+                  <div class="guide-steps-list">
+                    {{ comp.testing_guide | markdownify }}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>

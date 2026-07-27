@@ -1,0 +1,90 @@
+---
+layout: default
+---
+{% assign sorted_events = site.events | sort: "date" | reverse %}
+
+<div class="events-page-container">
+  <div class="page-title-banner">
+    <h1 class="page-main-title">{{ page.title }}</h1>
+    <p class="page-subtitle">{{ page.description }}</p>
+  </div>
+
+  <div class="events-timeline-container">
+    {% for ev in sorted_events %}
+      <div class="timeline-event-card">
+        
+        <!-- Timeline Dot Indicator -->
+        <div class="timeline-marker">
+          <div class="marker-dot"></div>
+          <div class="marker-line"></div>
+        </div>
+        
+        <div class="event-card-content">
+          <!-- Event Header -->
+          <div class="event-header-info">
+            <span class="event-date-tag"><i class="fa-regular fa-calendar-days"></i> {{ ev.date | date: "%B %Y" }}</span>
+            {% if ev.location %}
+              <span class="event-location-tag"><i class="fa-solid fa-location-dot"></i> {{ ev.location }}</span>
+            {% endif %}
+            <h2 class="event-card-title">{{ ev.title }}</h2>
+          </div>
+
+          <!-- Event Body -->
+          <div class="event-body-text">
+            {{ ev.content }}
+          </div>
+
+          <!-- Participating Sites -->
+          {% if ev.participating_sites %}
+            <div class="event-meta-section">
+              <h4 class="meta-section-title"><i class="fa-solid fa-map-location-dot"></i> Participating Sites</h4>
+              <div class="tags-row">
+                {% for site_tag in ev.participating_sites %}
+                  <span class="site-badge-tag">{{ site_tag }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Training Material Downloads -->
+          {% if ev.materials %}
+            <div class="event-meta-section">
+              <h4 class="meta-section-title"><i class="fa-solid fa-book-open"></i> Training Materials & Resources</h4>
+              <div class="materials-links-row">
+                {% for mat in ev.materials %}
+                  <a href="{{ site.baseurl }}{{ mat.path }}" class="material-link-btn" {% if mat.path contains '.pdf' or mat.path contains '.mp4' %}target="_blank"{% endif %}>
+                    {% if mat.path contains '.mp4' %}
+                      <i class="fa-solid fa-circle-play text-primary"></i> Watch video: {{ mat.name }}
+                    {% elsif mat.path contains '.pdf' %}
+                      <i class="fa-solid fa-file-pdf text-red"></i> {{ mat.name }} (PDF)
+                    {% else %}
+                      <i class="fa-solid fa-file-lines text-secondary"></i> {{ mat.name }}
+                    {% endif %}
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Event Image Gallery -->
+          {% if ev.images %}
+            <div class="event-meta-section">
+              <h4 class="meta-section-title"><i class="fa-solid fa-images"></i> Session Gallery</h4>
+              <div class="event-photo-gallery">
+                {% for img in ev.images %}
+                  <div class="gallery-photo-frame">
+                    <img src="{{ site.baseurl }}{{ img.path }}" alt="{{ img.alt | default: ev.title }}" class="gallery-img">
+                    {% if img.caption %}
+                      <span class="gallery-img-caption">{{ img.caption }}</span>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
