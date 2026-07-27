@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- MathJax for LaTeX Equations -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/IMAGINE/assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation & Header Header -->
+  <header class="gradient-header-banner">
+  <div class="header-logo-container">
+    <div class="logo-circle">
+      <i class="fa-solid fa-brain text-gradient"></i>
+    </div>
+    <div class="header-titles">
+      <h1 class="site-main-title">IMAGINE</h1>
+      <span class="site-tagline-text">Imaging Without Borders</span>
+    </div>
+  </div>
+  
+  <nav class="pill-navigation-menu">
+    <a href="/IMAGINE/" class="nav-pill-btn {% if page.url == '/' %}active{% endif %}">
+      <i class="fa-solid fa-house"></i> Home
+    </a>
+    <a href="/IMAGINE/about/" class="nav-pill-btn {% if page.url contains '/about/' %}active{% endif %}">
+      <i class="fa-solid fa-users"></i> About Us
+    </a>
+    <a href="/IMAGINE/scanners/" class="nav-pill-btn {% if page.url contains '/scanners/' %}active{% endif %}">
+      <i class="fa-solid fa-microchip"></i> Scanners
+    </a>
+    <a href="/IMAGINE/events/" class="nav-pill-btn {% if page.url contains '/events/' %}active{% endif %}">
+      <i class="fa-solid fa-calendar-check"></i> Events
+    </a>
+  </nav>
+</header>
+
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+    {% assign scanner_components = site.components | where: "scanner_id", page.scanner_id %}
+
+<div class="scanner-page-container">
+  <div class="page-title-banner">
+    <h1 class="page-main-title">IMAGINE Preclinical Scanner Explorer</h1>
+    <p class="page-subtitle">Explore the Control, Gradient, and RF circuits. Select nodes on the schematic below to view BOMs, CAD models, wiring diagrams, and calibration procedures.</p>
+  </div>
+
+  <div class="scanner-dashboard">
+    <!-- Left Panel: Subsystem Selector and Interactive Diagram Map -->
+    <div class="dashboard-visual-column">
+      
+      <!-- Subsystem Selector Tabs -->
+      <div class="subsystem-selector-tabs">
+        {% if page.scanner_id == 'imagine' %}
+          <button class="subsystem-tab-btn active" data-subsystem="control">
+            <i class="fa-solid fa-microchip"></i> Control System
+          </button>
+          <button class="subsystem-tab-btn" data-subsystem="gradient">
+            <i class="fa-solid fa-wave-square"></i> Gradient Circuit
+          </button>
+          <button class="subsystem-tab-btn" data-subsystem="rf">
+            <i class="fa-solid fa-tower-broadcast"></i> RF Circuit
+          </button>
+        {% else %}
+          <button class="subsystem-tab-btn active" data-subsystem="magnet">
+            <i class="fa-solid fa-magnet"></i> Magnet Array
+          </button>
+          <button class="subsystem-tab-btn" data-subsystem="robot">
+            <i class="fa-solid fa-robot"></i> Field Mapping Robot
+          </button>
+        {% endif %}
+      </div>
+
+      <!-- Diagram Canvas Area -->
+      <div class="interactive-diagram-canvas">
+        <p class="canvas-instruction-text"><i class="fa-solid fa-hand-pointer animate-bounce"></i> Click any block in the schematic below to explore its details</p>
+        
+        <!-- Interactive SVGs based on Scanner ID -->
+        {% if page.scanner_id == 'imagine' %}
+          
+          <!-- Control System Schematic -->
+          <div class="schematic-view active" id="schematic-control">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <!-- Grid background -->
+              <defs>
+                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                </pattern>
+                <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#1b4332" />
+                  <stop offset="100%" stop-color="#0f241a" />
+                </linearGradient>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Connection Lines -->
+              <path d="M 150 150 L 250 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 370 150 L 470 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              
+              <!-- Nodes -->
+              <!-- Computer -->
+              <g class="interactive-node" data-component-id="computer" transform="translate(40, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-desktop node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="85" class="node-text">Host PC (MARGE)</text>
+              </g>
+              <!-- RedPitaya -->
+              <g class="interactive-node" data-component-id="redpitaya" transform="translate(250, 95)">
+                <rect width="120" height="110" rx="8" class="node-rect" />
+                <text x="60" y="45" class="node-icon">🍓</text>
+                <text x="60" y="85" class="node-text">RedPitaya (SDR)</text>
+              </g>
+              <!-- MaRCoS Enclosure -->
+              <g class="interactive-node" data-component-id="marcos-enclosure" transform="translate(470, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-box-open node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="85" class="node-text">MaRCoS Box</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Gradient Circuit Schematic -->
+          <div class="schematic-view" id="schematic-gradient">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Connection Lines -->
+              <path d="M 130 150 L 190 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 310 150 L 370 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 470 150 L 510 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              
+              <!-- Nodes -->
+              <!-- RedPitaya GPA Adapter -->
+              <g class="interactive-node" data-component-id="rp-gpa-adapter" transform="translate(20, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-circle-nodes node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="80" class="node-text">RP GPA</text>
+                <text x="55" y="95" class="node-text">Adapter Board</text>
+              </g>
+              <!-- GPA-FHDO -->
+              <g class="interactive-node" data-component-id="gpa-fhdo" transform="translate(190, 95)">
+                <rect width="120" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-bolt-lightning node-icon-fa" style="transform: translate(45px, 35px);"></i>
+                <text x="60" y="85" class="node-text">GPA FHDO Amp</text>
+              </g>
+              <!-- Filter Schaffner -->
+              <g class="interactive-node" data-component-id="gradient-filter" transform="translate(370, 95)">
+                <rect width="100" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-filter node-icon-fa" style="transform: translate(35px, 35px);"></i>
+                <text x="50" y="85" class="node-text">Low-Pass Filter</text>
+              </g>
+              <!-- Gradient Coils -->
+              <g class="interactive-node" data-component-id="gradients" transform="translate(510, 95)">
+                <rect width="80" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-spiral node-icon-fa" style="transform: translate(25px, 35px);"></i>
+                <text x="40" y="80" class="node-text">Gradient</text>
+                <text x="40" y="95" class="node-text">Coils</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- RF Circuit Schematic -->
+          <div class="schematic-view" id="schematic-rf">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Connection Lines TX path -->
+              <path d="M 120 100 L 170 100" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 270 100 L 320 100" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <!-- TxRx Switch to Coil path -->
+              <path d="M 430 150 L 510 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <!-- RX path switch to LNA -->
+              <path d="M 380 200 L 380 230 L 270 230" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 170 230 L 70 230 L 70 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+
+              <!-- Nodes -->
+              <!-- RedPitaya RF Port -->
+              <g class="interactive-node" data-component-id="redpitaya-rf" transform="translate(20, 50)">
+                <rect width="100" height="90" rx="8" class="node-rect" />
+                <i class="fa-solid fa-microchip node-icon-fa" style="transform: translate(35px, 25px);"></i>
+                <text x="50" y="70" class="node-text">RedPitaya RF</text>
+              </g>
+              <!-- RFPA -->
+              <g class="interactive-node" data-component-id="rfpa" transform="translate(170, 50)">
+                <rect width="100" height="90" rx="8" class="node-rect" />
+                <i class="fa-solid fa-gauge-high node-icon-fa" style="transform: translate(35px, 25px);"></i>
+                <text x="50" y="70" class="node-text">RF Power Amp</text>
+              </g>
+              <!-- TxRx Switch -->
+              <g class="interactive-node" data-component-id="tx-rx-switch" transform="translate(320, 100)">
+                <rect width="110" height="100" rx="8" class="node-rect" />
+                <i class="fa-solid fa-toggle-on node-icon-fa" style="transform: translate(40px, 30px);"></i>
+                <text x="55" y="80" class="node-text">Tx/Rx Switch</text>
+              </g>
+              <!-- LNA -->
+              <g class="interactive-node" data-component-id="lna" transform="translate(170, 185)">
+                <rect width="100" height="90" rx="8" class="node-rect" />
+                <i class="fa-solid fa-signal node-icon-fa" style="transform: translate(35px, 25px);"></i>
+                <text x="50" y="70" class="node-text">LNA Amp</text>
+              </g>
+              <!-- RF Coil -->
+              <g class="interactive-node" data-component-id="rf-coil" transform="translate(510, 100)">
+                <rect width="80" height="100" rx="8" class="node-rect" />
+                <i class="fa-solid fa-ring node-icon-fa" style="transform: translate(25px, 30px);"></i>
+                <text x="40" y="80" class="node-text">RF Coil</text>
+              </g>
+            </svg>
+          </div>
+
+        {% else %}
+          
+          <!-- ERNIE Magnet Schematic -->
+          <div class="schematic-view active" id="schematic-magnet">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Magnet Ring Array drawings -->
+              <g transform="translate(100, 75)">
+                <!-- Axis lines -->
+                <line x1="-50" y1="100" x2="450" y2="100" stroke="rgba(255,255,255,0.2)" stroke-dasharray="4,4" />
+                <line x1="200" y1="-50" x2="200" y2="250" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2" />
+                
+                <!-- Connection rods -->
+                <rect x="-10" y="5" width="420" height="4" fill="#a0a0a0" />
+                <rect x="-10" y="191" width="420" height="4" fill="#a0a0a0" />
+
+                <!-- Rings stack -->
+                <!-- Ring 10 back -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(0, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 10B</text>
+                </g>
+                <!-- Ring 945 -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(50, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 945</text>
+                </g>
+                <!-- Ring 1 -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(100, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 1</text>
+                </g>
+                <!-- Ring 842 (Center) -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(150, 10)">
+                  <rect x="0" y="0" width="40" height="180" rx="4" class="node-rect-highlight" fill="#c5a059" />
+                  <text x="20" y="95" transform="rotate(-90 20 95)" class="node-text" fill="#000" style="font-weight:bold; font-size:10px;">Ring 842</text>
+                </g>
+                <!-- Ring 0 -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(210, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 0</text>
+                </g>
+                <!-- Ring 1050 -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(260, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 1050</text>
+                </g>
+                <!-- Ring 10 (Front) -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(310, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 10</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <!-- ERNIE Robot Schematic -->
+          <div class="schematic-view" id="schematic-robot">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Connection Lines -->
+              <path d="M 130 150 L 220 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 330 150 L 420 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              
+              <!-- Nodes -->
+              <!-- Robot MCU -->
+              <g class="interactive-node" data-component-id="robot-controller" transform="translate(20, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-microchip node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="85" class="node-text">Arduino Mega</text>
+              </g>
+              <!-- Robot Drivers & Steppers -->
+              <g class="interactive-node" data-component-id="robot-actuators" transform="translate(220, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-gears node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="85" class="node-text">Steppers & Drivers</text>
+              </g>
+              <!-- Robot Mechanical Stage -->
+              <g class="interactive-node" data-component-id="robot-mechanics" transform="translate(420, 95)">
+                <rect width="120" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-up-down-left-right node-icon-fa" style="transform: translate(45px, 35px);"></i>
+                <text x="60" y="85" class="node-text">3-Axis Gantry</text>
+              </g>
+            </svg>
+          </div>
+
+        {% endif %}
+      </div>
+      
+      <!-- Component Sidebar List (Synchronized with Map clicks) -->
+      <div class="component-list-sidebar">
+        <h3 class="sidebar-title">Components List</h3>
+        <div class="sidebar-buttons-grid">
+          
+            <button class="sidebar-node-btn" data-component-id="marcos-control-system" data-subsystem="control">
+              MaRCoS & Control System
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="gpa-fhdo-power-amplifier" data-subsystem="gradient">
+              GPA-FHDO Power Amplifier
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="gradient-low-pass-filter" data-subsystem="gradient">
+              Gradient Low-Pass Filter
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="gradient-coils-cad-winding" data-subsystem="gradient">
+              Gradient Coils (CAD & Winding)
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="low-noise-amplifier-lna" data-subsystem="rf">
+              Low Noise Amplifier (LNA)
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="rf-coil-tuning-and-matching" data-subsystem="rf">
+              RF Coil & Tuning and Matching
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="rf-power-amplifier-rfpa" data-subsystem="rf">
+              RF Power Amplifier (RFPA)
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="redpitaya-to-gpa-adapter-board" data-subsystem="gradient">
+              RedPitaya to GPA Adapter Board
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="txrx-switch" data-subsystem="rf">
+              Tx/Rx Switch
+            </button>
+            
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Panel: Interactive Documentation Card -->
+    <div class="dashboard-docs-column">
+      <div class="docs-card-panel">
+        
+        
+            <div class="component-detail-view" id="details-marcos-control-system" data-subsystem="control">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">CONTROL</span>
+                <h2 class="detail-title">MaRCoS & Control System</h2>
+                <p class="detail-short-desc">The digital control core of the preclinical scanner, leveraging MaRCoS firmware on a RedPitaya SDR and controlled via the MARGE GUI.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button><button class="section-tab-btn" data-section="downloads"><i class="fa-solid fa-download"></i> CAD / STL</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><p>The <strong>Control System</strong> handles the execution of MRI pulse sequences. It coordinates the radiofrequency (RF) transmit/receive timing and the gradient coil currents. <strong>MaRCoS</strong> (Magnetic Resonance Control System) is an open-source console console firmware running on a Red Pitaya board, replacing traditional expensive commercial consoles. The console is fully controlled via the <strong>MARGE</strong> graphical user interface.</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>Red Pitaya STEMlab 125-14 Board</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">Included in budget</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Aluminum MaRCoS Enclosure Box</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$205.25</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/hammond-manufacturing/1590Z166/1090767" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Panel Mount SMA sockets</strong></td>
+                      <td class="part-qty">6</td>
+                      <td class="part-price">$19.99</td>
+                      <td class="part-link"><a href="https://www.amazon.ca/BOOBRIE-Connector-Bulkhead-Extendable-Antennas/dp/B07WFLD2MX" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>SMA to SMA Male-Male Cables</strong></td>
+                      <td class="part-qty">2</td>
+                      <td class="part-price">$31.98</td>
+                      <td class="part-link"><a href="https://www.amazon.ca/Superbat-Connector-Coaxial-Antenna-Analyzer/dp/B0BFPWJ3J9" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Ethernet Port Panel Mount Extensions</strong></td>
+                      <td class="part-qty">2</td>
+                      <td class="part-price">$27.98</td>
+                      <td class="part-link"><a href="https://www.amazon.ca/Ethernet-Extension-Shielded-Compatibility-Network/dp/B0D5QGCM3D" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Panel Mount BNC Connectors</strong></td>
+                      <td class="part-qty">4</td>
+                      <td class="part-price">$10.69</td>
+                      <td class="part-link"><a href="https://www.amazon.ca/Connector-Bulkhead-Adapters-Coaxial-Adapter/dp/B09CG7WVHQ" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      
+                    <a href="/IMAGINEhttps://github.com/marcos-mri" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">MaRCoS GitHub Repository</span>
+                        <span class="file-ext">COM/MARCOS-MRI File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINEhttps://github.com/josalggui/MaRGE" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">MaRGE GUI Repository</span>
+                        <span class="file-ext">COM/JOSALGGUI/MARGE File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>Phase 1: Software Setup</h4>
+<ol>
+<li>Download the MaRCoS SD card image and flash it onto a high-speed MicroSD card.</li>
+<li>Insert the SD card into the Red Pitaya board.</li>
+<li>Install Python 3, numpy, scipy, and the <code>marcos-client</code> package on the Host PC.</li>
+<li>Clone and install the MARGE GUI repository: <a href="https://github.com/josalggui/MaRGE">MARGE GitHub</a>.</li>
+</ol>
+<h4>Phase 2: Enclosure Fabrication</h4>
+<ol>
+<li>Take the Hammond 1590Z166 Aluminum Box and mark hole placements for:</li>
+<li>4x RF Ports (BNC / SMA).</li>
+<li>1x Ethernet extension jack.</li>
+<li>1x DC power input.</li>
+<li>1x TTL pulse outputs.</li>
+<li>Drill the holes carefully using a step drill bit.</li>
+<li>Mount the panel sockets, routing the internal coaxial cables to the Red Pitaya RF input/output headers.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>Red Pitaya Signal Verification</h4>
+<ol>
+<li>Connect the Red Pitaya to the host PC via Ethernet.</li>
+<li>Launch the MARGE GUI.</li>
+<li>Wire the RF Outputs of the Red Pitaya to an external oscilloscope.</li>
+<li>Run a simple test sequence in MARGE (e.g. pulse generator) and verify that the expected pulses appear on the oscilloscope with correct amplitude and duration.</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="component-detail-view" id="details-gpa-fhdo-power-amplifier" data-subsystem="gradient">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">GRADIENT</span>
+                <h2 class="detail-title">GPA-FHDO Power Amplifier</h2>
+                <p class="detail-short-desc">The Gradient Power Amplifier (GPA) design from FHDO Dortmund, delivering controlled high-current drives to the gradient coils.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><p>The <strong>GPA-FHDO</strong> is a specialized Gradient Power Amplifier design developed by the Fachhochschule Dortmund (FHDO). Unlike traditional audio amplifiers, GPAs are designed to drive highly inductive loads (like gradient coils) with fast rise times and stable, controlled currents, which is essential for accurate spatial encoding in MR imaging.</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>Schaffner FN7563-63-M6 Filter Capacitor</strong></td>
+                      <td class="part-qty">3</td>
+                      <td class="part-price">Included in GPA budget</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>High-Current DC Power Supply for FHDO</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">Varies</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>High-current output terminal connectors</strong></td>
+                      <td class="part-qty">6</td>
+                      <td class="part-price">$10.00</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>GPA Installation and Integration</h4>
+<ol>
+<li>Mount the GPA-FHDO boards on a secure chassis with passive/active heatsink cooling.</li>
+<li>Setup the high-current DC power supply, ensuring proper voltage and current limits are configured.</li>
+<li>Wire the outputs of the RedPitaya GPA adapter to the GPA-FHDO input channels.</li>
+<li>Connect the output of the GPA-FHDO to the low-pass filter circuit.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>GPA Calibration &amp; Protection Test</h4>
+<ol>
+<li>Power up the GPA board and verify the bias currents and voltage references.</li>
+<li>With dummy load resistors (equivalent to gradient coil resistance/inductance), apply test pulses (e.g. 1A, 2A steps).</li>
+<li>Monitor current waveforms on an oscilloscope using a current probe. Verify there is no waveform distortion or excessive ringing.</li>
+<li>Verify that thermal shutdown and over-current protection trigger at correct thresholds.</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="component-detail-view" id="details-gradient-low-pass-filter" data-subsystem="gradient">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">GRADIENT</span>
+                <h2 class="detail-title">Gradient Low-Pass Filter</h2>
+                <p class="detail-short-desc">A high-performance filter network designed to suppress high-frequency noise from the GPA outputs, preventing RF interference in the scanner bore.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><p>The <strong>Gradient Low-Pass Filter</strong> prevents high-frequency switching noise from the GPA-FHDO from radiating into the scanner bore. Since the Larmor frequency is close to 2 MHz, any high-frequency switching noise on the gradient lines can directly couple into the RF coil and saturate the LNA, causing severe image artifacts.</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>Schaffner FN7563-63-M6 Filter Capacitor</strong></td>
+                      <td class="part-qty">3</td>
+                      <td class="part-price">Included in GPA budget</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Shielding copper enclosure</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">Custom</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Low-resistance grounding cables</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">Custom</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>Filter Fabrication</h4>
+<ol>
+<li>Mount the Schaffner FN7563 filter capacitors inside a grounded copper shielding box.</li>
+<li>Wire the inputs of the filters to the GPA output lines.</li>
+<li>Connect the outputs of the filters to the gradient coil splices.</li>
+<li>Ensure a solid, low-resistance connection between the copper box and the main system ground.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>Filter Performance Verification</h4>
+<ol>
+<li>Use a network analyzer (VNA) or oscilloscope to perform a frequency sweep from 1 kHz to 10 MHz.</li>
+<li>Verify that the filter provides strong attenuation at the Larmor frequency range (~2 MHz).</li>
+<li>Measure the DC resistance of the filter to ensure power losses are minimal.</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="component-detail-view" id="details-gradient-coils-cad-winding" data-subsystem="gradient">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">GRADIENT</span>
+                <h2 class="detail-title">Gradient Coils (CAD & Winding)</h2>
+                <p class="detail-short-desc">Spatially encodes the MR signals using 3D-printed formers with AWG copper wire wound in computer-optimized grooves.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button><button class="section-tab-btn" data-section="downloads"><i class="fa-solid fa-download"></i> CAD / STL</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><p>The <strong>Gradient Coils</strong> provide spatial encoding in the three orthogonal directions ($X$, $Y$, and $Z$). The coils are wound on cylindrical former surfaces, with grooves manufactured directly by 3D printing. The wire patterns are optimized using the <strong>Discrete Wire Method</strong> to produce highly linear gradients over the target field of view (FOV).</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>AWG copper wire (American Wire Gauge)</strong></td>
+                      <td class="part-qty">Varies</td>
+                      <td class="part-price">$20.00</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>3D Printed Former (PETG/PLA)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$30.00</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Gradient Connectors (Splices)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$15.00</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      
+                    <a href="/IMAGINE/Hardware/Gradients/CAD files" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Gradient Coil CAD Files (AutoCAD)</span>
+                        <span class="file-ext">/HARDWARE/GRADIENTS/CAD FILES File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>AutoCAD CAD Design &amp; Print</h4>
+<p>The steps for the CAD design of the gradient winding grooves in AutoCAD:<br />
+1. <strong>Coordinate Import</strong>: Copy x, y, z coordinates from simulation outputs into Excel and save as a CSV. Use the <code>LINE</code> command in AutoCAD to import and visualize each quadrant.<br />
+2. <strong>Spiral Construction</strong>: Connect lines to form spirals, ensuring the current direction in adjacent quadrants is opposite. Each quadrant must have two distinct ports (input/output). Join lines into a single continuous <code>3D POLYLINE</code>.<br />
+3. <strong>3D Sweeping</strong>: Draw a circle equal to the wire width. Centering it on one of the ports, run <code>SWEEP</code> along the polyline path.<br />
+4. <strong>Groove Creation</strong>: Draw concentric circles representing the former cylinder walls. Extrude them to the required height ($L/2$). Use <code>UNION</code> to combine cylinder half sections. Merge all four coil quadrant sweeps using <code>UNION</code>. Finally, execute <code>SUBTRACT</code> to subtract the coil quadrants from the cylinder, creating the winding grooves.<br />
+5. <strong>Fabrication</strong>: Export the STL file using <code>STLOUT</code>. 3D print the former and wind the AWG copper wires into the manufactured grooves.</p></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>Electromagnetic Simulation and Verification</h4>
+<ol>
+<li>Measure coil resistance and inductance using a multimeter/LCR meter. Verify there are no short circuits between the X, Y, Z channels or the system frame.</li>
+<li>Save the final CAD coordinates and simulate the expected magnetic field profile ($G_x$, $G_y$, $G_z$) using CST Studio Suite or EM simulation packages.</li>
+<li>Verify gradient efficiency (field gradient amplitude per unit current: T/m/A).</li>
+<li>Run testing currents through the coils and measure heat dissipation over time.</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="component-detail-view" id="details-low-noise-amplifier-lna" data-subsystem="rf">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">RF</span>
+                <h2 class="detail-title">Low Noise Amplifier (LNA)</h2>
+                <p class="detail-short-desc">Amplifies the microvolt-level MRI echo signals directly from the Tx/Rx switch, establishing the system's receiver noise figure.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><p>The <strong>Low Noise Amplifier (LNA)</strong> is the first stage in the MRI receiver chain. Because the nuclear magnetic resonance (NMR) signal from a 50 mT scanner is in the microvolt range, the LNA must provide high gain with extremely low added noise (low Noise Figure) to prevent drowning the signal in the thermal noise of the electronics.</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>Low Noise Amplifier (LNA) Module</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">Included in budget</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Shielding copper/aluminum enclosure box for LNA</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">Custom</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>LNA DC Power Supply (KD3005D)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$129.47</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/sra-soldering-products/KD3005D/10709902" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>LNA Mounting &amp; Grounding</h4>
+<ol>
+<li>Mount the LNA module inside a fully shielded copper box.</li>
+<li>Ground the box chassis to the main RF shield of the scanner.</li>
+<li>Wire the DC power input through a feedthrough capacitor to block power line noise.</li>
+<li>Connect the output of the Tx/Rx Switch to the LNA input using short, double-shielded RG-223 coaxial cables.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>LNA Gain &amp; Noise Floor Test</h4>
+<ol>
+<li>Connect a 50 Ohm dummy resistor to the LNA input.</li>
+<li>Measure the LNA output on a spectrum analyzer to check the noise floor.</li>
+<li>Apply a weak reference signal (e.g. -80 dBm at 2 MHz) and verify LNA gain (expected: ~20-30 dB) and stability.</li>
+<li>Verify that the LNA does not oscillate under different loading conditions.</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="component-detail-view" id="details-rf-coil-tuning-and-matching" data-subsystem="rf">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">RF</span>
+                <h2 class="detail-title">RF Coil & Tuning and Matching</h2>
+                <p class="detail-short-desc">A 27-turn solenoid radiofrequency coil tuned to the Larmor frequency (2.035 - 2.1 MHz) with integrated tuning and matching capacitors.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button><button class="section-tab-btn" data-section="downloads"><i class="fa-solid fa-download"></i> CAD / STL</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><p>The <strong>RF Coil</strong> transmits the excitation pulse and receives the echo signal. It is built as a solenoid coil wound on a 3D-printed former. Since low-field MRI signals are weak, the RF coil must be tuned to the exact Larmor frequency of the system and matched to 50 Ohms to ensure maximum power transfer and high signal-to-noise ratio (SNR).</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>3D Printed Coil Holder (PETG/PLA)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$10.00</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Tuning Capacitor 330pF (High-Q, Passive Plus)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$32.69</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/passive-plus/PPZN30100/19235833" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Variable Capacitors (GKG60015, 60pF)</strong></td>
+                      <td class="part-qty">10</td>
+                      <td class="part-price">$12.00</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/ew-electronics/GKG60015/11689267" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>nanoVNA Vector Network Analyzer</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$79.99</td>
+                      <td class="part-link"><a href="https://www.amazon.ca/Seesii-Analyzer-10KHz-1-5GHz-Measuring-Parameters/dp/B08132DJLS" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Enclosure Box for Tuning & Matching Circuit</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">Custom</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>SMA panel mount sockets</strong></td>
+                      <td class="part-qty">2</td>
+                      <td class="part-price">$10.00</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      
+                    <a href="/IMAGINE/Hardware/RF coil/RF COIL with 27 turns, inner diameter 58.8mm.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">RF Coil Holder 3D Model (STL)</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/Hardware/RF coil/RF COIL with 27 turns, inner diameter 58.8mm.dwg" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">RF Coil CAD Drawing (DWG)</span>
+                        <span class="file-ext">DWG File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>Coil Winding &amp; Assembly</h4>
+<ol>
+<li>Print the RF coil holder (inner diameter 58mm, outer diameter 63mm).</li>
+<li>Wind exactly 27 turns of 1.65mm thick copper wire into the grooved tracks of the 3D printed holder.</li>
+<li>Ensure a winding length of 117mm and pitch of 4.33mm.</li>
+<li>Solder the coil ends to the tuning and matching board inside the shielded tuning enclosure.</li>
+<li>Setup the capacitors:</li>
+<li><strong>Tuning Capacitance</strong>: 330pF + 24pF + 25pF variable.</li>
+<li><strong>Matching Capacitance</strong>: 47pF + 18pF.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>Tuning and Impedance Matching Guide</h4>
+<ol>
+<li><strong>Integration</strong>: Place the RF coil inside the MRI scanner, complete with gradient coils and the RF shield.</li>
+<li><strong>VNA Connection</strong>: Connect the coil to the nanoVNA (calibrated at the center frequency).</li>
+<li><strong>Tuning</strong>: Observe the $S_{11}$ reflection dip on the VNA screen. Adjust the capacitors on the tuning side to align the center frequency to exactly 2.035 MHz (or 2.1 MHz depending on your magnet's B0 field strength).</li>
+<li><strong>Quality Factor (Q)</strong>: Once tuned, measure the quality factor loaded (with sample) and unloaded (empty bore). The Q-value should be greater than 1.</li>
+<li><strong>Matching</strong>: Adjust the matching channel capacitors until the impedance is close to 50 Ohms on the Smith chart and the reflected power ($S_{11}$ dip) is closer to -30.7 dB or lower (ideally approaching -50 dB).</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="component-detail-view" id="details-rf-power-amplifier-rfpa" data-subsystem="rf">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">RF</span>
+                <h2 class="detail-title">RF Power Amplifier (RFPA)</h2>
+                <p class="detail-short-desc">Amplifies the low-power RF transmit pulses from the RedPitaya to the high power levels required for spin excitation.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><p>The <strong>RF Power Amplifier (RFPA)</strong> boosts the weak RF pulses generated by the Red Pitaya console (STEMlab) to the high-power levels (tens of watts) required to rotate the nuclear spins in the preclinical sample. It is enclosed in a shielded aluminum box to prevent RF leakage and powered by a low-noise linear power supply to avoid switching noise.</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>RF Power Amplifier (RFPA) Board</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">Included in budget</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Aluminum Box for RFPA Enclosure</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$19.86</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/bud-industries/CU-234/387028" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>RFPA Linear Power Supply (KD3005D)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$129.47</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/sra-soldering-products/KD3005D/10709902" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>RFPA Enclosure &amp; Mounting</h4>
+<ol>
+<li>Drill holes in the Bud Industries CU-234 aluminum box for the SMA input, SMA output, and DC power leads.</li>
+<li>Mount the RFPA board inside the box, ensuring the transistors make solid contact with the aluminum chassis for heatsink cooling (use thermal paste).</li>
+<li>Wire the DC power input leads through feedthrough capacitors to filter supply noise.</li>
+</ol>
+<h4>Power Connections</h4>
+<ol>
+<li>Connect the RFPA power leads to the KD3005D adjustable linear power supply.</li>
+<li>Configure the power supply to the recommended bias voltage and current limit.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>RFPA Gain and Compression Verification</h4>
+<ol>
+<li><strong>WARNING</strong>: Always connect a 50 Ohm dummy load to the RFPA output before powering on. Never run the amplifier open-circuit!</li>
+<li>Connect a low-power signal generator to the RFPA input.</li>
+<li>Measure the output amplitude on an oscilloscope (attenuated!) or power meter.</li>
+<li>Verify that the gain is flat around the 2 MHz Larmor frequency and that output power meets the required peak specifications (e.g. 50-100W peak RF).</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="component-detail-view" id="details-redpitaya-to-gpa-adapter-board" data-subsystem="gradient">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">GRADIENT</span>
+                <h2 class="detail-title">RedPitaya to GPA Adapter Board</h2>
+                <p class="detail-short-desc">Custom adapter interface board matching the RedPitaya analog and digital outputs to the inputs of the GPA-FHDO amplifier.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><p>The <strong>RedPitaya GPA Adapter</strong> is an interface board that bridges the Red Pitaya console board and the Gradient Power Amplifiers. It provides buffering, signal isolation, and clean level shifting via Schmitt triggers, protecting the console from currents and ensuring noise-free gradient control signals.</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>Custom PCB for Red Pitaya to GPA-FHDO Adapter</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">Included in budget</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Schmitt Trigger ICs (SN74LVC1G17DBVR)</strong></td>
+                      <td class="part-qty">10</td>
+                      <td class="part-price">$10.60</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/texas-instruments/SN74LVC1G17DBVR/389051" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>IDC Female Extension Connector (SFH11-PBPC-D13-ST-BK)</strong></td>
+                      <td class="part-qty">4</td>
+                      <td class="part-price">$7.64</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/sullins-connector-solutions/SFH11-PBPC-D13-ST-BK/1990091" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Pin Header Male (WR-BHD, 61304011121)</strong></td>
+                      <td class="part-qty">3</td>
+                      <td class="part-price">$6.03</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/61304011121/4846884" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Dual Row Pin Header Male (PR20203VBDN)</strong></td>
+                      <td class="part-qty">10</td>
+                      <td class="part-price">$10.10</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/metz-connect-usa-inc/PR20203VBDN/12342894" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Capacitor (CL21A106KAYNNNE, 10uF)</strong></td>
+                      <td class="part-qty">10</td>
+                      <td class="part-price">$1.22</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL21A106KAYNNNE/3888549" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Pin headers female (various)</strong></td>
+                      <td class="part-qty">30</td>
+                      <td class="part-price">$10.47</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>PCB Assembly &amp; Soldering</h4>
+<ol>
+<li>Position the custom adapter PCB on a soldering stand.</li>
+<li>Solder the surface-mount Schmitt trigger ICs (SN74LVC1G17DBVR) first, checking pin alignment.</li>
+<li>Solder the passives: capacitors (10uF) and resistors.</li>
+<li>Solder the IDC connectors and male/female pin headers.</li>
+<li>Inspect all solder joint connections under a microscope to ensure no solder bridges.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>Connectivity &amp; Level Shifting Test</h4>
+<ol>
+<li>Mount the adapter board onto the Red Pitaya GPIO pins.</li>
+<li>Apply a 3.3V power supply.</li>
+<li>Generate a digital pulse sequence from the Red Pitaya.</li>
+<li>Verify that the output pulses from the Schmitt triggers are clean, level-shifted if needed, and noise-free using an oscilloscope.</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="component-detail-view" id="details-txrx-switch" data-subsystem="rf">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">RF</span>
+                <h2 class="detail-title">Tx/Rx Switch</h2>
+                <p class="detail-short-desc">A passive/active transmit-receive switch that isolates the sensitive Low Noise Amplifier (LNA) from the high-voltage transmit pulses.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button><button class="section-tab-btn" data-section="downloads"><i class="fa-solid fa-download"></i> CAD / STL</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><p>The <strong>Tx/Rx Switch</strong> acts as a fast RF router. During transmission, it blocks the high-voltage RF pulses (which could destroy the sensitive LNA receiver) and directs them straight to the RF Coil. During reception, it acts as a low-loss path to route the extremely weak MRI echo signals from the RF Coil to the LNA. The passive switch design is based on the <strong>Open Source Imaging Initiative (OSI²)</strong> passive TR switch reference.</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>BAT6804WH6327XTSA1 Diodes</strong></td>
+                      <td class="part-qty">20</td>
+                      <td class="part-price">$7.14 (pack)</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/infineon-technologies/BAT6804WH6327XTSA1/2337549" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Inductors (4.0uH, Coilcraft SER2014-402MLD)</strong></td>
+                      <td class="part-qty">4</td>
+                      <td class="part-price">$42.55</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/coilcraft/SER2014-402MLD/21381062" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Capacitors (820pF, Kemet C2220C821JZGACTU)</strong></td>
+                      <td class="part-qty">6</td>
+                      <td class="part-price">$42.54</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/kemet/C2220C821JZGACTU/1086644" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>SMA PCB Right Angle Jacks (WR-SMA)</strong></td>
+                      <td class="part-qty">3</td>
+                      <td class="part-price">$28.80</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/60311002114501/10106987" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Aluminum Box for Switch Enclosure</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$19.86</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/bud-industries/CU-234/387028" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Expensive Diode Passive Switch (UMX9989AP)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$45.77</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/microchip-technology/UMX9989AP/13179363" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      
+                    <a href="/IMAGINEhttps://gitlab.com/osii/rf-system/tr-switches/passive-tr-switch" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">OSII Passive TR Switch Repository</span>
+                        <span class="file-ext">COM/OSII/RF-SYSTEM/TR-SWITCHES/PASSIVE-TR-SWITCH File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>Switch Assembly &amp; Solder</h4>
+<ol>
+<li>Position the passive switch PCB (from the Open Source Imaging Initiative design) on your workbench.</li>
+<li>Solder the surface-mount BAT6804 diodes and the passive capacitors (820pF).</li>
+<li>Solder the high-power Coilcraft inductors and the right-angle WR-SMA connectors.</li>
+<li>Solder the high-speed passive switch diode (UMX9989AP).</li>
+<li>Mount the board inside the Bud aluminum box, connecting the SMA ground pins securely to the chassis.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>VNA Reflection &amp; Transmission Calibration</h4>
+<p>Using a VNA calibrated to the magnet's working Larmor frequency, measure the reflection (S11/S22) and transmission (S21/S12) coefficients in both <strong>Transmit Mode</strong> (Switch ON) and <strong>Receive Mode</strong> (Switch OFF). All ports not under test must be terminated with a 50 Ohm load.</p>
+<p>Verify your switch measurements match the reference performance table:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Measurement Type</th>
+<th style="text-align: left;">Signal Source</th>
+<th style="text-align: left;">Reference (dB)</th>
+<th style="text-align: left;">Your Switch (dB)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>S11 (Reflection)</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Transmit Mode (Switch ON)</td>
+<td style="text-align: left;">Tx</td>
+<td style="text-align: left;">-23.0</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Transmit Mode (Switch ON)</td>
+<td style="text-align: left;">Coil</td>
+<td style="text-align: left;">-21.2</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Receive Mode (Switch OFF)</td>
+<td style="text-align: left;">Coil</td>
+<td style="text-align: left;">-22.9</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Receive Mode (Switch OFF)</td>
+<td style="text-align: left;">Rx</td>
+<td style="text-align: left;">-22.4</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>S21 (Transmission)</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Transmit Mode (Switch ON)</td>
+<td style="text-align: left;">Tx - Coil</td>
+<td style="text-align: left;">-0.24</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Transmit Mode (Switch ON)</td>
+<td style="text-align: left;">Tx - Rx</td>
+<td style="text-align: left;">-39.5</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Transmit Mode (Switch ON)</td>
+<td style="text-align: left;">Coil - Rx</td>
+<td style="text-align: left;">-40.4</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Receive Mode (Switch OFF)</td>
+<td style="text-align: left;">Tx - Coil</td>
+<td style="text-align: left;">-53.4</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Receive Mode (Switch OFF)</td>
+<td style="text-align: left;">Tx - Rx</td>
+<td style="text-align: left;">-50.0</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Receive Mode (Switch OFF)</td>
+<td style="text-align: left;">Coil - Rx</td>
+<td style="text-align: left;">-0.21</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+                  </div>
+                </div>
+              {% endif %}
+
+              <!-- Downloads Tab -->
+              {% if comp.downloads %}
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      {% for file in comp.downloads %}
+                        <a href="/IMAGINE{{ file.path }}" download class="download-card">
+                          <div class="download-card-icon">
+                            {% if file.path contains '.stl' %}
+                              <i class="fa-solid fa-cube text-primary"></i>
+                            {% elsif file.path contains '.step' or file.path contains '.stp' or file.path contains '.ipt' or file.path contains '.iam' %}
+                              <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                            {% else %}
+                              <i class="fa-solid fa-file-lines"></i>
+                            {% endif %}
+                          </div>
+                          <div class="download-card-info">
+                            <span class="file-title">{{ file.name }}</span>
+                            <span class="file-ext">{{ file.path | split: '.' | last | upcase }} File</span>
+                          </div>
+                          <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                        </a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+
+              <!-- Assembly Tab -->
+              <div class="tab-sheet-content" data-section="assembly">
+                <div class="sheet-article">
+                  <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                  
+                  {% if comp.video_url %}
+                    <div class="video-player-container">
+                      <video controls class="assembly-video">
+                        <source src="/IMAGINE{{ comp.video_url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                      <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
+                    </div>
+                  {% endif %}
+
+                  <div class="guide-steps-list">
+                    {{ comp.assembly_guide | markdownify }}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testing Tab -->
+              <div class="tab-sheet-content" data-section="testing">
+                <div class="sheet-article">
+                  <h3 class="sheet-sub-title">Testing & Verification</h3>
+                  <div class="guide-steps-list">
+                    {{ comp.testing_guide | markdownify }}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-main-footer">
+  <div class="footer-sections-grid">
+    
+    <!-- Left Column: Mission -->
+    <div class="footer-col-desc">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-earth-africa"></i> IMAGINE Project</h3>
+      <p class="footer-para-text">
+        An open-source preclinical MRI initiative of the Consortium for Advancement of MRI Education and Research in Africa (CAMERA). Sustaining diagnostic health equity globally.
+      </p>
+    </div>
+
+    <!-- Center Column: Standards & Licensing -->
+    <div class="footer-col-licensing">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-scale-balanced"></i> Open Science Compliance</h3>
+      <p class="footer-para-text">
+        All hardware files are released under open-source hardware licenses. This project is developed to satisfy the requirements of the <strong>Open Source Imaging Initiative (OSI²)</strong>.
+      </p>
+    </div>
+
+    <!-- Right Column: Navigation and Quick links -->
+    <div class="footer-col-nav">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-link"></i> Navigation</h3>
+      <ul class="footer-links-list">
+        <li><a href="/IMAGINE/">Home</a></li>
+        <li><a href="/IMAGINE/about/">About Us & Team</a></li>
+        <li><a href="/IMAGINE/scanners/">Scanner Resources</a></li>
+        <li><a href="/IMAGINE/events/">Workshops & Events</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom-bar">
+    <div class="bottom-bar-content">
+      <span class="copyright-span">© 2026 CAMERA-MRI Consortium. Released under CERN OHL-W v2 / CC BY-SA 4.0.</span>
+      <span class="terms-span"><a href="#">Terms & Conditions</a> | <a href="https://www.opensourceimaging.org/" target="_blank">OSI² Portal</a></span>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/IMAGINE/assets/js/interaction.js"></script>
+</body>
+</html>

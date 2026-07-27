@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- MathJax for LaTeX Equations -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/IMAGINE/assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation & Header Header -->
+  <header class="gradient-header-banner">
+  <div class="header-logo-container">
+    <div class="logo-circle">
+      <i class="fa-solid fa-brain text-gradient"></i>
+    </div>
+    <div class="header-titles">
+      <h1 class="site-main-title">IMAGINE</h1>
+      <span class="site-tagline-text">Imaging Without Borders</span>
+    </div>
+  </div>
+  
+  <nav class="pill-navigation-menu">
+    <a href="/IMAGINE/" class="nav-pill-btn {% if page.url == '/' %}active{% endif %}">
+      <i class="fa-solid fa-house"></i> Home
+    </a>
+    <a href="/IMAGINE/about/" class="nav-pill-btn {% if page.url contains '/about/' %}active{% endif %}">
+      <i class="fa-solid fa-users"></i> About Us
+    </a>
+    <a href="/IMAGINE/scanners/" class="nav-pill-btn {% if page.url contains '/scanners/' %}active{% endif %}">
+      <i class="fa-solid fa-microchip"></i> Scanners
+    </a>
+    <a href="/IMAGINE/events/" class="nav-pill-btn {% if page.url contains '/events/' %}active{% endif %}">
+      <i class="fa-solid fa-calendar-check"></i> Events
+    </a>
+  </nav>
+</header>
+
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+    <div class="content-page-container">
+  <div class="page-title-banner">
+    <h1 class="page-main-title">About the IMAGINE Team</h1>
+    <p class="page-subtitle">A global network of neuroscientists, physicists, and engineers collaborating to democratize MRI hardware education and development.</p>
+  </div>
+
+  <!-- Contributor Team Grid -->
+  <section class="contributors-grid-section">
+    <h2 class="section-card-title"><i class="fa-solid fa-users"></i> Contributors & Researchers</h2>
+    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">Below is the core research and development group behind the IMAGINE hardware plans and training resources, listed in CITATION.cff:</p>
+    
+    <div class="contributors-row-grid">
+      
+                <div class="contributor-profile-card">
+                  <h3 class="contributor-name">Dr. Udunna Anazodo</h3>
+                  <span class="contributor-role">Lead Investigator & Neuroscientist</span>
+                  <span class="contributor-affiliation">The Neuro (Montreal Neurological Institute), McGill University</span>
+                  <p class="contributor-bio">Dr. Anazodo leads the IMAGINE initiative. Her research focuses on making MRI technology globally accessible and sustainable, particularly for underserved populations in Sub-Saharan Africa and beyond.</p>
+                </div>
+                
+                <div class="contributor-profile-card">
+                  <h3 class="contributor-name">Maureen Nayebare</h3>
+                  <span class="contributor-role">Lead Researcher & Workshop Instructor</span>
+                  <span class="contributor-affiliation">McGill University / CAMERA</span>
+                  <p class="contributor-bio">Maureen has led multiple hands-on construction and training workshops across Montreal (MNI, Douglas, MGH, Polytechnique). Her work spans RF coil prototyping and open science education.</p>
+                </div>
+                
+                <div class="contributor-profile-card">
+                  <h3 class="contributor-name">Marina Fernández-García</h3>
+                  <span class="contributor-role">RF Systems Engineer</span>
+                  <span class="contributor-affiliation">CAMERA / European Collaborators</span>
+                  <p class="contributor-bio">Specializes in radiofrequency hardware design, tuning, matching, and active transmit-receive switch development for low-field MR applications.</p>
+                </div>
+                
+                <div class="contributor-profile-card">
+                  <h3 class="contributor-name">Haile B. Kassahun</h3>
+                  <span class="contributor-role">Electromagnetics & Gradient Optimization Engineer</span>
+                  <span class="contributor-affiliation">Mbarara University of Science and Technology</span>
+                  <p class="contributor-bio">Author of gradient design research. Focuses on wire optimization and CAD modeling of gradient formers using finite element methods.</p>
+                </div>
+                
+                <div class="contributor-profile-card">
+                  <h3 class="contributor-name">Guillermo Sahonero-Alvarez</h3>
+                  <span class="contributor-role">MR Physics & Systems Integration Developer</span>
+                  <span class="contributor-affiliation">CAMERA / South American Partners</span>
+                  <p class="contributor-bio">Responsible for pulse sequence programming and hardware-software system integration on the MaRCoS platform.</p>
+                </div>
+                
+                <div class="contributor-profile-card">
+                  <h3 class="contributor-name">Sipan Hovsepian</h3>
+                  <span class="contributor-role">Robotics & Automation Developer</span>
+                  <span class="contributor-affiliation">The Neuro, McGill University</span>
+                  <p class="contributor-bio">Developer of the automated three-axis magnetic field mapping robot (Field Mapper Robot) used for B0 field homogenization and shimming.</p>
+                </div>
+                
+                <div class="contributor-profile-card">
+                  <h3 class="contributor-name">Timon Machtelinckx</h3>
+                  <span class="contributor-role">Magnet Designer & GA Developer</span>
+                  <span class="contributor-affiliation">CAMERA / European Partners</span>
+                  <p class="contributor-bio">Developer of the Halbach Array Genetic Algorithm optimization code, enabling automated optimization of ring arrays for homogeneous field profiles.</p>
+                </div>
+                
+                <div class="contributor-profile-card">
+                  <h3 class="contributor-name">Dr. Johnes Obungoloch</h3>
+                  <span class="contributor-role">Senior Biomedical Engineer & Advisor</span>
+                  <span class="contributor-affiliation">Mbarara University of Science and Technology (MUST), Uganda</span>
+                  <p class="contributor-bio">A key CAMERA member who has co-led on-site educational workshops in Uganda, supporting hardware replication and training programs.</p>
+                </div>
+                
+                <div class="contributor-profile-card">
+                  <h3 class="contributor-name">Stefan du Plessis</h3>
+                  <span class="contributor-role">Biomedical Systems Coordinator</span>
+                  <span class="contributor-affiliation">CAMERA / South African Collaborators</span>
+                  <p class="contributor-bio">Organizes training workshops and oversees system assembly verification in South African partner sites.</p>
+                </div>
+                
+    </div>
+  </section>
+
+  <!-- Supporting Institutions -->
+  <section class="contributors-grid-section" style="margin-top: 4rem;">
+    <h2 class="section-card-title"><i class="fa-solid fa-building-columns"></i> Supporting Institutions & Partners</h2>
+    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">The IMAGINE project is made possible through the generous support, collaboration, and resources of these international organizations:</p>
+    
+    <div class="partners-row-grid">
+      
+                <div class="partner-logo-card">
+                  <h4 class="partner-name-h4">CAMERA</h4>
+                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">Consortium for Advancement of MRI Education and Research in Africa</span>
+                  <p class="partner-desc">A consortium dedicated to establishing sustainable MRI training, research, and clinical resources across Africa.</p>
+                  <a href="https://www.camera-mri.org" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+                <div class="partner-logo-card">
+                  <h4 class="partner-name-h4">The Neuro</h4>
+                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">Montreal Neurological Institute-Hospital, McGill University</span>
+                  <p class="partner-desc">A world-leading academic medical center dedicated to neuroscience research and advanced brain imaging.</p>
+                  <a href="https://www.mcgill.ca/neuro" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+                <div class="partner-logo-card">
+                  <h4 class="partner-name-h4">OSII</h4>
+                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">Open Source Imaging Initiative</span>
+                  <p class="partner-desc">An international coalition promoting open-source medical imaging, creating standardized, freely available designs.</p>
+                  <a href="https://www.opensourceimaging.org" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+                <div class="partner-logo-card">
+                  <h4 class="partner-name-h4">RAD-AID International</h4>
+                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">RAD-AID International</span>
+                  <p class="partner-desc">A non-profit organization optimizing radiology resources in low-resource regions through education and technology.</p>
+                  <a href="https://www.rad-aid.org" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+                <div class="partner-logo-card">
+                  <h4 class="partner-name-h4">Polytechnique Montréal</h4>
+                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">Polytechnique Montréal</span>
+                  <p class="partner-desc">A prestigious engineering school in Montreal, hosting research on low-field MRI development and training.</p>
+                  <a href="https://www.polymtl.ca" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+                <div class="partner-logo-card">
+                  <h4 class="partner-name-h4">Douglas Research Centre</h4>
+                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">Douglas Mental Health University Institute</span>
+                  <p class="partner-desc">Affiliated with McGill University, helping lead local replications and educational MRI builds.</p>
+                  <a href="https://douglas.research.mcgill.ca" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+                <div class="partner-logo-card">
+                  <h4 class="partner-name-h4">ISMRM</h4>
+                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">International Society for Magnetic Resonance in Medicine</span>
+                  <p class="partner-desc">The premier global society for MR physics and clinical development, hosting training workshops.</p>
+                  <a href="https://www.ismrm.org" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+                <div class="partner-logo-card">
+                  <h4 class="partner-name-h4">ESMRMB</h4>
+                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">European Society for Magnetic Resonance in Medicine and Biology</span>
+                  <p class="partner-desc">Leading European medical physics society, sponsoring pre-congress educational scanner build sessions.</p>
+                  <a href="https://www.esmrmb.org" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+    </div>
+  </section>
+
+  <!-- Compliance Checklist -->
+  <section class="compliance-section" style="margin-top: 4rem;">
+    <h2 class="section-card-title"><i class="fa-solid fa-square-check"></i> OSI² Standard Compliance</h2>
+    <div class="compliance-checklist-container">
+  <div class="checklist-header">
+    <div class="score-card">
+      <span class="score-number">10 <small>/ 17</small></span>
+      <span class="score-label">OSI² Hardware Score</span>
+    </div>
+    <div class="compliance-summary">
+      <h3>OSI² CAB Review Checklist</h3>
+      <p>This checklist tracks compliance with the Open Source Imaging Initiative (OSI²) hardware documentation best practices. It helps ensure that researchers and engineers globally can replicate the scanner designs reliably.</p>
+    </div>
+  </div>
+
+  <div class="checklist-groups-wrapper">
+    
+    <!-- Readme -->
+    <div class="checklist-category-card">
+      <h4 class="category-title"><i class="fa-solid fa-book-open"></i> 1. Readme & Documentation</h4>
+      <ul class="checklist-items">
+        <li class="checked">
+          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+          <div class="item-details">
+            <span class="item-name">README File Available (1 point)</span>
+            <span class="item-desc">Project description is clearly documented in the repository.</span>
+          </div>
+        </li>
+        <li class="checked">
+          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+          <div class="item-details">
+            <span class="item-name">Design Considerations Explained (1 point)</span>
+            <span class="item-desc">Detailed design objectives, bore diameter, and magnet configurations are explained.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- BOM -->
+    <div class="checklist-category-card">
+      <h4 class="category-title"><i class="fa-solid fa-list-check"></i> 2. Bill of Materials</h4>
+      <ul class="checklist-items">
+        <li class="checked">
+          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+          <div class="item-details">
+            <span class="item-name">BoM Provided (1 point)</span>
+            <span class="item-desc">BOM files are available with complete lists of electronic, RF, and magnet components.</span>
+          </div>
+        </li>
+        <li class="checked">
+          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+          <div class="item-details">
+            <span class="item-name">BoM Best Practices Compliant (1 point)</span>
+            <span class="item-desc">Includes links to DigiKey/Amazon, pricing estimation, and vendor references.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Source Files -->
+    <div class="checklist-category-card">
+      <h4 class="category-title"><i class="fa-solid fa-folder-open"></i> 3. Source & Native CAD Files</h4>
+      <ul class="checklist-items">
+        <li class="checked">
+          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+          <div class="item-details">
+            <span class="item-name">Native Source Files Available (1 point)</span>
+            <span class="item-desc">Autodesk Inventor (.ipt, .iam) and CAD source files are available in the repository.</span>
+          </div>
+        </li>
+        <li class="checked">
+          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+          <div class="item-details">
+            <span class="item-name">Editable with Open-Source Software (1 point)</span>
+            <span class="item-desc">Files are exportable and editable in FreeCAD / OpenSCAD, and circuits in KiCAD.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Production Files -->
+    <div class="checklist-category-card">
+      <h4 class="category-title"><i class="fa-solid fa-microchip"></i> 4. Production & Fabrication Files</h4>
+      <ul class="checklist-items">
+        <li class="checked">
+          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+          <div class="item-details">
+            <span class="item-name">Accessible Exports Available (1 point)</span>
+            <span class="item-desc">STEP/STP and 3D printing STL files are provided for direct printing of the magnet rings and RF coil.</span>
+          </div>
+        </li>
+        <li class="unchecked">
+          <span class="check-icon"><i class="fa-solid fa-circle-xmark"></i></span>
+          <div class="item-details">
+            <span class="item-name">Manufacturing Environment Defined (0 points)</span>
+            <span class="item-desc">Specific machine/printer settings (infill, filament types, layer height) are currently undefined.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Assembly -->
+    <div class="checklist-category-card">
+      <h4 class="category-title"><i class="fa-solid fa-screwdriver-wrench"></i> 5. Assembly Guidance</h4>
+      <ul class="checklist-items">
+        <li class="checked">
+          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+          <div class="item-details">
+            <span class="item-name">Assembly Guide Available (1 point)</span>
+            <span class="item-desc">Step-by-step instructions are provided, supplemented by assembly guide animation videos.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Development Tracking -->
+    <div class="checklist-category-card">
+      <h4 class="category-title"><i class="fa-solid fa-code-fork"></i> 6. Development Tracking & Community</h4>
+      <ul class="checklist-items">
+        <li class="checked">
+          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+          <div class="item-details">
+            <span class="item-name">Versioning Scheme Implemented (1 point)</span>
+            <span class="item-desc">A GitHub Git repository tracks all design changes and history.</span>
+          </div>
+        </li>
+        <li class="unchecked">
+          <span class="check-icon"><i class="fa-solid fa-circle-xmark"></i></span>
+          <div class="item-details">
+            <span class="item-name">Public Issue Tracking (0 points)</span>
+            <span class="item-desc">GitHub Issues are not yet utilized actively for bug reports and enhancements.</span>
+          </div>
+        </li>
+        <li class="unchecked">
+          <span class="check-icon"><i class="fa-solid fa-circle-xmark"></i></span>
+          <div class="item-details">
+            <span class="item-name">Public Communication Space (0 points)</span>
+            <span class="item-desc">A forum, Slack/Discord workspace, or open email list is not yet linked for developer-user exchange.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Testing -->
+    <div class="checklist-category-card">
+      <h4 class="category-title"><i class="fa-solid fa-flask"></i> 7. Testing & Verification</h4>
+      <ul class="checklist-items">
+        <li class="checked">
+          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+          <div class="item-details">
+            <span class="item-name">Testing Routines Available (1 point)</span>
+            <span class="item-desc">Calibration procedures are provided, such as RF Switch VNA measurements and RF Coil tuning guides.</span>
+          </div>
+        </li>
+        <li class="unchecked">
+          <span class="check-icon"><i class="fa-solid fa-circle-xmark"></i></span>
+          <div class="item-details">
+            <span class="item-name">Testing Routines Complete (0 points)</span>
+            <span class="item-desc">Detailed testing guides for the control system enclosure and GPA-FHDO are still in development.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Use -->
+    <div class="checklist-category-card">
+      <h4 class="category-title"><i class="fa-solid fa-user-gear"></i> 8. Use & Safety</h4>
+      <ul class="checklist-items">
+        <li class="unchecked">
+          <span class="check-icon"><i class="fa-solid fa-circle-xmark"></i></span>
+          <div class="item-details">
+            <span class="item-name">User Manual (0 points)</span>
+            <span class="item-desc">A complete end-user manual for running preclinical scans is not yet published.</span>
+          </div>
+        </li>
+        <li class="unchecked">
+          <span class="check-icon"><i class="fa-solid fa-circle-xmark"></i></span>
+          <div class="item-details">
+            <span class="item-name">Risk Assessment & Safety Notice (0 points)</span>
+            <span class="item-desc">Safety notices concerning high magnetic fields (B0) and RF power have not yet been formalised.</span>
+          </div>
+        </li>
+        <li class="checked">
+          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+          <div class="item-details">
+            <span class="item-name">Replication History Documented (1 point)</span>
+            <span class="item-desc">Success stories of independent builds (ERNIE 1 and ERNIE 2) are documented in detail.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+  </section>
+</div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-main-footer">
+  <div class="footer-sections-grid">
+    
+    <!-- Left Column: Mission -->
+    <div class="footer-col-desc">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-earth-africa"></i> IMAGINE Project</h3>
+      <p class="footer-para-text">
+        An open-source preclinical MRI initiative of the Consortium for Advancement of MRI Education and Research in Africa (CAMERA). Sustaining diagnostic health equity globally.
+      </p>
+    </div>
+
+    <!-- Center Column: Standards & Licensing -->
+    <div class="footer-col-licensing">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-scale-balanced"></i> Open Science Compliance</h3>
+      <p class="footer-para-text">
+        All hardware files are released under open-source hardware licenses. This project is developed to satisfy the requirements of the <strong>Open Source Imaging Initiative (OSI²)</strong>.
+      </p>
+    </div>
+
+    <!-- Right Column: Navigation and Quick links -->
+    <div class="footer-col-nav">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-link"></i> Navigation</h3>
+      <ul class="footer-links-list">
+        <li><a href="/IMAGINE/">Home</a></li>
+        <li><a href="/IMAGINE/about/">About Us & Team</a></li>
+        <li><a href="/IMAGINE/scanners/">Scanner Resources</a></li>
+        <li><a href="/IMAGINE/events/">Workshops & Events</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom-bar">
+    <div class="bottom-bar-content">
+      <span class="copyright-span">© 2026 CAMERA-MRI Consortium. Released under CERN OHL-W v2 / CC BY-SA 4.0.</span>
+      <span class="terms-span"><a href="#">Terms & Conditions</a> | <a href="https://www.opensourceimaging.org/" target="_blank">OSI² Portal</a></span>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/IMAGINE/assets/js/interaction.js"></script>
+</body>
+</html>

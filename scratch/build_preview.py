@@ -6,7 +6,7 @@ import yaml
 import markdown
 
 WORKSPACE = r"c:\Users\gswr\OneDrive\GitHub\camera.github.io-imagine\IMAGINE"
-SITE_DIR = os.path.join(WORKSPACE, "_site")
+SITE_DIR = os.path.join(WORKSPACE, "_site", "IMAGINE")
 
 def load_yaml(filepath):
     if not os.path.exists(filepath):

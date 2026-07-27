@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- MathJax for LaTeX Equations -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/IMAGINE/assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation & Header Header -->
+  <header class="gradient-header-banner">
+  <div class="header-logo-container">
+    <div class="logo-circle">
+      <i class="fa-solid fa-brain text-gradient"></i>
+    </div>
+    <div class="header-titles">
+      <h1 class="site-main-title">IMAGINE</h1>
+      <span class="site-tagline-text">Imaging Without Borders</span>
+    </div>
+  </div>
+  
+  <nav class="pill-navigation-menu">
+    <a href="/IMAGINE/" class="nav-pill-btn {% if page.url == '/' %}active{% endif %}">
+      <i class="fa-solid fa-house"></i> Home
+    </a>
+    <a href="/IMAGINE/about/" class="nav-pill-btn {% if page.url contains '/about/' %}active{% endif %}">
+      <i class="fa-solid fa-users"></i> About Us
+    </a>
+    <a href="/IMAGINE/scanners/" class="nav-pill-btn {% if page.url contains '/scanners/' %}active{% endif %}">
+      <i class="fa-solid fa-microchip"></i> Scanners
+    </a>
+    <a href="/IMAGINE/events/" class="nav-pill-btn {% if page.url contains '/events/' %}active{% endif %}">
+      <i class="fa-solid fa-calendar-check"></i> Events
+    </a>
+  </nav>
+</header>
+
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+    {% assign scanner_components = site.components | where: "scanner_id", page.scanner_id %}
+
+<div class="scanner-page-container">
+  <div class="page-title-banner">
+    <h1 class="page-main-title">ERNIE Scanner Explorer</h1>
+    <p class="page-subtitle">Select nodes on the 3D magnet stack or mapping robot schematic below to examine their components, bill of materials, printable files, and assembly guides.</p>
+  </div>
+
+  <div class="scanner-dashboard">
+    <!-- Left Panel: Subsystem Selector and Interactive Diagram Map -->
+    <div class="dashboard-visual-column">
+      
+      <!-- Subsystem Selector Tabs -->
+      <div class="subsystem-selector-tabs">
+        {% if page.scanner_id == 'imagine' %}
+          <button class="subsystem-tab-btn active" data-subsystem="control">
+            <i class="fa-solid fa-microchip"></i> Control System
+          </button>
+          <button class="subsystem-tab-btn" data-subsystem="gradient">
+            <i class="fa-solid fa-wave-square"></i> Gradient Circuit
+          </button>
+          <button class="subsystem-tab-btn" data-subsystem="rf">
+            <i class="fa-solid fa-tower-broadcast"></i> RF Circuit
+          </button>
+        {% else %}
+          <button class="subsystem-tab-btn active" data-subsystem="magnet">
+            <i class="fa-solid fa-magnet"></i> Magnet Array
+          </button>
+          <button class="subsystem-tab-btn" data-subsystem="robot">
+            <i class="fa-solid fa-robot"></i> Field Mapping Robot
+          </button>
+        {% endif %}
+      </div>
+
+      <!-- Diagram Canvas Area -->
+      <div class="interactive-diagram-canvas">
+        <p class="canvas-instruction-text"><i class="fa-solid fa-hand-pointer animate-bounce"></i> Click any block in the schematic below to explore its details</p>
+        
+        <!-- Interactive SVGs based on Scanner ID -->
+        {% if page.scanner_id == 'imagine' %}
+          
+          <!-- Control System Schematic -->
+          <div class="schematic-view active" id="schematic-control">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <!-- Grid background -->
+              <defs>
+                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                </pattern>
+                <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#1b4332" />
+                  <stop offset="100%" stop-color="#0f241a" />
+                </linearGradient>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Connection Lines -->
+              <path d="M 150 150 L 250 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 370 150 L 470 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              
+              <!-- Nodes -->
+              <!-- Computer -->
+              <g class="interactive-node" data-component-id="computer" transform="translate(40, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-desktop node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="85" class="node-text">Host PC (MARGE)</text>
+              </g>
+              <!-- RedPitaya -->
+              <g class="interactive-node" data-component-id="redpitaya" transform="translate(250, 95)">
+                <rect width="120" height="110" rx="8" class="node-rect" />
+                <text x="60" y="45" class="node-icon">🍓</text>
+                <text x="60" y="85" class="node-text">RedPitaya (SDR)</text>
+              </g>
+              <!-- MaRCoS Enclosure -->
+              <g class="interactive-node" data-component-id="marcos-enclosure" transform="translate(470, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-box-open node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="85" class="node-text">MaRCoS Box</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Gradient Circuit Schematic -->
+          <div class="schematic-view" id="schematic-gradient">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Connection Lines -->
+              <path d="M 130 150 L 190 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 310 150 L 370 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 470 150 L 510 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              
+              <!-- Nodes -->
+              <!-- RedPitaya GPA Adapter -->
+              <g class="interactive-node" data-component-id="rp-gpa-adapter" transform="translate(20, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-circle-nodes node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="80" class="node-text">RP GPA</text>
+                <text x="55" y="95" class="node-text">Adapter Board</text>
+              </g>
+              <!-- GPA-FHDO -->
+              <g class="interactive-node" data-component-id="gpa-fhdo" transform="translate(190, 95)">
+                <rect width="120" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-bolt-lightning node-icon-fa" style="transform: translate(45px, 35px);"></i>
+                <text x="60" y="85" class="node-text">GPA FHDO Amp</text>
+              </g>
+              <!-- Filter Schaffner -->
+              <g class="interactive-node" data-component-id="gradient-filter" transform="translate(370, 95)">
+                <rect width="100" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-filter node-icon-fa" style="transform: translate(35px, 35px);"></i>
+                <text x="50" y="85" class="node-text">Low-Pass Filter</text>
+              </g>
+              <!-- Gradient Coils -->
+              <g class="interactive-node" data-component-id="gradients" transform="translate(510, 95)">
+                <rect width="80" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-spiral node-icon-fa" style="transform: translate(25px, 35px);"></i>
+                <text x="40" y="80" class="node-text">Gradient</text>
+                <text x="40" y="95" class="node-text">Coils</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- RF Circuit Schematic -->
+          <div class="schematic-view" id="schematic-rf">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Connection Lines TX path -->
+              <path d="M 120 100 L 170 100" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 270 100 L 320 100" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <!-- TxRx Switch to Coil path -->
+              <path d="M 430 150 L 510 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <!-- RX path switch to LNA -->
+              <path d="M 380 200 L 380 230 L 270 230" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 170 230 L 70 230 L 70 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+
+              <!-- Nodes -->
+              <!-- RedPitaya RF Port -->
+              <g class="interactive-node" data-component-id="redpitaya-rf" transform="translate(20, 50)">
+                <rect width="100" height="90" rx="8" class="node-rect" />
+                <i class="fa-solid fa-microchip node-icon-fa" style="transform: translate(35px, 25px);"></i>
+                <text x="50" y="70" class="node-text">RedPitaya RF</text>
+              </g>
+              <!-- RFPA -->
+              <g class="interactive-node" data-component-id="rfpa" transform="translate(170, 50)">
+                <rect width="100" height="90" rx="8" class="node-rect" />
+                <i class="fa-solid fa-gauge-high node-icon-fa" style="transform: translate(35px, 25px);"></i>
+                <text x="50" y="70" class="node-text">RF Power Amp</text>
+              </g>
+              <!-- TxRx Switch -->
+              <g class="interactive-node" data-component-id="tx-rx-switch" transform="translate(320, 100)">
+                <rect width="110" height="100" rx="8" class="node-rect" />
+                <i class="fa-solid fa-toggle-on node-icon-fa" style="transform: translate(40px, 30px);"></i>
+                <text x="55" y="80" class="node-text">Tx/Rx Switch</text>
+              </g>
+              <!-- LNA -->
+              <g class="interactive-node" data-component-id="lna" transform="translate(170, 185)">
+                <rect width="100" height="90" rx="8" class="node-rect" />
+                <i class="fa-solid fa-signal node-icon-fa" style="transform: translate(35px, 25px);"></i>
+                <text x="50" y="70" class="node-text">LNA Amp</text>
+              </g>
+              <!-- RF Coil -->
+              <g class="interactive-node" data-component-id="rf-coil" transform="translate(510, 100)">
+                <rect width="80" height="100" rx="8" class="node-rect" />
+                <i class="fa-solid fa-ring node-icon-fa" style="transform: translate(25px, 30px);"></i>
+                <text x="40" y="80" class="node-text">RF Coil</text>
+              </g>
+            </svg>
+          </div>
+
+        {% else %}
+          
+          <!-- ERNIE Magnet Schematic -->
+          <div class="schematic-view active" id="schematic-magnet">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Magnet Ring Array drawings -->
+              <g transform="translate(100, 75)">
+                <!-- Axis lines -->
+                <line x1="-50" y1="100" x2="450" y2="100" stroke="rgba(255,255,255,0.2)" stroke-dasharray="4,4" />
+                <line x1="200" y1="-50" x2="200" y2="250" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2" />
+                
+                <!-- Connection rods -->
+                <rect x="-10" y="5" width="420" height="4" fill="#a0a0a0" />
+                <rect x="-10" y="191" width="420" height="4" fill="#a0a0a0" />
+
+                <!-- Rings stack -->
+                <!-- Ring 10 back -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(0, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 10B</text>
+                </g>
+                <!-- Ring 945 -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(50, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 945</text>
+                </g>
+                <!-- Ring 1 -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(100, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 1</text>
+                </g>
+                <!-- Ring 842 (Center) -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(150, 10)">
+                  <rect x="0" y="0" width="40" height="180" rx="4" class="node-rect-highlight" fill="#c5a059" />
+                  <text x="20" y="95" transform="rotate(-90 20 95)" class="node-text" fill="#000" style="font-weight:bold; font-size:10px;">Ring 842</text>
+                </g>
+                <!-- Ring 0 -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(210, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 0</text>
+                </g>
+                <!-- Ring 1050 -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(260, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 1050</text>
+                </g>
+                <!-- Ring 10 (Front) -->
+                <g class="interactive-node" data-component-id="ernie-magnet-rings" transform="translate(310, 10)">
+                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 10</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <!-- ERNIE Robot Schematic -->
+          <div class="schematic-view" id="schematic-robot">
+            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Connection Lines -->
+              <path d="M 130 150 L 220 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              <path d="M 330 150 L 420 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+              
+              <!-- Nodes -->
+              <!-- Robot MCU -->
+              <g class="interactive-node" data-component-id="robot-controller" transform="translate(20, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-microchip node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="85" class="node-text">Arduino Mega</text>
+              </g>
+              <!-- Robot Drivers & Steppers -->
+              <g class="interactive-node" data-component-id="robot-actuators" transform="translate(220, 95)">
+                <rect width="110" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-gears node-icon-fa" style="transform: translate(40px, 35px);"></i>
+                <text x="55" y="85" class="node-text">Steppers & Drivers</text>
+              </g>
+              <!-- Robot Mechanical Stage -->
+              <g class="interactive-node" data-component-id="robot-mechanics" transform="translate(420, 95)">
+                <rect width="120" height="110" rx="8" class="node-rect" />
+                <i class="fa-solid fa-up-down-left-right node-icon-fa" style="transform: translate(45px, 35px);"></i>
+                <text x="60" y="85" class="node-text">3-Axis Gantry</text>
+              </g>
+            </svg>
+          </div>
+
+        {% endif %}
+      </div>
+      
+      <!-- Component Sidebar List (Synchronized with Map clicks) -->
+      <div class="component-list-sidebar">
+        <h3 class="sidebar-title">Components List</h3>
+        <div class="sidebar-buttons-grid">
+          
+            <button class="sidebar-node-btn" data-component-id="ernie-7-ring-halbach-magnet" data-subsystem="magnet">
+              ERNIE 7-Ring Halbach Magnet
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="field-mapping-robot" data-subsystem="robot">
+              Field Mapping Robot
+            </button>
+            
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Panel: Interactive Documentation Card -->
+    <div class="dashboard-docs-column">
+      <div class="docs-card-panel">
+        
+        
+            <div class="component-detail-view" id="details-ernie-7-ring-halbach-magnet" data-subsystem="magnet">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">MAGNET</span>
+                <h2 class="detail-title">ERNIE 7-Ring Halbach Magnet</h2>
+                <p class="detail-short-desc">The primary B0 field source for the ERNIE scanner: a 7-ring, 50 mT Halbach array optimized for a homogeneous bore field.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button><button class="section-tab-btn" data-section="downloads"><i class="fa-solid fa-download"></i> CAD / STL</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><p>The magnet is the heart of the ERNIE educational scanner. It is a 7-ring Halbach magnet array that produces an ultra-low-field of approximately 50 mT. The design leverages genetic algorithm optimization to define the magnet placements and ring spacings, creating a homogeneous field without the need for complex, heavy electromagnetic coils.</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>Neodymium Magnets (N48, 12x12x12mm)</strong></td>
+                      <td class="part-qty">98</td>
+                      <td class="part-price">Approx. $2.50 each</td>
+                      <td class="part-link"><a href="https://www.supermagnete.de/" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>M4 Threaded Brass Rods (262mm long)</strong></td>
+                      <td class="part-qty">8</td>
+                      <td class="part-price">$1.50 each</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>M3x8mm Screws (to fasten lids)</strong></td>
+                      <td class="part-qty">125</td>
+                      <td class="part-price">$5.00 pack</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>M4 Hex Nuts (spacing adjustment)</strong></td>
+                      <td class="part-qty">160</td>
+                      <td class="part-price">$4.00 pack</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>M4 Dome Nuts</strong></td>
+                      <td class="part-qty">16</td>
+                      <td class="part-price">$3.00 pack</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>M4 Nylon Washers</strong></td>
+                      <td class="part-qty">16</td>
+                      <td class="part-price">$2.00 pack</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Ring 42 (105mm_length ).stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Ring 42 STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Ring 251.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Ring 251 STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Ring 288.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Ring 288 STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Ring 321 (105mm_length).stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Ring 321 STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Ring_spacers.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Ring Spacers STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Lid_For_Ring_42.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Lid for Ring 42 STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Lid_For_Ring_321.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Lid for Ring 321 STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                <div class="video-player-container">
+                  <video controls class="assembly-video">
+                    <source src="/IMAGINE/ERNIE/Build your own Design/Magnet/Instructions/Animation/Assembly_Animation.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
+                </div>
+                
+                    <div class="guide-steps-list"><h4>Phase 1: 3D Printing &amp; Prep</h4>
+<ol>
+<li>Print the 7 housing rings (Rings 42, 251, 288, 321, etc.) and matching lids.</li>
+<li>Prepare 8 M4 brass rods, cut to exactly 262mm.</li>
+</ol>
+<h4>Phase 2: Magnet Insertion</h4>
+<ol>
+<li>Carefully slide the 12x12x12mm neodymium magnets into the ring slots.</li>
+<li><strong>WARNING</strong>: Magnets must be placed in their exact Halbach orientations. Check polarity before locking!</li>
+<li>Secure the lids onto each ring using M3x8mm screws.</li>
+</ol>
+<h4>Phase 3: Ring Stacking</h4>
+<ol>
+<li>Stack the rings along the 8 brass rods in a mirrored fashion.</li>
+<li>Ring 842 acts as the central ring. Stack the others on either side symmetrically: 842 -&gt; 1 -&gt; 0 -&gt; 10 on one side, and 842 -&gt; 945 -&gt; 1050 -&gt; 10B on the other.</li>
+<li>All rings must face the same direction (magnet-side forward).</li>
+<li>Secure spacer rings in between to establish the correct axial spacing.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>B0 Field Homogeneity Mapping</h4>
+<ol>
+<li>Position the assembled magnet array on a flat, non-magnetic surface.</li>
+<li>Assemble the 3-axis Field Mapping Robot and position its Hall probe at the geometric center of the bore.</li>
+<li>Run the mapping script to measure the B0 field.</li>
+<li>Calculate homogeneity (expected: ~50 mT +/- 100 ppm over the target DSV).</li>
+<li>If necessary, insert custom shimming magnets into the shim trays to adjust homogeneity.</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="component-detail-view" id="details-field-mapping-robot" data-subsystem="robot">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">ROBOT</span>
+                <h2 class="detail-title">Field Mapping Robot</h2>
+                <p class="detail-short-desc">A automated 3-axis translation stage driven by stepper motors and programmed to profile the magnet's field homogeneity.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button><button class="section-tab-btn" data-section="downloads"><i class="fa-solid fa-download"></i> CAD / STL</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><p>The <strong>Field Mapping Robot</strong> is an essential part of the ERNIE educational toolkit. To achieve high-contrast MR imaging, the magnetic field must be extremely homogeneous. The robot automates the tedious task of measuring the magnetic field in 3D space, logging the data to a host computer where shimming algorithms calculate the required shim magnet correction configurations.</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>Arduino Mega 2560 Board</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$74.72</td>
+                      <td class="part-link"><a href="https://www.amazon.ca/Arduino-A000067-ARDUINO-MEGA2560-REVISION/dp/B0046AMGW0" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>NEMA 17 Stepper Motors</strong></td>
+                      <td class="part-qty">3</td>
+                      <td class="part-price">$35.00</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>A4988 Stepper Motor Driver Boards</strong></td>
+                      <td class="part-qty">3</td>
+                      <td class="part-price">$10.00</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Power Supply for the Robot (12V 5A)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$23.00</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Jumper Wires & Breadboard Pack</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$23.00</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Hall Effect Probe (e.g. Lakeshore or custom)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">Varies</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      
+                    <a href="/IMAGINEhttps://github.com/SipanHovsep/Field_mapper_robot" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Sipan's Robot Repository</span>
+                        <span class="file-ext">COM/SIPANHOVSEP/FIELD_MAPPER_ROBOT File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                <div class="video-player-container">
+                  <video controls class="assembly-video">
+                    <source src="/IMAGINE/ERNIE/Build your own Design/Robot/Robot introductory video/ernie_robot_intro.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
+                </div>
+                
+                    <div class="guide-steps-list"><h4>Phase 1: Gantry Assembly</h4>
+<ol>
+<li>Print the 3-axis slider parts (X, Y, Z translation mounts) in PLA or PETG.</li>
+<li>Assemble the smooth rods and lead screws on the gantry frame.</li>
+<li>Mount the three NEMA 17 stepper motors onto the linear stages.</li>
+</ol>
+<h4>Phase 2: Electronics Wiring</h4>
+<ol>
+<li>Mount the A4988 drivers onto the Arduino CNC shield or wire directly on a breadboard.</li>
+<li>Connect the stepper motor coils to the driver outputs.</li>
+<li>Connect the stepper drivers' STEP and DIR pins to the designated digital outputs on the Arduino Mega.</li>
+<li>Wire the 12V power supply to the driver power rails.</li>
+</ol>
+<h4>Phase 3: Firmware Upload</h4>
+<ol>
+<li>Clone the firmware repository: <a href="https://github.com/SipanHovsep/Field_mapper_robot">Field Mapper Robot Repository</a>.</li>
+<li>Upload the Arduino stepper driver control sketch using the Arduino IDE.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>Robot Calibration and Hall Probe Verification</h4>
+<ol>
+<li>Power on the robot and verify that each axis moves smoothly without binding.</li>
+<li>Perform axis homing commands and measure actual travel distance against commanded steps.</li>
+<li>Wire the Hall probe to the analog/digital read pins.</li>
+<li>Run a 1D scan sweep along the Z-axis (through the center of the magnet bore) and compare the readings to the expected Halbach field curve.</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+                  </div>
+                </div>
+              {% endif %}
+
+              <!-- Downloads Tab -->
+              {% if comp.downloads %}
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      {% for file in comp.downloads %}
+                        <a href="/IMAGINE{{ file.path }}" download class="download-card">
+                          <div class="download-card-icon">
+                            {% if file.path contains '.stl' %}
+                              <i class="fa-solid fa-cube text-primary"></i>
+                            {% elsif file.path contains '.step' or file.path contains '.stp' or file.path contains '.ipt' or file.path contains '.iam' %}
+                              <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                            {% else %}
+                              <i class="fa-solid fa-file-lines"></i>
+                            {% endif %}
+                          </div>
+                          <div class="download-card-info">
+                            <span class="file-title">{{ file.name }}</span>
+                            <span class="file-ext">{{ file.path | split: '.' | last | upcase }} File</span>
+                          </div>
+                          <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                        </a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+
+              <!-- Assembly Tab -->
+              <div class="tab-sheet-content" data-section="assembly">
+                <div class="sheet-article">
+                  <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                  
+                  {% if comp.video_url %}
+                    <div class="video-player-container">
+                      <video controls class="assembly-video">
+                        <source src="/IMAGINE{{ comp.video_url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                      <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
+                    </div>
+                  {% endif %}
+
+                  <div class="guide-steps-list">
+                    {{ comp.assembly_guide | markdownify }}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testing Tab -->
+              <div class="tab-sheet-content" data-section="testing">
+                <div class="sheet-article">
+                  <h3 class="sheet-sub-title">Testing & Verification</h3>
+                  <div class="guide-steps-list">
+                    {{ comp.testing_guide | markdownify }}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-main-footer">
+  <div class="footer-sections-grid">
+    
+    <!-- Left Column: Mission -->
+    <div class="footer-col-desc">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-earth-africa"></i> IMAGINE Project</h3>
+      <p class="footer-para-text">
+        An open-source preclinical MRI initiative of the Consortium for Advancement of MRI Education and Research in Africa (CAMERA). Sustaining diagnostic health equity globally.
+      </p>
+    </div>
+
+    <!-- Center Column: Standards & Licensing -->
+    <div class="footer-col-licensing">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-scale-balanced"></i> Open Science Compliance</h3>
+      <p class="footer-para-text">
+        All hardware files are released under open-source hardware licenses. This project is developed to satisfy the requirements of the <strong>Open Source Imaging Initiative (OSI²)</strong>.
+      </p>
+    </div>
+
+    <!-- Right Column: Navigation and Quick links -->
+    <div class="footer-col-nav">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-link"></i> Navigation</h3>
+      <ul class="footer-links-list">
+        <li><a href="/IMAGINE/">Home</a></li>
+        <li><a href="/IMAGINE/about/">About Us & Team</a></li>
+        <li><a href="/IMAGINE/scanners/">Scanner Resources</a></li>
+        <li><a href="/IMAGINE/events/">Workshops & Events</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom-bar">
+    <div class="bottom-bar-content">
+      <span class="copyright-span">© 2026 CAMERA-MRI Consortium. Released under CERN OHL-W v2 / CC BY-SA 4.0.</span>
+      <span class="terms-span"><a href="#">Terms & Conditions</a> | <a href="https://www.opensourceimaging.org/" target="_blank">OSI² Portal</a></span>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/IMAGINE/assets/js/interaction.js"></script>
+</body>
+</html>
