@@ -4,13 +4,24 @@ title: "About Us & Team"
 description: "Meet the researchers, developers, and supporting institutions behind the IMAGINE open-source MRI project."
 ---
 <div class="content-page-container">
+  
+  <!-- Floating Section Navigation -->
+  <nav class="about-floating-menu" id="about-nav-menu">
+    <a href="#contributors-section" class="menu-item active" data-target="contributors-section">
+      <i class="fa-solid fa-users"></i> <span>Contributors</span>
+    </a>
+    <a href="#institutions-section" class="menu-item" data-target="institutions-section">
+      <i class="fa-solid fa-earth-americas"></i> <span>Partners</span>
+    </a>
+  </nav>
+
   <div class="page-title-banner">
     <h1 class="page-main-title">About the IMAGINE Team</h1>
     <p class="page-subtitle">A global network of neuroscientists, physicists, and engineers collaborating to democratize MRI hardware education and development.</p>
   </div>
 
   <!-- Contributor Team Grid -->
-  <section class="contributors-grid-section">
+  <section id="contributors-section" class="contributors-grid-section">
     <h2 class="section-card-title"><i class="fa-solid fa-users"></i> Contributors & Researchers</h2>
     <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">Below is the core research and development group behind the IMAGINE hardware plans and training resources, listed in CITATION.cff:</p>
     
@@ -27,116 +38,298 @@ description: "Meet the researchers, developers, and supporting institutions behi
   </section>
 
   <!-- Leaflet CSS & JS for Interactive Map -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <!-- Supporting Institutions Section with Map -->
-  <section class="contributors-grid-section" style="margin-top: 4rem;">
+  <section id="institutions-section" class="contributors-grid-section" style="margin-top: 4rem; margin-bottom: 5rem;">
     <h2 class="section-card-title"><i class="fa-solid fa-earth-americas"></i> Supporting Institutions & Partner Network</h2>
-    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">The IMAGINE project is a global collaborative effort. Click on any custom logo pin on the map below to explore our partner institutions, their roles, and websites:</p>
+    <p class="map-guiding-text"><i class="fa-solid fa-circle-info"></i> Click on any custom pin on the map or select a partner button below to explore their research profile and link.</p>
     
-    <div class="map-dashboard-layout">
+    <div class="map-fullwidth-layout">
       <!-- Leaflet Map Container -->
-      <div id="institutions-map" class="map-container-box"></div>
-      
-      <!-- Dynamic Info Card Panel -->
-      <div id="active-institution-card" class="active-inst-card-panel">
-        <div class="card-empty-state">
-          <i class="fa-solid fa-location-dot empty-icon"></i>
-          <h4>Explore Our Network</h4>
-          <p>Click on any custom pin marker on the map to explore the institution's details, research profile, and official link.</p>
+      <div id="institutions-map" class="map-container-box">
+        <!-- Floating Info Card Panel inside Map Container (overlayed) -->
+        <div id="active-institution-card" class="active-inst-card-panel hidden">
+          <!-- Dynamic Content will emerge here -->
         </div>
       </div>
     </div>
+
+    <!-- Elegant Selection Buttons -->
+    <div class="institution-buttons-wrapper">
+      <div class="institution-buttons-grid" id="inst-buttons-container"></div>
+    </div>
   </section>
+</div>
 
-  <!-- Script to pass Jekyll data to Leaflet JS -->
-  <script>
-    const institutionsData = [
-      {% for inst in site.data.institutions %}
-        {
-          name: "{{ inst.name | escape }}",
-          fullname: "{{ inst.fullname | escape }}",
-          initials: "{{ inst.initials | escape }}",
-          description: "{{ inst.description | escape }}",
-          link: "{{ inst.link | escape }}",
-          logo: "{{ site.baseurl }}{{ inst.logo }}",
-          lat: {{ inst.lat }},
-          lng: {{ inst.lng }}
-        }{% unless forloop.last %},{% endunless %}
-      {% endfor %}
-    ];
+<!-- Script to pass Jekyll data to Leaflet JS -->
+<script>
+  const institutionsData = [
+    {% for inst in site.data.institutions %}
+      {
+        name: "{{ inst.name | escape }}",
+        fullname: "{{ inst.fullname | escape }}",
+        initials: "{{ inst.initials | escape }}",
+        description: "{{ inst.description | escape }}",
+        link: "{{ inst.link | escape }}",
+        logo: "{{ site.baseurl }}{{ inst.logo }}",
+        lat: {{ inst.lat }},
+        lng: {{ inst.lng }}
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
 
-    document.addEventListener("DOMContentLoaded", function() {
-      // Initialize map, centering globally
-      const map = L.map('institutions-map', {
-        center: [18, 5],
-        zoom: 2,
-        minZoom: 1.5,
-        maxBounds: [[-85, -180], [85, 180]]
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. Radial Distribution of Overlapping Coordinates
+    function distributeRadially(data) {
+      const threshold = 0.5; // in degrees
+      const radius = 0.22;   // in degrees for offset
+      let groups = [];
+
+      data.forEach(inst => {
+        let added = false;
+        for (let group of groups) {
+          let close = group.some(member => {
+            let dist = Math.sqrt(Math.pow(member.lat - inst.lat, 2) + Math.pow(member.lng - inst.lng, 2));
+            return dist < threshold;
+          });
+          if (close) {
+            group.push(inst);
+            added = true;
+            break;
+          }
+        }
+        if (!added) {
+          groups.push([inst]);
+        }
       });
 
-      // Dark theme base map layer
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      groups.forEach(group => {
+        if (group.length > 1) {
+          let avgLat = 0, avgLng = 0;
+          group.forEach(member => {
+            avgLat += member.lat;
+            avgLng += member.lng;
+          });
+          avgLat /= group.length;
+          avgLng /= group.length;
+
+          group.forEach((member, index) => {
+            let angle = (2 * Math.PI * index) / group.length;
+            let latOffset = radius * Math.cos(angle);
+            let lngOffset = (radius * Math.sin(angle)) / Math.cos(avgLat * Math.PI / 180);
+            member.adjustedLat = avgLat + latOffset;
+            member.adjustedLng = avgLng + lngOffset;
+          });
+        } else {
+          group[0].adjustedLat = group[0].lat;
+          group[0].adjustedLng = group[0].lng;
+        }
+      });
+    }
+
+    distributeRadially(institutionsData);
+
+    // 2. Initialize Leaflet Map centering globally
+    const map = L.map('institutions-map', {
+      center: [18, 5],
+      zoom: 2,
+      minZoom: 1.5,
+      maxBounds: [[-85, -180], [85, 180]]
+    });
+
+    // 3. Dynamic Tile Layer Switching (Light/Dark themes)
+    const lightTileUrl = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
+    const darkTileUrl = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+    const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
+
+    let currentTileLayer = null;
+
+    function setMapTheme(theme) {
+      if (currentTileLayer) {
+        map.removeLayer(currentTileLayer);
+      }
+      
+      const url = theme === 'dark' ? darkTileUrl : lightTileUrl;
+      currentTileLayer = L.tileLayer(url, {
+        attribution: attribution,
         subdomains: 'abcd',
         maxZoom: 20
       }).addTo(map);
 
-      const activeCard = document.getElementById("active-institution-card");
+      const mapContainer = document.getElementById("institutions-map");
+      mapContainer.setAttribute("data-theme", theme);
       
-      // Plot each institution
-      institutionsData.forEach(inst => {
-        // Create custom HTML marker that wraps logo or uses initials fallback
-        const customIcon = L.divIcon({
-          className: 'map-custom-marker',
-          html: `
-            <div class="pin-logo-bubble">
-              <img src="${inst.logo}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="pin-logo-img" alt="${inst.name}" />
-              <div class="pin-logo-fallback-text">${inst.initials}</div>
-            </div>
-            <div class="pin-logo-arrow"></div>
-          `,
-          iconSize: [44, 44],
-          iconAnchor: [22, 51]
-        });
+      // Update theme toggle icon
+      const toggleBtn = document.getElementById("map-theme-toggle");
+      if (toggleBtn) {
+        if (theme === 'dark') {
+          toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+          toggleBtn.title = "Switch to Light Map";
+        } else {
+          toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+          toggleBtn.title = "Switch to Dark Map";
+        }
+      }
+    }
 
-        const marker = L.marker([inst.lat, inst.lng], { icon: customIcon }).addTo(map);
+    // Determine initial theme: localStorage -> system preference -> default 'light'
+    const storedTheme = localStorage.getItem("map-theme");
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = storedTheme || (systemPrefersDark ? 'dark' : 'light');
 
-        marker.on('click', function() {
-          // Center and zoom slightly when clicked
-          map.setView([inst.lat, inst.lng], Math.max(map.getZoom(), 4), { animate: true });
+    // Create Manual Theme Toggle Button Control
+    const themeToggle = document.createElement("button");
+    themeToggle.id = "map-theme-toggle";
+    themeToggle.className = "map-theme-toggle-btn";
+    document.getElementById("institutions-map").appendChild(themeToggle);
 
-          // Update Info Panel
-          activeCard.innerHTML = `
-            <div class="active-inst-details">
-              <div>
-                <div class="active-inst-header">
-                  <div class="active-inst-logo-frame">
-                    <img src="${inst.logo}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="active-logo-img" />
-                    <div class="active-logo-fallback">${inst.initials}</div>
-                  </div>
-                  <div class="active-inst-titles">
-                    <h3 class="active-name">${inst.name}</h3>
-                    <span class="active-fullname">${inst.fullname}</span>
-                  </div>
-                </div>
-                <p class="active-desc">${inst.description}</p>
+    setMapTheme(initialTheme);
+
+    themeToggle.addEventListener("click", function(e) {
+      e.stopPropagation();
+      const currentTheme = document.getElementById("institutions-map").getAttribute("data-theme");
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setMapTheme(newTheme);
+      localStorage.setItem("map-theme", newTheme);
+    });
+
+    // Handle system preference changes dynamically
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+      if (!localStorage.getItem("map-theme")) {
+        setMapTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+
+    const activeCard = document.getElementById("active-institution-card");
+    const buttonsContainer = document.getElementById("inst-buttons-container");
+
+    // 4. Plot each institution and build the bottom buttons
+    institutionsData.forEach(inst => {
+      // Create custom HTML marker that wraps logo or uses initials fallback
+      const customIcon = L.divIcon({
+        className: 'map-custom-marker',
+        html: `
+          <div class="pin-logo-bubble">
+            <img src="${inst.logo}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="pin-logo-img" alt="${inst.name}" />
+            <div class="pin-logo-fallback-text">${inst.initials}</div>
+          </div>
+          <div class="pin-logo-arrow"></div>
+        `,
+        iconSize: [44, 44],
+        iconAnchor: [22, 51]
+      });
+
+      const marker = L.marker([inst.adjustedLat, inst.adjustedLng], { icon: customIcon }).addTo(map);
+      inst.marker = marker;
+
+      // Click event handler for marker
+      marker.on('click', function() {
+        // Zoom and center map on adjusted coordinates
+        map.setView([inst.adjustedLat, inst.adjustedLng], 4, { animate: true });
+
+        // Highlight selection button
+        document.querySelectorAll(".inst-select-btn").forEach(btn => btn.classList.remove("active"));
+        if (inst.btn) {
+          inst.btn.classList.add("active");
+          inst.btn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        }
+
+        // Show and update Info Panel
+        activeCard.innerHTML = `
+          <button class="close-card-btn" id="close-inst-card" aria-label="Close details">&times;</button>
+          <div class="active-inst-details">
+            <div class="active-inst-header">
+              <div class="active-inst-logo-frame">
+                <img src="${inst.logo}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="active-logo-img" alt="${inst.name}" />
+                <div class="active-logo-fallback">${inst.initials}</div>
               </div>
-              <div class="active-footer-links">
-                <span class="location-coord"><i class="fa-solid fa-location-dot"></i> Lat: ${inst.lat.toFixed(3)}, Lng: ${inst.lng.toFixed(3)}</span>
-                <a href="${inst.link}" target="_blank" class="visit-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <div class="active-inst-titles">
+                <h3 class="active-name">${inst.name}</h3>
+                <span class="active-fullname">${inst.fullname}</span>
               </div>
             </div>
-          `;
+            <p class="active-desc">${inst.description}</p>
+            <div class="active-footer-links">
+              <span class="location-coord"><i class="fa-solid fa-location-dot"></i> Lat: ${inst.lat.toFixed(3)}, Lng: ${inst.lng.toFixed(3)}</span>
+              <a href="${inst.link}" target="_blank" class="visit-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        `;
+        activeCard.classList.remove("hidden");
+        activeCard.classList.add("visible");
+
+        // Close button handler
+        document.getElementById("close-inst-card").addEventListener("click", function(e) {
+          e.stopPropagation();
+          activeCard.classList.remove("visible");
+          activeCard.classList.add("hidden");
+          document.querySelectorAll(".inst-select-btn").forEach(btn => btn.classList.remove("active"));
         });
       });
-    });
-  </script>
 
-  <!-- Compliance Checklist -->
-  <section class="compliance-section" style="margin-top: 4rem;">
-    <h2 class="section-card-title"><i class="fa-solid fa-square-check"></i> OSI² Standard Compliance</h2>
-    {% include checklist.html %}
-  </section>
-</div>
+      // Create Selection Button below map
+      const btn = document.createElement("button");
+      btn.className = "inst-select-btn";
+      btn.innerHTML = `
+        <div class="btn-logo-frame">
+          <img src="${inst.logo}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="btn-logo-img" alt="${inst.name}" />
+          <div class="btn-logo-fallback">${inst.initials}</div>
+        </div>
+        <span class="btn-name">${inst.name}</span>
+      `;
+      buttonsContainer.appendChild(btn);
+
+      btn.addEventListener("click", function() {
+        marker.fire("click");
+      });
+
+      inst.btn = btn;
+    });
+
+    // 5. Floating Navigation Menu Smooth Scrolling & Scroll spy
+    const menuItems = document.querySelectorAll(".about-floating-menu .menu-item");
+    const sections = [
+      document.getElementById("contributors-section"),
+      document.getElementById("institutions-section")
+    ];
+
+    menuItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.preventDefault();
+        const targetId = item.getAttribute("data-target");
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px 0px -50% 0px", // Highlight when section occupies the top portion
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute("id");
+          menuItems.forEach(item => {
+            if (item.getAttribute("data-target") === id) {
+              item.classList.add("active");
+            } else {
+              item.classList.remove("active");
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(sec => {
+      if (sec) observer.observe(sec);
+    });
+  });
+</script>
+>
