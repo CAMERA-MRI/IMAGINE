@@ -38,15 +38,21 @@ description: "Meet the researchers, developers, and supporting institutions behi
           </div>
           
           <div class="contributor-filter-wrapper">
-            <select class="country-filter-select" id="contributor-country-filter">
-              <option value="all">All Regions</option>
-              <option value="Canada">Canada</option>
-              <option value="Spain">Spain</option>
-              <option value="Uganda">Uganda</option>
-              <option value="Chile">Chile</option>
-              <option value="South Africa">South Africa</option>
-              <option value="Belgium">Belgium</option>
-            </select>
+            <div class="custom-select-container" id="country-select-container">
+              <button class="custom-select-trigger" id="country-select-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span>All Regions</span>
+                <i class="fa-solid fa-chevron-down select-chevron"></i>
+              </button>
+              <ul class="custom-select-options" role="listbox" id="country-select-options">
+                <li class="custom-option active" data-value="all" role="option">All Regions</li>
+                <li class="custom-option" data-value="Canada" role="option">Canada</li>
+                <li class="custom-option" data-value="Spain" role="option">Spain</li>
+                <li class="custom-option" data-value="Uganda" role="option">Uganda</li>
+                <li class="custom-option" data-value="Chile" role="option">Chile</li>
+                <li class="custom-option" data-value="South Africa" role="option">South Africa</li>
+                <li class="custom-option" data-value="Belgium" role="option">Belgium</li>
+              </ul>
+            </div>
           </div>
         </div>
         
@@ -130,7 +136,6 @@ description: "Meet the researchers, developers, and supporting institutions behi
     const activeContributorCard = document.getElementById("active-contributor-card");
     const listItems = document.querySelectorAll(".contributor-list-item");
     const searchInput = document.getElementById("contributor-search-input");
-    const countryFilter = document.getElementById("contributor-country-filter");
     const searchToggle = document.getElementById("search-toggle");
 
     function getCountry(name) {
@@ -225,12 +230,47 @@ description: "Meet the researchers, developers, and supporting institutions behi
       }
     });
 
+    // Custom Styled Select Dropdown Interactivity
+    const selectTrigger = document.getElementById("country-select-trigger");
+    const selectOptions = document.getElementById("country-select-options");
+    const selectOptionsList = selectOptions.querySelectorAll(".custom-option");
+    let selectedCountryVal = "all";
+
+    selectTrigger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isExpanded = selectTrigger.getAttribute("aria-expanded") === "true";
+      selectTrigger.setAttribute("aria-expanded", !isExpanded);
+      selectOptions.classList.toggle("show");
+    });
+
+    selectOptionsList.forEach(opt => {
+      opt.addEventListener("click", (e) => {
+        e.stopPropagation();
+        selectOptionsList.forEach(o => o.classList.remove("active"));
+        opt.classList.add("active");
+        
+        const text = opt.textContent;
+        selectedCountryVal = opt.getAttribute("data-value");
+        selectTrigger.querySelector("span").textContent = text;
+        
+        selectTrigger.setAttribute("aria-expanded", "false");
+        selectOptions.classList.remove("show");
+        
+        applyFilters();
+      });
+    });
+
+    // Close select dropdown on click outside
+    document.addEventListener("click", () => {
+      selectTrigger.setAttribute("aria-expanded", "false");
+      selectOptions.classList.remove("show");
+    });
+
     searchInput.addEventListener("input", applyFilters);
-    countryFilter.addEventListener("change", applyFilters);
 
     function applyFilters() {
       const searchTerm = searchInput.value.toLowerCase().trim();
-      const selectedCountry = countryFilter.value;
+      const selectedCountry = selectedCountryVal;
       
       let firstVisibleIndex = -1;
       
@@ -419,6 +459,34 @@ description: "Meet the researchers, developers, and supporting institutions behi
       }
     });
     map.addControl(new ThemeToggleControl());
+
+    // Create Return to World View Button Control using Leaflet L.Control
+    const HomeControl = L.Control.extend({
+      options: { position: 'topleft' },
+      onAdd: function(map) {
+        const btn = L.DomUtil.create('button', 'map-home-btn');
+        btn.id = 'map-home-btn';
+        btn.title = 'Return to World View';
+        btn.innerHTML = '<i class="fa-solid fa-earth-americas"></i>';
+        
+        L.DomEvent.disableClickPropagation(btn);
+        
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          map.setView([18, 5], 2, { animate: true });
+          
+          // Dismiss active card details overlay
+          const activeCard = document.getElementById("active-institution-card");
+          if (activeCard) {
+            activeCard.classList.remove("visible");
+            activeCard.classList.add("hidden");
+          }
+          document.querySelectorAll(".inst-select-btn").forEach(b => b.classList.remove("active"));
+        });
+        return btn;
+      }
+    });
+    map.addControl(new HomeControl());
 
     setMapTheme(initialTheme);
 
