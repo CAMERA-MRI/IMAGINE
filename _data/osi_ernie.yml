@@ -1,0 +1,94 @@
+- category: "Readme"
+  items:
+    - name: "README File Available"
+      satisfied: true
+      evidence: "Complete README file provided in the repository and individual component pages."
+      location: "/scanners/ernie/"
+    - name: "Design Considerations Explained"
+      satisfied: true
+      evidence: "Optimizations via genetic algorithms are fully documented in the Magnet overview."
+      location: "/components/ernie-7-ring-halbach-magnet/"
+
+- category: "Bill of Materials"
+  items:
+    - name: "BoM Provided"
+      satisfied: true
+      evidence: "Complete Bill of Materials for Halbach magnet and gantry parts are embedded in the components."
+      location: "/components/ernie-7-ring-halbach-magnet/#details-ernie-7-ring-halbach-magnet"
+    - name: "BoM Best Practices Compliant"
+      satisfied: true
+      evidence: "Part lists contain quantities, specifications, and direct links to suppliers (e.g. Supermagnete)."
+      location: "/components/ernie-7-ring-halbach-magnet/"
+
+- category: "Source Files"
+  items:
+    - name: "Native Source Files Available"
+      satisfied: true
+      evidence: "Arduino control code and 3D printing geometries (.stl) are hosted directly in the repository."
+      location: "/components/field-mapping-robot/"
+
+- category: "Status of Freedom"
+  items:
+    - name: "Editable with Open-Source Software"
+      satisfied: true
+      evidence: "Control scripts are written in C++ (Arduino IDE) and gcode, editable in any open editor."
+      location: "/components/field-mapping-robot/"
+
+- category: "Production Files"
+  items:
+    - name: "Accessible Exports Available"
+      satisfied: true
+      evidence: "STL mesh files are available for all 3D printed mechanical brackets, spacer rings, and lids."
+      location: "/components/ernie-7-ring-halbach-magnet/"
+    - name: "Manufacturing Environment Defined"
+      satisfied: true
+      evidence: "FDM 3D printing recommendations (material type, infill, shell count) are defined in the assembly guides."
+      location: "/components/ernie-7-ring-halbach-magnet/"
+
+- category: "Assembly"
+  items:
+    - name: "Assembly Guidance"
+      satisfied: true
+      evidence: "Step-by-step documentation, assembly guides, and demonstration videos are embedded in the system dashboard."
+      location: "/components/ernie-7-ring-halbach-magnet/"
+
+- category: "Development Tracking"
+  items:
+    - name: "Versioning Scheme Implemented"
+      satisfied: true
+      evidence: "Managed under git version control on GitHub for code, models, and docs tracking."
+      location: "https://github.com/camera-mri/IMAGINE"
+    - name: "Public Issue Tracking"
+      satisfied: true
+      evidence: "Uses public GitHub Issues for bug reports, hardware revisions, and feature requests."
+      location: "https://github.com/camera-mri/IMAGINE/issues"
+    - name: "Public Communication Space"
+      satisfied: true
+      evidence: "Integrated into the CAMERA-MRI community and GitHub discussions forums."
+      location: "https://www.camera-mri.org"
+
+- category: "Testing"
+  items:
+    - name: "Testing Routines Available"
+      satisfied: true
+      evidence: "Hall probe calibration steps and 3-axis stage travel tests are specified."
+      location: "/components/field-mapping-robot/"
+    - name: "Testing Routines Complete"
+      satisfied: false
+      evidence: "Advanced field mapping verification algorithms are still under active development."
+      location: "/components/field-mapping-robot/"
+
+- category: "Use"
+  items:
+    - name: "User Manual Available"
+      satisfied: true
+      evidence: "Operational guides for gantry control and mapping execution are available."
+      location: "/components/field-mapping-robot/"
+    - name: "Risk Assessment & Safety Notice"
+      satisfied: true
+      evidence: "NdFeB strong magnetic field and pinching safety warnings are clearly labeled in the magnet overview."
+      location: "/components/ernie-7-ring-halbach-magnet/"
+    - name: "Replication History Documented"
+      satisfied: true
+      evidence: "Successfully replicated at several partner sites in South Africa and Uganda."
+      location: "/about/"

@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   
   <!-- MathJax for LaTeX Equations -->
   <script>
@@ -139,64 +139,191 @@
     </div>
   </section>
 
-  <!-- Supporting Institutions -->
+  <!-- Leaflet CSS & JS for Interactive Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Supporting Institutions Section with Map -->
   <section class="contributors-grid-section" style="margin-top: 4rem;">
-    <h2 class="section-card-title"><i class="fa-solid fa-building-columns"></i> Supporting Institutions & Partners</h2>
-    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">The IMAGINE project is made possible through the generous support, collaboration, and resources of these international organizations:</p>
+    <h2 class="section-card-title"><i class="fa-solid fa-earth-americas"></i> Supporting Institutions & Partner Network</h2>
+    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">The IMAGINE project is a global collaborative effort. Click on any custom logo pin on the map below to explore our partner institutions, their roles, and websites:</p>
     
-    <div class="partners-row-grid">
+    <div class="map-dashboard-layout">
+      <!-- Leaflet Map Container -->
+      <div id="institutions-map" class="map-container-box"></div>
       
-                <div class="partner-logo-card">
-                  <h4 class="partner-name-h4">CAMERA</h4>
-                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">Consortium for Advancement of MRI Education and Research in Africa</span>
-                  <p class="partner-desc">A consortium dedicated to establishing sustainable MRI training, research, and clinical resources across Africa.</p>
-                  <a href="https://www.camera-mri.org" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-                
-                <div class="partner-logo-card">
-                  <h4 class="partner-name-h4">The Neuro</h4>
-                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">Montreal Neurological Institute-Hospital, McGill University</span>
-                  <p class="partner-desc">A world-leading academic medical center dedicated to neuroscience research and advanced brain imaging.</p>
-                  <a href="https://www.mcgill.ca/neuro" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-                
-                <div class="partner-logo-card">
-                  <h4 class="partner-name-h4">OSII</h4>
-                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">Open Source Imaging Initiative</span>
-                  <p class="partner-desc">An international coalition promoting open-source medical imaging, creating standardized, freely available designs.</p>
-                  <a href="https://www.opensourceimaging.org" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-                
-                <div class="partner-logo-card">
-                  <h4 class="partner-name-h4">RAD-AID International</h4>
-                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">RAD-AID International</span>
-                  <p class="partner-desc">A non-profit organization optimizing radiology resources in low-resource regions through education and technology.</p>
-                  <a href="https://www.rad-aid.org" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-                
-                <div class="partner-logo-card">
-                  <h4 class="partner-name-h4">Polytechnique Montréal</h4>
-                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">Polytechnique Montréal</span>
-                  <p class="partner-desc">A prestigious engineering school in Montreal, hosting research on low-field MRI development and training.</p>
-                  <a href="https://www.polymtl.ca" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-                
-                <div class="partner-logo-card">
-                  <h4 class="partner-name-h4">Douglas Research Centre</h4>
-                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">Douglas Mental Health University Institute</span>
-                  <p class="partner-desc">Affiliated with McGill University, helping lead local replications and educational MRI builds.</p>
-                  <a href="https://douglas.research.mcgill.ca" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-                
-                <div class="partner-logo-card">
-                  <h4 class="partner-name-h4">ESMRMB</h4>
-                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">European Society for Magnetic Resonance in Medicine and Biology</span>
-                  <p class="partner-desc">A leading European medical physics society. CAMERA (which leads IMAGINE) is a recognized Working Group (WG) of ESMRMB.</p>
-                  <a href="https://www.esmrmb.org" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-                
+      <!-- Dynamic Info Card Panel -->
+      <div id="active-institution-card" class="active-inst-card-panel">
+        <div class="card-empty-state">
+          <i class="fa-solid fa-location-dot empty-icon"></i>
+          <h4>Explore Our Network</h4>
+          <p>Click on any custom pin marker on the map to explore the institution's details, research profile, and official link.</p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Script to pass Jekyll data to Leaflet JS -->
+  <script>
+    const institutionsData = [
+      {
+          name: "CAMERA",
+          fullname: "Consortium for Advancement of MRI Education and Research in Africa",
+          initials: "CAM",
+          description: "A global consortium establishing sustainable MRI training, research, and open-source hardware scanner development. WG of ESMRMB.",
+          link: "https://www.camera-mri.org",
+          logo: "/IMAGINE/assets/images/partners/camera.png",
+          lat: -0.615,
+          lng: 30.658
+        },
+{
+          name: "The Neuro",
+          fullname: "Montreal Neurological Institute-Hospital, McGill University",
+          initials: "MNI",
+          description: "A world-leading academic neuroscience and brain imaging research center helping lead local preclinical scanner builds.",
+          link: "https://www.mcgill.ca/neuro",
+          logo: "/IMAGINE/assets/images/partners/neuro.png",
+          lat: 45.509,
+          lng: -73.579
+        },
+{
+          name: "Polytechnique Montréal",
+          fullname: "Polytechnique Montréal",
+          initials: "EPM",
+          description: "A prestigious engineering school hosting low-field hardware research and hands-on training sessions.",
+          link: "https://www.polymtl.ca",
+          logo: "/IMAGINE/assets/images/partners/poly.png",
+          lat: 45.504,
+          lng: -73.613
+        },
+{
+          name: "Douglas Research Centre",
+          fullname: "Douglas Mental Health University Institute",
+          initials: "DRC",
+          description: "Affiliated with McGill University, leading local replication efforts and biomedical training.",
+          link: "https://douglas.research.mcgill.ca",
+          logo: "/IMAGINE/assets/images/partners/douglas.png",
+          lat: 45.441,
+          lng: -73.587
+        },
+{
+          name: "ESMRMB",
+          fullname: "European Society for Magnetic Resonance in Medicine and Biology",
+          initials: "ESM",
+          description: "Leading European medical physics society. CAMERA (which leads IMAGINE) is a recognized Working Group (WG) of ESMRMB.",
+          link: "https://www.esmrmb.org",
+          logo: "/IMAGINE/assets/images/partners/esmrmb.png",
+          lat: 48.208,
+          lng: 16.373
+        },
+{
+          name: "Stellenbosch University",
+          fullname: "Stellenbosch University",
+          initials: "SU",
+          description: "Südafrikanische Universität active in low-field MRI development and biomedical engineering education in Africa.",
+          link: "https://www.sun.ac.za",
+          logo: "/IMAGINE/assets/images/partners/stellenbosch.png",
+          lat: -33.932,
+          lng: 18.864
+        },
+{
+          name: "MRILab (i3m-UPV)",
+          fullname: "MRILab, Instituto de Instrumentación para Imagen Molecular (i3M, UPV-CSIC)",
+          initials: "i3M",
+          description: "Forschungszentrum in Valencia developing portable, affordable, and sustainable low-field head scanners.",
+          link: "http://mrilab.i3m.upv.es",
+          logo: "/IMAGINE/assets/images/partners/mrilab.png",
+          lat: 39.481,
+          lng: -0.347
+        },
+{
+          name: "IIBM UC",
+          fullname: "Instituto de Ingeniería Biológica y Médica (IIBM), Pontificia Universidad Católica de Chile",
+          initials: "UC",
+          description: "Interdisziplinäres chilenisches Institut leading research in low-field sequence development and hardware integration.",
+          link: "https://iibm.uc.cl",
+          logo: "/IMAGINE/assets/images/partners/iibm.png",
+          lat: -33.49,
+          lng: -70.612
+        },
+{
+          name: "ISMRM African Chapter",
+          fullname: "International Society for Magnetic Resonance in Medicine - African Chapter",
+          initials: "IS-A",
+          description: "Regional chapter promoting MRI education, technical capacity building, and networking across the African continent.",
+          link: "https://www.ismrm.org",
+          logo: "/IMAGINE/assets/images/partners/ismrm_africa.png",
+          lat: -33.924,
+          lng: 18.424
+        }
+    ];
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Initialize map, centering globally
+      const map = L.map('institutions-map', {
+        center: [18, 5],
+        zoom: 2,
+        minZoom: 1.5,
+        maxBounds: [[-85, -180], [85, 180]]
+      });
+
+      // Dark theme base map layer
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 20
+      }).addTo(map);
+
+      const activeCard = document.getElementById("active-institution-card");
+      
+      // Plot each institution
+      institutionsData.forEach(inst => {
+        // Create custom HTML marker that wraps logo or uses initials fallback
+        const customIcon = L.divIcon({
+          className: 'map-custom-marker',
+          html: `
+            <div class="pin-logo-bubble">
+              <img src="${inst.logo}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="pin-logo-img" alt="${inst.name}" />
+              <div class="pin-logo-fallback-text">${inst.initials}</div>
+            </div>
+            <div class="pin-logo-arrow"></div>
+          `,
+          iconSize: [44, 44],
+          iconAnchor: [22, 51]
+        });
+
+        const marker = L.marker([inst.lat, inst.lng], { icon: customIcon }).addTo(map);
+
+        marker.on('click', function() {
+          // Center and zoom slightly when clicked
+          map.setView([inst.lat, inst.lng], Math.max(map.getZoom(), 4), { animate: true });
+
+          // Update Info Panel
+          activeCard.innerHTML = `
+            <div class="active-inst-details">
+              <div>
+                <div class="active-inst-header">
+                  <div class="active-inst-logo-frame">
+                    <img src="${inst.logo}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="active-logo-img" />
+                    <div class="active-logo-fallback">${inst.initials}</div>
+                  </div>
+                  <div class="active-inst-titles">
+                    <h3 class="active-name">${inst.name}</h3>
+                    <span class="active-fullname">${inst.fullname}</span>
+                  </div>
+                </div>
+                <p class="active-desc">${inst.description}</p>
+              </div>
+              <div class="active-footer-links">
+                <span class="location-coord"><i class="fa-solid fa-location-dot"></i> Lat: ${inst.lat.toFixed(3)}, Lng: ${inst.lng.toFixed(3)}</span>
+                <a href="${inst.link}" target="_blank" class="visit-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </div>
+          `;
+        });
+      });
+    });
+  </script>
 
   <!-- Compliance Checklist -->
   <section class="compliance-section" style="margin-top: 4rem;">
@@ -505,6 +632,13 @@
       <p class="footer-para-text">
         An open-source preclinical MRI initiative of the Consortium for Advancement of MRI Education and Research in Africa (CAMERA). Sustaining diagnostic health equity globally.
       </p>
+      <div class="social-links-row">
+        <a href="https://www.linkedin.com/company/consortium-for-advancement-of-mri-education-research-in-africa/" target="_blank" class="social-icon-btn linkedin-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://x.com/CAMERAAfrica" target="_blank" class="social-icon-btn x-btn" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://bsky.app/profile/cameramriafrica.bsky.social" target="_blank" class="social-icon-btn bluesky-btn" title="BlueSky"><i class="fa-brands fa-bluesky"></i></a>
+        <a href="https://chat.whatsapp.com/BagIlZGHwfWHFJYnzpZkLB" target="_blank" class="social-icon-btn whatsapp-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@CAMERAAfrica" target="_blank" class="social-icon-btn youtube-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
     </div>
 
     <!-- Center Column: Standards & Licensing -->

@@ -413,4 +413,87 @@ layout: default
       </div>
     </div>
   </div>
+
+  <!-- OSII Standard Compliance Section for this Scanner -->
+  <section class="scanner-compliance-section" style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--color-border);">
+    <div class="compliance-header-wrapper" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1.5rem;">
+      <div>
+        <h2 class="section-card-title" style="margin: 0;"><i class="fa-solid fa-square-check"></i> OSII Compliance Scorecard</h2>
+        <p style="color: var(--color-text-light); margin-top: 0.5rem; margin-bottom: 0;">This scorecard tracks how this scanner project complies with the Open Source Imaging Initiative (OSI²) requirements.</p>
+      </div>
+      
+      <!-- Score Display -->
+      {% if page.scanner_id == 'ernie' %}
+        {% assign osi_data = site.data.osi_ernie %}
+      {% else %}
+        {% assign osi_data = site.data.osi_imagine %}
+      {% endif %}
+      
+      {% assign earned_pts = 0 %}
+      {% assign total_pts = 0 %}
+      {% for cat in osi_data %}
+        {% for item in cat.items %}
+          {% assign total_pts = total_pts | plus: 1 %}
+          {% if item.satisfied %}
+            {% assign earned_pts = earned_pts | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+      
+      <div class="compliance-score-badge" style="background-color: var(--color-emerald-deep); color: #ffffff; padding: 0.8rem 1.5rem; border-radius: var(--border-radius-sm); border: 2px solid var(--color-gold); text-align: center; box-shadow: var(--shadow-sm); flex-shrink: 0;">
+        <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; display: block; color: var(--color-gold); margin-bottom: 0.2rem;">OSI² Score</span>
+        <span style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-family-title);">{{ earned_pts }} / {{ total_pts }}</span>
+      </div>
+    </div>
+
+    <!-- Checklist Categories Grid -->
+    <div class="checklist-groups-wrapper">
+      {% for cat in osi_data %}
+        <div class="checklist-category-card">
+          {% assign cat_icon = "fa-square-check" %}
+          {% if cat.category == "Readme" %}{% assign cat_icon = "fa-book-open" %}{% endif %}
+          {% if cat.category == "Bill of Materials" %}{% assign cat_icon = "fa-list-check" %}{% endif %}
+          {% if cat.category == "Source Files" %}{% assign cat_icon = "fa-folder-open" %}{% endif %}
+          {% if cat.category == "Status of Freedom" %}{% assign cat_icon = "fa-unlock" %}{% endif %}
+          {% if cat.category == "Production Files" %}{% assign cat_icon = "fa-microchip" %}{% endif %}
+          {% if cat.category == "Assembly" %}{% assign cat_icon = "fa-screwdriver-wrench" %}{% endif %}
+          {% if cat.category == "Development Tracking" %}{% assign cat_icon = "fa-code-fork" %}{% endif %}
+          {% if cat.category == "Testing" %}{% assign cat_icon = "fa-flask" %}{% endif %}
+          {% if cat.category == "Use" %}{% assign cat_icon = "fa-user-gear" %}{% endif %}
+          
+          <h4 class="category-title"><i class="fa-solid {{ cat_icon }}"></i> {{ cat.category }}</h4>
+          <ul class="checklist-items">
+            {% for item in cat.items %}
+              <li class="{% if item.satisfied %}checked{% else %}unchecked{% endif %}">
+                <span class="check-icon">
+                  {% if item.satisfied %}
+                    <i class="fa-solid fa-circle-check"></i>
+                  {% else %}
+                    <i class="fa-solid fa-circle-xmark" style="color: var(--color-text-light); opacity: 0.5;"></i>
+                  {% endif %}
+                </span>
+                <div class="item-details">
+                  <span class="item-name">
+                    {{ item.name }}
+                  </span>
+                  {% if item.satisfied %}
+                    <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                      <i class="fa-solid fa-square-poll-horizontal"></i> {{ item.evidence }}
+                      {% if item.location %}
+                        <a href="{% if item.location contains 'http' %}{{ item.location }}{% else %}{{ site.baseurl }}{{ item.location }}{% endif %}" {% if item.location contains 'http' %}target="_blank"{% endif %} style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                      {% endif %}
+                    </span>
+                  {% else %}
+                    <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.2rem; display: block; opacity: 0.7;">
+                      Not fully satisfied yet.
+                    </span>
+                  {% endif %}
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
 </div>

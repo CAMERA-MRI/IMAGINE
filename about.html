@@ -26,22 +26,113 @@ description: "Meet the researchers, developers, and supporting institutions behi
     </div>
   </section>
 
-  <!-- Supporting Institutions -->
+  <!-- Leaflet CSS & JS for Interactive Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Supporting Institutions Section with Map -->
   <section class="contributors-grid-section" style="margin-top: 4rem;">
-    <h2 class="section-card-title"><i class="fa-solid fa-building-columns"></i> Supporting Institutions & Partners</h2>
-    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">The IMAGINE project is made possible through the generous support, collaboration, and resources of these international organizations:</p>
+    <h2 class="section-card-title"><i class="fa-solid fa-earth-americas"></i> Supporting Institutions & Partner Network</h2>
+    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">The IMAGINE project is a global collaborative effort. Click on any custom logo pin on the map below to explore our partner institutions, their roles, and websites:</p>
     
-    <div class="partners-row-grid">
-      {% for inst in site.data.institutions %}
-        <div class="partner-logo-card">
-          <h4 class="partner-name-h4">{{ inst.name }}</h4>
-          <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">{{ inst.fullname }}</span>
-          <p class="partner-desc">{{ inst.description }}</p>
-          <a href="{{ inst.link }}" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    <div class="map-dashboard-layout">
+      <!-- Leaflet Map Container -->
+      <div id="institutions-map" class="map-container-box"></div>
+      
+      <!-- Dynamic Info Card Panel -->
+      <div id="active-institution-card" class="active-inst-card-panel">
+        <div class="card-empty-state">
+          <i class="fa-solid fa-location-dot empty-icon"></i>
+          <h4>Explore Our Network</h4>
+          <p>Click on any custom pin marker on the map to explore the institution's details, research profile, and official link.</p>
         </div>
-      {% endfor %}
+      </div>
     </div>
   </section>
+
+  <!-- Script to pass Jekyll data to Leaflet JS -->
+  <script>
+    const institutionsData = [
+      {% for inst in site.data.institutions %}
+        {
+          name: "{{ inst.name | escape }}",
+          fullname: "{{ inst.fullname | escape }}",
+          initials: "{{ inst.initials | escape }}",
+          description: "{{ inst.description | escape }}",
+          link: "{{ inst.link | escape }}",
+          logo: "{{ site.baseurl }}{{ inst.logo }}",
+          lat: {{ inst.lat }},
+          lng: {{ inst.lng }}
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ];
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Initialize map, centering globally
+      const map = L.map('institutions-map', {
+        center: [18, 5],
+        zoom: 2,
+        minZoom: 1.5,
+        maxBounds: [[-85, -180], [85, 180]]
+      });
+
+      // Dark theme base map layer
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 20
+      }).addTo(map);
+
+      const activeCard = document.getElementById("active-institution-card");
+      
+      // Plot each institution
+      institutionsData.forEach(inst => {
+        // Create custom HTML marker that wraps logo or uses initials fallback
+        const customIcon = L.divIcon({
+          className: 'map-custom-marker',
+          html: `
+            <div class="pin-logo-bubble">
+              <img src="${inst.logo}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="pin-logo-img" alt="${inst.name}" />
+              <div class="pin-logo-fallback-text">${inst.initials}</div>
+            </div>
+            <div class="pin-logo-arrow"></div>
+          `,
+          iconSize: [44, 44],
+          iconAnchor: [22, 51]
+        });
+
+        const marker = L.marker([inst.lat, inst.lng], { icon: customIcon }).addTo(map);
+
+        marker.on('click', function() {
+          // Center and zoom slightly when clicked
+          map.setView([inst.lat, inst.lng], Math.max(map.getZoom(), 4), { animate: true });
+
+          // Update Info Panel
+          activeCard.innerHTML = `
+            <div class="active-inst-details">
+              <div>
+                <div class="active-inst-header">
+                  <div class="active-inst-logo-frame">
+                    <img src="${inst.logo}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="active-logo-img" />
+                    <div class="active-logo-fallback">${inst.initials}</div>
+                  </div>
+                  <div class="active-inst-titles">
+                    <h3 class="active-name">${inst.name}</h3>
+                    <span class="active-fullname">${inst.fullname}</span>
+                  </div>
+                </div>
+                <p class="active-desc">${inst.description}</p>
+              </div>
+              <div class="active-footer-links">
+                <span class="location-coord"><i class="fa-solid fa-location-dot"></i> Lat: ${inst.lat.toFixed(3)}, Lng: ${inst.lng.toFixed(3)}</span>
+                <a href="${inst.link}" target="_blank" class="visit-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </div>
+          `;
+        });
+      });
+    });
+  </script>
 
   <!-- Compliance Checklist -->
   <section class="compliance-section" style="margin-top: 4rem;">

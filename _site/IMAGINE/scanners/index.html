@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   
   <!-- MathJax for LaTeX Equations -->
   <script>
@@ -99,6 +99,542 @@
     </div>
 
   </div>
+
+  <!-- OSII Compliance General Report -->
+  <section class="general-compliance-report-section" style="margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--color-border);">
+    <div class="page-title-banner" style="text-align: left; margin-bottom: 2rem;">
+      <h2 class="section-card-title" style="margin: 0;"><i class="fa-solid fa-chart-bar"></i> OSII Standard Compliance: General Report</h2>
+      <p class="page-subtitle" style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--color-text-light);">
+        This general report summarizes and compares open science standard compliance across our individual scanner projects, compiled dynamically from their OSII compliance files.
+      </p>
+    </div>
+
+    <!-- Comparative Table -->
+    <div class="compliance-table-wrapper" style="overflow-x: auto; background-color: var(--color-beige-card); border-radius: var(--border-radius-md); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); padding: 1.5rem;">
+      <table class="compliance-compare-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--color-border);">
+            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title);">OSII Standard Criteria</th>
+            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title); text-align: center; width: 40%;">ERNIE Scanner</th>
+            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title); text-align: center; width: 40%;">IMAGINE Preclinical</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+                <tr style="background-color: rgba(21, 51, 38, 0.05); font-weight: 700;">
+                  <td colspan="3" style="padding: 0.8rem 1rem; color: var(--color-emerald-deep); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; border-top: 1px solid var(--color-border);">
+                    <i class="fa-solid fa-book-open"></i> Readme
+                  </td>
+                </tr>
+                
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        README File Available
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Is a README file (or equivalent) available with a project description?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Complete README file provided in the repository and individual component pages. <a href="/IMAGINE/scanners/ernie/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Complete README file provided in the repository and individual component pages. <a href="/IMAGINE/scanners/imagine/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        Design Considerations Explained
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Have the design considerations been explained?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Optimizations via genetic algorithms are fully documented in the Magnet overview. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Electromagnetic calculations and design considerations are documented in the GPA and control system pages. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                <tr style="background-color: rgba(21, 51, 38, 0.05); font-weight: 700;">
+                  <td colspan="3" style="padding: 0.8rem 1rem; color: var(--color-emerald-deep); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; border-top: 1px solid var(--color-border);">
+                    <i class="fa-solid fa-list-check"></i> Bill of Materials
+                  </td>
+                </tr>
+                
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        BoM Provided
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Is a Bill of Materials (BoM) provided to reproduce the design?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Complete Bill of Materials for Halbach magnet and gantry parts are embedded in the components. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/#details-ernie-7-ring-halbach-magnet"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Bills of Materials for all PCB assemblies and custom components are detailed. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        BoM Best Practices Compliant
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Is the Bill of Materials complete/complies with our best practices?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Part lists contain quantities, specifications, and direct links to suppliers (e.g. Supermagnete). <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Tables contain exact manufacturer part numbers, suppliers, quantities, and direct DigiKey purchase links. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                <tr style="background-color: rgba(21, 51, 38, 0.05); font-weight: 700;">
+                  <td colspan="3" style="padding: 0.8rem 1rem; color: var(--color-emerald-deep); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; border-top: 1px solid var(--color-border);">
+                    <i class="fa-solid fa-folder-open"></i> Source Files
+                  </td>
+                </tr>
+                
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        Native Source Files Available
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Are all files needed to reproduce the project available in their native file format?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Arduino control code and 3D printing geometries (.stl) are hosted directly in the repository. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Native KiCAD PCB schematic and layout projects, as well as FreeCAD drawings, are hosted in the repository. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                <tr style="background-color: rgba(21, 51, 38, 0.05); font-weight: 700;">
+                  <td colspan="3" style="padding: 0.8rem 1rem; color: var(--color-emerald-deep); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; border-top: 1px solid var(--color-border);">
+                    <i class="fa-solid fa-unlock"></i> Status of Freedom
+                  </td>
+                </tr>
+                
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        Editable with Open-Source Software
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Are all source files editable with open-source software (e.g. FreeCAD, KiCAD)?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Control scripts are written in C++ (Arduino IDE) and gcode, editable in any open editor. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          All PCB designs are in KiCAD, mechanical elements in FreeCAD, and softcore firmware in open C++ (Arduino). <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                <tr style="background-color: rgba(21, 51, 38, 0.05); font-weight: 700;">
+                  <td colspan="3" style="padding: 0.8rem 1rem; color: var(--color-emerald-deep); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; border-top: 1px solid var(--color-border);">
+                    <i class="fa-solid fa-microchip"></i> Production Files
+                  </td>
+                </tr>
+                
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        Accessible Exports Available
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Are all files needed to reproduce the project available in a generally accessible export file format (e.g. STP, STL, GRB)?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          STL mesh files are available for all 3D printed mechanical brackets, spacer rings, and lids. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Gerber fabrication files, drill maps, STL meshes, and STEP files are ready for manufacturing. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        Manufacturing Environment Defined
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Is the manufacturing environment well defined or sufficiently explained?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          FDM 3D printing recommendations (material type, infill, shell count) are defined in the assembly guides. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          PCB stack-up specifications, copper weight, and coil winding guides are fully described. <a href="/IMAGINE/components/gradient-coils-cad-winding/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                <tr style="background-color: rgba(21, 51, 38, 0.05); font-weight: 700;">
+                  <td colspan="3" style="padding: 0.8rem 1rem; color: var(--color-emerald-deep); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; border-top: 1px solid var(--color-border);">
+                    <i class="fa-solid fa-screwdriver-wrench"></i> Assembly
+                  </td>
+                </tr>
+                
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        Assembly Guidance
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Is the assembly of the project sufficiently explained, allowing for complete replication?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Step-by-step documentation, assembly guides, and demonstration videos are embedded in the system dashboard. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Detailed schematics, PCB silkscreens, component placement guides, and custom board adapter wiring diagrams are provided. <a href="/IMAGINE/components/redpitaya-to-gpa-adapter-board/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                <tr style="background-color: rgba(21, 51, 38, 0.05); font-weight: 700;">
+                  <td colspan="3" style="padding: 0.8rem 1rem; color: var(--color-emerald-deep); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; border-top: 1px solid var(--color-border);">
+                    <i class="fa-solid fa-code-fork"></i> Development Tracking
+                  </td>
+                </tr>
+                
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        Versioning Scheme Implemented
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Is a versioning scheme implemented (e.g. git repository)?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Managed under git version control on GitHub for code, models, and docs tracking. <a href="https://github.com/camera-mri/IMAGINE" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Controlled using git on GitHub, tracking all schematic updates and firmware revisions. <a href="https://github.com/camera-mri/IMAGINE" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        Public Issue Tracking
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Is issue tracking implemented publicly?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Uses public GitHub Issues for bug reports, hardware revisions, and feature requests. <a href="https://github.com/camera-mri/IMAGINE/issues" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Public issue tracking is available for hardware bugs and software integration tasks. <a href="https://github.com/camera-mri/IMAGINE/issues" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        Public Communication Space
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Does the project have a communication space for questions and developer exchange?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Integrated into the CAMERA-MRI community and GitHub discussions forums. <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          A shared developer forum and GitHub discussions space are used for technical exchange. <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                <tr style="background-color: rgba(21, 51, 38, 0.05); font-weight: 700;">
+                  <td colspan="3" style="padding: 0.8rem 1rem; color: var(--color-emerald-deep); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; border-top: 1px solid var(--color-border);">
+                    <i class="fa-solid fa-flask"></i> Testing
+                  </td>
+                </tr>
+                
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        Testing Routines Available
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Are testing routines available to evaluate the expected performance of the final design?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Hall probe calibration steps and 3-axis stage travel tests are specified. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Instructions for Red Pitaya board validation, GPA power testing, and coil tuning/matching are detailed. <a href="/IMAGINE/components/rf-coil-tuning-and-matching/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        Testing Routines Complete
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Are testing routines complete (e.g. available for all subcomponents/subprocesses)?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-text-light); opacity: 0.6; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-xmark"></i> Pending
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Comprehensive hardware verification checklist is available for all electronics modules. <a href="/IMAGINE/components/gpa-fhdo-power-amplifier/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                <tr style="background-color: rgba(21, 51, 38, 0.05); font-weight: 700;">
+                  <td colspan="3" style="padding: 0.8rem 1rem; color: var(--color-emerald-deep); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; border-top: 1px solid var(--color-border);">
+                    <i class="fa-solid fa-user-gear"></i> Use
+                  </td>
+                </tr>
+                
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        User Manual Available
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Is a user manual available?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Operational guides for gantry control and mapping execution are available. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          System integration and operation manuals are provided. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        Risk Assessment & Safety Notice
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Is a risk assessment or a safety notice available?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          NdFeB strong magnetic field and pinching safety warnings are clearly labeled in the magnet overview. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          High voltage and RF power warning labels and safety protocols are prominent. <a href="/IMAGINE/components/gpa-fhdo-power-amplifier/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        Replication History Documented
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">Is information available if the project has been independently successfully replicated?</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Successfully replicated at several partner sites in South Africa and Uganda. <a href="/IMAGINE/about/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          Replicated and successfully tested at several university laboratories globally. <a href="/IMAGINE/about/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                        </span>
+                        
+                      </td>
+                    </tr>
+                    
+        </tbody>
+      </table>
+    </div>
+  </section>
 </div>
 
   </main>
@@ -113,6 +649,13 @@
       <p class="footer-para-text">
         An open-source preclinical MRI initiative of the Consortium for Advancement of MRI Education and Research in Africa (CAMERA). Sustaining diagnostic health equity globally.
       </p>
+      <div class="social-links-row">
+        <a href="https://www.linkedin.com/company/consortium-for-advancement-of-mri-education-research-in-africa/" target="_blank" class="social-icon-btn linkedin-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://x.com/CAMERAAfrica" target="_blank" class="social-icon-btn x-btn" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://bsky.app/profile/cameramriafrica.bsky.social" target="_blank" class="social-icon-btn bluesky-btn" title="BlueSky"><i class="fa-brands fa-bluesky"></i></a>
+        <a href="https://chat.whatsapp.com/BagIlZGHwfWHFJYnzpZkLB" target="_blank" class="social-icon-btn whatsapp-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@CAMERAAfrica" target="_blank" class="social-icon-btn youtube-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
     </div>
 
     <!-- Center Column: Standards & Licensing -->

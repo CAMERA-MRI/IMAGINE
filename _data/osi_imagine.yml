@@ -1,0 +1,94 @@
+- category: "Readme"
+  items:
+    - name: "README File Available"
+      satisfied: true
+      evidence: "Complete README file provided in the repository and individual component pages."
+      location: "/scanners/imagine/"
+    - name: "Design Considerations Explained"
+      satisfied: true
+      evidence: "Electromagnetic calculations and design considerations are documented in the GPA and control system pages."
+      location: "/components/marcos-control-system/"
+
+- category: "Bill of Materials"
+  items:
+    - name: "BoM Provided"
+      satisfied: true
+      evidence: "Bills of Materials for all PCB assemblies and custom components are detailed."
+      location: "/components/marcos-control-system/"
+    - name: "BoM Best Practices Compliant"
+      satisfied: true
+      evidence: "Tables contain exact manufacturer part numbers, suppliers, quantities, and direct DigiKey purchase links."
+      location: "/components/marcos-control-system/"
+
+- category: "Source Files"
+  items:
+    - name: "Native Source Files Available"
+      satisfied: true
+      evidence: "Native KiCAD PCB schematic and layout projects, as well as FreeCAD drawings, are hosted in the repository."
+      location: "/components/marcos-control-system/"
+
+- category: "Status of Freedom"
+  items:
+    - name: "Editable with Open-Source Software"
+      satisfied: true
+      evidence: "All PCB designs are in KiCAD, mechanical elements in FreeCAD, and softcore firmware in open C++ (Arduino)."
+      location: "/components/marcos-control-system/"
+
+- category: "Production Files"
+  items:
+    - name: "Accessible Exports Available"
+      satisfied: true
+      evidence: "Gerber fabrication files, drill maps, STL meshes, and STEP files are ready for manufacturing."
+      location: "/components/marcos-control-system/"
+    - name: "Manufacturing Environment Defined"
+      satisfied: true
+      evidence: "PCB stack-up specifications, copper weight, and coil winding guides are fully described."
+      location: "/components/gradient-coils-cad-winding/"
+
+- category: "Assembly"
+  items:
+    - name: "Assembly Guidance"
+      satisfied: true
+      evidence: "Detailed schematics, PCB silkscreens, component placement guides, and custom board adapter wiring diagrams are provided."
+      location: "/components/redpitaya-to-gpa-adapter-board/"
+
+- category: "Development Tracking"
+  items:
+    - name: "Versioning Scheme Implemented"
+      satisfied: true
+      evidence: "Controlled using git on GitHub, tracking all schematic updates and firmware revisions."
+      location: "https://github.com/camera-mri/IMAGINE"
+    - name: "Public Issue Tracking"
+      satisfied: true
+      evidence: "Public issue tracking is available for hardware bugs and software integration tasks."
+      location: "https://github.com/camera-mri/IMAGINE/issues"
+    - name: "Public Communication Space"
+      satisfied: true
+      evidence: "A shared developer forum and GitHub discussions space are used for technical exchange."
+      location: "https://www.camera-mri.org"
+
+- category: "Testing"
+  items:
+    - name: "Testing Routines Available"
+      satisfied: true
+      evidence: "Instructions for Red Pitaya board validation, GPA power testing, and coil tuning/matching are detailed."
+      location: "/components/rf-coil-tuning-and-matching/"
+    - name: "Testing Routines Complete"
+      satisfied: true
+      evidence: "Comprehensive hardware verification checklist is available for all electronics modules."
+      location: "/components/gpa-fhdo-power-amplifier/"
+
+- category: "Use"
+  items:
+    - name: "User Manual Available"
+      satisfied: true
+      evidence: "System integration and operation manuals are provided."
+      location: "/components/marcos-control-system/"
+    - name: "Risk Assessment & Safety Notice"
+      satisfied: true
+      evidence: "High voltage and RF power warning labels and safety protocols are prominent."
+      location: "/components/gpa-fhdo-power-amplifier/"
+    - name: "Replication History Documented"
+      satisfied: true
+      evidence: "Replicated and successfully tested at several university laboratories globally."
+      location: "/about/"

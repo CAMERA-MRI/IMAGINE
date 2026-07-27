@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   
   <!-- MathJax for LaTeX Equations -->
   <script>
@@ -1486,6 +1486,303 @@
       </div>
     </div>
   </div>
+
+  <!-- OSII Standard Compliance Section for this Scanner -->
+  <section class="scanner-compliance-section" style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--color-border);">
+    <div class="compliance-header-wrapper" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1.5rem;">
+      <div>
+        <h2 class="section-card-title" style="margin: 0;"><i class="fa-solid fa-square-check"></i> OSII Compliance Scorecard</h2>
+        <p style="color: var(--color-text-light); margin-top: 0.5rem; margin-bottom: 0;">This scorecard tracks how this scanner project complies with the Open Source Imaging Initiative (OSI²) requirements.</p>
+      </div>
+      
+      <!-- Score Display -->
+      
+        {% assign osi_data = site.data.osi_imagine %}
+      
+      
+      
+      
+      <div class="compliance-score-badge" style="background-color: var(--color-emerald-deep); color: #ffffff; padding: 0.8rem 1.5rem; border-radius: var(--border-radius-sm); border: 2px solid var(--color-gold); text-align: center; box-shadow: var(--shadow-sm); flex-shrink: 0;">
+        <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; display: block; color: var(--color-gold); margin-bottom: 0.2rem;">OSI² Score</span>
+        <span style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-family-title);">17 / 17</span>
+      </div>
+    </div>
+
+    <!-- Checklist Categories Grid -->
+    <div class="checklist-groups-wrapper">
+      
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-book-open"></i> Readme</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">README File Available</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Complete README file provided in the repository and individual component pages. <a href="/IMAGINE/scanners/imagine/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Design Considerations Explained</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Electromagnetic calculations and design considerations are documented in the GPA and control system pages. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-list-check"></i> Bill of Materials</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">BoM Provided</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Bills of Materials for all PCB assemblies and custom components are detailed. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">BoM Best Practices Compliant</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Tables contain exact manufacturer part numbers, suppliers, quantities, and direct DigiKey purchase links. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-folder-open"></i> Source Files</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Native Source Files Available</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Native KiCAD PCB schematic and layout projects, as well as FreeCAD drawings, are hosted in the repository. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-unlock"></i> Status of Freedom</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Editable with Open-Source Software</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> All PCB designs are in KiCAD, mechanical elements in FreeCAD, and softcore firmware in open C++ (Arduino). <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-microchip"></i> Production Files</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Accessible Exports Available</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Gerber fabrication files, drill maps, STL meshes, and STEP files are ready for manufacturing. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Manufacturing Environment Defined</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> PCB stack-up specifications, copper weight, and coil winding guides are fully described. <a href="/IMAGINE/components/gradient-coils-cad-winding/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Assembly Guidance</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Detailed schematics, PCB silkscreens, component placement guides, and custom board adapter wiring diagrams are provided. <a href="/IMAGINE/components/redpitaya-to-gpa-adapter-board/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-code-fork"></i> Development Tracking</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Versioning Scheme Implemented</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Controlled using git on GitHub, tracking all schematic updates and firmware revisions. <a href="https://github.com/camera-mri/IMAGINE" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Public Issue Tracking</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Public issue tracking is available for hardware bugs and software integration tasks. <a href="https://github.com/camera-mri/IMAGINE/issues" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Public Communication Space</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> A shared developer forum and GitHub discussions space are used for technical exchange. <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-flask"></i> Testing</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Testing Routines Available</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Instructions for Red Pitaya board validation, GPA power testing, and coil tuning/matching are detailed. <a href="/IMAGINE/components/rf-coil-tuning-and-matching/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Testing Routines Complete</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Comprehensive hardware verification checklist is available for all electronics modules. <a href="/IMAGINE/components/gpa-fhdo-power-amplifier/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-user-gear"></i> Use</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">User Manual Available</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> System integration and operation manuals are provided. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Risk Assessment & Safety Notice</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> High voltage and RF power warning labels and safety protocols are prominent. <a href="/IMAGINE/components/gpa-fhdo-power-amplifier/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Replication History Documented</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Replicated and successfully tested at several university laboratories globally. <a href="/IMAGINE/about/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
 </div>
 
   </main>
@@ -1500,6 +1797,13 @@
       <p class="footer-para-text">
         An open-source preclinical MRI initiative of the Consortium for Advancement of MRI Education and Research in Africa (CAMERA). Sustaining diagnostic health equity globally.
       </p>
+      <div class="social-links-row">
+        <a href="https://www.linkedin.com/company/consortium-for-advancement-of-mri-education-research-in-africa/" target="_blank" class="social-icon-btn linkedin-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://x.com/CAMERAAfrica" target="_blank" class="social-icon-btn x-btn" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://bsky.app/profile/cameramriafrica.bsky.social" target="_blank" class="social-icon-btn bluesky-btn" title="BlueSky"><i class="fa-brands fa-bluesky"></i></a>
+        <a href="https://chat.whatsapp.com/BagIlZGHwfWHFJYnzpZkLB" target="_blank" class="social-icon-btn whatsapp-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@CAMERAAfrica" target="_blank" class="social-icon-btn youtube-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
     </div>
 
     <!-- Center Column: Standards & Licensing -->

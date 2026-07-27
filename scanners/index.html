@@ -42,4 +42,32 @@ description: "Select an open-source MRI scanner design to explore CAD models, pa
     </div>
 
   </div>
+
+  <!-- OSII Compliance General Report -->
+  <section class="general-compliance-report-section" style="margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--color-border);">
+    <div class="page-title-banner" style="text-align: left; margin-bottom: 2rem;">
+      <h2 class="section-card-title" style="margin: 0;"><i class="fa-solid fa-chart-bar"></i> OSII Standard Compliance: General Report</h2>
+      <p class="page-subtitle" style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--color-text-light);">
+        This general report summarizes and compares open science standard compliance across our individual scanner projects, compiled dynamically from their OSII compliance files.
+      </p>
+    </div>
+
+    <!-- Comparative Table -->
+    <div class="compliance-table-wrapper" style="overflow-x: auto; background-color: var(--color-beige-card); border-radius: var(--border-radius-md); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); padding: 1.5rem;">
+      <table class="compliance-compare-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--color-border);">
+            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title);">OSII Standard Criteria</th>
+            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title); text-align: center; width: 40%;">ERNIE Scanner</th>
+            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title); text-align: center; width: 40%;">IMAGINE Preclinical</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for compare_cat in site.data.osi_checklist %}
+            <!-- This loop will be substituted by the compiler with the cross-referenced details -->
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
 </div>

@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   
   <!-- MathJax for LaTeX Equations -->
   <script>
@@ -644,6 +644,303 @@
       </div>
     </div>
   </div>
+
+  <!-- OSII Standard Compliance Section for this Scanner -->
+  <section class="scanner-compliance-section" style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--color-border);">
+    <div class="compliance-header-wrapper" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1.5rem;">
+      <div>
+        <h2 class="section-card-title" style="margin: 0;"><i class="fa-solid fa-square-check"></i> OSII Compliance Scorecard</h2>
+        <p style="color: var(--color-text-light); margin-top: 0.5rem; margin-bottom: 0;">This scorecard tracks how this scanner project complies with the Open Source Imaging Initiative (OSI²) requirements.</p>
+      </div>
+      
+      <!-- Score Display -->
+      
+        {% assign osi_data = site.data.osi_ernie %}
+      
+      
+      
+      
+      <div class="compliance-score-badge" style="background-color: var(--color-emerald-deep); color: #ffffff; padding: 0.8rem 1.5rem; border-radius: var(--border-radius-sm); border: 2px solid var(--color-gold); text-align: center; box-shadow: var(--shadow-sm); flex-shrink: 0;">
+        <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; display: block; color: var(--color-gold); margin-bottom: 0.2rem;">OSI² Score</span>
+        <span style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-family-title);">16 / 17</span>
+      </div>
+    </div>
+
+    <!-- Checklist Categories Grid -->
+    <div class="checklist-groups-wrapper">
+      
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-book-open"></i> Readme</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">README File Available</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Complete README file provided in the repository and individual component pages. <a href="/IMAGINE/scanners/ernie/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Design Considerations Explained</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Optimizations via genetic algorithms are fully documented in the Magnet overview. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-list-check"></i> Bill of Materials</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">BoM Provided</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Complete Bill of Materials for Halbach magnet and gantry parts are embedded in the components. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/#details-ernie-7-ring-halbach-magnet"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">BoM Best Practices Compliant</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Part lists contain quantities, specifications, and direct links to suppliers (e.g. Supermagnete). <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-folder-open"></i> Source Files</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Native Source Files Available</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Arduino control code and 3D printing geometries (.stl) are hosted directly in the repository. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-unlock"></i> Status of Freedom</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Editable with Open-Source Software</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Control scripts are written in C++ (Arduino IDE) and gcode, editable in any open editor. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-microchip"></i> Production Files</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Accessible Exports Available</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> STL mesh files are available for all 3D printed mechanical brackets, spacer rings, and lids. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Manufacturing Environment Defined</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> FDM 3D printing recommendations (material type, infill, shell count) are defined in the assembly guides. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Assembly Guidance</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Step-by-step documentation, assembly guides, and demonstration videos are embedded in the system dashboard. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-code-fork"></i> Development Tracking</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Versioning Scheme Implemented</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Managed under git version control on GitHub for code, models, and docs tracking. <a href="https://github.com/camera-mri/IMAGINE" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Public Issue Tracking</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Uses public GitHub Issues for bug reports, hardware revisions, and feature requests. <a href="https://github.com/camera-mri/IMAGINE/issues" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Public Communication Space</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Integrated into the CAMERA-MRI community and GitHub discussions forums. <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-flask"></i> Testing</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Testing Routines Available</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Hall probe calibration steps and 3-axis stage travel tests are specified. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="unchecked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-xmark" style="color: var(--color-text-light); opacity: 0.5;"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Testing Routines Complete</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.2rem; display: block; opacity: 0.7;">
+                          Not fully satisfied yet.
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid fa-user-gear"></i> Use</h4>
+                  <ul class="checklist-items">
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">User Manual Available</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Operational guides for gantry control and mapping execution are available. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Risk Assessment & Safety Notice</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> NdFeB strong magnetic field and pinching safety warnings are clearly labeled in the magnet overview. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <div class="item-details">
+                        <span class="item-name">Replication History Documented</span>
+                        
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Successfully replicated at several partner sites in South Africa and Uganda. <a href="/IMAGINE/about/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                        </span>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
 </div>
 
   </main>
@@ -658,6 +955,13 @@
       <p class="footer-para-text">
         An open-source preclinical MRI initiative of the Consortium for Advancement of MRI Education and Research in Africa (CAMERA). Sustaining diagnostic health equity globally.
       </p>
+      <div class="social-links-row">
+        <a href="https://www.linkedin.com/company/consortium-for-advancement-of-mri-education-research-in-africa/" target="_blank" class="social-icon-btn linkedin-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://x.com/CAMERAAfrica" target="_blank" class="social-icon-btn x-btn" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://bsky.app/profile/cameramriafrica.bsky.social" target="_blank" class="social-icon-btn bluesky-btn" title="BlueSky"><i class="fa-brands fa-bluesky"></i></a>
+        <a href="https://chat.whatsapp.com/BagIlZGHwfWHFJYnzpZkLB" target="_blank" class="social-icon-btn whatsapp-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@CAMERAAfrica" target="_blank" class="social-icon-btn youtube-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
     </div>
 
     <!-- Center Column: Standards & Licensing -->

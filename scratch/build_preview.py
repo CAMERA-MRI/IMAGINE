@@ -58,7 +58,9 @@ class PreviewBuilder:
             "data": {
                 "people": load_yaml(os.path.join(WORKSPACE, "_data", "people.yml")),
                 "institutions": load_yaml(os.path.join(WORKSPACE, "_data", "institutions.yml")),
-                "osi_checklist": load_yaml(os.path.join(WORKSPACE, "_data", "osi_checklist.yml"))
+                "osi_checklist": load_yaml(os.path.join(WORKSPACE, "_data", "osi_checklist.yml")),
+                "osi_ernie": load_yaml(os.path.join(WORKSPACE, "_data", "osi_ernie.yml")),
+                "osi_imagine": load_yaml(os.path.join(WORKSPACE, "_data", "osi_imagine.yml"))
             },
             "scanners": [],
             "components": [],
@@ -227,16 +229,29 @@ class PreviewBuilder:
             text = re.sub(r'{%\s*for\s+person\s+in\s+site\.data\.people\s*%}.*?{%\s*endfor\s*%}', people_html, text, flags=re.DOTALL)
 
         if "{% for inst in site.data.institutions %}" in text:
-            inst_html = ""
+            inst_items = []
             for inst in self.site_data["data"]["institutions"] or []:
-                inst_html += f"""
-                <div class="partner-logo-card">
-                  <h4 class="partner-name-h4">{inst.get('name', '')}</h4>
-                  <span style="font-size: 0.75rem; font-weight:700; color: var(--color-text-light); text-transform:uppercase;">{inst.get('fullname', '')}</span>
-                  <p class="partner-desc">{inst.get('description', '')}</p>
-                  <a href="{inst.get('link', '#')}" target="_blank" class="partner-link-btn">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-                """
+                name_esc = inst.get('name', '').replace('"', '\\"')
+                fullname_esc = inst.get('fullname', '').replace('"', '\\"')
+                initials_esc = inst.get('initials', '').replace('"', '\\"')
+                desc_esc = inst.get('description', '').replace('"', '\\"')
+                link_esc = inst.get('link', '').replace('"', '\\"')
+                logo_esc = inst.get('logo', '')
+                lat = inst.get('lat', 0.0)
+                lng = inst.get('lng', 0.0)
+                
+                inst_items.append(f"""{{
+          name: "{name_esc}",
+          fullname: "{fullname_esc}",
+          initials: "{initials_esc}",
+          description: "{desc_esc}",
+          link: "{link_esc}",
+          logo: "{self.baseurl}{logo_esc}",
+          lat: {lat},
+          lng: {lng}
+        }}""")
+            
+            inst_html = ",\n".join(inst_items)
             text = re.sub(r'{%\s*for\s+inst\s+in\s+site\.data\.institutions\s*%}.*?{%\s*endfor\s*%}', inst_html, text, flags=re.DOTALL)
 
         if '{% assign sorted_events = site.events | sort: "date" | reverse %}' in text or "site.events" in text:
@@ -332,6 +347,116 @@ class PreviewBuilder:
                 </div>
                 """
             text = re.sub(r'{%\s*for\s+cat\s+in\s+site\.data\.osi_checklist\s*%}.*?{%\s*endfor\s*%}', cats_html, text, flags=re.DOTALL)
+
+        if "{% for compare_cat in site.data.osi_checklist %}" in text:
+            checklist = self.site_data["data"]["osi_checklist"] or []
+            ernie_data = self.site_data["data"]["osi_ernie"] or []
+            imagine_data = self.site_data["data"]["osi_imagine"] or []
+            
+            compare_rows = ""
+            for cat in checklist:
+                cat_name = cat.get("category", "")
+                cat_icon = "fa-square-check"
+                if cat_name == "Readme": cat_icon = "fa-book-open"
+                elif cat_name == "Bill of Materials": cat_icon = "fa-list-check"
+                elif cat_name == "Source Files": cat_icon = "fa-folder-open"
+                elif cat_name == "Status of Freedom": cat_icon = "fa-unlock"
+                elif cat_name == "Production Files": cat_icon = "fa-microchip"
+                elif cat_name == "Assembly": cat_icon = "fa-screwdriver-wrench"
+                elif cat_name == "Development Tracking": cat_icon = "fa-code-fork"
+                elif cat_name == "Testing": cat_icon = "fa-flask"
+                elif cat_name == "Use": cat_icon = "fa-user-gear"
+                
+                compare_rows += f"""
+                <tr style="background-color: rgba(21, 51, 38, 0.05); font-weight: 700;">
+                  <td colspan="3" style="padding: 0.8rem 1rem; color: var(--color-emerald-deep); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; border-top: 1px solid var(--color-border);">
+                    <i class="fa-solid {cat_icon}"></i> {cat_name}
+                  </td>
+                </tr>
+                """
+                
+                for item in cat.get("items", []):
+                    item_name = item.get("name", "")
+                    
+                    # Find ERNIE item
+                    ernie_item = None
+                    for ec in ernie_data:
+                        if ec.get("category") == cat_name:
+                            for ei in ec.get("items", []):
+                                if ei.get("name") == item_name:
+                                    ernie_item = ei
+                                    break
+                    
+                    # Find IMAGINE item
+                    imagine_item = None
+                    for ic in imagine_data:
+                        if ic.get("category") == cat_name:
+                            for ii in ic.get("items", []):
+                                if ii.get("name") == item_name:
+                                    imagine_item = ii
+                                    break
+                    
+                    # Render ERNIE cell
+                    ernie_cell = ""
+                    if ernie_item and ernie_item.get("satisfied"):
+                        loc = ernie_item.get("location", "")
+                        link_html = ""
+                        if loc:
+                            target = 'target="_blank"' if 'http' in loc else ""
+                            link_html = f'<a href="{loc if "http" in loc else self.baseurl + loc}" {target} style="text-decoration: underline; font-weight: 600;">[Link]</a>'
+                        ernie_cell = f"""
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          {ernie_item.get('evidence', '')} {link_html}
+                        </span>
+                        """
+                    else:
+                        ernie_cell = f"""
+                        <span style="color: var(--color-text-light); opacity: 0.6; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-xmark"></i> Pending
+                        </span>
+                        """
+                        
+                    # Render IMAGINE cell
+                    imagine_cell = ""
+                    if imagine_item and imagine_item.get("satisfied"):
+                        loc = imagine_item.get("location", "")
+                        link_html = ""
+                        if loc:
+                            target = 'target="_blank"' if 'http' in loc else ""
+                            link_html = f'<a href="{loc if "http" in loc else self.baseurl + loc}" {target} style="text-decoration: underline; font-weight: 600;">[Link]</a>'
+                        imagine_cell = f"""
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          {imagine_item.get('evidence', '')} {link_html}
+                        </span>
+                        """
+                    else:
+                        imagine_cell = f"""
+                        <span style="color: var(--color-text-light); opacity: 0.6; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-xmark"></i> Pending
+                        </span>
+                        """
+                        
+                    compare_rows += f"""
+                    <tr style="border-bottom: 1px solid var(--color-border); font-size: 0.88rem;">
+                      <td style="padding: 1rem; font-weight: 600; color: var(--color-text-dark); vertical-align: top;">
+                        {item_name}
+                        <small style="display: block; font-weight: 400; color: var(--color-text-light); margin-top: 0.2rem;">{item.get('desc', '')}</small>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        {ernie_cell}
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
+                        {imagine_cell}
+                      </td>
+                    </tr>
+                    """
+            text = re.sub(r'{%\s*for\s+compare_cat\s+in\s+site\.data\.osi_checklist\s*%}.*?{%\s*endfor\s*%}', compare_rows, text, flags=re.DOTALL)
 
         return text
 
@@ -503,6 +628,79 @@ class PreviewBuilder:
         # 2. Match and replace the remaining loop (which is the detail views loop)
         pattern_general = r'{%\s*for\s+comp\s+in\s+scanner_components\s*%}.*?{%\s*endfor\s*%}'
         text = re.sub(pattern_general, detail_views, text, flags=re.DOTALL)
+
+        # 3. Compile scanner compliance checklist if present
+        if "{% for cat in osi_data %}" in text:
+            osi_data = self.site_data["data"]["osi_ernie"] if scanner_id == "ernie" else self.site_data["data"]["osi_imagine"]
+            
+            # Remove Liquid conditionals and scores calculation block
+            text = re.sub(r'{%\s*if\s+page\.scanner_id\s*==.*?{%\s*endif\s*%}', '', text, flags=re.DOTALL)
+            text = re.sub(r'{%\s*assign\s+earned_pts\s*=.*?{%\s*endfor\s*%}\s*{%\s*endfor\s*%}', '', text, flags=re.DOTALL)
+            
+            # Calculate points
+            earned_pts = sum(1 for cat in osi_data for item in cat.get("items", []) if item.get("satisfied"))
+            total_pts = sum(1 for cat in osi_data for item in cat.get("items", []))
+            
+            text = text.replace("{{ earned_pts }}", str(earned_pts))
+            text = text.replace("{{ total_pts }}", str(total_pts))
+            
+            cats_html = ""
+            for cat in osi_data:
+                items_html = ""
+                for item in cat.get("items", []):
+                    satisfied_class = "checked" if item.get("satisfied") else "unchecked"
+                    icon = '<i class="fa-solid fa-circle-check"></i>' if item.get("satisfied") else '<i class="fa-solid fa-circle-xmark" style="color: var(--color-text-light); opacity: 0.5;"></i>'
+                    
+                    evidence_html = ""
+                    if item.get("satisfied"):
+                        link_html = ""
+                        loc = item.get("location", "")
+                        if loc:
+                            target = 'target="_blank"' if 'http' in loc else ""
+                            link_html = f'<a href="{loc if "http" in loc else self.baseurl + loc}" {target} style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>'
+                        evidence_html = f"""
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> {item.get('evidence', '')} {link_html}
+                        </span>
+                        """
+                    else:
+                        evidence_html = f"""
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.2rem; display: block; opacity: 0.7;">
+                          Not fully satisfied yet.
+                        </span>
+                        """
+                    
+                    items_html += f"""
+                    <li class="{satisfied_class}">
+                      <span class="check-icon">{icon}</span>
+                      <div class="item-details">
+                        <span class="item-name">{item.get('name', '')}</span>
+                        {evidence_html}
+                      </div>
+                    </li>
+                    """
+                
+                cat_icon = "fa-square-check"
+                cat_name = cat.get("category", "")
+                if cat_name == "Readme": cat_icon = "fa-book-open"
+                elif cat_name == "Bill of Materials": cat_icon = "fa-list-check"
+                elif cat_name == "Source Files": cat_icon = "fa-folder-open"
+                elif cat_name == "Status of Freedom": cat_icon = "fa-unlock"
+                elif cat_name == "Production Files": cat_icon = "fa-microchip"
+                elif cat_name == "Assembly": cat_icon = "fa-screwdriver-wrench"
+                elif cat_name == "Development Tracking": cat_icon = "fa-code-fork"
+                elif cat_name == "Testing": cat_icon = "fa-flask"
+                elif cat_name == "Use": cat_icon = "fa-user-gear"
+                
+                cats_html += f"""
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid {cat_icon}"></i> {cat_name}</h4>
+                  <ul class="checklist-items">
+                    {items_html}
+                  </ul>
+                </div>
+                """
+            text = re.sub(r'{%\s*for\s+cat\s+in\s+osi_data\s*%}.*?{%\s*endfor\s*%}', cats_html, text, flags=re.DOTALL)
         
         return text
 

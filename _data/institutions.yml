@@ -1,41 +1,80 @@
 - name: "CAMERA"
   fullname: "Consortium for Advancement of MRI Education and Research in Africa"
-  description: "A consortium dedicated to establishing sustainable MRI training, research, and clinical resources across Africa."
+  initials: "CAM"
+  description: "A global consortium establishing sustainable MRI training, research, and open-source hardware scanner development. WG of ESMRMB."
   link: "https://www.camera-mri.org"
-  logo: "assets/images/partners/camera.png"
+  logo: "/assets/images/partners/camera.png"
+  lat: -0.615
+  lng: 30.658
 
 - name: "The Neuro"
   fullname: "Montreal Neurological Institute-Hospital, McGill University"
-  description: "A world-leading academic medical center dedicated to neuroscience research and advanced brain imaging."
+  initials: "MNI"
+  description: "A world-leading academic neuroscience and brain imaging research center helping lead local preclinical scanner builds."
   link: "https://www.mcgill.ca/neuro"
-  logo: "assets/images/partners/neuro.png"
-
-- name: "OSII"
-  fullname: "Open Source Imaging Initiative"
-  description: "An international coalition promoting open-source medical imaging, creating standardized, freely available designs."
-  link: "https://www.opensourceimaging.org"
-  logo: "assets/images/partners/osii.png"
-
-- name: "RAD-AID International"
-  fullname: "RAD-AID International"
-  description: "A non-profit organization optimizing radiology resources in low-resource regions through education and technology."
-  link: "https://www.rad-aid.org"
-  logo: "assets/images/partners/radaid.png"
+  logo: "/assets/images/partners/neuro.png"
+  lat: 45.509
+  lng: -73.579
 
 - name: "Polytechnique Montréal"
   fullname: "Polytechnique Montréal"
-  description: "A prestigious engineering school in Montreal, hosting research on low-field MRI development and training."
+  initials: "EPM"
+  description: "A prestigious engineering school hosting low-field hardware research and hands-on training sessions."
   link: "https://www.polymtl.ca"
-  logo: "assets/images/partners/poly.png"
+  logo: "/assets/images/partners/poly.png"
+  lat: 45.504
+  lng: -73.613
 
 - name: "Douglas Research Centre"
   fullname: "Douglas Mental Health University Institute"
-  description: "Affiliated with McGill University, helping lead local replications and educational MRI builds."
+  initials: "DRC"
+  description: "Affiliated with McGill University, leading local replication efforts and biomedical training."
   link: "https://douglas.research.mcgill.ca"
-  logo: "assets/images/partners/douglas.png"
+  logo: "/assets/images/partners/douglas.png"
+  lat: 45.441
+  lng: -73.587
 
 - name: "ESMRMB"
   fullname: "European Society for Magnetic Resonance in Medicine and Biology"
-  description: "A leading European medical physics society. CAMERA (which leads IMAGINE) is a recognized Working Group (WG) of ESMRMB."
+  initials: "ESM"
+  description: "Leading European medical physics society. CAMERA (which leads IMAGINE) is a recognized Working Group (WG) of ESMRMB."
   link: "https://www.esmrmb.org"
-  logo: "assets/images/partners/esmrmb.png"
+  logo: "/assets/images/partners/esmrmb.png"
+  lat: 48.208
+  lng: 16.373
+
+- name: "Stellenbosch University"
+  fullname: "Stellenbosch University"
+  initials: "SU"
+  description: "Südafrikanische Universität active in low-field MRI development and biomedical engineering education in Africa."
+  link: "https://www.sun.ac.za"
+  logo: "/assets/images/partners/stellenbosch.png"
+  lat: -33.932
+  lng: 18.864
+
+- name: "MRILab (i3m-UPV)"
+  fullname: "MRILab, Instituto de Instrumentación para Imagen Molecular (i3M, UPV-CSIC)"
+  initials: "i3M"
+  description: "Forschungszentrum in Valencia developing portable, affordable, and sustainable low-field head scanners."
+  link: "http://mrilab.i3m.upv.es"
+  logo: "/assets/images/partners/mrilab.png"
+  lat: 39.481
+  lng: -0.347
+
+- name: "IIBM UC"
+  fullname: "Instituto de Ingeniería Biológica y Médica (IIBM), Pontificia Universidad Católica de Chile"
+  initials: "UC"
+  description: "Interdisziplinäres chilenisches Institut leading research in low-field sequence development and hardware integration."
+  link: "https://iibm.uc.cl"
+  logo: "/assets/images/partners/iibm.png"
+  lat: -33.490
+  lng: -70.612
+
+- name: "ISMRM African Chapter"
+  fullname: "International Society for Magnetic Resonance in Medicine - African Chapter"
+  initials: "IS-A"
+  description: "Regional chapter promoting MRI education, technical capacity building, and networking across the African continent."
+  link: "https://www.ismrm.org"
+  logo: "/assets/images/partners/ismrm_africa.png"
+  lat: -33.924
+  lng: 18.424
