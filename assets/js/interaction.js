@@ -93,6 +93,15 @@ function initializeDashboard() {
  * Find the first component in a given subsystem and activate it.
  */
 function selectFirstComponentInSubsystem(subsystemId) {
+  if (subsystemId === "magnet") {
+    activateComponent("ernie-7-ring-halbach-magnet");
+    return;
+  }
+  if (subsystemId === "robot") {
+    activateComponent("field-mapping-robot");
+    return;
+  }
+
   // Find first sidebar button matching this subsystem
   const firstBtn = document.querySelector(`.sidebar-node-btn[data-subsystem="${subsystemId}"]`);
   if (firstBtn) {

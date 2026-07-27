@@ -57,7 +57,8 @@ class PreviewBuilder:
             "baseurl": self.baseurl,
             "data": {
                 "people": load_yaml(os.path.join(WORKSPACE, "_data", "people.yml")),
-                "institutions": load_yaml(os.path.join(WORKSPACE, "_data", "institutions.yml"))
+                "institutions": load_yaml(os.path.join(WORKSPACE, "_data", "institutions.yml")),
+                "osi_checklist": load_yaml(os.path.join(WORKSPACE, "_data", "osi_checklist.yml"))
             },
             "scanners": [],
             "components": [],
@@ -161,7 +162,57 @@ class PreviewBuilder:
         text = re.sub(r'{{\s*([a-zA-Z0-9_\-\.]+)\s*}}', var_replacer, text)
         return text
 
+    def render_conditionals(self, text, page_fm):
+        def eval_condition(var_name, op, val):
+            obj = page_fm
+            parts = var_name.split('.')
+            if parts[0] in ["comp", "page"]:
+                parts = parts[1:]
+            
+            for part in parts:
+                if isinstance(obj, dict):
+                    obj = obj.get(part, None)
+                else:
+                    obj = None
+                    break
+            
+            if op is None:
+                return bool(obj)
+            
+            if op == "==":
+                return str(obj) == str(val)
+            if op == "!=":
+                return str(obj) != str(val)
+            return False
+
+        def cond_replacer(match):
+            var_name = match.group(1).strip()
+            op = match.group(2)
+            val = match.group(3)
+            if val:
+                val = val.strip()
+            
+            if_body = match.group(4)
+            else_body = match.group(5) or ""
+            
+            if eval_condition(var_name, op, val):
+                return if_body
+            else:
+                return else_body
+
+        pattern = r'{%\s*if\s+([a-zA-Z0-9_\-\.]+)(?:\s*(==|!=)\s*[\'"]?([a-zA-Z0-9_\-]+)[\'"]?)?\s*%}(.*?)(?:{%\s*else\s*%}(.*?))?{%\s*endif\s*%}'
+        
+        for _ in range(5):
+            new_text = re.sub(pattern, cond_replacer, text, flags=re.DOTALL)
+            if new_text == text:
+                break
+            text = new_text
+            
+        return text
+
     def render_loops_and_conditionals(self, text, page_fm):
+        text = self.render_conditionals(text, page_fm)
+
         if "{% for person in site.data.people %}" in text:
             people_html = ""
             for p in self.site_data["data"]["people"] or []:
@@ -239,6 +290,49 @@ class PreviewBuilder:
                 """
             text = re.sub(r'{%\s*for\s+ev\s+in\s+sorted_events\s*%}.*?{%\s*endfor\s*%}', events_html, text, flags=re.DOTALL)
 
+        if "{% for cat in site.data.osi_checklist %}" in text:
+            calc_pattern = r'{%\s*assign\s+total_points\s*=.*?{%\s*endfor\s*%}\s*{%\s*endfor\s*%}'
+            text = re.sub(calc_pattern, '', text, flags=re.DOTALL)
+            
+            checklist_data = self.site_data["data"]["osi_checklist"] or []
+            total_points = sum(item.get("points", 1) for cat in checklist_data for item in cat.get("items", []))
+            earned_points = sum(item.get("points", 1) for cat in checklist_data for item in cat.get("items", []) if item.get("checked"))
+            
+            text = text.replace("{{ earned_points }}", str(earned_points))
+            text = text.replace("{{ total_points }}", str(total_points))
+            
+            cats_html = ""
+            for cat in checklist_data:
+                items_html = ""
+                for item in cat.get("items", []):
+                    checked_class = "checked" if item.get("checked") else "unchecked"
+                    icon = '<i class="fa-solid fa-circle-check"></i>' if item.get("checked") else '<i class="fa-solid fa-circle-xmark"></i>'
+                    mandatory_badge = '<span class="mandatory-badge" style="background-color: var(--color-gold); color: var(--color-text-dark); font-size: 0.65rem; padding: 0.1rem 0.3rem; border-radius: 4px; font-weight: 700; margin-left: 0.3rem; text-transform: uppercase;">Mandatory</span>' if item.get("mandatory") else ''
+                    
+                    items_html += f"""
+                    <li class="{checked_class}">
+                      <span class="check-icon">{icon}</span>
+                      <div class="item-details">
+                        <span class="item-name">
+                          {item.get('name', '')} 
+                          <small style="color: var(--color-text-light);">({item.get('points', 1)} pt)</small>
+                          {mandatory_badge}
+                        </span>
+                        <span class="item-desc">{item.get('desc', '')}</span>
+                      </div>
+                    </li>
+                    """
+                
+                cats_html += f"""
+                <div class="checklist-category-card">
+                  <h4 class="category-title"><i class="fa-solid {cat.get('icon', 'fa-square-check')}"></i> {cat.get('category', '')}</h4>
+                  <ul class="checklist-items">
+                    {items_html}
+                  </ul>
+                </div>
+                """
+            text = re.sub(r'{%\s*for\s+cat\s+in\s+site\.data\.osi_checklist\s*%}.*?{%\s*endfor\s*%}', cats_html, text, flags=re.DOTALL)
+
         return text
 
     def render_scanner_dashboard(self, text, page_fm):
@@ -255,7 +349,10 @@ class PreviewBuilder:
               {c.get('title', '')}
             </button>
             """
-        text = text.replace('{% for comp in scanner_components %}\n            <button class="sidebar-node-btn" data-component-id="{{ comp.title | slugify }}" data-subsystem="{{ comp.category }}">\n              {{ comp.title }}\n            </button>\n          {% endfor %}', sidebar_buttons)
+        
+        # 1. Match and replace the sidebar loop if present
+        pattern_sidebar = r'{%\s*for\s+comp\s+in\s+scanner_components\s*%}\s*<button class="sidebar-node-btn".*?{%\s*endfor\s*%}'
+        text = re.sub(pattern_sidebar, sidebar_buttons, text, flags=re.DOTALL)
         
         detail_views = ""
         for c in comps:
@@ -403,8 +500,9 @@ class PreviewBuilder:
             </div>
             """
             
-        pattern = r'{%\s*for\s+comp\s+in\s+scanner_components\s*%}.*?{%\s*endfor\s*%}'
-        text = re.sub(pattern, detail_views, text, flags=re.DOTALL)
+        # 2. Match and replace the remaining loop (which is the detail views loop)
+        pattern_general = r'{%\s*for\s+comp\s+in\s+scanner_components\s*%}.*?{%\s*endfor\s*%}'
+        text = re.sub(pattern_general, detail_views, text, flags=re.DOTALL)
         
         return text
 

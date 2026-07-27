@@ -34,14 +34,8 @@
   link: "https://douglas.research.mcgill.ca"
   logo: "assets/images/partners/douglas.png"
 
-- name: "ISMRM"
-  fullname: "International Society for Magnetic Resonance in Medicine"
-  description: "The premier global society for MR physics and clinical development, hosting training workshops."
-  link: "https://www.ismrm.org"
-  logo: "assets/images/partners/ismrm.png"
-
 - name: "ESMRMB"
   fullname: "European Society for Magnetic Resonance in Medicine and Biology"
-  description: "Leading European medical physics society, sponsoring pre-congress educational scanner build sessions."
+  description: "A leading European medical physics society. CAMERA (which leads IMAGINE) is a recognized Working Group (WG) of ESMRMB."
   link: "https://www.esmrmb.org"
   logo: "assets/images/partners/esmrmb.png"

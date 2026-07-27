@@ -175,37 +175,8 @@
             </div>
           {% endif %}
 
-          <!-- Training Material Downloads -->
-          {% if ev.materials %}
-            <div class="event-meta-section">
-              <h4 class="meta-section-title"><i class="fa-solid fa-book-open"></i> Training Materials & Resources</h4>
-              <div class="materials-links-row">
-                {% for mat in ev.materials %}
-                  <a href="/IMAGINE{{ mat.path }}" class="material-link-btn" {% if mat.path contains '.pdf' or mat.path contains '.mp4' %}target="_blank"{% endif %}>
-                    {% if mat.path contains '.mp4' %}
-                      <i class="fa-solid fa-circle-play text-primary"></i> Watch video: {{ mat.name }}
-                    {% elsif mat.path contains '.pdf' %}
-                      <i class="fa-solid fa-file-pdf text-red"></i> {{ mat.name }} (PDF)
-                    {% else %}
-                      <i class="fa-solid fa-file-lines text-secondary"></i> {{ mat.name }}
-                    {% endif %}
-                  </a>
-                {% endfor %}
-              </div>
-            </div>
-          {% endif %}
-
           <!-- Event Image Gallery -->
-          {% if ev.images %}
-            <div class="event-meta-section">
-              <h4 class="meta-section-title"><i class="fa-solid fa-images"></i> Session Gallery</h4>
-              <div class="event-photo-gallery">
-                {% for img in ev.images %}
-                  <div class="gallery-photo-frame">
-                    <img src="/IMAGINE{{ img.path }}" alt="{{ img.alt | default: ev.title }}" class="gallery-img">
-                    {% if img.caption %}
-                      <span class="gallery-img-caption">{{ img.caption }}</span>
-                    {% endif %}
+          
                   </div>
                 {% endfor %}
               </div>

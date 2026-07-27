@@ -1,191 +1,54 @@
+{% assign total_points = 0 %}
+{% assign earned_points = 0 %}
+{% for cat in site.data.osi_checklist %}
+  {% for item in cat.items %}
+    {% assign total_points = total_points | plus: item.points %}
+    {% if item.checked %}
+      {% assign earned_points = earned_points | plus: item.points %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
 <div class="compliance-checklist-container">
   <div class="checklist-header">
     <div class="score-card">
-      <span class="score-number">10 <small>/ 17</small></span>
+      <span class="score-number">{{ earned_points }} <small>/ {{ total_points }}</small></span>
       <span class="score-label">OSI² Hardware Score</span>
     </div>
     <div class="compliance-summary">
       <h3>OSI² CAB Review Checklist</h3>
-      <p>This checklist tracks compliance with the Open Source Imaging Initiative (OSI²) hardware documentation best practices. It helps ensure that researchers and engineers globally can replicate the scanner designs reliably.</p>
+      <p>This checklist is dynamically loaded and computed from the project data. It tracks compliance with the Open Source Imaging Initiative (OSI²) hardware documentation best practices, ensuring reproducible MRI scanner designs.</p>
     </div>
   </div>
 
   <div class="checklist-groups-wrapper">
-    
-    <!-- Readme -->
-    <div class="checklist-category-card">
-      <h4 class="category-title"><i class="fa-solid fa-book-open"></i> 1. Readme & Documentation</h4>
-      <ul class="checklist-items">
-        <li class="checked">
-          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
-          <div class="item-details">
-            <span class="item-name">README File Available (1 point)</span>
-            <span class="item-desc">Project description is clearly documented in the repository.</span>
-          </div>
-        </li>
-        <li class="checked">
-          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
-          <div class="item-details">
-            <span class="item-name">Design Considerations Explained (1 point)</span>
-            <span class="item-desc">Detailed design objectives, bore diameter, and magnet configurations are explained.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- BOM -->
-    <div class="checklist-category-card">
-      <h4 class="category-title"><i class="fa-solid fa-list-check"></i> 2. Bill of Materials</h4>
-      <ul class="checklist-items">
-        <li class="checked">
-          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
-          <div class="item-details">
-            <span class="item-name">BoM Provided (1 point)</span>
-            <span class="item-desc">BOM files are available with complete lists of electronic, RF, and magnet components.</span>
-          </div>
-        </li>
-        <li class="checked">
-          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
-          <div class="item-details">
-            <span class="item-name">BoM Best Practices Compliant (1 point)</span>
-            <span class="item-desc">Includes links to DigiKey/Amazon, pricing estimation, and vendor references.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Source Files -->
-    <div class="checklist-category-card">
-      <h4 class="category-title"><i class="fa-solid fa-folder-open"></i> 3. Source & Native CAD Files</h4>
-      <ul class="checklist-items">
-        <li class="checked">
-          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
-          <div class="item-details">
-            <span class="item-name">Native Source Files Available (1 point)</span>
-            <span class="item-desc">Autodesk Inventor (.ipt, .iam) and CAD source files are available in the repository.</span>
-          </div>
-        </li>
-        <li class="checked">
-          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
-          <div class="item-details">
-            <span class="item-name">Editable with Open-Source Software (1 point)</span>
-            <span class="item-desc">Files are exportable and editable in FreeCAD / OpenSCAD, and circuits in KiCAD.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Production Files -->
-    <div class="checklist-category-card">
-      <h4 class="category-title"><i class="fa-solid fa-microchip"></i> 4. Production & Fabrication Files</h4>
-      <ul class="checklist-items">
-        <li class="checked">
-          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
-          <div class="item-details">
-            <span class="item-name">Accessible Exports Available (1 point)</span>
-            <span class="item-desc">STEP/STP and 3D printing STL files are provided for direct printing of the magnet rings and RF coil.</span>
-          </div>
-        </li>
-        <li class="unchecked">
-          <span class="check-icon"><i class="fa-solid fa-circle-xmark"></i></span>
-          <div class="item-details">
-            <span class="item-name">Manufacturing Environment Defined (0 points)</span>
-            <span class="item-desc">Specific machine/printer settings (infill, filament types, layer height) are currently undefined.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Assembly -->
-    <div class="checklist-category-card">
-      <h4 class="category-title"><i class="fa-solid fa-screwdriver-wrench"></i> 5. Assembly Guidance</h4>
-      <ul class="checklist-items">
-        <li class="checked">
-          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
-          <div class="item-details">
-            <span class="item-name">Assembly Guide Available (1 point)</span>
-            <span class="item-desc">Step-by-step instructions are provided, supplemented by assembly guide animation videos.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Development Tracking -->
-    <div class="checklist-category-card">
-      <h4 class="category-title"><i class="fa-solid fa-code-fork"></i> 6. Development Tracking & Community</h4>
-      <ul class="checklist-items">
-        <li class="checked">
-          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
-          <div class="item-details">
-            <span class="item-name">Versioning Scheme Implemented (1 point)</span>
-            <span class="item-desc">A GitHub Git repository tracks all design changes and history.</span>
-          </div>
-        </li>
-        <li class="unchecked">
-          <span class="check-icon"><i class="fa-solid fa-circle-xmark"></i></span>
-          <div class="item-details">
-            <span class="item-name">Public Issue Tracking (0 points)</span>
-            <span class="item-desc">GitHub Issues are not yet utilized actively for bug reports and enhancements.</span>
-          </div>
-        </li>
-        <li class="unchecked">
-          <span class="check-icon"><i class="fa-solid fa-circle-xmark"></i></span>
-          <div class="item-details">
-            <span class="item-name">Public Communication Space (0 points)</span>
-            <span class="item-desc">A forum, Slack/Discord workspace, or open email list is not yet linked for developer-user exchange.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Testing -->
-    <div class="checklist-category-card">
-      <h4 class="category-title"><i class="fa-solid fa-flask"></i> 7. Testing & Verification</h4>
-      <ul class="checklist-items">
-        <li class="checked">
-          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
-          <div class="item-details">
-            <span class="item-name">Testing Routines Available (1 point)</span>
-            <span class="item-desc">Calibration procedures are provided, such as RF Switch VNA measurements and RF Coil tuning guides.</span>
-          </div>
-        </li>
-        <li class="unchecked">
-          <span class="check-icon"><i class="fa-solid fa-circle-xmark"></i></span>
-          <div class="item-details">
-            <span class="item-name">Testing Routines Complete (0 points)</span>
-            <span class="item-desc">Detailed testing guides for the control system enclosure and GPA-FHDO are still in development.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Use -->
-    <div class="checklist-category-card">
-      <h4 class="category-title"><i class="fa-solid fa-user-gear"></i> 8. Use & Safety</h4>
-      <ul class="checklist-items">
-        <li class="unchecked">
-          <span class="check-icon"><i class="fa-solid fa-circle-xmark"></i></span>
-          <div class="item-details">
-            <span class="item-name">User Manual (0 points)</span>
-            <span class="item-desc">A complete end-user manual for running preclinical scans is not yet published.</span>
-          </div>
-        </li>
-        <li class="unchecked">
-          <span class="check-icon"><i class="fa-solid fa-circle-xmark"></i></span>
-          <div class="item-details">
-            <span class="item-name">Risk Assessment & Safety Notice (0 points)</span>
-            <span class="item-desc">Safety notices concerning high magnetic fields (B0) and RF power have not yet been formalised.</span>
-          </div>
-        </li>
-        <li class="checked">
-          <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
-          <div class="item-details">
-            <span class="item-name">Replication History Documented (1 point)</span>
-            <span class="item-desc">Success stories of independent builds (ERNIE 1 and ERNIE 2) are documented in detail.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-
+    {% for cat in site.data.osi_checklist %}
+      <div class="checklist-category-card">
+        <h4 class="category-title"><i class="fa-solid {{ cat.icon }}"></i> {{ cat.category }}</h4>
+        <ul class="checklist-items">
+          {% for item in cat.items %}
+            <li class="{% if item.checked %}checked{% else %}unchecked{% endif %}">
+              <span class="check-icon">
+                {% if item.checked %}
+                  <i class="fa-solid fa-circle-check"></i>
+                {% else %}
+                  <i class="fa-solid fa-circle-xmark"></i>
+                {% endif %}
+              </span>
+              <div class="item-details">
+                <span class="item-name">
+                  {{ item.name }} 
+                  <small style="color: var(--color-text-light);">({{ item.points }} pt{% if item.points > 1 %}s{% endif %})</small>
+                  {% if item.mandatory %}
+                    <span class="mandatory-badge" style="background-color: var(--color-gold); color: var(--color-text-dark); font-size: 0.65rem; padding: 0.1rem 0.3rem; border-radius: 4px; font-weight: 700; margin-left: 0.3rem; text-transform: uppercase;">Mandatory</span>
+                  {% endif %}
+                </span>
+                <span class="item-desc">{{ item.desc }}</span>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
   </div>
 </div>

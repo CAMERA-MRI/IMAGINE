@@ -67,9 +67,7 @@
   <div class="breadcrumb-nav">
     <a href="/IMAGINE/"><i class="fa-solid fa-house"></i> Home</a> &gt; 
     <a href="/IMAGINE/scanners/">Scanners</a> &gt; 
-    {% if scanner %}
-      <a href="/IMAGINE/scanners/{{ scanner.scanner_id }}/">{{ scanner.title }}</a> &gt;
-    {% endif %}
+    
     <span class="active-breadcrumb">GPA-FHDO Power Amplifier</span>
   </div>
 
@@ -96,15 +94,7 @@
       <section class="docs-section-card">
         <h2 class="section-card-title"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly Instructions</h2>
         <div class="section-card-body">
-          {% if page.video_url %}
-            <div class="video-player-container standalone-video">
-              <video controls class="assembly-video">
-                <source src="/IMAGINE" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-              <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
-            </div>
-          {% endif %}
+          
           
           <div class="markdown-guide-content">
             {{ page.assembly_guide | markdownify }}
@@ -128,11 +118,11 @@
     <div class="component-docs-sidebar">
       
       <!-- BOM Card -->
-      {% if page.bom %}
+      
         <section class="docs-section-card sidebar-card">
           <h2 class="section-card-title"><i class="fa-solid fa-list-check"></i> Bill of Materials</h2>
           <div class="section-card-body">
-            {% if page.bom %}
+            
 <div class="bom-table-wrapper">
   <!-- Search/Filter Bar for BOM -->
   <div class="bom-search-box">
@@ -156,45 +146,25 @@
           <td class="part-qty">{{ part.qty | default: 1 }}</td>
           <td class="part-price">{{ part.price | default: "Included" }}</td>
           <td class="part-link">
-            {% if part.link %}
-              <a href="{{ part.link }}" target="_blank" class="buy-btn">
-                {% if part.link contains 'amazon' %}
-                  <i class="fa-brands fa-amazon"></i> Amazon
-                {% elsif part.link contains 'digikey' %}
-                  <i class="fa-solid fa-microchip"></i> DigiKey
-                {% else %}
-                  <i class="fa-solid fa-cart-shopping"></i> Purchase
-                {% endif %}
-              </a>
-            {% else %}
+            
               <span class="no-link-badge">Local/Custom</span>
-            {% endif %}
+            
           </td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
-{% endif %}
+
 
           </div>
         </section>
       {% endif %}
 
       <!-- Downloads Card -->
-      {% if page.downloads %}
-        <section class="docs-section-card sidebar-card">
-          <h2 class="section-card-title"><i class="fa-solid fa-file-download"></i> Design Files</h2>
-          <div class="section-card-body">
-            <div class="download-links-grid vertical-grid">
-              {% for file in page.downloads %}
-                <a href="/IMAGINE{{ file.path }}" download class="download-card">
-                  <div class="download-card-icon">
-                    {% if file.path contains '.stl' %}
-                      <i class="fa-solid fa-cube text-primary"></i>
-                    {% else %}
+      
                       <i class="fa-solid fa-drafting-compass text-secondary"></i>
-                    {% endif %}
+                    
                   </div>
                   <div class="download-card-info">
                     <span class="file-title">{{ file.name }}</span>

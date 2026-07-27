@@ -1,0 +1,120 @@
+- category: "Readme"
+  icon: "fa-book-open"
+  items:
+    - name: "README File Available"
+      desc: "Is a README file (or equivalent) available with a project description?"
+      checked: true
+      mandatory: true
+      points: 1
+    - name: "Design Considerations Explained"
+      desc: "Have the design considerations been explained?"
+      checked: false
+      mandatory: false
+      points: 1
+
+- category: "Bill of Materials"
+  icon: "fa-list-check"
+  items:
+    - name: "BoM Provided"
+      desc: "Is a Bill of Materials (BoM) provided to reproduce the design?"
+      checked: true
+      mandatory: true
+      points: 1
+    - name: "BoM Best Practices Compliant"
+      desc: "Is the Bill of Materials complete/complies with our best practices?"
+      checked: false
+      mandatory: false
+      points: 1
+
+- category: "Source Files"
+  icon: "fa-folder-open"
+  items:
+    - name: "Native Source Files Available"
+      desc: "Are all files needed to reproduce the project available in their native file format?"
+      checked: false
+      mandatory: true
+      points: 1
+
+- category: "Status of Freedom"
+  icon: "fa-unlock"
+  items:
+    - name: "Editable with Open-Source Software"
+      desc: "Are all source files editable with open-source software (e.g. FreeCAD, KiCAD)?"
+      checked: true
+      mandatory: false
+      points: 1
+
+- category: "Production Files"
+  icon: "fa-microchip"
+  items:
+    - name: "Accessible Exports Available"
+      desc: "Are all files needed to reproduce the project available in a generally accessible export file format (e.g. STP, STL, GRB)?"
+      checked: true
+      mandatory: true
+      points: 1
+    - name: "Manufacturing Environment Defined"
+      desc: "Is the manufacturing environment well defined or sufficiently explained?"
+      checked: false
+      mandatory: false
+      points: 1
+
+- category: "Assembly"
+  icon: "fa-screwdriver-wrench"
+  items:
+    - name: "Assembly Guidance"
+      desc: "Is the assembly of the project sufficiently explained, allowing for complete replication?"
+      checked: true
+      mandatory: true
+      points: 1
+
+- category: "Development Tracking"
+  icon: "fa-code-fork"
+  items:
+    - name: "Versioning Scheme Implemented"
+      desc: "Is a versioning scheme implemented (e.g. git repository)?"
+      checked: true
+      mandatory: true
+      points: 1
+    - name: "Public Issue Tracking"
+      desc: "Is issue tracking implemented publicly?"
+      checked: false
+      mandatory: false
+      points: 1
+    - name: "Public Communication Space"
+      desc: "Does the project have a communication space for questions and developer exchange?"
+      checked: false
+      mandatory: false
+      points: 1
+
+- category: "Testing"
+  icon: "fa-flask"
+  items:
+    - name: "Testing Routines Available"
+      desc: "Are testing routines available to evaluate the expected performance of the final design?"
+      checked: false
+      mandatory: false
+      points: 1
+    - name: "Testing Routines Complete"
+      desc: "Are testing routines complete (e.g. available for all subcomponents/subprocesses)?"
+      checked: false
+      mandatory: false
+      points: 1
+
+- category: "Use"
+  icon: "fa-user-gear"
+  items:
+    - name: "User Manual Available"
+      desc: "Is a user manual available?"
+      checked: false
+      mandatory: false
+      points: 1
+    - name: "Risk Assessment & Safety Notice"
+      desc: "Is a risk assessment or a safety notice available?"
+      checked: false
+      mandatory: false
+      points: 1
+    - name: "Replication History Documented"
+      desc: "Is information available if the project has been independently successfully replicated?"
+      checked: false
+      mandatory: false
+      points: 1
