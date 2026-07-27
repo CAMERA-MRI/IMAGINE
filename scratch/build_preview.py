@@ -215,44 +215,82 @@ class PreviewBuilder:
     def render_loops_and_conditionals(self, text, page_fm):
         text = self.render_conditionals(text, page_fm)
 
-        if "{% for person in site.data.people %}" in text:
-            people_html = ""
-            for p in self.site_data["data"]["people"] or []:
-                people_html += f"""
-                <div class="contributor-profile-card">
-                  <h3 class="contributor-name">{p.get('name', '')}</h3>
-                  <span class="contributor-role">{p.get('role', '')}</span>
-                  <span class="contributor-affiliation">{p.get('affiliation', '')}</span>
-                  <p class="contributor-bio">{p.get('bio', '')}</p>
-                </div>
-                """
-            text = re.sub(r'{%\s*for\s+person\s+in\s+site\.data\.people\s*%}.*?{%\s*endfor\s*%}', people_html, text, flags=re.DOTALL)
-
-        if "{% for inst in site.data.institutions %}" in text:
-            inst_items = []
-            for inst in self.site_data["data"]["institutions"] or []:
-                name_esc = inst.get('name', '').replace('"', '\\"')
-                fullname_esc = inst.get('fullname', '').replace('"', '\\"')
-                initials_esc = inst.get('initials', '').replace('"', '\\"')
-                desc_esc = inst.get('description', '').replace('"', '\\"')
-                link_esc = inst.get('link', '').replace('"', '\\"')
-                logo_esc = inst.get('logo', '')
-                lat = inst.get('lat', 0.0)
-                lng = inst.get('lng', 0.0)
-                
-                inst_items.append(f"""{{
-          name: "{name_esc}",
-          fullname: "{fullname_esc}",
-          initials: "{initials_esc}",
-          description: "{desc_esc}",
-          link: "{link_esc}",
-          logo: "{self.baseurl}{logo_esc}",
-          lat: {lat},
-          lng: {lng}
-        }}""")
+        # Generic loops parser for site.data.people and site.data.institutions
+        def loop_replacer(match):
+            item_var = match.group(1).strip()
+            collection_name = match.group(2).strip()
+            loop_body = match.group(3)
             
-            inst_html = ",\n".join(inst_items)
-            text = re.sub(r'{%\s*for\s+inst\s+in\s+site\.data\.institutions\s*%}.*?{%\s*endfor\s*%}', inst_html, text, flags=re.DOTALL)
+            items = []
+            if collection_name == "site.data.people":
+                items = self.site_data["data"]["people"] or []
+            elif collection_name == "site.data.institutions":
+                items = self.site_data["data"]["institutions"] or []
+            else:
+                return match.group(0)
+            
+            rendered_items = []
+            total_items = len(items)
+            for idx, item in enumerate(items):
+                item_content = loop_body
+                
+                # Replace variables: {{ item_var.name }} etc.
+                def var_sub(v_match):
+                    full_var = v_match.group(1).strip()
+                    parts = full_var.split("|")
+                    var_expr = parts[0].strip()
+                    
+                    val = ""
+                    if var_expr.startswith(f"{item_var}."):
+                        key = var_expr[len(item_var)+1:]
+                        val = item.get(key, "")
+                    elif var_expr == "forloop.index0":
+                        val = idx
+                    elif var_expr == "forloop.first":
+                        val = "true" if idx == 0 else ""
+                    elif var_expr == "forloop.last":
+                        val = "true" if idx == total_items - 1 else ""
+                    
+                    # Apply simple filters
+                    if len(parts) > 1:
+                        filter_name = parts[1].strip()
+                        if filter_name == "escape":
+                            import html
+                            val = html.escape(str(val))
+                    
+                    return str(val)
+                
+                item_content = re.sub(r'{{\s*([a-zA-Z0-9_\-\.\|\s]+?)\s*}}', var_sub, item_content)
+                
+                # Handle {% if ... %} and {% unless ... %} inside loop
+                def cond_sub(c_match):
+                    cond_type = c_match.group(1) # 'if' or 'unless'
+                    cond_expr = c_match.group(2).strip()
+                    cond_body = c_match.group(3)
+                    
+                    is_true = False
+                    if cond_expr == "forloop.first":
+                        is_true = (idx == 0)
+                    elif cond_expr == "forloop.last":
+                        is_true = (idx == total_items - 1)
+                        
+                    if cond_type == "unless":
+                        is_true = not is_true
+                        
+                    return cond_body if is_true else ""
+                    
+                item_content = re.sub(r'{%\s*(if|unless)\s+([a-zA-Z0-9_\-\.]+)\s*%}(.*?){%\s*end\1\s*%}', cond_sub, item_content, flags=re.DOTALL)
+                rendered_items.append(item_content)
+                
+            return "".join(rendered_items)
+
+        # Loop until all matching loops are replaced
+        pattern = r'{%\s*for\s+([a-zA-Z0-9_]+)\s+in\s+(site\.data\.[a-zA-Z0-9_]+)\s*%}(.*?){%\s*endfor\s*%}'
+        for _ in range(5):
+            new_text = re.sub(pattern, loop_replacer, text, flags=re.DOTALL)
+            if new_text == text:
+                break
+            text = new_text
 
         if '{% assign sorted_events = site.events | sort: "date" | reverse %}' in text or "site.events" in text:
             events_html = ""

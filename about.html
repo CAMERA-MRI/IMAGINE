@@ -20,26 +20,32 @@ description: "Meet the researchers, developers, and supporting institutions behi
     <p class="page-subtitle">A global network of neuroscientists, physicists, and engineers collaborating to democratize MRI hardware education and development.</p>
   </div>
 
-  <!-- Contributor Team Grid -->
+  <!-- Contributor Team Interactive Section (Two-Column Layout) -->
   <section id="contributors-section" class="contributors-grid-section">
     <h2 class="section-card-title"><i class="fa-solid fa-users"></i> Contributors & Researchers</h2>
-    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">Below is the core research and development group behind the IMAGINE hardware plans and training resources, listed in CITATION.cff:</p>
+    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">Below is the core research and development group behind the IMAGINE hardware plans and training resources, listed in CITATION.cff. Select a contributor to view their details:</p>
     
-    <div class="contributors-row-grid">
-      {% for person in site.data.people %}
-        <div class="contributor-profile-card">
-          <h3 class="contributor-name">{{ person.name }}</h3>
-          <span class="contributor-role">{{ person.role }}</span>
-          <span class="contributor-affiliation">{{ person.affiliation }}</span>
-          <p class="contributor-bio">{{ person.bio }}</p>
+    <div class="contributors-two-col-layout">
+      <!-- Left Column: Compact List of Names & Roles -->
+      <div class="contributors-list-column" id="contributors-list-container">
+        {% for person in site.data.people %}
+          <button class="contributor-list-item {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+            <span class="item-contributor-name">{{ person.name }}</span>
+            <span class="item-contributor-role">{{ person.role }}</span>
+          </button>
+        {% endfor %}
+      </div>
+      
+      <!-- Right Column: Sticky Details Card -->
+      <div class="contributor-details-column">
+        <div class="contributor-details-sticky-wrapper">
+          <div class="contributor-detail-card" id="active-contributor-card">
+            <!-- Dynamic Content loaded from JS -->
+          </div>
         </div>
-      {% endfor %}
+      </div>
     </div>
   </section>
-
-  <!-- Leaflet CSS & JS for Interactive Map -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <!-- Supporting Institutions Section with Map -->
   <section id="institutions-section" class="contributors-grid-section" style="margin-top: 4rem; margin-bottom: 5rem;">
@@ -63,8 +69,20 @@ description: "Meet the researchers, developers, and supporting institutions behi
   </section>
 </div>
 
-<!-- Script to pass Jekyll data to Leaflet JS -->
+<!-- Script to pass Jekyll data to Leaflet JS & Contributors JS -->
 <script>
+  const contributorsData = [
+    {% for person in site.data.people %}
+      {
+        name: "{{ person.name | escape }}",
+        role: "{{ person.role | escape }}",
+        affiliation: "{{ person.affiliation | escape }}",
+        bio: "{{ person.bio | escape }}",
+        image: "{{ site.baseurl }}/{{ person.image }}"
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
   const institutionsData = [
     {% for inst in site.data.institutions %}
       {
@@ -81,7 +99,71 @@ description: "Meet the researchers, developers, and supporting institutions behi
   ];
 
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Radial Distribution of Overlapping Coordinates
+    // -------------------------------------------------------------
+    // A. Contributors Selection Interactivity
+    // -------------------------------------------------------------
+    const activeContributorCard = document.getElementById("active-contributor-card");
+    const listItems = document.querySelectorAll(".contributor-list-item");
+
+    function getInitials(name) {
+      const parts = name.split(" ");
+      const filtered = parts.filter(p => !p.toLowerCase().includes("dr.") && !p.toLowerCase().includes("prof."));
+      if (filtered.length >= 2) {
+        return (filtered[0][0] + filtered[1][0]).toUpperCase();
+      } else if (filtered.length === 1) {
+        return filtered[0].substring(0, 2).toUpperCase();
+      }
+      return name.substring(0, 2).toUpperCase();
+    }
+
+    function showContributorDetails(index) {
+      const person = contributorsData[index];
+      if (!person) return;
+
+      activeContributorCard.style.opacity = 0;
+      activeContributorCard.style.transform = "translateY(8px)";
+      
+      setTimeout(() => {
+        activeContributorCard.innerHTML = `
+          <div class="contributor-detail-header">
+            <div class="contributor-avatar-frame">
+              <img src="${person.image}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="contributor-avatar-img" alt="${person.name}" />
+              <div class="contributor-avatar-fallback">${getInitials(person.name)}</div>
+            </div>
+            <div class="contributor-header-titles">
+              <h3 class="contributor-detail-name">${person.name}</h3>
+              <span class="contributor-detail-role">${person.role}</span>
+            </div>
+          </div>
+          <div class="contributor-detail-body">
+            <div class="contributor-detail-affiliation">
+              <i class="fa-solid fa-graduation-cap inst-icon"></i>
+              <span>${person.affiliation}</span>
+            </div>
+            <p class="contributor-detail-bio">${person.bio}</p>
+          </div>
+        `;
+        activeContributorCard.style.opacity = 1;
+        activeContributorCard.style.transform = "translateY(0)";
+      }, 150);
+    }
+
+    listItems.forEach(item => {
+      item.addEventListener("click", () => {
+        listItems.forEach(i => i.classList.remove("active"));
+        item.classList.add("active");
+        const index = parseInt(item.getAttribute("data-index"));
+        showContributorDetails(index);
+      });
+    });
+
+    if (contributorsData.length > 0) {
+      showContributorDetails(0);
+    }
+
+    // -------------------------------------------------------------
+    // B. Leaflet Map Setup & Radial Distribution
+    // -------------------------------------------------------------
     function distributeRadially(data) {
       const threshold = 0.5; // in degrees
       const radius = 0.22;   // in degrees for offset
@@ -131,7 +213,6 @@ description: "Meet the researchers, developers, and supporting institutions behi
 
     distributeRadially(institutionsData);
 
-    // 2. Initialize Leaflet Map centering globally
     const map = L.map('institutions-map', {
       center: [18, 5],
       zoom: 2,
@@ -139,7 +220,11 @@ description: "Meet the researchers, developers, and supporting institutions behi
       maxBounds: [[-85, -180], [85, 180]]
     });
 
-    // 3. Dynamic Tile Layer Switching (Light/Dark themes)
+    // Force Leaflet to recalculate size after DOM rendering to organize patches correctly
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 250);
+
     const lightTileUrl = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
     const darkTileUrl = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
     const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
@@ -161,7 +246,6 @@ description: "Meet the researchers, developers, and supporting institutions behi
       const mapContainer = document.getElementById("institutions-map");
       mapContainer.setAttribute("data-theme", theme);
       
-      // Update theme toggle icon
       const toggleBtn = document.getElementById("map-theme-toggle");
       if (toggleBtn) {
         if (theme === 'dark') {
@@ -174,28 +258,35 @@ description: "Meet the researchers, developers, and supporting institutions behi
       }
     }
 
-    // Determine initial theme: localStorage -> system preference -> default 'light'
     const storedTheme = localStorage.getItem("map-theme");
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = storedTheme || (systemPrefersDark ? 'dark' : 'light');
 
-    // Create Manual Theme Toggle Button Control
-    const themeToggle = document.createElement("button");
-    themeToggle.id = "map-theme-toggle";
-    themeToggle.className = "map-theme-toggle-btn";
-    document.getElementById("institutions-map").appendChild(themeToggle);
+    // Create Manual Theme Toggle Button Control using Leaflet L.Control
+    const ThemeToggleControl = L.Control.extend({
+      options: { position: 'topright' },
+      onAdd: function(map) {
+        const btn = L.DomUtil.create('button', 'map-theme-toggle-btn');
+        btn.id = 'map-theme-toggle';
+        btn.title = 'Toggle map theme';
+        btn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        
+        L.DomEvent.disableClickPropagation(btn);
+        
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const currentTheme = document.getElementById("institutions-map").getAttribute("data-theme");
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          setMapTheme(newTheme);
+          localStorage.setItem("map-theme", newTheme);
+        });
+        return btn;
+      }
+    });
+    map.addControl(new ThemeToggleControl());
 
     setMapTheme(initialTheme);
 
-    themeToggle.addEventListener("click", function(e) {
-      e.stopPropagation();
-      const currentTheme = document.getElementById("institutions-map").getAttribute("data-theme");
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      setMapTheme(newTheme);
-      localStorage.setItem("map-theme", newTheme);
-    });
-
-    // Handle system preference changes dynamically
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
       if (!localStorage.getItem("map-theme")) {
         setMapTheme(e.matches ? 'dark' : 'light');
@@ -205,9 +296,7 @@ description: "Meet the researchers, developers, and supporting institutions behi
     const activeCard = document.getElementById("active-institution-card");
     const buttonsContainer = document.getElementById("inst-buttons-container");
 
-    // 4. Plot each institution and build the bottom buttons
     institutionsData.forEach(inst => {
-      // Create custom HTML marker that wraps logo or uses initials fallback
       const customIcon = L.divIcon({
         className: 'map-custom-marker',
         html: `
@@ -224,19 +313,15 @@ description: "Meet the researchers, developers, and supporting institutions behi
       const marker = L.marker([inst.adjustedLat, inst.adjustedLng], { icon: customIcon }).addTo(map);
       inst.marker = marker;
 
-      // Click event handler for marker
       marker.on('click', function() {
-        // Zoom and center map on adjusted coordinates
         map.setView([inst.adjustedLat, inst.adjustedLng], 4, { animate: true });
 
-        // Highlight selection button
         document.querySelectorAll(".inst-select-btn").forEach(btn => btn.classList.remove("active"));
         if (inst.btn) {
           inst.btn.classList.add("active");
           inst.btn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
         }
 
-        // Show and update Info Panel
         activeCard.innerHTML = `
           <button class="close-card-btn" id="close-inst-card" aria-label="Close details">&times;</button>
           <div class="active-inst-details">
@@ -260,7 +345,6 @@ description: "Meet the researchers, developers, and supporting institutions behi
         activeCard.classList.remove("hidden");
         activeCard.classList.add("visible");
 
-        // Close button handler
         document.getElementById("close-inst-card").addEventListener("click", function(e) {
           e.stopPropagation();
           activeCard.classList.remove("visible");
@@ -269,7 +353,6 @@ description: "Meet the researchers, developers, and supporting institutions behi
         });
       });
 
-      // Create Selection Button below map
       const btn = document.createElement("button");
       btn.className = "inst-select-btn";
       btn.innerHTML = `
@@ -288,7 +371,9 @@ description: "Meet the researchers, developers, and supporting institutions behi
       inst.btn = btn;
     });
 
-    // 5. Floating Navigation Menu Smooth Scrolling & Scroll spy
+    // -------------------------------------------------------------
+    // C. Scroll Navigation & Scroll Spy
+    // -------------------------------------------------------------
     const menuItems = document.querySelectorAll(".about-floating-menu .menu-item");
     const sections = [
       document.getElementById("contributors-section"),
@@ -308,7 +393,7 @@ description: "Meet the researchers, developers, and supporting institutions behi
 
     const observerOptions = {
       root: null,
-      rootMargin: "0px 0px -50% 0px", // Highlight when section occupies the top portion
+      rootMargin: "0px 0px -50% 0px",
       threshold: 0.1
     };
 
@@ -332,4 +417,3 @@ description: "Meet the researchers, developers, and supporting institutions behi
     });
   });
 </script>
->

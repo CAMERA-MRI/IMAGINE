@@ -24,6 +24,10 @@
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
+  <!-- Leaflet CSS & JS for Interactive Map (Local Assets) -->
+  <link rel="stylesheet" href="/IMAGINE/assets/css/leaflet.css"/>
+  <script src="/IMAGINE/assets/js/leaflet.js"></script>
+  
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/IMAGINE/assets/css/style.css">
 </head>
@@ -77,82 +81,72 @@
     <p class="page-subtitle">A global network of neuroscientists, physicists, and engineers collaborating to democratize MRI hardware education and development.</p>
   </div>
 
-  <!-- Contributor Team Grid -->
+  <!-- Contributor Team Interactive Section (Two-Column Layout) -->
   <section id="contributors-section" class="contributors-grid-section">
     <h2 class="section-card-title"><i class="fa-solid fa-users"></i> Contributors & Researchers</h2>
-    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">Below is the core research and development group behind the IMAGINE hardware plans and training resources, listed in CITATION.cff:</p>
+    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">Below is the core research and development group behind the IMAGINE hardware plans and training resources, listed in CITATION.cff. Select a contributor to view their details:</p>
     
-    <div class="contributors-row-grid">
+    <div class="contributors-two-col-layout">
+      <!-- Left Column: Compact List of Names & Roles -->
+      <div class="contributors-list-column" id="contributors-list-container">
+        
+          <button class="contributor-list-item " data-index="0">
+            <span class="item-contributor-name">Dr. Udunna Anazodo</span>
+            <span class="item-contributor-role">Lead Investigator & Neuroscientist</span>
+          </button>
+        
+          <button class="contributor-list-item " data-index="1">
+            <span class="item-contributor-name">Maureen Nayebare</span>
+            <span class="item-contributor-role">Lead Researcher & Workshop Instructor</span>
+          </button>
+        
+          <button class="contributor-list-item " data-index="2">
+            <span class="item-contributor-name">Marina Fernández-García</span>
+            <span class="item-contributor-role">CAMERA Operations Manager & i3M Researcher</span>
+          </button>
+        
+          <button class="contributor-list-item " data-index="3">
+            <span class="item-contributor-name">Haile B. Kassahun</span>
+            <span class="item-contributor-role">Electromagnetics & Gradient Optimization Engineer</span>
+          </button>
+        
+          <button class="contributor-list-item " data-index="4">
+            <span class="item-contributor-name">Guillermo Sahonero-Alvarez</span>
+            <span class="item-contributor-role">MR Physics & Systems Integration Developer</span>
+          </button>
+        
+          <button class="contributor-list-item " data-index="5">
+            <span class="item-contributor-name">Sipan Hovsepian</span>
+            <span class="item-contributor-role">Robotics & Automation Developer</span>
+          </button>
+        
+          <button class="contributor-list-item " data-index="6">
+            <span class="item-contributor-name">Timon Machtelinckx</span>
+            <span class="item-contributor-role">Magnetics & Gradient Coil Designer</span>
+          </button>
+        
+          <button class="contributor-list-item " data-index="7">
+            <span class="item-contributor-name">Dr. Johnes Obungoloch</span>
+            <span class="item-contributor-role">Senior Advisor & Head of Biomedical Engineering</span>
+          </button>
+        
+          <button class="contributor-list-item " data-index="8">
+            <span class="item-contributor-name">Stefan du Plessis</span>
+            <span class="item-contributor-role">Biomedical Systems Coordinator</span>
+          </button>
+        
+      </div>
       
-                <div class="contributor-profile-card">
-                  <h3 class="contributor-name">Dr. Udunna Anazodo</h3>
-                  <span class="contributor-role">Lead Investigator & Neuroscientist</span>
-                  <span class="contributor-affiliation">McConnell Brain Imaging Centre, The Neuro (McGill University)</span>
-                  <p class="contributor-bio">Dr. Anazodo leads the IMAGINE initiative. She is an Assistant Professor of Neurology and Neurosurgery at McGill University and Chairs CAMERA, focusing on making MRI technology globally accessible and sustainable, particularly for underserved populations in Sub-Saharan Africa and beyond.</p>
-                </div>
-                
-                <div class="contributor-profile-card">
-                  <h3 class="contributor-name">Maureen Nayebare</h3>
-                  <span class="contributor-role">Lead Researcher & Workshop Instructor</span>
-                  <span class="contributor-affiliation">McGill University / CAMERA</span>
-                  <p class="contributor-bio">Maureen is a graduate researcher at McGill University, focusing on RF coil prototyping, low-field MRI hardware, and open science capacity building. She has successfully led multiple hands-on construction and training workshops across Montreal (MNI, Douglas, Polytechnique, MGH).</p>
-                </div>
-                
-                <div class="contributor-profile-card">
-                  <h3 class="contributor-name">Marina Fernández-García</h3>
-                  <span class="contributor-role">CAMERA Operations Manager & i3M Researcher</span>
-                  <span class="contributor-affiliation">Institute for Molecular Imaging and Instrumentation (i3M, UPV-CSIC)</span>
-                  <p class="contributor-bio">Marina serves as the Operations Manager for CAMERA and is a PhD researcher at i3M in Valencia. She specializes in low-field portable MRI systems, permanent Halbach magnet array optimization, and global health capacity building.</p>
-                </div>
-                
-                <div class="contributor-profile-card">
-                  <h3 class="contributor-name">Haile B. Kassahun</h3>
-                  <span class="contributor-role">Electromagnetics & Gradient Optimization Engineer</span>
-                  <span class="contributor-affiliation">Mbarara University of Science and Technology (MUST)</span>
-                  <p class="contributor-bio">Haile focuses on electromagnetics and gradient former optimization for low-field portable scanners, developing advanced CAD models and implementing mathematical design patterns like the discrete wire method.</p>
-                </div>
-                
-                <div class="contributor-profile-card">
-                  <h3 class="contributor-name">Guillermo Sahonero-Alvarez</h3>
-                  <span class="contributor-role">MR Physics & Systems Integration Developer</span>
-                  <span class="contributor-affiliation">Institute for Biological and Medical Engineering, Pontificia Universidad Católica de Chile</span>
-                  <p class="contributor-bio">Guillermo is an MR physics developer focusing on the MaRCoS open-source console integration, sequence programming, low-field image reconstruction, and machine learning methods for portable MRI systems.</p>
-                </div>
-                
-                <div class="contributor-profile-card">
-                  <h3 class="contributor-name">Sipan Hovsepian</h3>
-                  <span class="contributor-role">Robotics & Automation Developer</span>
-                  <span class="contributor-affiliation">McConnell Brain Imaging Centre, The Neuro (McGill University)</span>
-                  <p class="contributor-bio">Sipan is an automation developer at McGill, having designed the three-axis automated magnetic field mapping robot (Field Mapper Robot) used for B0 magnetic field homogenization, calibration, and shimming.</p>
-                </div>
-                
-                <div class="contributor-profile-card">
-                  <h3 class="contributor-name">Timon Machtelinckx</h3>
-                  <span class="contributor-role">Magnetics & Gradient Coil Designer</span>
-                  <span class="contributor-affiliation">CAMERA Collaborator</span>
-                  <p class="contributor-bio">Timon is a researcher specializing in magnetics and optimization. He developed the genetic algorithm models used for permanent Halbach magnet arrays and designed gradient coils optimized for low-field scanners.</p>
-                </div>
-                
-                <div class="contributor-profile-card">
-                  <h3 class="contributor-name">Dr. Johnes Obungoloch</h3>
-                  <span class="contributor-role">Senior Advisor & Head of Biomedical Engineering</span>
-                  <span class="contributor-affiliation">Mbarara University of Science and Technology (MUST), Uganda</span>
-                  <p class="contributor-bio">Dr. Obungoloch is the Head of the Department of Biomedical Engineering at MUST and a senior advisor for CAMERA. He has co-led on-site educational workshops in Uganda, supporting hardware replication and training programs.</p>
-                </div>
-                
-                <div class="contributor-profile-card">
-                  <h3 class="contributor-name">Stefan du Plessis</h3>
-                  <span class="contributor-role">Biomedical Systems Coordinator</span>
-                  <span class="contributor-affiliation">CAMERA / South African Collaborators</span>
-                  <p class="contributor-bio">Stefan coordinates low-field MRI development and training workshops in South Africa, overseeing on-site assembly, testing, and hardware verification for regional partner labs.</p>
-                </div>
-                
+      <!-- Right Column: Sticky Details Card -->
+      <div class="contributor-details-column">
+        <div class="contributor-details-sticky-wrapper">
+          <div class="contributor-detail-card" id="active-contributor-card">
+            <!-- Dynamic Content loaded from JS -->
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-
-  <!-- Leaflet CSS & JS for Interactive Map -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <!-- Supporting Institutions Section with Map -->
   <section id="institutions-section" class="contributors-grid-section" style="margin-top: 4rem; margin-bottom: 5rem;">
@@ -176,103 +170,253 @@
   </section>
 </div>
 
-<!-- Script to pass Jekyll data to Leaflet JS -->
+<!-- Script to pass Jekyll data to Leaflet JS & Contributors JS -->
 <script>
+  const contributorsData = [
+    
+      {
+        name: "Dr. Udunna Anazodo",
+        role: "Lead Investigator &amp; Neuroscientist",
+        affiliation: "McConnell Brain Imaging Centre, The Neuro (McGill University)",
+        bio: "Dr. Anazodo leads the IMAGINE initiative. She is an Assistant Professor of Neurology and Neurosurgery at McGill University and Chairs CAMERA, focusing on making MRI technology globally accessible and sustainable, particularly for underserved populations in Sub-Saharan Africa and beyond.",
+        image: "/assets/images/people/udunna.jpg"
+      },
+    
+      {
+        name: "Maureen Nayebare",
+        role: "Lead Researcher &amp; Workshop Instructor",
+        affiliation: "McGill University / CAMERA",
+        bio: "Maureen is a graduate researcher at McGill University, focusing on RF coil prototyping, low-field MRI hardware, and open science capacity building. She has successfully led multiple hands-on construction and training workshops across Montreal (MNI, Douglas, Polytechnique, MGH).",
+        image: "/assets/images/people/maureen.jpg"
+      },
+    
+      {
+        name: "Marina Fernández-García",
+        role: "CAMERA Operations Manager &amp; i3M Researcher",
+        affiliation: "Institute for Molecular Imaging and Instrumentation (i3M, UPV-CSIC)",
+        bio: "Marina serves as the Operations Manager for CAMERA and is a PhD researcher at i3M in Valencia. She specializes in low-field portable MRI systems, permanent Halbach magnet array optimization, and global health capacity building.",
+        image: "/assets/images/people/marina.jpg"
+      },
+    
+      {
+        name: "Haile B. Kassahun",
+        role: "Electromagnetics &amp; Gradient Optimization Engineer",
+        affiliation: "Mbarara University of Science and Technology (MUST)",
+        bio: "Haile focuses on electromagnetics and gradient former optimization for low-field portable scanners, developing advanced CAD models and implementing mathematical design patterns like the discrete wire method.",
+        image: "/assets/images/people/haile.jpg"
+      },
+    
+      {
+        name: "Guillermo Sahonero-Alvarez",
+        role: "MR Physics &amp; Systems Integration Developer",
+        affiliation: "Institute for Biological and Medical Engineering, Pontificia Universidad Católica de Chile",
+        bio: "Guillermo is an MR physics developer focusing on the MaRCoS open-source console integration, sequence programming, low-field image reconstruction, and machine learning methods for portable MRI systems.",
+        image: "/assets/images/people/guillermo.jpg"
+      },
+    
+      {
+        name: "Sipan Hovsepian",
+        role: "Robotics &amp; Automation Developer",
+        affiliation: "McConnell Brain Imaging Centre, The Neuro (McGill University)",
+        bio: "Sipan is an automation developer at McGill, having designed the three-axis automated magnetic field mapping robot (Field Mapper Robot) used for B0 magnetic field homogenization, calibration, and shimming.",
+        image: "/assets/images/people/sipan.jpg"
+      },
+    
+      {
+        name: "Timon Machtelinckx",
+        role: "Magnetics &amp; Gradient Coil Designer",
+        affiliation: "CAMERA Collaborator",
+        bio: "Timon is a researcher specializing in magnetics and optimization. He developed the genetic algorithm models used for permanent Halbach magnet arrays and designed gradient coils optimized for low-field scanners.",
+        image: "/assets/images/people/timon.jpg"
+      },
+    
+      {
+        name: "Dr. Johnes Obungoloch",
+        role: "Senior Advisor &amp; Head of Biomedical Engineering",
+        affiliation: "Mbarara University of Science and Technology (MUST), Uganda",
+        bio: "Dr. Obungoloch is the Head of the Department of Biomedical Engineering at MUST and a senior advisor for CAMERA. He has co-led on-site educational workshops in Uganda, supporting hardware replication and training programs.",
+        image: "/assets/images/people/johnes.jpg"
+      },
+    
+      {
+        name: "Stefan du Plessis",
+        role: "Biomedical Systems Coordinator",
+        affiliation: "CAMERA / South African Collaborators",
+        bio: "Stefan coordinates low-field MRI development and training workshops in South Africa, overseeing on-site assembly, testing, and hardware verification for regional partner labs.",
+        image: "/assets/images/people/stefan.jpg"
+      }
+    
+  ];
+
   const institutionsData = [
-    {
-          name: "CAMERA",
-          fullname: "Consortium for Advancement of MRI Education and Research in Africa",
-          initials: "CAM",
-          description: "A global consortium establishing sustainable MRI training, research, and open-source hardware scanner development. WG of ESMRMB.",
-          link: "https://www.camera-mri.org",
-          logo: "/IMAGINE/assets/images/partners/camera.png",
-          lat: -0.615,
-          lng: 30.658
-        },
-{
-          name: "The Neuro",
-          fullname: "Montreal Neurological Institute-Hospital, McGill University",
-          initials: "MNI",
-          description: "A world-leading academic neuroscience and brain imaging research center helping lead local preclinical scanner builds.",
-          link: "https://www.mcgill.ca/neuro",
-          logo: "/IMAGINE/assets/images/partners/neuro.png",
-          lat: 45.509,
-          lng: -73.579
-        },
-{
-          name: "Polytechnique Montréal",
-          fullname: "Polytechnique Montréal",
-          initials: "EPM",
-          description: "A prestigious engineering school hosting low-field hardware research and hands-on training sessions.",
-          link: "https://www.polymtl.ca",
-          logo: "/IMAGINE/assets/images/partners/poly.png",
-          lat: 45.504,
-          lng: -73.613
-        },
-{
-          name: "Douglas Research Centre",
-          fullname: "Douglas Mental Health University Institute",
-          initials: "DRC",
-          description: "Affiliated with McGill University, leading local replication efforts and biomedical training.",
-          link: "https://douglas.research.mcgill.ca",
-          logo: "/IMAGINE/assets/images/partners/douglas.png",
-          lat: 45.441,
-          lng: -73.587
-        },
-{
-          name: "ESMRMB",
-          fullname: "European Society for Magnetic Resonance in Medicine and Biology",
-          initials: "ESM",
-          description: "Leading European medical physics society. CAMERA (which leads IMAGINE) is a recognized Working Group (WG) of ESMRMB.",
-          link: "https://www.esmrmb.org",
-          logo: "/IMAGINE/assets/images/partners/esmrmb.png",
-          lat: 48.208,
-          lng: 16.373
-        },
-{
-          name: "Stellenbosch University",
-          fullname: "Stellenbosch University",
-          initials: "SU",
-          description: "Südafrikanische Universität active in low-field MRI development and biomedical engineering education in Africa.",
-          link: "https://www.sun.ac.za",
-          logo: "/IMAGINE/assets/images/partners/stellenbosch.png",
-          lat: -33.932,
-          lng: 18.864
-        },
-{
-          name: "MRILab (i3m-UPV)",
-          fullname: "MRILab, Instituto de Instrumentación para Imagen Molecular (i3M, UPV-CSIC)",
-          initials: "i3M",
-          description: "Forschungszentrum in Valencia developing portable, affordable, and sustainable low-field head scanners.",
-          link: "http://mrilab.i3m.upv.es",
-          logo: "/IMAGINE/assets/images/partners/mrilab.png",
-          lat: 39.481,
-          lng: -0.347
-        },
-{
-          name: "IIBM UC",
-          fullname: "Instituto de Ingeniería Biológica y Médica (IIBM), Pontificia Universidad Católica de Chile",
-          initials: "UC",
-          description: "Interdisziplinäres chilenisches Institut leading research in low-field sequence development and hardware integration.",
-          link: "https://iibm.uc.cl",
-          logo: "/IMAGINE/assets/images/partners/iibm.png",
-          lat: -33.49,
-          lng: -70.612
-        },
-{
-          name: "ISMRM African Chapter",
-          fullname: "International Society for Magnetic Resonance in Medicine - African Chapter",
-          initials: "IS-A",
-          description: "Regional chapter promoting MRI education, technical capacity building, and networking across the African continent.",
-          link: "https://www.ismrm.org",
-          logo: "/IMAGINE/assets/images/partners/ismrm_africa.png",
-          lat: -33.924,
-          lng: 18.424
-        }
+    
+      {
+        name: "CAMERA",
+        fullname: "Consortium for Advancement of MRI Education and Research in Africa",
+        initials: "CAM",
+        description: "A global consortium establishing sustainable MRI training, research, and open-source hardware scanner development. WG of ESMRMB.",
+        link: "https://www.camera-mri.org",
+        logo: "/assets/images/partners/camera.png",
+        lat: -0.615,
+        lng: 30.658
+      },
+    
+      {
+        name: "The Neuro",
+        fullname: "Montreal Neurological Institute-Hospital, McGill University",
+        initials: "MNI",
+        description: "A world-leading academic neuroscience and brain imaging research center helping lead local preclinical scanner builds.",
+        link: "https://www.mcgill.ca/neuro",
+        logo: "/assets/images/partners/neuro.png",
+        lat: 45.509,
+        lng: -73.579
+      },
+    
+      {
+        name: "Polytechnique Montréal",
+        fullname: "Polytechnique Montréal",
+        initials: "EPM",
+        description: "A prestigious engineering school hosting low-field hardware research and hands-on training sessions.",
+        link: "https://www.polymtl.ca",
+        logo: "/assets/images/partners/poly.png",
+        lat: 45.504,
+        lng: -73.613
+      },
+    
+      {
+        name: "Douglas Research Centre",
+        fullname: "Douglas Mental Health University Institute",
+        initials: "DRC",
+        description: "Affiliated with McGill University, leading local replication efforts and biomedical training.",
+        link: "https://douglas.research.mcgill.ca",
+        logo: "/assets/images/partners/douglas.png",
+        lat: 45.441,
+        lng: -73.587
+      },
+    
+      {
+        name: "ESMRMB",
+        fullname: "European Society for Magnetic Resonance in Medicine and Biology",
+        initials: "ESM",
+        description: "Leading European medical physics society. CAMERA (which leads IMAGINE) is a recognized Working Group (WG) of ESMRMB.",
+        link: "https://www.esmrmb.org",
+        logo: "/assets/images/partners/esmrmb.png",
+        lat: 48.208,
+        lng: 16.373
+      },
+    
+      {
+        name: "Stellenbosch University",
+        fullname: "Stellenbosch University",
+        initials: "SU",
+        description: "Südafrikanische Universität active in low-field MRI development and biomedical engineering education in Africa.",
+        link: "https://www.sun.ac.za",
+        logo: "/assets/images/partners/stellenbosch.png",
+        lat: -33.932,
+        lng: 18.864
+      },
+    
+      {
+        name: "MRILab (i3m-UPV)",
+        fullname: "MRILab, Instituto de Instrumentación para Imagen Molecular (i3M, UPV-CSIC)",
+        initials: "i3M",
+        description: "Forschungszentrum in Valencia developing portable, affordable, and sustainable low-field head scanners.",
+        link: "http://mrilab.i3m.upv.es",
+        logo: "/assets/images/partners/mrilab.png",
+        lat: 39.481,
+        lng: -0.347
+      },
+    
+      {
+        name: "IIBM UC",
+        fullname: "Instituto de Ingeniería Biológica y Médica (IIBM), Pontificia Universidad Católica de Chile",
+        initials: "UC",
+        description: "Interdisziplinäres chilenisches Institut leading research in low-field sequence development and hardware integration.",
+        link: "https://iibm.uc.cl",
+        logo: "/assets/images/partners/iibm.png",
+        lat: -33.49,
+        lng: -70.612
+      },
+    
+      {
+        name: "ISMRM African Chapter",
+        fullname: "International Society for Magnetic Resonance in Medicine - African Chapter",
+        initials: "IS-A",
+        description: "Regional chapter promoting MRI education, technical capacity building, and networking across the African continent.",
+        link: "https://www.ismrm.org",
+        logo: "/assets/images/partners/ismrm_africa.png",
+        lat: -33.924,
+        lng: 18.424
+      }
+    
   ];
 
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Radial Distribution of Overlapping Coordinates
+    // -------------------------------------------------------------
+    // A. Contributors Selection Interactivity
+    // -------------------------------------------------------------
+    const activeContributorCard = document.getElementById("active-contributor-card");
+    const listItems = document.querySelectorAll(".contributor-list-item");
+
+    function getInitials(name) {
+      const parts = name.split(" ");
+      const filtered = parts.filter(p => !p.toLowerCase().includes("dr.") && !p.toLowerCase().includes("prof."));
+      if (filtered.length >= 2) {
+        return (filtered[0][0] + filtered[1][0]).toUpperCase();
+      } else if (filtered.length === 1) {
+        return filtered[0].substring(0, 2).toUpperCase();
+      }
+      return name.substring(0, 2).toUpperCase();
+    }
+
+    function showContributorDetails(index) {
+      const person = contributorsData[index];
+      if (!person) return;
+
+      activeContributorCard.style.opacity = 0;
+      activeContributorCard.style.transform = "translateY(8px)";
+      
+      setTimeout(() => {
+        activeContributorCard.innerHTML = `
+          <div class="contributor-detail-header">
+            <div class="contributor-avatar-frame">
+              <img src="${person.image}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="contributor-avatar-img" alt="${person.name}" />
+              <div class="contributor-avatar-fallback">${getInitials(person.name)}</div>
+            </div>
+            <div class="contributor-header-titles">
+              <h3 class="contributor-detail-name">${person.name}</h3>
+              <span class="contributor-detail-role">${person.role}</span>
+            </div>
+          </div>
+          <div class="contributor-detail-body">
+            <div class="contributor-detail-affiliation">
+              <i class="fa-solid fa-graduation-cap inst-icon"></i>
+              <span>${person.affiliation}</span>
+            </div>
+            <p class="contributor-detail-bio">${person.bio}</p>
+          </div>
+        `;
+        activeContributorCard.style.opacity = 1;
+        activeContributorCard.style.transform = "translateY(0)";
+      }, 150);
+    }
+
+    listItems.forEach(item => {
+      item.addEventListener("click", () => {
+        listItems.forEach(i => i.classList.remove("active"));
+        item.classList.add("active");
+        const index = parseInt(item.getAttribute("data-index"));
+        showContributorDetails(index);
+      });
+    });
+
+    if (contributorsData.length > 0) {
+      showContributorDetails(0);
+    }
+
+    // -------------------------------------------------------------
+    // B. Leaflet Map Setup & Radial Distribution
+    // -------------------------------------------------------------
     function distributeRadially(data) {
       const threshold = 0.5; // in degrees
       const radius = 0.22;   // in degrees for offset
@@ -322,7 +466,6 @@
 
     distributeRadially(institutionsData);
 
-    // 2. Initialize Leaflet Map centering globally
     const map = L.map('institutions-map', {
       center: [18, 5],
       zoom: 2,
@@ -330,7 +473,11 @@
       maxBounds: [[-85, -180], [85, 180]]
     });
 
-    // 3. Dynamic Tile Layer Switching (Light/Dark themes)
+    // Force Leaflet to recalculate size after DOM rendering to organize patches correctly
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 250);
+
     const lightTileUrl = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
     const darkTileUrl = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
     const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
@@ -352,7 +499,6 @@
       const mapContainer = document.getElementById("institutions-map");
       mapContainer.setAttribute("data-theme", theme);
       
-      // Update theme toggle icon
       const toggleBtn = document.getElementById("map-theme-toggle");
       if (toggleBtn) {
         if (theme === 'dark') {
@@ -365,28 +511,35 @@
       }
     }
 
-    // Determine initial theme: localStorage -> system preference -> default 'light'
     const storedTheme = localStorage.getItem("map-theme");
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = storedTheme || (systemPrefersDark ? 'dark' : 'light');
 
-    // Create Manual Theme Toggle Button Control
-    const themeToggle = document.createElement("button");
-    themeToggle.id = "map-theme-toggle";
-    themeToggle.className = "map-theme-toggle-btn";
-    document.getElementById("institutions-map").appendChild(themeToggle);
+    // Create Manual Theme Toggle Button Control using Leaflet L.Control
+    const ThemeToggleControl = L.Control.extend({
+      options: { position: 'topright' },
+      onAdd: function(map) {
+        const btn = L.DomUtil.create('button', 'map-theme-toggle-btn');
+        btn.id = 'map-theme-toggle';
+        btn.title = 'Toggle map theme';
+        btn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        
+        L.DomEvent.disableClickPropagation(btn);
+        
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const currentTheme = document.getElementById("institutions-map").getAttribute("data-theme");
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          setMapTheme(newTheme);
+          localStorage.setItem("map-theme", newTheme);
+        });
+        return btn;
+      }
+    });
+    map.addControl(new ThemeToggleControl());
 
     setMapTheme(initialTheme);
 
-    themeToggle.addEventListener("click", function(e) {
-      e.stopPropagation();
-      const currentTheme = document.getElementById("institutions-map").getAttribute("data-theme");
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      setMapTheme(newTheme);
-      localStorage.setItem("map-theme", newTheme);
-    });
-
-    // Handle system preference changes dynamically
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
       if (!localStorage.getItem("map-theme")) {
         setMapTheme(e.matches ? 'dark' : 'light');
@@ -396,9 +549,7 @@
     const activeCard = document.getElementById("active-institution-card");
     const buttonsContainer = document.getElementById("inst-buttons-container");
 
-    // 4. Plot each institution and build the bottom buttons
     institutionsData.forEach(inst => {
-      // Create custom HTML marker that wraps logo or uses initials fallback
       const customIcon = L.divIcon({
         className: 'map-custom-marker',
         html: `
@@ -415,19 +566,15 @@
       const marker = L.marker([inst.adjustedLat, inst.adjustedLng], { icon: customIcon }).addTo(map);
       inst.marker = marker;
 
-      // Click event handler for marker
       marker.on('click', function() {
-        // Zoom and center map on adjusted coordinates
         map.setView([inst.adjustedLat, inst.adjustedLng], 4, { animate: true });
 
-        // Highlight selection button
         document.querySelectorAll(".inst-select-btn").forEach(btn => btn.classList.remove("active"));
         if (inst.btn) {
           inst.btn.classList.add("active");
           inst.btn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
         }
 
-        // Show and update Info Panel
         activeCard.innerHTML = `
           <button class="close-card-btn" id="close-inst-card" aria-label="Close details">&times;</button>
           <div class="active-inst-details">
@@ -451,7 +598,6 @@
         activeCard.classList.remove("hidden");
         activeCard.classList.add("visible");
 
-        // Close button handler
         document.getElementById("close-inst-card").addEventListener("click", function(e) {
           e.stopPropagation();
           activeCard.classList.remove("visible");
@@ -460,7 +606,6 @@
         });
       });
 
-      // Create Selection Button below map
       const btn = document.createElement("button");
       btn.className = "inst-select-btn";
       btn.innerHTML = `
@@ -479,7 +624,9 @@
       inst.btn = btn;
     });
 
-    // 5. Floating Navigation Menu Smooth Scrolling & Scroll spy
+    // -------------------------------------------------------------
+    // C. Scroll Navigation & Scroll Spy
+    // -------------------------------------------------------------
     const menuItems = document.querySelectorAll(".about-floating-menu .menu-item");
     const sections = [
       document.getElementById("contributors-section"),
@@ -499,7 +646,7 @@
 
     const observerOptions = {
       root: null,
-      rootMargin: "0px 0px -50% 0px", // Highlight when section occupies the top portion
+      rootMargin: "0px 0px -50% 0px",
       threshold: 0.1
     };
 
@@ -523,7 +670,6 @@
     });
   });
 </script>
->
 
   </main>
 
