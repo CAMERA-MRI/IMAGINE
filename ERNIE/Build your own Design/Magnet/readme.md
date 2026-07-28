@@ -1,6 +1,5 @@
-<p style="text-align: justify;">
 
- <p align="center"> <b>Main magnet.</b></p> 
+# Main magnet.
  
 <p style="text-align: justify;">
 This section includes the <b>.stl </b> files that can be 3D printed out to then assemble the ERNIE 1&2 scanners. The scanner is made up of   <b>7 rings </b> and their corresponding lids. We also includes the steps taked to assemble the magnet.
