@@ -12,7 +12,7 @@ Below are some of survey responses from the participants. We also includes a fig
 <p align= "center">
   <img width="900" height="382" alt="general survey responses" src="https://github.com/user-attachments/assets/e474003f-c318-44ef-ac73-fe5ffe676f25" />
 
-  ###  🤖Robot and 🧲magnet setup during field mapping, field map results and 3D plot of field map data 
+## 🧲Magnet, 🤖Robot setup and 📈 Magnetic Field Map Result.
  
 <p align= "center">
   <img width="900" height="300" alt="field map example" src="https://github.com/user-attachments/assets/06fec307-5738-42a6-99ec-99a1d1968ea9" />
