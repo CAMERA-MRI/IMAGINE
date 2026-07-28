@@ -1,8 +1,6 @@
+
+## About  # ERNIE 
 <p style="text-align: justify;">
-<b> ## About </b> <b> # ERNIE </b>
-   # A first-level heading
-## A second-level heading
-### A third-level heading
 </p>
 <p style="text-align: justify;">
 This section, describes the <b>CAMERA-IMAGINE-MRI Education (ERNIE) toolkit</b>, designed to facilitate immersive hands-on collaborative learning of open source (OS) low-field (LF) MRI engineering. ERNIE is a frugal educational toolkit for on-site construction of a 50 mT OS-LF ‘mice-like’ brain MRI scanner that can be readily reproduced in any setting using common assembly tools and without prior MRI engineering experience. The toolkit was designed as a reusable teaching resource consisting of:</p>
