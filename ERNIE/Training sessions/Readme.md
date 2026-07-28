@@ -1,4 +1,4 @@
-# Training sessions
+# 👥 Training Sessions
 ## Overview
 
 <p style="text-align: justify;">
