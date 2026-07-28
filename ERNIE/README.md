@@ -1,6 +1,5 @@
 
-## About 
-# ERNIE 
+## About # ERNIE 
 <p style="text-align: justify;">
 </p>
 <p style="text-align: justify;">
