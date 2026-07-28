@@ -17,7 +17,7 @@
   </b>
 </p>
 
-# 📦 ERNIE Toolkit – Build of Materials (BOM)
+# 📦 ERNIE Toolkit – Bill of Materials (BOM)
 
 This document contains the complete list of components, tools, and equipment required to assemble the **ERNIE educational low-field MRI toolkit**.
 
