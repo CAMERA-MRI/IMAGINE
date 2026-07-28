@@ -1,7 +1,9 @@
+# Training Materials
+
 ## Overview
 
 <p style="text-align: justify;">
-## Training Materials
+
 
 The following training materials were provided to participants before the workshop sessions to support their preparation and understanding of low-field MRI concepts and system construction:
 
