@@ -4,7 +4,7 @@
 <p style="text-align: justify;">
   This section includes;
   
-  [Magnet](https://github.com/CAMERA-MRI/IMAGINE/tree/main/ERNIE/Build%20your%20own%20Design/Magnet)
+  [Magnet](https://github.com/CAMERA-MRI/IMAGINE/tree/main/ERNIE/Build%20your%20own%20Design/Magnet) ,
   [Robot](https://github.com/CAMERA-MRI/IMAGINE/tree/main/ERNIE/Build%20your%20own%20Design/Robot)
   and List of parts, bill of materials required to assemble the magnet, robot and obtain a signal
   <b> <b>
