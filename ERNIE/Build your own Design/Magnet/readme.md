@@ -12,9 +12,7 @@ These steps are explained in detail here:
 </p>
   
  
- <p align="center">
-<b>The figure below shows the magnet assembly procedure.</b>
-</p> 
+## Magnet assembly procedure.
 
 <p align="center"><img width="658" height="371" alt="magnet assembly procedure" src="https://github.com/user-attachments/assets/a45c7c42-79ed-45eb-8848-38b543eba7a4" /></p>
 </p>
