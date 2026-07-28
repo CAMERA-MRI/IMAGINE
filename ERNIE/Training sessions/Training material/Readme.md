@@ -1,4 +1,4 @@
-# Training Materials
+# 🧠📚 Training Material
 
 ## Overview
 
