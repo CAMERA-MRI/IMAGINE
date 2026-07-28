@@ -41,7 +41,26 @@ Two kits were designed as <b>ERNIE 1 & ERNIE 2 </b> as the <b>same kit </b> buil
 This toolkit was used to train participants at the ESMRMB 2025 Conference, The Montreal Neurological Institute, The Douglas, Polytech Montreal, Montreal General Hospital and ISMRM 2026 Conference. 
 
 <p align="center"> 
-   <img width="700" height="150" alt="table" src="https://github.com/user-attachments/assets/e918b0c8-ac26-4787-bfb5-76e825da20de" /> </p>
+<tr>
+    <td align="center"><b>⏱️ Duration</b></td>
+    <td>7 hours</td>
+    <td>5 hours</td>
+    <td>3 hours</td>
+    <td>3 hours</td>
+    <td>3 hours</td>
+    <td>1.5 hours</td>
+  </tr>
+
+  <tr>
+    <td align="center"><b>👥 Participants</b></td>
+    <td>59</td>
+    <td>26</td>
+    <td>13</td>
+    <td>20</td>
+    <td>18</td>
+    <td>86</td>
+  </tr>
+</table> </p>
 
 <p align="center"> 
  <b>Participants at different sites. </b>
