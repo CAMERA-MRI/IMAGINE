@@ -48,9 +48,9 @@ This toolkit was used to train participants at the ESMRMB 2025 Conference, The M
 | 👥 **Participants** | 59 | 26 | 13 | 20 | 18 | 86 |
 
 
-<p align="center"> 
- <b>Participants at different sites. </b>
-</p>
+ 
+### Participants at different sites. 
+
 
 <p align="center">
    <img width="400" height="300" alt="Figure 4" src="https://github.com/user-attachments/assets/1d410395-0703-4fbb-9232-38be7c49674b" />
