@@ -5,10 +5,8 @@
 This section includes the <b>.stl </b> files that can be 3D printed out to then assemble the ERNIE 1&2 scanners. The scanner is made up of   <b>7 rings </b> and their corresponding lids. We also includes the steps taked to assemble the magnet.
 The best rings are <b>Ring_321</b> which is placed at the center of the Halbach array. <b>Ring_288</b> then follows on both sides of the center ring. The next ring is <b>Ring_251</b> and finally <b>Ring_42</b>.
 These steps are explained in detail here:  
-
+ 
  [How to assemble the magnet](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Instructions/How%20to%20Assemble%20the%20Magnet.pdf)
-
-
 </p>
   
  
