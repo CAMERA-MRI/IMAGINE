@@ -27,7 +27,7 @@ This document contains the complete list of components, tools, and equipment req
 
 | No. | Part | Part Number | Notes | Qty. | Total Cost (CAD) | 3D Printed | On-site for Assembly |
 |:---:|-------|-------------|-------|:---:|:----------------:|:----------:|:-------------------:|
-| 1 | | Case | [Travel Suitcase (Amazon)](https://www.amazon.ca/Atlantic-Acclaim-Hardside-Spinner-20-Inch/dp/B09LZNQLB9) | | AL21769009 | [NANUK 935 Waterproof Hard Case with Wheels](https://www.amazon.ca/Nanuk-Waterproof-Hard-Wheels-Empty/dp/B00BP8UL9Q) | 1 | **$90.55** | ❌ | ☐ |
+| 1 | | Case | [Travel Suitcase (Amazon)](https://www.amazon.ca/Atlantic-Acclaim-Hardside-Spinner-20-Inch/dp/B09LZNQLB9) or [NANUK 935 Waterproof Hard Case with Wheels](https://www.amazon.ca/Nanuk-Waterproof-Hard-Wheels-Empty/dp/B00BP8UL9Q)  | | AL21769009 | 1 | **$90.55** | ❌ | ☐ |
 
 **Subtotal:** **$90.55**
 
