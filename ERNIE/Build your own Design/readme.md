@@ -45,16 +45,16 @@ This document contains the complete list of components, tools, and equipment req
 | 6 | Lid for Ring 251 | — | Approximately **45 g PLA** each | 2 | — | ✅ | ☐ | ☐ |
 | 7 | Lid for Ring 288 | — | Approximately **45 g PLA** each | 2 | — | ✅ | ☐ | ☐ |
 | 8 | Lid for Ring 321 | — | Approximately **45 g PLA** | 1 | — | ✅ | ☐ | ☐ |
-| 9 | 180 mm Brass Rods | 90162A050 | Purchase two 1 m rods. Each rod produces approximately five **166 mm** rods. | 8 | **$39.54** | ❌ | ☐ | ☐ |
+| 9 | [180 mm Brass Rods (McMaster-Carr)](https://www.mcmaster.com/catalog/131/3633/90162A050) | 90162A050 | Purchase two 1 m rods. Each rod produces approximately five **180 mm** rods. | 8 | **$39.54** | ❌ | ☐ | ☐ |
 | 10 | Ring Spacers | — | Approximately **100 g PLA** required for 80 spacers | 48 | — | ✅ | ☐ | ☐ |
-| 11 | M4 Brass Nuts | B0CQGYC7JZ | Pack of 50 | 8 | **$11.33** | ❌ | ☐ | ☐ |
-| 12 | M3 Nylon/Brass Screws | a23122400ux0074 | Brass screws are preferred (60/pack) | 54 | **$13.99** | ❌ | ☐ | ☐ |
-| 13 | Dome-shaped Nuts | 90527A505 | Pack of 100 | 8 | **$22.96** | ❌ | ☐ | ☐ |
-| 14 | Washers | 95610A150 | Pack of 100 | 16 | **$7.70** | ❌ | ☐ | ☐ |
-| 15 | Neodymium Magnets (12 × 12 × 12 mm) | — | Specify dimensions to supplier | 98 | **$575.26** | ❌ | ☐ | ☐ |
+| 11 | [M4 Brass Nuts (Amazon)](https://www.amazon.ca/100pcs-Solid-Brass-Copper-Screw/dp/B0CQGYC7JZ) | B0CQGYC7JZ | Pack of 50 | 8 | **$11.33** | ❌ | ☐ | ☐ |
+| 12 | M3 Nylon/[Brass Screws (Amazon)](https://www.amazon.ca/dp/B0CT3W8148) | a23122400ux0074 | Brass screws are preferred (60/pack) | 54 | **$13.99** | ❌ | ☐ | ☐ |
+| 13 | [Dome-shaped Nuts (M4, McMaster-Carr)](https://www.mcmaster.com/products/dome-nuts/thread-size~m4/) | 90527A505 | Pack of 100 | 8 | **$22.96** | ❌ | ☐ | ☐ |
+| 14 |[Washers (McMaster-Carr)](https://www.mcmaster.com/catalog/131/3696/95610A150) | 95610A150 | Pack of 100 | 16 | **$7.70** | ❌ | ☐ | ☐ |
+| 15 | [Neodymium Magnets (13 mm × 12 mm × 5 mm, Magfine)](https://www.magfine.ca/products/neodymium-magnet-square-13mm-x-12mm-x-5mm) (12 × 12 × 12 mm) | — | Specify dimensions to supplier | 98 | **$575.26** | ❌ | ☐ | ☐ |
 | 16 | Reference Neodymium Magnets | — | Made from purchased magnets | 4 | **$23.48** | ❌ | ☐ | ☐ |
-| 17 | M3 Brass Heat-set Inserts | a24062300ux0395 | Pack of 100 | 54 | **$17.69** | ❌ | ☐ | ☐ |
-| 18 | PLA / PETG / ABS | — | Color of your choice | 4 | **$25.99** | ❌ | ☐ | ☐ |
+| 17 | [M3 Brass Heat-set Inserts (Amazon)](https://www.amazon.ca/dp/B0DC43HJKN) | a24062300ux0395 | Pack of 100 | 54 | **$17.69** | ❌ | ☐ | ☐ |
+| 18 | [PLA Basic Filament (Bambu Lab)](https://ca.store.bambulab.com/products/pla-basic-filament?variant=541209412732915753) / PETG / ABS | — | Color of your choice | 4 | **$25.99** | ❌ | ☐ | ☐ |
 
 **Subtotal:** **$737.94**
 
@@ -64,7 +64,7 @@ This document contains the complete list of components, tools, and equipment req
 
 | No. | Part | Notes | Qty. | Total Cost (CAD) | 3D Printed | On-site for Assembly |
 |:---:|------|-------|:---:|:----------------:|:----------:|:-------------------:|
-| 1 | Neodymium Magnets | Replacement magnets for damaged units | 10 | **$58.70** | ❌ | ☐ |
+| 1 | [Neodymium Magnets (12 mm × 12 mm × 12 mm, Magfine)](https://www.magfine.ca/products/neodymium-magnet-square-13mm-x-12mm-x-5mm) | Replacement magnets for damaged units | 10 | **$58.70** | ❌ | ☐ |
 
 **Subtotal:** **$58.70**
 
@@ -74,12 +74,12 @@ This document contains the complete list of components, tools, and equipment req
 
 | No. | Tool | Part Number | Notes | Qty. | Total Cost (CAD) | Available | Returned to Box |
 |:---:|------|-------------|-------|:---:|:----------------:|:---------:|:---------------:|
-| 1 | Screwdrivers | 06973932450615 | Cross-head (Phillips) with comfortable grip | 2 | **$20.99** | ☐ | ☐ |
-| 2 | Screwdrivers | 06973932450615 | Second screwdriver | 2 | **$33.98** | ☐ | ☐ |
-| 3 | Spanners | hta250106hh001215 | 7 mm open wrench | 2 | **$25.59** | ☐ | ☐ |
-| 4 | Compass | — | Standard compass | 2 | **$54.99** | ☐ | ☐ |
-| 5 | Permanent Markers | SAN35113PP | Permanent ink | 4 | **$13.78** | ☐ | ☐ |
-| 6 | Vernier Caliper | USQC03301915 | 6-inch caliper | 1 | **$34.99** | ☐ | ☐ |
+| 1 | [Screwdriver Set (Amazon)](https://www.amazon.ca/13-Pieces-Screwdrivers-Screwdriver-Magnetizer-demagnetizer/dp/B0CXSYBCXW) | 06973932450615 | Cross-head (Phillips) with comfortable grip | 2 | **$20.99** | ☐ | ☐ |
+| 2 | [Screwdrivers (Amazon)](https://www.amazon.ca/Screwdriver-Adjustable-Multitool-Security-Phillips/dp/B09XV7P17T) | 06973932450615 | Second screwdriver | 2 | **$33.98** | ☐ | ☐ |
+| 3 | [Spanners (Amazon)](https://www.amazon.ca/gp/product/B0DXPGQL98) | hta250106hh001215 | 7 mm open wrench | 2 | **$25.59** | ☐ | ☐ |
+| 4 | [Compass (Suunto MCB NH Mirror Compass, Amazon)](https://www.amazon.ca/Suunto-SS012277013-MCB-Black-Compass/dp/B002FA9GYE) | — | Standard compass | 2 | **$54.99** | ☐ | ☐ |
+| 5 | [Permanent Markers (Sharpie, Amazon)](https://www.amazon.ca/Sharpie-Permanent-4-Carded-Assorted-35113PP/dp/B000GOZXA2) | SAN35113PP | Permanent ink | 4 | **$13.78** | ☐ | ☐ |
+| 6 | [Vernier Caliper (Kynup, Amazon)](https://www.amazon.ca/Kynup-Measuring-Stainless-Waterproof-Protection/dp/B07X8JQ8L5) | USQC03301915 | 6-inch caliper | 1 | **$34.99** | ☐ | ☐ |
 | 7 | Ruler | — | Non-magnetic ruler | 1 | **$6.69** | ☐ | ☐ |
 
 **Subtotal:** **$191.01**
