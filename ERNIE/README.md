@@ -13,30 +13,33 @@ This section, describes the <b>CAMERA-IMAGINE-MRI Education (ERNIE) toolkit</b>,
    5) Instructions and software to build the magnet and map its field’s homogeneity.
    6) The magnet, a 7-ring 80mm (inner bore diameter) Halbach array producing ~50 mT, made from <b>98</b> neodymium (N48) magnets.
   
- ## ERNIE Toolkit for Onsite Assembly and Magnetic Field Mapping with Portable Storage System.
+ ### ERNIE Toolkit for Onsite Assembly and Magnetic Field Mapping with Portable Storage System.
       
 <p align="center">
 <img width="500" height="400" alt="toolkit" src="https://github.com/user-attachments/assets/dee969d4-955b-49de-9c2b-86df2e470bb4" />
 </p>
 <p style="text-align: justify;">
    
-**Objective** :To provide a low-cost/open-source/hands-on educational toolkit for practical learning of Halbach-based MRI scanner assembly and field mapping. 
+### Objective 
+To provide a low-cost/open-source/hands-on educational toolkit for practical learning of Halbach-based MRI scanner assembly and field mapping. 
    
 <p align="center"> 
    <img width="675" height="355" alt="Objective" src="https://github.com/user-attachments/assets/124ef696-8c70-4f60-a23d-90029bd1d4ff" /> 
 </p>
    
-**Motivation**: Practical experience in assembling low-field MRI scanners is rarely available to MRI researchers, which limits their understanding of MR physics and hardware design principles.   
+### Motivation
+Practical experience in assembling low-field MRI scanners is rarely available to MRI researchers, which limits their understanding of MR physics and hardware design principles.   
 
 <p align="center">
  <img width="658" height="374" alt="New Motivation" src="https://github.com/user-attachments/assets/513a8302-6a50-41c5-9577-960254ff0f31" /> </p>
  
-<b>Reproducibility</b>
+### Reproducibility
 <p style="text-align: justify;">
 Two kits were designed as <b>ERNIE 1 & ERNIE 2 </b> as the <b>same kit </b> built at <b>2 different sites</b>. ERNIE 1 was first assembled at the 2025 ESMRMB pre-congress workshop and then re-assembled at the 2026 ISMRM conference in Cape Town, South Africa. ERNIE 2 on the other hand was first assembled at the Montreal Neurological Institute (MNI - The Neuro) and then re-assembled multiple times at the Montreal General Hospital, Polytechnique Montreal, The Douglas Health Hospital and 2026 ISMRM.
 </p>
    
-**Impact** : This toolkit was used to train participants at the ESMRMB 2025 Conference, The Montreal Neurological Institute, The Douglas, Polytech Montreal, Montreal General Hospital and ISMRM 2026 Conference. 
+### Impact
+This toolkit was used to train participants at the ESMRMB 2025 Conference, The Montreal Neurological Institute, The Douglas, Polytech Montreal, Montreal General Hospital and ISMRM 2026 Conference. 
 
 <p align="center"> 
    <img width="700" height="150" alt="table" src="https://github.com/user-attachments/assets/e918b0c8-ac26-4787-bfb5-76e825da20de" /> </p>
