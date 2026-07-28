@@ -1,3 +1,6 @@
+# Build your own Design
+## Overview
+
 <p style="text-align: justify;">
   This section includes the Magnet, Robot and List of parts, bill of materials required to assemble the magnet, robot and obtain a signal
   <b> <b>
