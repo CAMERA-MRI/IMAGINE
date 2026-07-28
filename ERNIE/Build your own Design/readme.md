@@ -192,3 +192,88 @@ This document contains the complete list of components, tools, and equipment req
 
 ---
 
+---
+
+# 📡 Electronics Required for Signal Generation
+
+| No. | Component | Part Number | Qty. | Notes | Total Cost (USD) | Available | On-site for Assembly |
+|:---:|-----------|-------------|:---:|-------|:----------------:|:---------:|:-------------------:|
+| 1 | Red Pitaya STEMlab | IZD0021 | 1 | MRI console | **$1,234.65** | ☐ | ☐ |
+| 2 | RF Power Amplifier (RFPA) | ZX60-100VH+ | 1 | RF transmit amplifier | **$476.28** | ☐ | ☐ |
+| 3 | RF Preamplifier (LNA) | ABL0050-00-4510 | 1 | Narrow-band NMR preamplifier may also be used | **$397.60** | ☐ | ☐ |
+| 4 | RFPA Power Supply | 2260-KD3005D | 1 | 12 V, 300 mA | **$138.04** | ☐ | ☐ |
+| 5 | LNA Power Supply | 2260-KD3005D | 1 | 12 V, 100 mA | **$138.04** | ☐ | ☐ |
+| 6 | Passive TR Switch | — | 1 | PCB fabricated following the OSI² TR switch design | **$100.00** | ☐ | ☐ |
+| 7 | RF Coil (3D Printed) | — | 1 | RF transmit/receive coil | — | ☐ | ☐ |
+| 8 | Copper Enamelled Wire | — | 1 | For winding RF coils | **$211.28** | ☐ | ☐ |
+| 9 | RF Coil Holder (3D Printed) | — | 1 | PLA printed | — | ☐ | ☐ |
+| 10 | Variable Tuning & Matching Capacitors | PPZN30100 | 2 | Used together with fixed capacitors | **$156.94** | ☐ | ☐ |
+| 11 | Phantom (3D Printed) | — | 1 | Fill cylindrical phantom with olive oil | — | ☐ | ☐ |
+| 12 | SMA Cables | CSE-SGAM-305-SGAM | 12 | Purchase approximately 20 or more | **$146.76** | ☐ | ☐ |
+| 13 | SMA Female–Female Adapters | RFAD-SA3SA2-01-N-A | 8 | SMA adapters | **$43.76** | ☐ | ☐ |
+| 14 | Aluminum Enclosure (LNA) | CU-234 | 1 | Shielded enclosure | **$19.33** | ☐ | ☐ |
+| 15 | Aluminum Enclosure (RFPA) | CU-234 | 1 | Shielded enclosure | **$19.33** | ☐ | ☐ |
+| 16 | Aluminum Enclosure (Red Pitaya & FHDO) | 1590Z166 | 1 | Electronics enclosure | **$223.13** | ☐ | ☐ |
+| 17 | Aluminum Enclosure (Passive TR Switch) | CU-234 | 1 | Shielded enclosure | **$19.33** | ☐ | ☐ |
+| 18 | Aluminum Enclosure (Matching Circuit) | CU-234 | 1 | Shielded enclosure | **$19.33** | ☐ | ☐ |
+| 19 | Aluminum Sheet | BSS-00903 | 1 | Scanner RF shielding | **$43.30** | ☐ | ☐ |
+| 20 | Copper Sheet | 60 | 1 | Internal RF shield connected to ground | **$30.99** | ☐ | ☐ |
+| 21 | Copper Tape | B083QJDQ5M | 1 | Joins copper shielding | **$12.59** | ☐ | ☐ |
+| 22 | Aluminum Tape | 143650 | 1 | Shield sealing | **$39.80** | ☐ | ☐ |
+| 23 | Brass Screws | 48-133 | 9 | Non-magnetic | **$36.63** | ☐ | ☐ |
+| 24 | Ground Cables | 1GY89.5OO1B | 5 | Scanner grounding | **$28.31** | ☐ | ☐ |
+| 25 | SMA Female to BNC Male Adapter | ADP-SMAF-BNCM | 4 | RF adapter | **$33.64** | ☐ | ☐ |
+| 26 | BNC Cables (15 cm) | 115101-19-06-00 | 4 | For NanoVNA testing | **$70.80** | ☐ | ☐ |
+| 27 | Banana-to-Grabber Test Leads (36") | 3782-36-02 | 6 | Test leads | **$201.72** | ☐ | ☐ |
+| 28 | Olive Oil | — | 1 | Phantom filling | **$16.79** | ☐ | ☐ |
+| 29 | Ethernet Cable | N201P-006-BL | 2 | Network connection | **$34.62** | ☐ | ☐ |
+| 30 | Masking Tape | 3436-3 | 1 | General assembly | **$11.05** | ☐ | ☐ |
+
+**Subtotal:** **$3,904.04 USD**
+
+---
+
+# 🔬 Required Laboratory Equipment
+
+| No. | Equipment | Qty. | Total Cost | Available | On-site for Assembly |
+|:---:|-----------|:---:|:----------:|:---------:|:-------------------:|
+| 1 | Label Maker | 1 | **$64.99** | ☐ | ☐ |
+| 2 | Drilling Machine | 1 | **$327.94** | ☐ | ☐ |
+| 3 | Soldering Station | 1 | **$258.00** | ☐ | ☐ |
+| 4 | NanoVNA | 1 | **$79.99** | ☐ | ☐ |
+| 5 | Function Generator | 1 | **$379.00** | ☐ | ☐ |
+| 6 | Multimeter | 1 | **$227.73** | ☐ | ☐ |
+| 7 | Oscilloscope | 1 | **$637.43** | ☐ | ☐ |
+| 8 | Vector Network Analyzer (VNA-SVA1015X) | 1 | **$1,944.00** | ☐ | ☐ |
+| 9 | Cutter | 1 | **$70.00** | ☐ | ☐ |
+
+**Subtotal:** **$2,045.08**
+
+---
+
+# 🖨️ Other Important Laboratory Equipment
+
+| No. | Equipment | Part Number | Quantity | Notes | Total Cost | Available |
+|:---:|-----------|-------------|:-------:|-------|:----------:|:---------:|
+| 1 | 3D Printer | 737896686575063052 | 1 | For all printed toolkit parts | **$739.00** | ☐ |
+| 2 | PLA Filament | A00-G6-1.75-1000-SPL | 5 spools | 4 Green, 1 White | **$129.95** | ☐ |
+
+**Subtotal:** **$868.95**
+
+---
+
+# ⚡ Other Important Electronics
+
+| No. | Component | Quantity | Notes | Total Cost | Available |
+|:---:|-----------|:-------:|-------|:----------:|:---------:|
+| 1 | Pickup Coil | 1 | Constructed from BNC cables | — | ☐ |
+| 2 | Ceramic Capacitor Kit (1–800 pF) | >50 | Fixed capacitors for RF tuning and matching | **$100.00** | ☐ |
+
+---
+
+# 💰 Estimated Total Cost
+
+| Description | Cost |
+|------------|------:|
+| **Grand Total Estimate** | **$10,516.12** |
+
