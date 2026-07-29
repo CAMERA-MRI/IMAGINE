@@ -21,7 +21,7 @@ Use these checklists before and after each workshop to ensure all components are
 
 ## 🧲 Magnet Parts
 
-| No. | Part | Qty | 📦 Available | 🔧 Added to Assembly | 🔄 Disassembled |
+| No. | Part | Quantity | 📦 Available | 🔧 Added to Assembly | 🔄 Disassembled |
 |:---:|------|:---:|:------------:|:--------------------:|:---------------:|
 | 1 | Ring 42 | 2 | ☐ Yes ☐ No | ☐ | ☐ |
 | 2 | Ring 251 | 2 | ☐ Yes ☐ No | ☐ | ☐ |
@@ -43,7 +43,7 @@ Use these checklists before and after each workshop to ensure all components are
 
 ## 🛠️ Magnet Assembly Tools
 
-| No. | Tool | Qty | 📦 Available | 📥 Returned to Box |
+| No. | Tool | Quantity | 📦 Available | 📥 Returned to Box |
 |:---:|------|:---:|:------------:|:------------------:|
 | 1 | Screwdrivers | 4 | ☐ Yes ☐ No | ☐ |
 | 2 | Spanners | 4 | ☐ Yes ☐ No | ☐ |
@@ -56,7 +56,7 @@ Use these checklists before and after each workshop to ensure all components are
 
 ## 🔄 Magnet Disassembly Tools
 
-| No. | Tool | Qty | 📦 Available | 📥 Returned to Box |
+| No. | Tool | Quantity | 📦 Available | 📥 Returned to Box |
 |:---:|------|:---:|:------------:|:------------------:|
 | 1 | Magnet Ousters | 6 | ☐ Yes ☐ No | ☐ |
 | 2 | Disassembly Tray | 1 | ☐ Yes ☐ No | ☐ |
@@ -71,7 +71,7 @@ Use these checklists before and after each workshop to ensure all components are
 
 ## 🤖 Robot Parts
 
-| No. | Part | Qty | 📦 Available | 🔧 Added to Assembly | 🔄 Disassembled |
+| No. | Part | Quantity | 📦 Available | 🔧 Added to Assembly | 🔄 Disassembled |
 |:---:|------|:---:|:------------:|:--------------------:|:---------------:|
 | 1 | Magnet Rails | 3 | ☐ Yes ☐ No | ☐ | ☐ |
 | 2 | Motor Drivers | 3 | ☐ Yes ☐ No | ☐ | ☐ |
@@ -94,7 +94,7 @@ Use these checklists before and after each workshop to ensure all components are
 
 ## 🛠️ Robot Tools
 
-| No. | Tool | Qty | 📦 Available | 📥 Returned to Box |
+| No. | Tool | Quantity | 📦 Available | 📥 Returned to Box |
 |:---:|------|:---:|:------------:|:------------------:|
 | 1 | Screwdrivers | 4 | ☐ Yes ☐ No | ☐ |
 | 2 | Tape | 2 | ☐ Yes ☐ No | ☐ |
