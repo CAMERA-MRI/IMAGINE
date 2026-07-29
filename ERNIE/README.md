@@ -5,12 +5,17 @@
 <p style="text-align: justify;">
 This section, describes the <b>CAMERA-IMAGINE-MRI Education (ERNIE) toolkit</b>, designed to facilitate immersive hands-on collaborative learning of open source (OS) low-field (LF) MRI engineering. ERNIE is a frugal educational toolkit for on-site construction of a 50 mT OS-LF ‘mice-like’ brain MRI scanner that can be readily reproduced in any setting using common assembly tools and without prior MRI engineering experience. The toolkit was designed as a reusable teaching resource consisting of:</p>
 
-   1) A 30-minute lecture on OS-LF MR engineering concepts.
-   2) An animation of step-by-step guide of scanner and robot assembly and field mapping (quality assurance)
-   3) Bill of materials and 3D printing instructions for the magnet and robotic field mapping parts.
-   4) Tools for onsite assembly.
-   5) Instructions and software to build the magnet and map its field’s homogeneity.
-   6) The magnet, a 7-ring 80mm (inner bore diameter) Halbach array producing ~50 mT, made from <b>98</b> neodymium (N48) magnets.
+   1. A [30-minute lecture on OS-LF MR engineering concepts](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Training%20sessions/Training%20material/Building%20your%20own%20Low%20field%20MRI_Dr%20Johnes_(%20MRI%20Uganda%20).mp4).
+
+2. An [animation](https://github.com/CAMERA-MRI/IMAGINE/tree/main/ERNIE/Build%20your%20own%20Design/Magnet/Instructions/Animation) providing a step-by-step guide for scanner assembly, including the [magnet assembly guide](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Instructions/How%20to%20Assemble%20the%20Magnet.pdf), [robot assembly guide and field mapping (quality assurance)](https://github.com/SipanHovsep/Field_mapper_robot).
+
+3. A [bill of materials](https://github.com/CAMERA-MRI/IMAGINE/tree/main/ERNIE/Build%20your%20own%20Design) and [3D printing instructions for the magnet](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Instructions/ERNIE%203D%20printing%20instructions.pdf) and robotic field mapping parts.
+
+4. [Tools for onsite assembly](https://github.com/CAMERA-MRI/IMAGINE/tree/main/ERNIE/Build%20your%20own%20Design).
+
+5. Instructions and software to build the magnet and map its field homogeneity.
+
+6. The [magnet](https://github.com/CAMERA-MRI/IMAGINE/tree/main/ERNIE/Build%20your%20own%20Design/Magnet): a 7-ring, 80 mm (inner bore diameter) Halbach array producing ~50 mT, made from 98 neodymium (N48) magnets.
 ### ERNIE Toolkit  🧲 for Onsite Assembly and Magnetic Field Mapping with Portable Storage System
       
 <p align="center">
