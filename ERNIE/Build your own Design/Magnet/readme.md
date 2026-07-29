@@ -1,5 +1,5 @@
 
-# Main magnet.
+# 🧲 Main magnet.
 
 ## Overview.
 
@@ -11,8 +11,7 @@ These steps are explained in detail here:
  [How to assemble the magnet](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Instructions/How%20to%20Assemble%20the%20Magnet.pdf)
 </p>
   
- 
-## Magnet assembly procedure.
+## 🛠️ Magnet assembly procedure
 
 <p align="center"><img width="658" height="371" alt="magnet assembly procedure" src="https://github.com/user-attachments/assets/a45c7c42-79ed-45eb-8848-38b543eba7a4" /></p>
 </p>
