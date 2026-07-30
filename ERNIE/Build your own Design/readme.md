@@ -51,7 +51,7 @@ This document contains the complete list of components, tools, and equipment req
 | 12 | M3 Nylon/[Brass Screws (Amazon)](https://www.amazon.ca/dp/B0CT3W8148) | a23122400ux0074 | Brass screws are preferred (60/pack) | 54 | **$13.99** | ❌ | ☐ | ☐ |
 | 13 | [Dome-shaped Nuts (M4, McMaster-Carr)](https://www.mcmaster.com/products/dome-nuts/thread-size~m4/) | 90527A505 | Pack of 100 | 8 | **$22.96** | ❌ | ☐ | ☐ |
 | 14 |[Washers (McMaster-Carr)](https://www.mcmaster.com/catalog/131/3696/95610A150) | 95610A150 | Pack of 100 | 16 | **$7.70** | ❌ | ☐ | ☐ |
-| 15 | [Neodymium Magnets (13 mm × 12 mm × 5 mm, Magfine)](https://www.magfine.ca/products/neodymium-magnet-square-13mm-x-12mm-x-5mm) (12 × 12 × 12 mm) | — | Specify dimensions to supplier | 98 | **$575.26** | ❌ | ☐ | ☐ |
+| 15 | [Neodymium Magnets](https://www.magfine.ca/products/neodymium-magnet-square-13mm-x-12mm-x-5mm) (12 × 12 × 12 mm) | — | Specify dimensions to supplier | 98 | **$575.26** | ❌ | ☐ | ☐ |
 | 16 | Reference Neodymium Magnets | — | Made from purchased magnets | 4 | **$23.48** | ❌ | ☐ | ☐ |
 | 17 | [M3 Brass Heat-set Inserts (Amazon)](https://www.amazon.ca/dp/B0DC43HJKN) | a24062300ux0395 | Pack of 100 | 54 | **$17.69** | ❌ | ☐ | ☐ |
 | 18 | [PLA Basic Filament (Bambu Lab)](https://ca.store.bambulab.com/products/pla-basic-filament?variant=541209412732915753) / PETG / ABS | — | Color of your choice | 4 | **$25.99** | ❌ | ☐ | ☐ |
@@ -130,7 +130,7 @@ This document contains the complete list of components, tools, and equipment req
 |:---:|------|-------------|:---:|-------|:----------------:|:---------:|:-------------------:|
 | 1 | [Magnet Ouster (Wooden Chopsticks)](https://www.amazon.ca/Heiwa-Wooden-Chospticks-Pairs-Pack/dp/B07B6LP24M) | 871392000899 | 1 | Sharpen to push magnets out of the rings safely | **$11.54** | ☐ | ☐ |
 | 2 |[3D Printed Disassembly Tray)](https://github.com/CAMERAMRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20disassembly/Disassembly%20Tray.stl) | — | 1 | PLA printed | — | ✅ | ☐ |
-| 3 | 3D Printed Tray Cover | — | 1 | PLA printed | — | ✅ | ☐ |
+| 3 | [3D Printed Disassembly Tray)](https://github.com/CAMERAMRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20disassembly/Disassembly%20Tray.stl)  | — | 1 | PLA printed | — | ✅ | ☐ |
 | 4 | [Cutter Knife](https://www.amazon.ca/TIFICAL-Retractable-Snap-Off-Wrapping-Cardboard/dp/B0D634MZ99) | 016392515244 | 1 | Used for sharpening the magnet ouster | **$8.99** | ☐ | ☐ |
 | 5 | [M3 Brass Heat-set Inserts](https://www.amazon.ca/dp/B0DC43HJKN) | a24062300ux0395 | 9 | Same inserts used in the magnet rings | — | ☐ | ☐ |
 | 6 | [Non-magnetic Brass Screws](https://www.amazon.ca/dp/B0CT3W8148) | — | 9 | Same screws used for the magnet rings | — | ☐ | ☐ |
