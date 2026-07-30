@@ -1,4 +1,5 @@
-<p style="text-align: justify;">
+## Overview
+
 <p style="text-align: justify;">
 This section includes the guidelines to follow during disassembly of the ERNIE magnet and robot, and a disassembly tray where magnets are placed after tray disassembly. We also included the dissassembly tray <b>.stl</b> file and the disassembly tray cover.
 Disassembly must be done in a very careful way, to ensure that the magnets do not bang onto each other and crack.
