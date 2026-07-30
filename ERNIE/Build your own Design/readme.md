@@ -129,7 +129,7 @@ This document contains the complete list of components, tools, and equipment req
 | No. | Part | Part Number | Qty. | Notes | Total Cost (CAD) | Available | On-site for Assembly |
 |:---:|------|-------------|:---:|-------|:----------------:|:---------:|:-------------------:|
 | 1 | [Magnet Ouster (Wooden Chopsticks)](https://www.amazon.ca/Heiwa-Wooden-Chospticks-Pairs-Pack/dp/B07B6LP24M) | 871392000899 | 1 | Sharpen to push magnets out of the rings safely | **$11.54** | ☐ | ☐ |
-| 2 |[3D Printed Disassembly Tray)]() 
+| 2 |[3D Printed Disassembly Tray)](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20disassembly/Disassembly%20Tray.stl) 
 | — | 1 | PLA printed | — | ✅ | ☐ |
 | 3 | 3D Printed Tray Cover | — | 1 | PLA printed | — | ✅ | ☐ |
 | 4 | [Cutter Knife](https://www.amazon.ca/TIFICAL-Retractable-Snap-Off-Wrapping-Cardboard/dp/B0D634MZ99) | 016392515244 | 1 | Used for sharpening the magnet ouster | **$8.99** | ☐ | ☐ |
