@@ -21,4 +21,6 @@ The magnet assembly steps are explained in detail here:
 <p style="text-align: justify;">
 The sequence of steps for the scanner magnet assembly is summarized, from determining magnet polarities <b> (A) </b>, to installation of magnets in ring slots and alignment check for each ring using a compass <b> (B). Each ring is then covered with a lid  <b> (C) </b>, screwed down <b> (D) </b>, and all 7 rings are assembled with brass rods, supported by spacers <b> (E) </b>, to make a complete array as designed <b> (F)</b>.
 </p>
+  <img width="1536" height="1024" alt="ChatGPT Image Jul 30, 2026, 11_29_02 AM" src="https://github.com/user-attachments/assets/28ffd28b-f5fd-4778-aa50-c7cd5e8d36c7" />
+
 </p>
