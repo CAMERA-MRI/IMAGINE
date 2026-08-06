@@ -151,27 +151,27 @@ This document contains the complete list of components, tools, and equipment req
 | 5 | [LNA Power Supply (SRA KD3005D)](https://www.digikey.ca/en/products/detail/sra-soldering-products/KD3005D/10709902) | 2260-KD3005D | 1 | 12 V, 100 mA | **$138.04** | ☐ | ☐ |
 | 6 |[Passive TR Switch](https://gitlab.com/osii/rf-system/tr-switches/passive-tr-switch)| — | 1 | PCB fabricated following the OSI² TR switch design | **$100.00** | ☐ | ☐ |
 | 7 |[RF Coil](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/RF_Coil.stl)| — | 1 | RF transmit/receive coil | — | ☐ | ☐ |
-| 8 | [Copper Enamelled Wire (Magnet Wire)](https://www.digikey.ca/en/products/detail/cnc-tech/610216/4924215) | — | 1 | For winding RF coils | **$211.28** | ☐ | ☐ |
-| 9 | RF Coil Holder (3D Printed) | — | 1 | PLA printed | — | ☐ | ☐ |
+| 8 | [RF Coil Base](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/Ernie_RF%20Coil%20base.stl)) | — | 1 | PLA printed | — | ☐ | ☐ |
+| 9 | [Copper Enamelled Wire (Magnet Wire)](https://www.digikey.ca/en/products/detail/cnc-tech/610216/4924215) | — | 1 | For winding RF coils | **$211.28** | ☐ | ☐ |
 | 10 | [Variable Tuning & Matching Capacitor (Passive Plus PPZN30100)](https://www.digikey.ca/en/products/detail/passive-plus/PPZN30100/19235833) | PPZN30100 | 2 | Used together with fixed capacitors | **$156.94** | ☐ | ☐ |
 | 11 | Phantom (3D Printed) | — | 1 | Fill cylindrical phantom with olive oil | — | ☐ | ☐ |
-| 12 | [SMA Cables (TE Connectivity Linx CSE-SGAM-305-SGAM)](https://www.digikey.ca/en/products/detail/te-connectivity-linx/CSE-SGAM-305-SGAM/14633985) | CSE-SGAM-305-SGAM | 12 | Purchase approximately 20 or more | **$146.76** | ☐ | ☐ |
-| 13 | [SMA Female–Female Adapter (GCT RFAD-SA3SA2-01-N-A)](https://www.digikey.ca/en/products/detail/gct/RFAD-SA3SA2-01-N-A/25819955)| RFAD-SA3SA2-01-N-A | 8 | SMA adapters | **$43.76** | ☐ | ☐ |
-| 14 | [Aluminum Enclosure (LNA) - Bud Industries CU-234](https://www.digikey.ca/en/products/detail/bud-industries/CU-234/387028) | CU-234 | 1 | Shielded enclosure | **$19.33** | ☐ | ☐ |
-| 15 | [Aluminum Enclosure (RFPA) - Bud Industries CU-234](https://www.digikey.ca/en/products/detail/bud-industries/CU-234/387028) | CU-234 | 1 | Shielded enclosure | **$19.33** | ☐ | ☐ |
-| 16 | [Aluminum Enclosure (Red Pitaya & FHDO) - Hammond Manufacturing 1590Z166](https://www.digikey.ca/en/products/detail/hammond-manufacturing/1590Z166/1090767) | 1590Z166 | 1 | Electronics enclosure | **$223.13** | ☐ | ☐ |
-| 17 | [Aluminum Enclosure (Passive TR Switch) - Bud Industries CU-234](https://www.digikey.ca/en/products/detail/bud-industries/CU-234/387028) | CU-234 | 1 | Shielded enclosure | **$19.33** | ☐ | ☐ |
-| 18 | [Aluminum Enclosure (Matching Circuit) - Bud Industries CU-234](https://www.digikey.ca/en/products/detail/bud-industries/CU-234/387028) | CU-234 | 1 | Shielded enclosure | **$19.33** | ☐ | ☐ |
-| 19 |[Aluminum Sheet](https://www.amazon.ca/Bilaida-Stainless-Roll%EF%BC%8C0-2mm-Electronic-Equipment/dp/B0DKWH3DB7) | BSS-00903 | 1 | Scanner RF shielding | **$43.30** | ☐ | ☐ |
-| 20 |[Copper Sheet](https://www.amazon.ca/dp/B0CDGQ95YB) | 60 | 1 | Internal RF shield connected to ground | **$30.99** | ☐ | ☐ |
-| 21 | [Copper Tape (Conductive Shielding Tape)](https://www.amazon.ca/Single-Sided-Conductive-Shielding-Repellent-Electrical/dp/B083QJDQ5M)| B083QJDQ5M | 1 | Joins copper shielding | **$12.59** | ☐ | ☐ |
-| 22 | [Aluminum Tape (3M 1436 Aluminum Foil Tape)](https://canada.newark.com/3m/1436-50mm/tape-aluminium-foil-50mmx50m/dp/52R8749)| 143650 | 1 | Shield sealing | **$39.80** | ☐ | ☐ |
-| 23 | [Brass Screws (Knowles Voltronics 48-133)](https://www.digikey.ca/en/products/detail/knowles-voltronics/48-133/18680028) | 48-133 | 9 | Non-magnetic | **$36.63** | ☐ | ☐ |
-| 24 | [Ground Cables (Green/Yellow 8 AWG Ground Wire)](https://falconerelectronics.com/product/ground-wire-9-5-x-green-yellow-8-ga-1-4-stud-to-1-4-stud-rohs/) | 1GY89.5OO1B | 5 | Scanner grounding | **$28.31** | ☐ | ☐ |
-| 25 | [SMA Female to BNC Male Adapter (RF Solutions ADP-SMAF-BNCM)](https://www.digikey.ca/en/products/detail/rf-solutions/ADP-SMAF-BNCM/4271257) | ADP-SMAF-BNCM | 4 | RF adapter | **$33.64** | ☐ | ☐ |
-| 26 | [BNC Cable (15 cm) - Amphenol RF 115101-19-06-00](https://www.digikey.ca/en/products/detail/amphenol-rf/115101-19-06-00/2505045) | 115101-19-06-00 | 4 | For NanoVNA testing | **$70.80** | ☐ | ☐ |
-| 27 |[Banana-to-Grabber Test Leads (36") - Pomona Electronics 3782-36-02](https://www.digikey.ca/en/products/detail/pomona-electronics/3782-36-02/736657) | 3782-36-02 | 6 | Test leads | **$201.72** | ☐ | ☐ |
-| 28 | [Olive Oil (Mina Extra Virgin Olive Oil)](https://www.amazon.ca/Mina-Virgin-Extracted-Moroccan-Polyphenols/dp/B09JCMRY39) | — | 1 | Phantom filling | **$16.79** | ☐ | ☐ |
+| 12 | [Olive Oil (Mina Extra Virgin Olive Oil)](https://www.amazon.ca/Mina-Virgin-Extracted-Moroccan-Polyphenols/dp/B09JCMRY39) | — | 1 | Phantom filling | **$16.79** | ☐ | ☐ |
+| 13 | [SMA Cables (TE Connectivity Linx CSE-SGAM-305-SGAM)](https://www.digikey.ca/en/products/detail/te-connectivity-linx/CSE-SGAM-305-SGAM/14633985) | CSE-SGAM-305-SGAM | 12 | Purchase approximately 20 or more | **$146.76** | ☐ | ☐ |
+| 14 | [SMA Female–Female Adapter (GCT RFAD-SA3SA2-01-N-A)](https://www.digikey.ca/en/products/detail/gct/RFAD-SA3SA2-01-N-A/25819955)| RFAD-SA3SA2-01-N-A | 8 | SMA adapters | **$43.76** | ☐ | ☐ |
+| 15 | [Aluminum Enclosure (LNA) - Bud Industries CU-234](https://www.digikey.ca/en/products/detail/bud-industries/CU-234/387028) | CU-234 | 1 | Shielded enclosure | **$19.33** | ☐ | ☐ |
+| 16 | [Aluminum Enclosure (RFPA) - Bud Industries CU-234](https://www.digikey.ca/en/products/detail/bud-industries/CU-234/387028) | CU-234 | 1 | Shielded enclosure | **$19.33** | ☐ | ☐ |
+| 17 | [Aluminum Enclosure (Red Pitaya & FHDO) - Hammond Manufacturing 1590Z166](https://www.digikey.ca/en/products/detail/hammond-manufacturing/1590Z166/1090767) | 1590Z166 | 1 | Electronics enclosure | **$223.13** | ☐ | ☐ |
+| 18 | [Aluminum Enclosure (Passive TR Switch) - Bud Industries CU-234](https://www.digikey.ca/en/products/detail/bud-industries/CU-234/387028) | CU-234 | 1 | Shielded enclosure | **$19.33** | ☐ | ☐ |
+| 19 | [Aluminum Enclosure (Matching Circuit) - Bud Industries CU-234](https://www.digikey.ca/en/products/detail/bud-industries/CU-234/387028) | CU-234 | 1 | Shielded enclosure | **$19.33** | ☐ | ☐ |
+| 20 |[Aluminum Sheet](https://www.amazon.ca/Bilaida-Stainless-Roll%EF%BC%8C0-2mm-Electronic-Equipment/dp/B0DKWH3DB7) | BSS-00903 | 1 | Scanner RF shielding | **$43.30** | ☐ | ☐ |
+| 21 |[Copper Sheet](https://www.amazon.ca/dp/B0CDGQ95YB) | 60 | 1 | Internal RF shield connected to ground | **$30.99** | ☐ | ☐ |
+| 22 | [Copper Tape (Conductive Shielding Tape)](https://www.amazon.ca/Single-Sided-Conductive-Shielding-Repellent-Electrical/dp/B083QJDQ5M)| B083QJDQ5M | 1 | Joins copper shielding | **$12.59** | ☐ | ☐ |
+| 23 | [Aluminum Tape (3M 1436 Aluminum Foil Tape)](https://canada.newark.com/3m/1436-50mm/tape-aluminium-foil-50mmx50m/dp/52R8749)| 143650 | 1 | Shield sealing | **$39.80** | ☐ | ☐ |
+| 24 | [Brass Screws (Knowles Voltronics 48-133)](https://www.digikey.ca/en/products/detail/knowles-voltronics/48-133/18680028) | 48-133 | 9 | Non-magnetic | **$36.63** | ☐ | ☐ |
+| 25 | [Ground Cables (Green/Yellow 8 AWG Ground Wire)](https://falconerelectronics.com/product/ground-wire-9-5-x-green-yellow-8-ga-1-4-stud-to-1-4-stud-rohs/) | 1GY89.5OO1B | 5 | Scanner grounding | **$28.31** | ☐ | ☐ |
+| 26 | [SMA Female to BNC Male Adapter (RF Solutions ADP-SMAF-BNCM)](https://www.digikey.ca/en/products/detail/rf-solutions/ADP-SMAF-BNCM/4271257) | ADP-SMAF-BNCM | 4 | RF adapter | **$33.64** | ☐ | ☐ |
+| 27 | [BNC Cable (15 cm) - Amphenol RF 115101-19-06-00](https://www.digikey.ca/en/products/detail/amphenol-rf/115101-19-06-00/2505045) | 115101-19-06-00 | 4 | For NanoVNA testing | **$70.80** | ☐ | ☐ |
+| 28 |[Banana-to-Grabber Test Leads (36") - Pomona Electronics 3782-36-02](https://www.digikey.ca/en/products/detail/pomona-electronics/3782-36-02/736657) | 3782-36-02 | 6 | Test leads | **$201.72** | ☐ | ☐ |
 | 29 | [Ethernet Cable (Eaton Tripp Lite N201P-006-BL)](https://www.digikey.ca/en/products/detail/eaton-tripp-lite/N201P-006-BL/15298306) | N201P-006-BL | 2 | Network connection | **$34.62** | ☐ | ☐ |
 | 30 | [Masking Tape (Scotch 3436)](https://www.amazon.ca/Scotch-Office-Masking-3436-3-4-inch/dp/B00347A8E4)| 3436-3 | 1 | General assembly | **$11.05** | ☐ | ☐ |
 
