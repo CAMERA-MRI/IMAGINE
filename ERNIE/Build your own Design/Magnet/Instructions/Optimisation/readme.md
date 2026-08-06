@@ -55,7 +55,7 @@ For details on the optimisation approach and the genetic algorithm implementatio
 <tr style="background-color:#d9ead3;">
 <td>321</td>
 <td>1</td>
-<td>0.00</td>
+<td>0</td>
 <td>8.82</td>
 <td>16.95</td>
 <td>65.43</td>
@@ -65,7 +65,7 @@ For details on the optimisation approach and the genetic algorithm implementatio
 <tr style="background-color:#d9ead3;">
 <td>288</td>
 <td>1</td>
-<td>0.00</td>
+<td>0</td>
 <td>11.76</td>
 <td>15.29</td>
 <td>63.77</td>
@@ -75,7 +75,7 @@ For details on the optimisation approach and the genetic algorithm implementatio
 <tr style="background-color:#d9ead3;">
 <td>251</td>
 <td>1</td>
-<td>0.00</td>
+<td>0</td>
 <td>8.82</td>
 <td>13.63</td>
 <td>62.11</td>
@@ -85,7 +85,7 @@ For details on the optimisation approach and the genetic algorithm implementatio
 <tr style="background-color:#d9ead3;">
 <td>42</td>
 <td>1</td>
-<td>0.00</td>
+<td>0</td>
 <td>10.29</td>
 <td>3.66</td>
 <td>52.15</td>
@@ -103,8 +103,6 @@ For details on the optimisation approach and the genetic algorithm implementatio
 </tr>
 
 </table>
-  <p align="center"> <img width="641" height="321" alt="comprehensive results ernie 1 2" src="https://github.com/user-attachments/assets/28701569-c1e9-48ed-a0d2-d1839a9c8ac2" /> </p>
-
 ## 🧩 Optimisation parameters and CAD pictures of the rings
 
 <p align="center"> <img width="662" height="290" alt="optimisation parameters, cad assembly" src="https://github.com/user-attachments/assets/40593b50-5eca-4f26-8852-69496aa51889" />  </p>
