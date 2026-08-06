@@ -94,7 +94,7 @@ This document contains the complete list of components, tools, and equipment req
 | 1 | [Magnet Rails](https://www.aliexpress.com/item/1005005534966065.html) (Set of 3) | T06 | 3 | X, Y, and Z rails should each be **150 mm** long. | **$273.78** | ❌ | ☐ | ☐ |
 | 2 | [Motor Drivers](https://www.aliexpress.com/item/1005005967708477.html) | — | 3 | Stepper motor drivers | **$34.62** | ❌ | ☐ | ☐ |
 | 3 | [Arduino Uno R4 Minima](https://thepihut.com/products/arduino-uno-r4-minima) | ABX00080 | 1 | Arduino Uno development board | **$33.50** | ❌ | ☐ | ☐ |
-| 4 | 3D Printed Bases | — | 4 | PLA printed | — | ✅ | ☐ | ☐ |
+| 4 | [Scanner Base for Field Mapping](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/Scanner%20Base%20for%20field%20mapping.stl) | — | 4 | PLA printed | — | ✅ | ☐ | ☐ |
 | 5 | [Gauss Meter (AlphaLab GM2)](https://www.alphalabinc.com/products/gm2/) | GM2 | 1 | Magnetic field measurement | **$1200.00** | ❌ | ☐ | ☐ |
 | 6 | M4 & M3 Screws | — | 8 | Included with the rails | — | ❌ | ☐ | ☐ |
 | 7 | [Connecting Wires](https://www.amazon.ca/TUOFENG-Hookup-Wires-6-Different-Colored/dp/B0CM2Y7V1Z) | 22 AWG | 25 | Cut to required lengths | **$23.99** | ❌ | ☐ | ☐ |
