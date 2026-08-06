@@ -12,7 +12,97 @@ For details on the optimisation approach and the genetic algorithm implementatio
  </p>
  
 ## 📊 Results obtained after optimisation
+<h3>Optimisation for ERNIE 1</h3>
 
+<table bgcolor="#d9ead3">
+<tr>
+<th>Generation</th>
+<th>Best_Individual</th>
+<th>Fitness_Value</th>
+<th>Mean_Field_Strength</th>
+<th>Homogeneity_PPM</th>
+<th>Algorithm_Time_Seconds</th>
+<th>Total_Execution_Time_Seconds</th>
+<th>Ring_Positions</th>
+</tr>
+
+<tr>
+<td>150</td>
+<td>321, 288, 251, 42</td>
+<td>162.63</td>
+<td>0.05</td>
+<td>143.48</td>
+<td>1476.98</td>
+<td>1768.29</td>
+<td>-0.07, -0.05, -0.02, 0.00, 0.02, 0.05, 0.07</td>
+</tr>
+</table>
+
+
+<h3>Best Rings</h3>
+
+<table bgcolor="#d9ead3">
+<tr>
+<th>Configuration_Number</th>
+<th>Band_Number</th>
+<th>Band_Radii_Gap_mm</th>
+<th>Magnet_Space_mm</th>
+<th>Band_Separation_mm</th>
+<th>Band_1_Radius_mm</th>
+<th>Band_1_Magnet_Count</th>
+</tr>
+
+<tr>
+<td>321</td>
+<td>1</td>
+<td>0.00</td>
+<td>8.82</td>
+<td>16.95</td>
+<td>65.43</td>
+<td>16</td>
+</tr>
+
+<tr>
+<td>288</td>
+<td>1</td>
+<td>0.00</td>
+<td>11.76</td>
+<td>15.29</td>
+<td>63.77</td>
+<td>14</td>
+</tr>
+
+<tr>
+<td>251</td>
+<td>1</td>
+<td>0.00</td>
+<td>8.82</td>
+<td>13.63</td>
+<td>62.11</td>
+<td>15</td>
+</tr>
+
+<tr>
+<td>42</td>
+<td>1</td>
+<td>0.00</td>
+<td>10.29</td>
+<td>3.66</td>
+<td>52.15</td>
+<td>12</td>
+</tr>
+
+<tr>
+<td><b>Total</b></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><b>98</b></td>
+</tr>
+
+</table>
   <p align="center"> <img width="641" height="321" alt="comprehensive results ernie 1 2" src="https://github.com/user-attachments/assets/28701569-c1e9-48ed-a0d2-d1839a9c8ac2" /> </p>
 
 ## 🧩 Optimisation parameters and CAD pictures of the rings
