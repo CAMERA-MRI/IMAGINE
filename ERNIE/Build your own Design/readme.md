@@ -75,7 +75,7 @@ This document contains the complete list of components, tools, and equipment req
 | No. | Tool | Part Number | Notes | Qty. | Total Cost (CAD) | Available | Returned to Box |
 |:---:|------|-------------|-------|:---:|:----------------:|:---------:|:---------------:|
 | 1 | [Screwdriver Set (Amazon)](https://www.amazon.ca/13-Pieces-Screwdrivers-Screwdriver-Magnetizer-demagnetizer/dp/B0CXSYBCXW) | 06973932450615 | Cross-head (Phillips) with comfortable grip | 2 | **$20.99** | ☐ | ☐ |
-| 2 | [Screwdrivers (Amazon)](https://www.amazon.ca/Screwdriver-Adjustable-Multitool-Security-Phillips/dp/B09XV7P17T) | 06973932450615 | Second screwdriver | 2 | **$33.98** | ☐ | ☐ |
+| 2 | [Screwdrivers (Amazon)](https://www.amazon.ca/Screwdriver-Adjustable-Multitool-Security-Phillips/dp/B09XV7P17T) | SD013E-Red | Second screwdriver | 2 | **$33.98** | ☐ | ☐ |
 | 3 | [Spanners (Amazon)](https://www.amazon.ca/gp/product/B0DXPGQL98) | hta250106hh001215 | 7 mm open wrench | 2 | **$25.59** | ☐ | ☐ |
 | 4 | [Compass (Suunto MCB NH Mirror Compass, Amazon)](https://www.amazon.ca/Suunto-SS012277013-MCB-Black-Compass/dp/B002FA9GYE) | — | Standard compass | 2 | **$54.99** | ☐ | ☐ |
 | 5 | [Permanent Markers (Sharpie, Amazon)](https://www.amazon.ca/Sharpie-Permanent-4-Carded-Assorted-35113PP/dp/B000GOZXA2) | SAN35113PP | Permanent ink | 4 | **$13.78** | ☐ | ☐ |
