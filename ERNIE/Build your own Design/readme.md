@@ -46,13 +46,13 @@ This document contains the complete list of components, tools, and equipment req
 | 7 | [Lid for Ring 288](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/ERNIE%201%262%20rings%20and%20lids%20(.stl)/Lid_For_Rings%20288%20and%20251.stl) | — | Approximately **45 g PLA** each | 2 | — | ✅ | ☐ | ☐ |
 | 8 | [Lid for Ring 321](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/ERNIE%201%262%20rings%20and%20lids%20(.stl)/Ring%20321%20(105mm_length).stl) | — | Approximately **45 g PLA** | 1 | — | ✅ | ☐ | ☐ |
 | 9 | [180 mm Brass Rods (McMaster-Carr)](https://www.mcmaster.com/catalog/131/3633/90162A050) | 90162A050 | Purchase two 1 m rods, and cut each 1m rod into 5 **180 mm** rods. | 8 | **$39.54** | ❌ | ☐ | ☐ |
-| 10 | Ring Spacers | — | Approximately **100 g PLA** required for 80 spacers | 48 | — | ✅ | ☐ | ☐ |
+| 10 | [Ring Spacers](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/ERNIE%201%262%20rings%20and%20lids%20(.stl)/Ring_spacers.stl) | — | Approximately **100 g PLA** required for 80 spacers | 48 | — | ✅ | ☐ | ☐ |
 | 11 | [M4 Brass Nuts (Amazon)](https://www.amazon.ca/100pcs-Solid-Brass-Copper-Screw/dp/B0CQGYC7JZ) | B0CQGYC7JZ | Pack of 50 | 8 | **$11.33** | ❌ | ☐ | ☐ |
-| 12 | M3 Nylon/[Brass Screws (Amazon)](https://www.amazon.ca/dp/B0CT3W8148) | a23122400ux0074 | Brass screws are preferred (60/pack) | 54 | **$13.99** | ❌ | ☐ | ☐ |
+| 12 | [M3 Brass Screws (Amazon)](https://www.amazon.ca/dp/B0CT3W8148) | a23122400ux0074 | Brass screws are preferred (60/pack) | 54 | **$13.99** | ❌ | ☐ | ☐ |
 | 13 | [Dome-shaped Nuts (M4, McMaster-Carr)](https://www.mcmaster.com/products/dome-nuts/thread-size~m4/) | 90527A505 | Pack of 100 | 8 | **$22.96** | ❌ | ☐ | ☐ |
-| 14 |[Washers (McMaster-Carr)](https://www.mcmaster.com/catalog/131/3696/95610A150) | 95610A150 | Pack of 100 | 16 | **$7.70** | ❌ | ☐ | ☐ |
-| 15 | [Neodymium Magnets](https://www.magfine.ca/products/neodymium-magnet-square-13mm-x-12mm-x-5mm) (12 × 12 × 12 mm) | — | Specify dimensions to supplier | 98 | **$575.26** | ❌ | ☐ | ☐ |
-| 16 | Reference Neodymium Magnets | — | Made from purchased magnets | 4 | **$23.48** | ❌ | ☐ | ☐ |
+| 14 |[M4 Nylon Washers (McMaster-Carr)](https://www.mcmaster.com/catalog/131/3696/95610A150) | 95610A150 | Pack of 100 | 16 | **$7.70** | ❌ | ☐ | ☐ |
+| 15 | [Neodymium Magnets](https://www.magfine.ca/products/neodymium-magnet-square-13mm-x-12mm-x-5mm)  | — | Specify dimensions (12 × 12 × 12 mm) to supplier | 98 | **$575.26** | ❌ | ☐ | ☐ |
+| 16 | Reference Neodymium Magnets | — | Made from no.15_ [Neodymium Magnets](https://www.magfine.ca/products/neodymium-magnet-square-13mm-x-12mm-x-5mm)  | 4 | **$23.48** | ❌ | ☐ | ☐ |
 | 17 | [M3 Brass Heat-set Inserts (Amazon)](https://www.amazon.ca/dp/B0DC43HJKN) | a24062300ux0395 | Pack of 100 | 54 | **$17.69** | ❌ | ☐ | ☐ |
 | 18 | [PLA Basic Filament (Bambu Lab)](https://ca.store.bambulab.com/products/pla-basic-filament?variant=541209412732915753) / PETG / ABS | — | Color of your choice | 4 | **$25.99** | ❌ | ☐ | ☐ |
 
@@ -64,7 +64,7 @@ This document contains the complete list of components, tools, and equipment req
 
 | No. | Part | Notes | Qty. | Total Cost (CAD) | 3D Printed | On-site for Assembly |
 |:---:|------|-------|:---:|:----------------:|:----------:|:-------------------:|
-| 1 | [Neodymium Magnets (12 mm × 12 mm × 12 mm, Magfine)](https://www.magfine.ca/products/neodymium-magnet-square-13mm-x-12mm-x-5mm) | Replacement magnets for damaged units | 10 | **$58.70** | ❌ | ☐ |
+| 1 | [Neodymium Magnets (12 mm × 12 mm × 12 mm, Magfine)](https://www.magfine.ca/products/neodymium-magnet-square-13mm-x-12mm-x-5mm) | Replacement magnets for damaged units made from no.15 above | 10 | **$58.70** | ❌ | ☐ |
 
 **Subtotal:** **$58.70**
 
