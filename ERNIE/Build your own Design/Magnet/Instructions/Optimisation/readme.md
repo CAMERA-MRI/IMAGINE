@@ -1,10 +1,10 @@
 # Optimisation 
 
 ## Overview
-<p style="text-align: justify;">
-  
-This section includes the steps followed during optimisation of the ERNIE 1&2 magnet.  
-We used a [genetic algorithm](https://github.com/tmachtelinckx/halbacharray-GA), which was developed by one of the IMAGINE 2025 summer school participants. 
+
+This section includes the optimisation process used for the ERNIE 1 & 2 magnets. The optimisation was performed using a [genetic algorithm](https://github.com/tmachtelinckx/halbacharray-GA)developed by one of the IMAGINE 2025 Summer School participants.
+
+For details on the optimisation approach and the genetic algorithm implementation, please refer to the [Github repository](https://github.com/tmachtelinckx/halbacharray-GA).
 
 ## ⚙️ Genetic algorithm 
   
