@@ -138,11 +138,15 @@ This document contains the complete list of components, tools, and equipment req
 ## Works in Progress (Optional) ##
 
 <p style="text-align: justify;">
+  
 The current stage of ERNIE development focuses on the assembly and validation of the magnet and robotic components. Following assembly, the robot is used to perform magnetic field mapping of the scanner to characterize the field distribution.
+
 </p>
 
 <p style="text-align: justify;">
+  
 Beyond mechanical assembly and field characterization, integration of the required electronics and instrumentation enables the ERNIE toolkit to generate and acquire MRI signals. Using the equipment described in the preceding tables, signal acquisition was successfully demonstrated, with an example signal shown below.
+
 </p>
 
 <p align="center">
