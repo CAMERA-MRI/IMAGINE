@@ -14,8 +14,8 @@ For details on the optimisation approach and the genetic algorithm implementatio
 ## 📊 Results obtained after optimisation
 <h3>Optimisation for ERNIE 1</h3>
 
-<table bgcolor="#d9ead3">
-<tr>
+<table>
+<tr style="background-color:#38761d; color:white;">
 <th>Generation</th>
 <th>Best_Individual</th>
 <th>Fitness_Value</th>
@@ -26,7 +26,7 @@ For details on the optimisation approach and the genetic algorithm implementatio
 <th>Ring_Positions</th>
 </tr>
 
-<tr>
+<tr style="background-color:#d9ead3;">
 <td>150</td>
 <td>321, 288, 251, 42</td>
 <td>162.63</td>
@@ -41,8 +41,8 @@ For details on the optimisation approach and the genetic algorithm implementatio
 
 <h3>Best Rings</h3>
 
-<table bgcolor="#d9ead3">
-<tr>
+<table>
+<tr style="background-color:#38761d; color:white;">
 <th>Configuration_Number</th>
 <th>Band_Number</th>
 <th>Band_Radii_Gap_mm</th>
@@ -52,7 +52,7 @@ For details on the optimisation approach and the genetic algorithm implementatio
 <th>Band_1_Magnet_Count</th>
 </tr>
 
-<tr>
+<tr style="background-color:#d9ead3;">
 <td>321</td>
 <td>1</td>
 <td>0.00</td>
@@ -62,7 +62,7 @@ For details on the optimisation approach and the genetic algorithm implementatio
 <td>16</td>
 </tr>
 
-<tr>
+<tr style="background-color:#d9ead3;">
 <td>288</td>
 <td>1</td>
 <td>0.00</td>
@@ -72,7 +72,7 @@ For details on the optimisation approach and the genetic algorithm implementatio
 <td>14</td>
 </tr>
 
-<tr>
+<tr style="background-color:#d9ead3;">
 <td>251</td>
 <td>1</td>
 <td>0.00</td>
@@ -82,7 +82,7 @@ For details on the optimisation approach and the genetic algorithm implementatio
 <td>15</td>
 </tr>
 
-<tr>
+<tr style="background-color:#d9ead3;">
 <td>42</td>
 <td>1</td>
 <td>0.00</td>
@@ -92,7 +92,7 @@ For details on the optimisation approach and the genetic algorithm implementatio
 <td>12</td>
 </tr>
 
-<tr>
+<tr style="background-color:#d9ead3;">
 <td><b>Total</b></td>
 <td></td>
 <td></td>
