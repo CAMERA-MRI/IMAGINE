@@ -78,9 +78,9 @@ This document contains the complete list of components, tools, and equipment req
 | 2 | [Screwdrivers (Amazon)](https://www.amazon.ca/Screwdriver-Adjustable-Multitool-Security-Phillips/dp/B09XV7P17T) | SD013E-Red | Second screwdriver | 2 | **$33.98** | ☐ | ☐ |
 | 3 | [Spanners (Amazon)](https://www.amazon.ca/gp/product/B0DXPGQL98) | hta250106hh001215 | 7 mm open wrench | 2 | **$25.59** | ☐ | ☐ |
 | 4 | [Compass (Suunto MCB NH Mirror Compass, Amazon)](https://www.amazon.ca/Suunto-SS012277013-MCB-Black-Compass/dp/B002FA9GYE) | — | Standard compass | 2 | **$54.99** | ☐ | ☐ |
-| 5 | [Permanent Markers (Sharpie, Amazon)](https://www.amazon.ca/Sharpie-Permanent-4-Carded-Assorted-35113PP/dp/B000GOZXA2) | SAN35113PP | Permanent ink | 4 | **$13.78** | ☐ | ☐ |
+| 5 | [Permanent Markers (Sharpie, Amazon)](https://www.amazon.ca/Sharpie-Permanent-4-Carded-Assorted-35113PP/dp/B000GOZXA2) | SAN35113PP | Colors red, black or blue | 4 | **$13.78** | ☐ | ☐ |
 | 6 | [Vernier Caliper (Kynup, Amazon)](https://www.amazon.ca/Kynup-Measuring-Stainless-Waterproof-Protection/dp/B07X8JQ8L5) | USQC03301915 | 6-inch caliper | 1 | **$34.99** | ☐ | ☐ |
-| 7 | [Ruler](https://www.amazon.ca/Transparent-Measuring-Suitable-Childrens-Centimeter/dp/B09B6V3PGM) | — | Non-magnetic ruler | 1 | **$6.69** | ☐ | ☐ |
+| 7 | [Ruler](https://www.amazon.ca/Transparent-Measuring-Suitable-Childrens-Centimeter/dp/B09B6V3PGM) | — | Non-magnetic 30cm ruler | 1 | **$6.69** | ☐ | ☐ |
 
 **Subtotal:** **$191.01**
 
@@ -154,7 +154,7 @@ This document contains the complete list of components, tools, and equipment req
 | 8 | [RF Coil Base](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/Ernie_RF%20Coil%20base.stl)) | — | 1 | PLA printed | — | ☐ | ☐ |
 | 9 | [Copper Enamelled Wire (Magnet Wire)](https://www.digikey.ca/en/products/detail/cnc-tech/610216/4924215) | — | 1 | For winding RF coils | **$211.28** | ☐ | ☐ |
 | 10 | [Variable Tuning & Matching Capacitor (Passive Plus PPZN30100)](https://www.digikey.ca/en/products/detail/passive-plus/PPZN30100/19235833) | PPZN30100 | 2 | Used together with fixed capacitors | **$156.94** | ☐ | ☐ |
-| 11 | Phantom (3D Printed) | — | 1 | Fill cylindrical phantom with olive oil | — | ☐ | ☐ |
+| 11 | [Phantom Holder](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/Phantom_18AWG.3mf) | — | 1 | Fill cylindrical phantom holder with olive oil | — | ☐ | ☐ |
 | 12 | [Olive Oil (Mina Extra Virgin Olive Oil)](https://www.amazon.ca/Mina-Virgin-Extracted-Moroccan-Polyphenols/dp/B09JCMRY39) | — | 1 | Phantom filling | **$16.79** | ☐ | ☐ |
 | 13 | [SMA Cables (TE Connectivity Linx CSE-SGAM-305-SGAM)](https://www.digikey.ca/en/products/detail/te-connectivity-linx/CSE-SGAM-305-SGAM/14633985) | CSE-SGAM-305-SGAM | 12 | Purchase approximately 20 or more | **$146.76** | ☐ | ☐ |
 | 14 | [SMA Female–Female Adapter (GCT RFAD-SA3SA2-01-N-A)](https://www.digikey.ca/en/products/detail/gct/RFAD-SA3SA2-01-N-A/25819955)| RFAD-SA3SA2-01-N-A | 8 | SMA adapters | **$43.76** | ☐ | ☐ |
