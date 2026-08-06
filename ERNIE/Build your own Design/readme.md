@@ -12,9 +12,6 @@
  <img width="608" height="334" alt="build your own design" src="https://github.com/user-attachments/assets/1eba65fe-7d8a-49f1-8202-14f803654b53" />
   </p>
 </p>
-<p align="center">
-  <b>
-  </b>
 </p>
 
 # 📦 ERNIE Toolkit – Bill of Materials (BOM)
@@ -139,9 +136,12 @@ This document contains the complete list of components, tools, and equipment req
 
 ---
 ## Works in Progress (Optional) ##
-Using ERNIE, you can generate a signal, as one shown below:
-<img width="680" height="347" alt="Signal" src="https://github.com/user-attachments/assets/24d8f2e6-2b1e-4e1c-9cfa-d77383cf4209" /> 
-To do so, these are the required eguipment. 
+<p style="text-align: justify;">
+Using ERNIE, you can generate a signal, as one shown below: </p>
+<p align="center">
+<img width="680" height="347" alt="Signal" src="https://github.com/user-attachments/assets/24d8f2e6-2b1e-4e1c-9cfa-d77383cf4209" /> </p>
+<p style="text-align: justify;">
+To do so, these are the required eguipment. </p>
 
 ---
 
