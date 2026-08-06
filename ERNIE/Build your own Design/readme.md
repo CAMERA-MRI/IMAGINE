@@ -44,7 +44,7 @@ This document contains the complete list of components, tools, and equipment req
 | 5 | [Lid for Ring 42](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/ERNIE%201%262%20rings%20and%20lids%20(.stl)/Lid_For_Ring_42.stl)| — | Approximately **45 g PLA** each | 2 | — | ✅ | ☐ | ☐ |
 | 6 | [Lid for Ring 251](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/ERNIE%201%262%20rings%20and%20lids%20(.stl)/Lid_For_Rings%20288%20and%20251.stl) | — | Approximately **45 g PLA** each | 2 | — | ✅ | ☐ | ☐ |
 | 7 | [Lid for Ring 288](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/ERNIE%201%262%20rings%20and%20lids%20(.stl)/Lid_For_Rings%20288%20and%20251.stl) | — | Approximately **45 g PLA** each | 2 | — | ✅ | ☐ | ☐ |
-| 8 | Lid for Ring 321 | — | Approximately **45 g PLA** | 1 | — | ✅ | ☐ | ☐ |
+| 8 | [Lid for Ring 321](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/ERNIE%201%262%20rings%20and%20lids%20(.stl)/Ring%20321%20(105mm_length).stl) | — | Approximately **45 g PLA** | 1 | — | ✅ | ☐ | ☐ |
 | 9 | [180 mm Brass Rods (McMaster-Carr)](https://www.mcmaster.com/catalog/131/3633/90162A050) | 90162A050 | Purchase two 1 m rods, and cut each 1m rod into 5 **180 mm** rods. | 8 | **$39.54** | ❌ | ☐ | ☐ |
 | 10 | Ring Spacers | — | Approximately **100 g PLA** required for 80 spacers | 48 | — | ✅ | ☐ | ☐ |
 | 11 | [M4 Brass Nuts (Amazon)](https://www.amazon.ca/100pcs-Solid-Brass-Copper-Screw/dp/B0CQGYC7JZ) | B0CQGYC7JZ | Pack of 50 | 8 | **$11.33** | ❌ | ☐ | ☐ |
