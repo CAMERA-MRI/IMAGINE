@@ -98,7 +98,7 @@ This document contains the complete list of components, tools, and equipment req
 | 5 | [Gauss Meter (AlphaLab GM2)](https://www.alphalabinc.com/products/gm2/) | GM2 | 1 | Magnetic field measurement | **$1200.00** | ❌ | ☐ | ☐ |
 | 6 | M4 & M3 Screws | — | 8 | Included with the rails | — | ❌ | ☐ | ☐ |
 | 7 | [Connecting Wires](https://www.amazon.ca/TUOFENG-Hookup-Wires-6-Different-Colored/dp/B0CM2Y7V1Z) | 22 AWG | 25 | Cut to required lengths | **$23.99** | ❌ | ☐ | ☐ |
-| 8 |[Power Supply](https://www.amazon.ca/dp/B0B9XGQQSR)| CA-24V-3A-72W | 1 | 24 V, 3 A | **$22.99** | ❌ | ☐ | ☐ |
+| 8 |[DC Power Supply](https://www.amazon.ca/dp/B0B9XGQQSR)| CA-24V-3A-72W | 1 | 24 V, 3 A | **$22.99** | ❌ | ☐ | ☐ |
 | 9 | [Gauss Meter Probe Holder (STL)](https://github.com/SipanHovsep/Field_mapper_robot/blob/main/3D%20print%20files/Sensor_mount_1.stl) | — | 1 | PLA printed | — | ✅ | ☐ | ☐ |
 | 10 | [Laptop](https://www.amazon.ca/dp/B0GMV73BNZ) | HP 15 | 1 | Install Ubuntu to run MaRGE | **$689.99** | ❌ | ☐ | ☐ |
 | 11 | [Gauss Meter Probe Calibrator (Zero Gauss Chamber)](https://www.alphalabinc.com/products/zgc/) | ZGC | 1 | Accessory for the GM2 | **$196.00** | ❌ | ☐ | ☐ |
@@ -138,6 +138,11 @@ This document contains the complete list of components, tools, and equipment req
 **Subtotal:** **$20.53**
 
 ---
+## Works in Progress (Optional) ##
+Using ERNIE, you can generate a signal, as one shown below:
+<img width="680" height="347" alt="Signal" src="https://github.com/user-attachments/assets/24d8f2e6-2b1e-4e1c-9cfa-d77383cf4209" /> 
+To do so, these are the required eguipment. 
+
 ---
 
 # 📡 Electronics Required for Signal Generation
