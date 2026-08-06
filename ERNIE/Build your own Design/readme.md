@@ -150,7 +150,7 @@ This document contains the complete list of components, tools, and equipment req
 | 4 | [RFPA Power Supply (SRA KD3005D)](https://www.digikey.ca/en/products/detail/sra-soldering-products/KD3005D/10709902) | 2260-KD3005D | 1 | 12 V, 300 mA | **$138.04** | ☐ | ☐ |
 | 5 | [LNA Power Supply (SRA KD3005D)](https://www.digikey.ca/en/products/detail/sra-soldering-products/KD3005D/10709902) | 2260-KD3005D | 1 | 12 V, 100 mA | **$138.04** | ☐ | ☐ |
 | 6 |[Passive TR Switch](https://gitlab.com/osii/rf-system/tr-switches/passive-tr-switch)| — | 1 | PCB fabricated following the OSI² TR switch design | **$100.00** | ☐ | ☐ |
-| 7 | RF Coil (3D Printed) | — | 1 | RF transmit/receive coil | — | ☐ | ☐ |
+| 7 |[RF Coil](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/RF_Coil.stl)| — | 1 | RF transmit/receive coil | — | ☐ | ☐ |
 | 8 | [Copper Enamelled Wire (Magnet Wire)](https://www.digikey.ca/en/products/detail/cnc-tech/610216/4924215) | — | 1 | For winding RF coils | **$211.28** | ☐ | ☐ |
 | 9 | RF Coil Holder (3D Printed) | — | 1 | PLA printed | — | ☐ | ☐ |
 | 10 | [Variable Tuning & Matching Capacitor (Passive Plus PPZN30100)](https://www.digikey.ca/en/products/detail/passive-plus/PPZN30100/19235833) | PPZN30100 | 2 | Used together with fixed capacitors | **$156.94** | ☐ | ☐ |
