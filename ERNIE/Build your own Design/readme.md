@@ -140,8 +140,11 @@ This document contains the complete list of components, tools, and equipment req
 Using ERNIE, you can generate a signal, as one shown below: </p>
 <p align="center">
 <img width="680" height="347" alt="Signal" src="https://github.com/user-attachments/assets/24d8f2e6-2b1e-4e1c-9cfa-d77383cf4209" /> </p>
+
+
 <p style="text-align: justify;">
 To do so, these are the required eguipment. </p>
+
 
 ---
 
