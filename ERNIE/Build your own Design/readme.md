@@ -89,19 +89,20 @@ This document contains the complete list of components, tools, and equipment req
 | No. | Part | Part Number | Qty. | Notes | Total Cost (CAD) | 3D Printed | Added to Assembly | Disassembled |
 |:---:|------|-------------|:---:|-------|:----------------:|:----------:|:----------------:|:------------:|
 | 1 | [Magnet Rails](https://www.aliexpress.com/item/1005005534966065.html) (Set of 3) | T06 | 3 | X, Y, and Z rails should each be **150 mm** long. | **$273.78** | ❌ | ☐ | ☐ |
-| 2 | [Motor Drivers](https://www.aliexpress.com/item/1005005967708477.html) | — | 3 | Stepper motor drivers | **$34.62** | ❌ | ☐ | ☐ |
+| 2 | M4 & M3 Screws | — | 8 | Included with the rails | — | ❌ | ☐ | ☐ |
 | 3 | [Arduino Uno R4 Minima](https://thepihut.com/products/arduino-uno-r4-minima) | ABX00080 | 1 | Arduino Uno development board | **$33.50** | ❌ | ☐ | ☐ |
-| 4 | [Scanner Base for Field Mapping](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/Scanner%20Base%20for%20field%20mapping.stl) | — | 4 | PLA printed | — | ✅ | ☐ | ☐ |
-| 5 | [Gauss Meter (AlphaLab GM2)](https://www.alphalabinc.com/products/gm2/) | GM2 | 1 | Magnetic field measurement | **$1200.00** | ❌ | ☐ | ☐ |
-| 6 | M4 & M3 Screws | — | 8 | Included with the rails | — | ❌ | ☐ | ☐ |
+| 4 | [Motor Drivers](https://www.aliexpress.com/item/1005005967708477.html) | — | 3 | Stepper motor drivers | **$34.62** | ❌ | ☐ | ☐ |
+| 5 | [Motor Driver + Arduino Casing](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/Motor%20Driver%20Casing.stl) | — | 1 | PLA printed | — | ✅ | ☐ | ☐ |
+| 6 | [Scanner Base for Field Mapping](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/Scanner%20Base%20for%20field%20mapping.stl) | — | 4 | PLA printed | — | ✅ | ☐ | ☐ |
 | 7 | [Connecting Wires](https://www.amazon.ca/TUOFENG-Hookup-Wires-6-Different-Colored/dp/B0CM2Y7V1Z) | 22 AWG | 25 | Cut to required lengths | **$23.99** | ❌ | ☐ | ☐ |
 | 8 |[DC Power Supply](https://www.amazon.ca/dp/B0B9XGQQSR)| CA-24V-3A-72W | 1 | 24 V, 3 A | **$22.99** | ❌ | ☐ | ☐ |
-| 9 | [Gauss Meter Probe Holder (STL)](https://github.com/SipanHovsep/Field_mapper_robot/blob/main/3D%20print%20files/Sensor_mount_1.stl) | — | 1 | PLA printed | — | ✅ | ☐ | ☐ |
-| 10 | [Laptop](https://www.amazon.ca/dp/B0GMV73BNZ) | HP 15 | 1 | Install Ubuntu to run MaRGE | **$689.99** | ❌ | ☐ | ☐ |
-| 11 | [Gauss Meter Probe Calibrator (Zero Gauss Chamber)](https://www.alphalabinc.com/products/zgc/) | ZGC | 1 | Accessory for the GM2 | **$196.00** | ❌ | ☐ | ☐ |
-| 12 | [Gauss Meter Casing (Hard Carrying Case for GM2)](https://www.alphalabinc.com/products/hc-gm2/) | HC-GM2 | 1 | Protective enclosure | **$33.00** | ❌ | ☐ | ☐ |
-| 13 | [Gauss Meter Batteries (Interstate DRY0196 9V)](https://www.amazon.ca/Interstate-Batteries-DRY0196-9v-battery_single-use/dp/B00LZ5NCC2) | DRY0196 | 1 Set (12) | Replacement batteries | **$35.43** | ❌ | ☐ | ☐ |
-| 14 | Motor Driver Casing | — | 1 | PLA printed | — | ✅ | ☐ | ☐ |
+| 9 | [Laptop](https://www.amazon.ca/dp/B0GMV73BNZ) | HP 15 | 1 | Install Ubuntu to run MaRGE | **$689.99** | ❌ | ☐ | ☐ |
+| 10 | [Gauss Meter (AlphaLab GM2)](https://www.alphalabinc.com/products/gm2/) | GM2 | 1 | Magnetic field measurement | **$1200.00** | ❌ | ☐ | ☐ |
+| 11 | [Gauss Meter Probe Holder (STL)](https://github.com/SipanHovsep/Field_mapper_robot/blob/main/3D%20print%20files/Sensor_mount_1.stl) | — | 1 | PLA printed | — | ✅ | ☐ | ☐ |
+| 12 | [Gauss Meter Probe Calibrator (Zero Gauss Chamber)](https://www.alphalabinc.com/products/zgc/) | ZGC | 1 | Accessory for the GM2 | **$196.00** | ❌ | ☐ | ☐ |
+| 13 | [Gauss Meter Casing (Hard Carrying Case for GM2)](https://www.alphalabinc.com/products/hc-gm2/) | HC-GM2 | 1 | Protective enclosure | **$33.00** | ❌ | ☐ | ☐ |
+| 14 | [Gauss Meter Batteries (Interstate DRY0196 9V)](https://www.amazon.ca/Interstate-Batteries-DRY0196-9v-battery_single-use/dp/B00LZ5NCC2) | DRY0196 | 1 Set (12) | Replacement batteries | **$35.43** | ❌ | ☐ | ☐ |
+
 
 **Subtotal:** **$2,543.30**
 
