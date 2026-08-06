@@ -38,7 +38,7 @@ This document contains the complete list of components, tools, and equipment req
 | No. | Part | Part Number | Notes | Qty. | Total Cost (CAD) | 3D Printed | Added to Assembly | Disassembled |
 |:---:|-------|-------------|-------|:---:|:----------------:|:----------:|:----------------:|:------------:|
 | 1 | [Ring 42](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/ERNIE%201%262%20rings%20and%20lids%20(.stl)/Ring%2042%20(105mm_length%20).stl) | — | Approximately **134 g PLA** per ring | 2 | — | ✅ | ☐ | ☐ |
-| 2 | Ring 251 | — | Approximately **134 g PLA** per ring | 2 | — | ✅ | ☐ | ☐ |
+| 2 | [Ring 251](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/ERNIE%201%262%20rings%20and%20lids%20(.stl)/Ring%20251.stl) | — | Approximately **134 g PLA** per ring | 2 | — | ✅ | ☐ | ☐ |
 | 3 | Ring 288 | — | Approximately **134 g PLA** per ring | 2 | — | ✅ | ☐ | ☐ |
 | 4 | Ring 321 | — | Approximately **134 g PLA** per ring | 1 | — | ✅ | ☐ | ☐ |
 | 5 | Lid for Ring 42 | — | Approximately **45 g PLA** each | 2 | — | ✅ | ☐ | ☐ |
