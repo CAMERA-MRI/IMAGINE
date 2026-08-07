@@ -71,15 +71,14 @@ This document contains the complete list of components, tools, and equipment req
 
 | No. | Tool | Part Number | Notes | Qty. | Total Cost (CAD) | Available | Returned to Box |
 |:---:|------|-------------|-------|:---:|:----------------:|:---------:|:---------------:|
-| 1 | [Screwdriver Set (Amazon)](https://www.amazon.ca/13-Pieces-Screwdrivers-Screwdriver-Magnetizer-demagnetizer/dp/B0CXSYBCXW) | 06973932450615 | Cross-head (Phillips) with comfortable grip | 2 | **$20.99** | ☐ | ☐ |
-| 2 | [Screwdrivers (Amazon)](https://www.amazon.ca/Screwdriver-Adjustable-Multitool-Security-Phillips/dp/B09XV7P17T) | SD013E-Red | Second screwdriver | 2 | **$33.98** | ☐ | ☐ |
-| 3 | [Spanners (Amazon)](https://www.amazon.ca/gp/product/B0DXPGQL98) | hta250106hh001215 | 7 mm open wrench | 2 | **$25.59** | ☐ | ☐ |
-| 4 | [Compass (Suunto MCB NH Mirror Compass, Amazon)](https://www.amazon.ca/Suunto-SS012277013-MCB-Black-Compass/dp/B002FA9GYE) | — | Standard compass | 2 | **$54.99** | ☐ | ☐ |
-| 5 | [Permanent Markers (Sharpie, Amazon)](https://www.amazon.ca/Sharpie-Permanent-4-Carded-Assorted-35113PP/dp/B000GOZXA2) | SAN35113PP | Colors red, black or blue | 4 | **$13.78** | ☐ | ☐ |
-| 6 | [Vernier Caliper (Kynup, Amazon)](https://www.amazon.ca/Kynup-Measuring-Stainless-Waterproof-Protection/dp/B07X8JQ8L5) | USQC03301915 | 6-inch caliper | 1 | **$34.99** | ☐ | ☐ |
-| 7 | [Ruler](https://www.amazon.ca/Transparent-Measuring-Suitable-Childrens-Centimeter/dp/B09B6V3PGM) | — | Non-magnetic 30cm ruler | 1 | **$6.69** | ☐ | ☐ |
+| 1 | [Screwdriver Set (Amazon)](https://www.amazon.ca/13-Pieces-Screwdrivers-Screwdriver-Magnetizer-demagnetizer/dp/B0CXSYBCXW) | 06973932450615 | Cross-head (Phillips) with comfortable grip | 4 | **$20.99** | ☐ | ☐ |
+| 2 | [Spanners (Amazon)](https://www.amazon.ca/gp/product/B0DXPGQL98) | hta250106hh001215 | 7 mm open wrench | 2 | **$25.59** | ☐ | ☐ |
+| 3 | [Compass (Suunto MCB NH Mirror Compass, Amazon)](https://www.amazon.ca/Suunto-SS012277013-MCB-Black-Compass/dp/B002FA9GYE) | — | Standard compass | 2 | **$54.99** | ☐ | ☐ |
+| 4 | [Permanent Markers (Sharpie, Amazon)](https://www.amazon.ca/Sharpie-Permanent-4-Carded-Assorted-35113PP/dp/B000GOZXA2) | SAN35113PP | Colors red, black or blue | 4 | **$13.78** | ☐ | ☐ |
+| 5 | [Vernier Caliper (Kynup, Amazon)](https://www.amazon.ca/Kynup-Measuring-Stainless-Waterproof-Protection/dp/B07X8JQ8L5) | USQC03301915 | 6-inch caliper | 1 | **$34.99** | ☐ | ☐ |
+| 6 | [Ruler](https://www.amazon.ca/Transparent-Measuring-Suitable-Childrens-Centimeter/dp/B09B6V3PGM) | — | Non-magnetic 30cm ruler | 1 | **$6.69** | ☐ | ☐ |
 
-**Subtotal:** **$191.01**
+**Subtotal:** **$157.03**
 
 ---
 ---
@@ -112,11 +111,11 @@ This document contains the complete list of components, tools, and equipment req
 
 | No. | Tool | Part Number | Qty. | Notes | Total Cost (CAD) | Available | Returned to Box |
 |:---:|------|-------------|:---:|-------|:----------------:|:---------:|:---------------:|
-| 1 | [Screwdriver Set](https://www.amazon.ca/13-Pieces-Screwdrivers-Screwdriver-Magnetizer-demagnetizer/dp/B0CXSYBCXW) | — | 2 | Flat-head screwdrivers preferred (covered previously) | N/A | ☐ | ☐ |
+| 1 | [Screwdrivers (Amazon)](https://www.amazon.ca/Screwdriver-Adjustable-Multitool-Security-Phillips/dp/B09XV7P17T) | SD013E-Red | 2| Flat-head screwdrivers preferred| **$33.98** | ☐ | ☐ |
 | 2 | [Allen Keys (Hex Key Set)](https://www.amazon.ca/Metric-Extension-Impact-Driver-Repair/dp/B0F2HB6K22) (Hex Bit Set) | — | 4 | Hex bit set | **$25.98** | ☐ | ☐ |
 | 3 | [Masking Tape](https://www.amazon.ca/AmazonBasics-Masking-Tape-Inch-Rolls/dp/B07QHSKGMH) | AB506-3 | 1 | General assembly use | **$9.05** | ☐ | ☐ |
 
-**Subtotal:** **$56.02**
+**Subtotal:** **$69.01**
 
 > **Note:** Screwdrivers are already listed under **Tools Required for Magnet Assembly**.
 
