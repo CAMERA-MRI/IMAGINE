@@ -128,7 +128,7 @@ This document contains the complete list of components, tools, and equipment req
 |:---:|------|-------------|:---:|-------|:----------------:|:---------:|:-------------------:|
 | 1 | [Magnet Ouster (Wooden Chopsticks)](https://www.amazon.ca/Heiwa-Wooden-Chospticks-Pairs-Pack/dp/B07B6LP24M) | 871392000899 | 1 | Sharpen to push magnets out of the rings safely | **$11.54** | ☐ | ☐ |
 | 2 |[3D Printed Disassembly Tray)](https://github.com/CAMERAMRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20disassembly/Disassembly%20Tray.stl) | — | 1 | PLA printed | — | ✅ | ☐ |
-| 3 | [3D Printed Disassembly Tray Cover)](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20disassembly/Disassembly%20Tray_Cover.stl)  | — | 1 | PLA printed | — | ✅ | ☐ |
+| 3 | [3D Printed Disassembly Tray Cover)](https://github.com/CAMERA-MRI/IMAGINE/blob/main/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20disassembly/Disassembly%20Tray_Cover.stl)  | — | 1 | 3D printed | — | ✅ | ☐ |
 | 4 | [Cutter Knife](https://www.amazon.ca/TIFICAL-Retractable-Snap-Off-Wrapping-Cardboard/dp/B0D634MZ99) | 016392515244 | 1 | Used for sharpening the magnet ouster | **$8.99** | ☐ | ☐ |
 | 5 | [M3 Brass Heat-set Inserts](https://www.amazon.ca/dp/B0DC43HJKN) | a24062300ux0395 | 9 | Same inserts used in the magnet rings | — | ☐ | ☐ |
 | 6 | [Non-magnetic Brass Screws](https://www.amazon.ca/dp/B0CT3W8148) | — | 9 | Same screws used for the magnet rings | — | ☐ | ☐ |
@@ -161,7 +161,7 @@ Beyond mechanical assembly and field characterization, integration of the requir
 
 | No. | Component | Part Number | Qty. | Notes | Total Cost (USD) | Available | On-site for Assembly |
 |:---:|-----------|-------------|:---:|-------|:----------------:|:---------:|:-------------------:|
-| 1 | [Red Pitaya SDRlab 122-16 Standard Kit](https://redpitaya.com/product/sdrlab-122-16-standard-kit/) | IZD0021 | 1 | MRI console | **$1,234.65** | ☐ | ☐ |
+| 1 | [Red Pitaya SDRlab 122-16 Standard Kit](https://redpitaya.com/product/sdrlab-122-16-standard-kit/) | IZD0021 | 1 | MaRCoS Compatible | **$1,234.65** | ☐ | ☐ |
 | 2 | [RF Power Amplifier (RFPA) - Mini-Circuits ZX60-100VH+](https://www.mouser.ca/ProductDetail/Mini-Circuits/ZX60-100VH%2B) | ZX60-100VH+ | 1 | RF transmit amplifier | **$476.28** | ☐ | ☐ |
 | 3 | [RF Preamplifier (LNA)](https://drive.google.com/file/d/1gmChqRjbeQmWzP2a9IR3v9yzpgMjObmQ/view) | ABL0050-00-4510 | 1 | Narrow-band NMR preamplifier may also be used | **$397.60** | ☐ | ☐ |
 | 4 | [RFPA Power Supply (SRA KD3005D)](https://www.digikey.ca/en/products/detail/sra-soldering-products/KD3005D/10709902) | 2260-KD3005D | 1 | 12 V, 300 mA | **$138.04** | ☐ | ☐ |
@@ -187,9 +187,9 @@ Beyond mechanical assembly and field characterization, integration of the requir
 | 24 | [Brass Screws (Knowles Voltronics 48-133)](https://www.digikey.ca/en/products/detail/knowles-voltronics/48-133/18680028) | 48-133 | 9 | Non-magnetic | **$36.63** | ☐ | ☐ |
 | 25 | [Ground Cables (Green/Yellow 8 AWG Ground Wire)](https://falconerelectronics.com/product/ground-wire-9-5-x-green-yellow-8-ga-1-4-stud-to-1-4-stud-rohs/) | 1GY89.5OO1B | 5 | Scanner grounding | **$28.31** | ☐ | ☐ |
 | 26 | [SMA Female to BNC Male Adapter (RF Solutions ADP-SMAF-BNCM)](https://www.digikey.ca/en/products/detail/rf-solutions/ADP-SMAF-BNCM/4271257) | ADP-SMAF-BNCM | 4 | RF adapter | **$33.64** | ☐ | ☐ |
-| 27 | [BNC Cable (15 cm) - Amphenol RF 115101-19-06-00](https://www.digikey.ca/en/products/detail/amphenol-rf/115101-19-06-00/2505045) | 115101-19-06-00 | 4 | For NanoVNA testing | **$70.80** | ☐ | ☐ |
+| 27 | [BNC Cable (15 cm) - Amphenol RF 115101-19-06-00](https://www.digikey.ca/en/products/detail/amphenol-rf/115101-19-06-00/2505045) | 115101-19-06-00 | 4 | For RF Coil testing | **$70.80** | ☐ | ☐ |
 | 28 |[Banana-to-Grabber Test Leads (36") - Pomona Electronics 3782-36-02](https://www.digikey.ca/en/products/detail/pomona-electronics/3782-36-02/736657) | 3782-36-02 | 6 | Test leads | **$201.72** | ☐ | ☐ |
-| 29 | [Ethernet Cable (Eaton Tripp Lite N201P-006-BL)](https://www.digikey.ca/en/products/detail/eaton-tripp-lite/N201P-006-BL/15298306) | N201P-006-BL | 2 | Network connection | **$34.62** | ☐ | ☐ |
+| 29 | [Ethernet Cable (Eaton Tripp Lite N201P-006-BL)](https://www.digikey.ca/en/products/detail/eaton-tripp-lite/N201P-006-BL/15298306) | N201P-006-BL | 2 | Communication between Red Pitaya and Computer | **$34.62** | ☐ | ☐ |
 | 30 | [Masking Tape (Scotch 3436)](https://www.amazon.ca/Scotch-Office-Masking-3436-3-4-inch/dp/B00347A8E4)| 3436-3 | 1 | General assembly | **$11.05** | ☐ | ☐ |
 
 **Subtotal:** **$3,904.04 USD**
