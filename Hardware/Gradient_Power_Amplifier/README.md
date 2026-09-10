@@ -27,3 +27,4 @@ components that differ from or were added to the original GPA-FHDO design.
 Original design and documentation:
 
 https://github.com/menkueclab/GPA-FHDO
+https://gpa-fhdo.readthedocs.io/en/latest/
