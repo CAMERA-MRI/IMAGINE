@@ -70,7 +70,7 @@
 
   <!-- Main Content Wrapper -->
   <main class="main-wrapper">
-    {% assign scanner_components = site.components | where: "scanner_id", page.scanner_id %}
+    
 
 <div class="scanner-page-container">
   <div class="page-title-banner">
@@ -96,97 +96,17 @@
 
       <!-- Diagram Canvas Area -->
       <div class="interactive-diagram-canvas">
-        <p class="canvas-instruction-text"><i class="fa-solid fa-hand-pointer animate-bounce"></i> Choose a component from the list below to explore specifications, BOM, CAD models, and assembly guides</p>
-        
         <!-- Interactive SVGs and Diagrams based on Scanner ID -->
         
           
           <!-- ERNIE Magnet Schematic -->
           <div class="schematic-view active" id="schematic-magnet">
-            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
-              <rect width="100%" height="100%" fill="url(#grid)" />
-              
-              <!-- Magnet Ring Array drawings -->
-              <g transform="translate(100, 75)">
-                <!-- Axis lines -->
-                <line x1="-50" y1="100" x2="450" y2="100" stroke="rgba(255,255,255,0.2)" stroke-dasharray="4,4" />
-                <line x1="200" y1="-50" x2="200" y2="250" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2" />
-                
-                <!-- Connection rods -->
-                <rect x="-10" y="5" width="420" height="4" fill="#a0a0a0" />
-                <rect x="-10" y="191" width="420" height="4" fill="#a0a0a0" />
-
-                <!-- Rings stack -->
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(0, 10)">
-                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 42</text>
-                </g>
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(50, 10)">
-                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 251</text>
-                </g>
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(100, 10)">
-                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 288</text>
-                </g>
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(150, 10)">
-                  <rect x="0" y="0" width="40" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="20" y="95" transform="rotate(-90 20 95)" class="node-text" fill="#fff" style="font-weight:bold; font-size:10px;">Ring 321</text>
-                </g>
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(210, 10)">
-                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 288</text>
-                </g>
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(260, 10)">
-                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 251</text>
-                </g>
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(310, 10)">
-                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 42</text>
-                </g>
-              </g>
-            </svg>
+            <img src="/IMAGINE/images/magnet_procedure.png" alt="ERNIE Magnet Array Assembly Procedure" class="subsystem-diagram-img" />
           </div>
 
           <!-- ERNIE Robot Schematic -->
           <div class="schematic-view" id="schematic-robot">
-            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
-              <rect width="100%" height="100%" fill="url(#grid)" />
-              
-              <!-- Stylized 3-Axis Field Mapping Gantry -->
-              <g class="interactive-node" data-component-id="ernie-3-axis-cartesian-gantry" transform="translate(100, 30)">
-                <rect x="0" y="0" width="400" height="270" rx="10" class="node-rect" fill="#153326" stroke="#255842" stroke-width="4" />
-                <text x="200" y="30" text-anchor="middle" fill="#c5a059" style="font-size: 14px; font-weight: bold; letter-spacing: 1px; font-family: var(--font-family-title);">3-AXIS AUTOMATED FIELD MAPPER</text>
-                
-                <line x1="30" y1="80" x2="370" y2="80" stroke="#808080" stroke-width="6" stroke-linecap="round" />
-                <line x1="30" y1="220" x2="370" y2="220" stroke="#808080" stroke-width="6" stroke-linecap="round" />
-                <text x="40" y="70" fill="#a0a0a0" style="font-size: 9px; font-family: var(--font-family-base);">X-Axis Guide Rails</text>
-                
-                <rect x="365" y="65" width="25" height="30" rx="3" fill="#333" stroke="#555" />
-                <rect x="365" y="205" width="25" height="30" rx="3" fill="#333" stroke="#555" />
-                
-                <g transform="translate(160, 0)">
-                  <rect x="0" y="60" width="80" height="180" rx="5" fill="#1b4332" stroke="#2d6a4f" stroke-width="3" />
-                  <line x1="40" y1="75" x2="40" y2="225" stroke="#a0a0a0" stroke-width="4" />
-                  
-                  <g transform="translate(15, 90)">
-                    <rect x="0" y="0" width="50" height="60" rx="4" fill="#0f241a" stroke="#c5a059" stroke-width="2" />
-                    <line x1="25" y1="60" x2="25" y2="135" stroke="#ffd700" stroke-width="4" stroke-linecap="round" />
-                    <circle cx="25" cy="135" r="5" fill="#ff4500" />
-                    <text x="25" y="35" text-anchor="middle" fill="#fff" style="font-size: 9px; font-weight: bold; font-family: var(--font-family-base);">Z-Stage</text>
-                  </g>
-                </g>
-                
-                <g transform="translate(25, 120)">
-                  <rect x="0" y="0" width="80" height="50" rx="4" fill="#006699" stroke="#004466" />
-                  <rect x="5" y="5" width="20" height="15" fill="#a0a0a0" />
-                  <text x="40" y="30" text-anchor="middle" fill="#fff" style="font-size: 8px; font-weight: bold; font-family: var(--font-family-base);">Arduino Uno</text>
-                </g>
-                
-                <text x="200" y="255" text-anchor="middle" fill="#a0a0a0" style="font-size: 11px; font-family: var(--font-family-base);">Click anywhere on gantry to view controller & mechanical details</text>
-              </g>
-            </svg>
+            <img src="/IMAGINE/images/robot_setup.png" alt="ERNIE 3-Axis Field Mapping Robot Setup" class="subsystem-diagram-img" />
           </div>
 
         
@@ -529,8 +449,14 @@
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
                   <div class="sheet-article"><h2>Overview</h2>
-<p>The <strong>ERNIE Halbach Magnet Rings</strong> form the core of the educational scanner. The array consists of 7 modular rings containing 98 permanent neodymium magnet cubes (12×12×12 mm, grade N48).</p>
-<p>The angular distribution and axial ring positions were determined using genetic algorithm optimization to yield a 50 mT target field with maximal central uniformity.</p></div>
+<p>This section provides the <strong>.stl</strong> files that can be 3D printed out to assemble the ERNIE 1&amp;2 scanners. The scanner magnet array is made up of <strong>7 rings</strong> and their corresponding lids:</p>
+<ul>
+<li><strong>Ring_321</strong>: Placed at the center of the Halbach array.</li>
+<li><strong>Ring_288</strong>: Positioned on both sides of the center ring.</li>
+<li><strong>Ring_251</strong>: Positioned next on both outer sides.</li>
+<li><strong>Ring_42</strong>: Positioned at the outer ends of the array.</li>
+</ul>
+<p>The angular distribution and positions were optimized via a Genetic Algorithm (GA) to maximize central magnetic field homogeneity at approximately 50 mT.</p></div>
                 </div>
                 
                 <div class="tab-sheet-content" data-section="bom">
@@ -711,23 +637,28 @@
                   <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
                 </div>
                 
-                    <div class="guide-steps-list"><h4>Ring Printing and Magnet Loading</h4>
-<ol>
-<li><strong>3D Printing</strong>: Print the 7 housing rings (Rings 42 x2, Rings 251 x2, Rings 288 x2, Ring 321 x1) and corresponding lids using PLA with 20% infill.</li>
-<li><strong>Install Heat-Set Inserts</strong>: Press M3 brass heat-set inserts into each ring housing hole.</li>
-<li><strong>Polarity Marking</strong>: Using a compass and reference magnet, mark the north pole of all 98 NdFeB magnets.</li>
-<li><strong>Magnet Insertion</strong>: Carefully insert magnets into their slots following the exact rotational angles defined by the genetic algorithm.</li>
-<li><strong>Cover Fastening</strong>: Fasten the 3D-printed lids over the magnet pockets using M3 brass screws.</li>
-</ol></div>
+                    <div class="guide-steps-list"><h3>🛠️ Magnet Assembly Procedure</h3>
+<p>The complete step-by-step magnet assembly guide is available as a PDF:<br />
+👉 <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/Build%20your%20own%20Design/Magnet/Instructions/How%20to%20assemble%20the%20magnet.pdf">How to assemble the magnet (PDF)</a></p>
+<p align="center"><img src="/IMAGINE/images/magnet_procedure.png" alt="Magnet Assembly Procedure Steps A through F" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" /></p>
+
+<p>The sequence of steps for the scanner magnet assembly is summarized as follows:<br />
+1. <strong>(A) Polarity Determination</strong>: Determine and mark all 98 NdFeB magnet polarities using a reference magnet and compass.<br />
+2. <strong>(B) Magnet Installation &amp; Alignment</strong>: Install magnets into the ring slots and verify alignment for each ring using a compass.<br />
+3. <strong>(C) Lid Covering</strong>: Cover each loaded ring with its corresponding 3D-printed lid.<br />
+4. <strong>(D) Fastening</strong>: Screw down each lid with non-magnetic brass screws.<br />
+5. <strong>(E) Rod &amp; Spacer Stacking</strong>: Assemble all 7 rings on threaded brass rods, supported by precision 3D-printed spacers.<br />
+6. <strong>(F) Complete Halbach Array</strong>: Secure the full array assembly as designed to produce the target homogeneous transverse B0 field.</p></div>
                   </div>
                 </div>
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
-                    <div class="guide-steps-list"><h4>Ring Field Verification</h4>
+                    <div class="guide-steps-list"><h3>🧪 Field Homogeneity &amp; Verification Testing</h3>
 <ol>
-<li>Measure magnetic field direction of each completed ring with a handheld Hall compass.</li>
-<li>Verify that there are no inverted or misaligned magnets prior to final stacking on the gantry rods.</li>
+<li><strong>Compass Alignment Check</strong>: Pass a magnetic compass around each individual ring perimeter prior to fastening lids to ensure no reversed poles exist.</li>
+<li><strong>Hall Probe Field Measurement</strong>: Using the 3-axis Field Mapping Robot, map the central field profile across a 20×20×20 mm DSV to verify B0 field strength (~50 mT) and calculate field homogeneity.</li>
+<li><strong>Multi-Site Reproducibility</strong>: Cross-reference field maps against benchmarks recorded in the <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/Training%20sessions/Reproducibility%20experiment.md">Reproducibility Experiment</a>.</li>
 </ol></div>
                   </div>
                 </div>
@@ -1123,11 +1054,19 @@
     </div>
   </div>
 
-  <!-- Arbitrary Scanner Documentation Content (Rendered before OSII Scorecard) -->
+  <!-- Arbitrary Scanner Documentation Content (Accordion Container) -->
   
-  <section class="scanner-arbitrary-info-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
-    <div class="scanner-content-body">
-      <p>The <strong>ERNIE Toolkit</strong> was designed as a reusable teaching resource consisting of:<br />
+  <section class="scanner-arbitrary-info-section">
+    <details class="scanner-info-accordion">
+      <summary class="accordion-header">
+        <span class="accordion-title">
+          <i class="fa-solid fa-circle-question"></i>
+          Want to know more?
+        </span>
+        <span class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></span>
+      </summary>
+      <div class="scanner-content-body markdown-content">
+        <p>The <strong>ERNIE Toolkit</strong> was designed as a reusable teaching resource consisting of:<br />
 - A 30-minute introductory lecture on open-source low-field MR engineering concepts.<br />
 - An assembly animation and guide of scanner, robot, and field mapping (quality assurance).<br />
 - Bill of materials and 3D printing files for the magnet and robotic field mapping parts.<br />
@@ -1162,7 +1101,8 @@
 - <strong>Introductory Lecture on MRI</strong>: Theoretical foundations by Guillermo Sahonero-Alvarez covering spin physics, RF excitation, and low-field gradient encoding.<br />
 - <strong>Curriculum and Reading List</strong>: Comprehensive syllabus and publication repository for low-field magnetic resonance engineering.<br />
 - <strong>Pre- and Post-Workshop Surveys</strong>: Empirical evaluation of knowledge gain and participant confidence in open-source MRI engineering.</p>
-    </div>
+      </div>
+    </details>
   </section>
   
 
@@ -1198,7 +1138,7 @@
                         <span class="item-name">README File Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in ERNIE/README.md and ERNIE/Build your own Design/readme.md <a href="../../ERNIE/README.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in ERNIE/README.md and ERNIE/Build your own Design/readme.md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/README.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1210,7 +1150,7 @@
                         <span class="item-name">Design Considerations Explained</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in ERNIE/Build your own Design/Magnet/readme.md and Instructions/Optimised design GA/ <a href="../../ERNIE/Build%20your%20own%20Design/Magnet/readme.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in ERNIE/Build your own Design/Magnet/readme.md and Instructions/Optimised design GA/ <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/Build%20your%20own%20Design/Magnet/readme.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1229,7 +1169,7 @@
                         <span class="item-name">BoM Provided</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in ERNIE/Build your own Design/readme.md and List of parts for (ERNIE 1&2).md <a href="../../ERNIE/Build%20your%20own%20Design/readme.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in ERNIE/Build your own Design/readme.md and List of parts for (ERNIE 1&2).md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/Build%20your%20own%20Design/readme.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1241,7 +1181,7 @@
                         <span class="item-name">BoM Best Practices Compliant</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Part lists with suppliers, part numbers, and costs in ERNIE/Build your own Design/List of parts for (ERNIE 1&2).md <a href="../../ERNIE/Build%20your%20own%20Design/List%20of%20parts%20for%20(ERNIE%201%262).md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Part lists with suppliers, part numbers, and costs in ERNIE/Build your own Design/List of parts for (ERNIE 1&2).md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/Build%20your%20own%20Design/List%20of%20parts%20for%20(ERNIE%201%262).md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1260,7 +1200,7 @@
                         <span class="item-name">Native Source Files Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Arduino robot control code in ERNIE/Build your own Design/Robot/Field Mapping Software/Robot_code/ <a href="../../ERNIE/Build%20your%20own%20Design/Robot/Field%20Mapping%20Software/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Arduino robot control code in ERNIE/Build your own Design/Robot/Field Mapping Software/Robot_code/ <a href="https://github.com/CAMERA-MRI/IMAGINE/tree/gh-pages/ERNIE/Build%20your%20own%20Design/Robot/Field%20Mapping%20Software/Robot_code/" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1279,7 +1219,7 @@
                         <span class="item-name">Editable with Open-Source Software</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Field mapping Python and Arduino scripts in ERNIE/Build your own Design/Robot/Field Mapping Software/ <a href="../../ERNIE/Build%20your%20own%20Design/Robot/Field%20Mapping%20Software/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Field mapping Python and Arduino scripts in ERNIE/Build your own Design/Robot/Field Mapping Software/ <a href="https://github.com/CAMERA-MRI/IMAGINE/tree/gh-pages/ERNIE/Build%20your%20own%20Design/Robot/Field%20Mapping%20Software/" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1298,7 +1238,7 @@
                         <span class="item-name">Accessible Exports Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> STL print files in ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ <a href="../../ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> STL print files in ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ <a href="https://github.com/CAMERA-MRI/IMAGINE/tree/gh-pages/ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1310,7 +1250,7 @@
                         <span class="item-name">Manufacturing Environment Defined</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> FDM print specifications in ERNIE/Build your own Design/Magnet/Instructions/readme.md <a href="../../ERNIE/Build%20your%20own%20Design/Magnet/Instructions/readme.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> FDM print specifications in ERNIE/Build your own Design/Magnet/Instructions/readme.md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/Build%20your%20own%20Design/Magnet/Instructions/readme.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1329,7 +1269,7 @@
                         <span class="item-name">Assembly Guidance</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Assembly guide in ERNIE/Build your own Design/Magnet/Instructions/How to build your own scanner.pdf <a href="../../ERNIE/Build%20your%20own%20Design/Magnet/Instructions/readme.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Assembly guide in ERNIE/Build your own Design/Magnet/Instructions/How to build your own scanner.pdf and Magnet/readme.md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/Build%20your%20own%20Design/Magnet/readme.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1348,7 +1288,7 @@
                         <span class="item-name">Versioning Scheme Implemented</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Git repository tracking in repository root <a href="../../README.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Git repository tracking in repository root <a href="https://github.com/CAMERA-MRI/IMAGINE" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1372,7 +1312,7 @@
                         <span class="item-name">Public Communication Space</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> CAMERA-MRI open-source imaging community space <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> CAMERA-MRI open-source imaging community space and GitHub Issue templates <a href="https://github.com/CAMERA-MRI/IMAGINE/issues" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1391,7 +1331,7 @@
                         <span class="item-name">Testing Routines Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Multi-site field mapping results in ERNIE/Training sessions/Reproducibility experiment.md <a href="../../ERNIE/Training%20sessions/Reproducibility%20experiment.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Comprehensive testing routines across all subsystems: Magnet (Hall compass and polarity checks), Robot gantry (3-axis stepper calibration), and Hall sensor probe (calibration against reference field) <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/Training%20sessions/Reproducibility%20experiment.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1403,7 +1343,7 @@
                         <span class="item-name">Testing Routines Complete</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> B0 mapping and multi-site verification in ERNIE/Training sessions/Readme.md <a href="../../ERNIE/Training%20sessions/Readme.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> B0 mapping and multi-site verification across 6 international sites in ERNIE/Training sessions/Readme.md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/Training%20sessions/Readme.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1422,7 +1362,7 @@
                         <span class="item-name">User Manual Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Curriculum and training materials in ERNIE/Training sessions/Training material/Readme.md <a href="../../ERNIE/Training%20sessions/Training%20material/Readme.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Curriculum and training materials in ERNIE/Training sessions/Training material/Readme.md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/Training%20sessions/Training%20material/Readme.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1434,7 +1374,7 @@
                         <span class="item-name">Risk Assessment & Safety Notice</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Safety surveys and magnet handling protocols in ERNIE/Training sessions/Training related surveys/Safety survey.pdf <a href="../../ERNIE/Training%20sessions/Training%20related%20surveys/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Safety surveys and magnet handling protocols in ERNIE/Training sessions/Training related surveys/Safety survey.pdf <a href="https://github.com/CAMERA-MRI/IMAGINE/tree/gh-pages/ERNIE/Training%20sessions/Training%20related%20surveys/" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1446,7 +1386,7 @@
                         <span class="item-name">Replication History Documented</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Replicated across 6 sites (ESMRMB, The Neuro, Polytechnique, MGH, Douglas, ISMRM) in ERNIE/Training sessions/Reproducibility experiment.md <a href="../../ERNIE/Training%20sessions/Reproducibility%20experiment.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Replicated across 6 sites (ESMRMB, The Neuro, Polytechnique, MGH, Douglas, ISMRM) in ERNIE/Training sessions/Reproducibility experiment.md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/Training%20sessions/Reproducibility%20experiment.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>

@@ -70,7 +70,7 @@
 
   <!-- Main Content Wrapper -->
   <main class="main-wrapper">
-    {% assign scanner_components = site.components | where: "scanner_id", page.scanner_id %}
+    
 
 <div class="scanner-page-container">
   <div class="page-title-banner">
@@ -102,8 +102,6 @@
 
       <!-- Diagram Canvas Area -->
       <div class="interactive-diagram-canvas">
-        <p class="canvas-instruction-text"><i class="fa-solid fa-hand-pointer animate-bounce"></i> Choose a component from the list below to explore specifications, BOM, CAD models, and assembly guides</p>
-        
         <!-- Interactive SVGs and Diagrams based on Scanner ID -->
         
           
@@ -127,7 +125,7 @@
             <img src="/IMAGINE/images/Ring_ordering.png" alt="Halbach Magnet Ring Ordering" class="subsystem-diagram-img" />
           </div>
 
-        
+                
       </div>
       
       <!-- Component Sidebar List (Dynamically Filtered by Active Subsystem) -->
@@ -1858,17 +1856,26 @@
     </div>
   </div>
 
-  <!-- Arbitrary Scanner Documentation Content (Rendered before OSII Scorecard) -->
+  <!-- Arbitrary Scanner Documentation Content (Accordion Container) -->
   
-  <section class="scanner-arbitrary-info-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
-    <div class="scanner-content-body">
-      <p>The <strong>IMAGINE Preclinical Scanner</strong> is designed to sustainably democratize diagnostic imaging and make preclinical MR systems accessible to clinicians and researchers in resource-limited settings globally. It incorporates:<br />
+  <section class="scanner-arbitrary-info-section">
+    <details class="scanner-info-accordion">
+      <summary class="accordion-header">
+        <span class="accordion-title">
+          <i class="fa-solid fa-circle-question"></i>
+          Want to know more?
+        </span>
+        <span class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></span>
+      </summary>
+      <div class="scanner-content-body markdown-content">
+        <p>The <strong>IMAGINE Preclinical Scanner</strong> is designed to sustainably democratize diagnostic imaging and make preclinical MR systems accessible to clinicians and researchers in resource-limited settings globally. It incorporates:<br />
 - A 120mm bore Halbach array magnet assembly.<br />
 - Custom-wound 3D-printed gradient coils driven by the GPA-FHDO amplifier.<br />
 - A custom 27-turn RF solenoid coil and passive/active TxRx switches.<br />
 - An open-source electronic control system (MaRCoS) controlled via the user-friendly MARGE GUI.</p>
 <p>All modules are designed using standard parts, making them easy to purchase and assemble with local tools. Follow the interactive block diagrams on the left to inspect the design details of the Control System, Gradient Circuit, and RF Circuit.</p>
-    </div>
+      </div>
+    </details>
   </section>
   
 
@@ -1904,7 +1911,7 @@
                         <span class="item-name">README File Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in README.md and Hardware/README.md <a href="../../README.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in project root README.md and Hardware/README.md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/README.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1916,7 +1923,7 @@
                         <span class="item-name">Design Considerations Explained</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in Hardware/Gradients/Gradient_Design.md and Hardware/Halbach Array/Part and build description.md <a href="../../Hardware/Gradients/Gradient_Design.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in Hardware/Gradients/Gradient_Design.md and Hardware/Halbach Array/Part and build description.md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Gradients/Gradient_Design.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1935,7 +1942,7 @@
                         <span class="item-name">BoM Provided</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in Hardware/Part list/Bill of Materials.md and Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv <a href="../../Hardware/Part%20list/Bill%20of%20Materials.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in Hardware/Part list/Bill of Materials.md and Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Part%20list/Bill%20of%20Materials.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1947,7 +1954,7 @@
                         <span class="item-name">BoM Best Practices Compliant</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Part lists contain exact manufacturer numbers, quantities, and supplier links in Hardware/Part list/Bill of Materials.md <a href="../../Hardware/Part%20list/Bill%20of%20Materials.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Part lists contain exact manufacturer numbers, quantities, and supplier links in Hardware/Part list/Bill of Materials.md and GPA BOM CSV <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Part%20list/Bill%20of%20Materials.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1966,7 +1973,7 @@
                         <span class="item-name">Native Source Files Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Autodesk Inventor part/assembly source files (.ipt, .iam) in Hardware/Halbach Array/ITP Files/ and IAM files/ <a href="../../Hardware/Halbach%20Array/ITP%20Files/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Autodesk Inventor part/assembly source files (.ipt, .iam) in Hardware/Halbach Array/ITP Files/ and IAM files/ <a href="https://github.com/CAMERA-MRI/IMAGINE/tree/gh-pages/Hardware/Halbach%20Array/ITP%20Files/" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1985,7 +1992,7 @@
                         <span class="item-name">Editable with Open-Source Software</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Open STEP exchange models (.stp) and coordinates provided in Hardware/Halbach Array/STP Files/ and Hardware/Gradients/ <a href="../../Hardware/Halbach%20Array/STP%20Files/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Open STEP exchange models (.stp) and coordinates provided in Hardware/Halbach Array/STP Files/ and Hardware/Gradients/ <a href="https://github.com/CAMERA-MRI/IMAGINE/tree/gh-pages/Hardware/Halbach%20Array/STP%20Files/" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -2004,7 +2011,7 @@
                         <span class="item-name">Accessible Exports Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Production STL meshes for gradient formers in Hardware/Gradients/CAD/ <a href="../../Hardware/Gradients/CAD/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Production STL meshes for gradient formers in Hardware/Gradients/CAD/ <a href="https://github.com/CAMERA-MRI/IMAGINE/tree/gh-pages/Hardware/Gradients/CAD/" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -2016,7 +2023,7 @@
                         <span class="item-name">Manufacturing Environment Defined</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> 3D printing parameters, winding tolerances, and CAD workflow in Hardware/Gradients/Gradient_Design.md <a href="../../Hardware/Gradients/Gradient_Design.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> 3D printing parameters, winding tolerances, and CAD workflow in Hardware/Gradients/Gradient_Design.md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Gradients/Gradient_Design.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -2035,7 +2042,7 @@
                         <span class="item-name">Assembly Guidance</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Step-by-step mechanical assembly procedure in Hardware/Halbach Array/Part and build description.md <a href="../../Hardware/Halbach%20Array/Part%20and%20build%20description.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Step-by-step mechanical assembly procedure in Hardware/Halbach Array/Part and build description.md and Hardware/Gradients/Gradient_Design.md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Halbach%20Array/Part%20and%20build%20description.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -2054,7 +2061,7 @@
                         <span class="item-name">Versioning Scheme Implemented</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Managed under Git version control in repository tracking all commit revisions <a href="../../README.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Managed under Git version control in repository tracking all commit revisions <a href="https://github.com/CAMERA-MRI/IMAGINE" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -2078,7 +2085,7 @@
                         <span class="item-name">Public Communication Space</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> CAMERA-MRI open-source initiative and discussion forums <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Community discussions and structured GitHub Issue templates (Bug Report, Hardware Inquiry, Feature Request) in repository <a href="https://github.com/CAMERA-MRI/IMAGINE/issues" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -2097,7 +2104,7 @@
                         <span class="item-name">Testing Routines Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Testing protocols in Hardware/Gradient_Power_Amplifier/README.md and Hardware/Gradients/Gradient_Design.md <a href="../../Hardware/Gradient_Power_Amplifier/README.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Testing protocols available across all subsystems: Control (loopback in Hardware/Control_System/), Gradients (inductance/resistance in Hardware/Gradients/Gradient_Design.md), GPA (Hardware/Gradient_Power_Amplifier/README.md), RF (tuning in Hardware/RF_Coils/), and Magnet (field mapping in Hardware/Halbach Array/) <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Gradient_Power_Amplifier/README.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -2109,7 +2116,7 @@
                         <span class="item-name">Testing Routines Complete</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Calibration routines and current sensing validation in Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv <a href="../../Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Calibration routines, current sensing validation, and coil bench testing across GPA, Gradients, and RF chains <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -2128,7 +2135,7 @@
                         <span class="item-name">User Manual Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Scanner integration instructions documented in Hardware/README.md <a href="../../Hardware/README.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Scanner integration instructions documented in Hardware/README.md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/README.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -2140,7 +2147,7 @@
                         <span class="item-name">Risk Assessment & Safety Notice</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Magnetic hazard warnings and non-magnetic assembly protocols in Hardware/Halbach Array/Part and build description.md <a href="../../Hardware/Halbach%20Array/Part%20and%20build%20description.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Magnetic hazard warnings and non-magnetic assembly protocols in Hardware/Halbach Array/Part and build description.md <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Halbach%20Array/Part%20and%20build%20description.md" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -2152,7 +2159,7 @@
                         <span class="item-name">Replication History Documented</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in about.html and global partner institutions map <a href="../../about.html"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in about.html and global partner institutions map <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/about.html" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>

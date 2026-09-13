@@ -198,7 +198,7 @@ class PreviewBuilder:
             return val
             
         # Match anything inside {{ ... }} including filters
-        text = re.sub(r'{{\s*([a-zA-Z0-9_\-\.\|\s\:\'\"_]+?)\s*}}', var_replacer, text)
+        text = re.sub(r'{{\s*(.+?)\s*}}', var_replacer, text)
         return text
 
     def render_conditionals(self, text, page_fm):
@@ -976,6 +976,7 @@ class PreviewBuilder:
         template_str = self.render_includes(template_str, page_fm)
         template_str = self.render_scanner_dashboard(template_str, page_fm)
         template_str = self.render_loops_and_conditionals(template_str, page_fm)
+        template_str = re.sub(r'{%\s*assign\s+.*?%}', '', template_str)
         template_str = self.render_variables(template_str, page_fm)
         return template_str
 

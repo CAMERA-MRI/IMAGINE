@@ -40,8 +40,6 @@ layout: default
 
       <!-- Diagram Canvas Area -->
       <div class="interactive-diagram-canvas">
-        <p class="canvas-instruction-text"><i class="fa-solid fa-hand-pointer animate-bounce"></i> Choose a component from the list below to explore specifications, BOM, CAD models, and assembly guides</p>
-        
         <!-- Interactive SVGs and Diagrams based on Scanner ID -->
         {% if page.scanner_id == 'imagine' %}
           
@@ -65,94 +63,16 @@ layout: default
             <img src="{{ site.baseurl }}/images/Ring_ordering.png" alt="Halbach Magnet Ring Ordering" class="subsystem-diagram-img" />
           </div>
 
-        {% else %}
+                {% else %}
           
           <!-- ERNIE Magnet Schematic -->
           <div class="schematic-view active" id="schematic-magnet">
-            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
-              <rect width="100%" height="100%" fill="url(#grid)" />
-              
-              <!-- Magnet Ring Array drawings -->
-              <g transform="translate(100, 75)">
-                <!-- Axis lines -->
-                <line x1="-50" y1="100" x2="450" y2="100" stroke="rgba(255,255,255,0.2)" stroke-dasharray="4,4" />
-                <line x1="200" y1="-50" x2="200" y2="250" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2" />
-                
-                <!-- Connection rods -->
-                <rect x="-10" y="5" width="420" height="4" fill="#a0a0a0" />
-                <rect x="-10" y="191" width="420" height="4" fill="#a0a0a0" />
-
-                <!-- Rings stack -->
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(0, 10)">
-                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 42</text>
-                </g>
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(50, 10)">
-                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 251</text>
-                </g>
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(100, 10)">
-                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 288</text>
-                </g>
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(150, 10)">
-                  <rect x="0" y="0" width="40" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="20" y="95" transform="rotate(-90 20 95)" class="node-text" fill="#fff" style="font-weight:bold; font-size:10px;">Ring 321</text>
-                </g>
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(210, 10)">
-                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 288</text>
-                </g>
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(260, 10)">
-                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 251</text>
-                </g>
-                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(310, 10)">
-                  <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 42</text>
-                </g>
-              </g>
-            </svg>
+            <img src="{{ site.baseurl }}/images/magnet_procedure.png" alt="ERNIE Magnet Array Assembly Procedure" class="subsystem-diagram-img" />
           </div>
 
           <!-- ERNIE Robot Schematic -->
           <div class="schematic-view" id="schematic-robot">
-            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
-              <rect width="100%" height="100%" fill="url(#grid)" />
-              
-              <!-- Stylized 3-Axis Field Mapping Gantry -->
-              <g class="interactive-node" data-component-id="ernie-3-axis-cartesian-gantry" transform="translate(100, 30)">
-                <rect x="0" y="0" width="400" height="270" rx="10" class="node-rect" fill="#153326" stroke="#255842" stroke-width="4" />
-                <text x="200" y="30" text-anchor="middle" fill="#c5a059" style="font-size: 14px; font-weight: bold; letter-spacing: 1px; font-family: var(--font-family-title);">3-AXIS AUTOMATED FIELD MAPPER</text>
-                
-                <line x1="30" y1="80" x2="370" y2="80" stroke="#808080" stroke-width="6" stroke-linecap="round" />
-                <line x1="30" y1="220" x2="370" y2="220" stroke="#808080" stroke-width="6" stroke-linecap="round" />
-                <text x="40" y="70" fill="#a0a0a0" style="font-size: 9px; font-family: var(--font-family-base);">X-Axis Guide Rails</text>
-                
-                <rect x="365" y="65" width="25" height="30" rx="3" fill="#333" stroke="#555" />
-                <rect x="365" y="205" width="25" height="30" rx="3" fill="#333" stroke="#555" />
-                
-                <g transform="translate(160, 0)">
-                  <rect x="0" y="60" width="80" height="180" rx="5" fill="#1b4332" stroke="#2d6a4f" stroke-width="3" />
-                  <line x1="40" y1="75" x2="40" y2="225" stroke="#a0a0a0" stroke-width="4" />
-                  
-                  <g transform="translate(15, 90)">
-                    <rect x="0" y="0" width="50" height="60" rx="4" fill="#0f241a" stroke="#c5a059" stroke-width="2" />
-                    <line x1="25" y1="60" x2="25" y2="135" stroke="#ffd700" stroke-width="4" stroke-linecap="round" />
-                    <circle cx="25" cy="135" r="5" fill="#ff4500" />
-                    <text x="25" y="35" text-anchor="middle" fill="#fff" style="font-size: 9px; font-weight: bold; font-family: var(--font-family-base);">Z-Stage</text>
-                  </g>
-                </g>
-                
-                <g transform="translate(25, 120)">
-                  <rect x="0" y="0" width="80" height="50" rx="4" fill="#006699" stroke="#004466" />
-                  <rect x="5" y="5" width="20" height="15" fill="#a0a0a0" />
-                  <text x="40" y="30" text-anchor="middle" fill="#fff" style="font-size: 8px; font-weight: bold; font-family: var(--font-family-base);">Arduino Uno</text>
-                </g>
-                
-                <text x="200" y="255" text-anchor="middle" fill="#a0a0a0" style="font-size: 11px; font-family: var(--font-family-base);">Click anywhere on gantry to view controller & mechanical details</text>
-              </g>
-            </svg>
+            <img src="{{ site.baseurl }}/images/robot_setup.png" alt="ERNIE 3-Axis Field Mapping Robot Setup" class="subsystem-diagram-img" />
           </div>
 
         {% endif %}
@@ -289,12 +209,21 @@ layout: default
     </div>
   </div>
 
-  <!-- Arbitrary Scanner Documentation Content (Rendered before OSII Scorecard) -->
+  <!-- Arbitrary Scanner Documentation Content (Accordion Container) -->
   {% if content %}
-  <section class="scanner-arbitrary-info-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
-    <div class="scanner-content-body">
-      {{ content }}
-    </div>
+  <section class="scanner-arbitrary-info-section">
+    <details class="scanner-info-accordion">
+      <summary class="accordion-header">
+        <span class="accordion-title">
+          <i class="fa-solid fa-circle-question"></i>
+          {{ page.more_info_title | default: "Want to know more?" }}
+        </span>
+        <span class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></span>
+      </summary>
+      <div class="scanner-content-body markdown-content">
+        {{ content }}
+      </div>
+    </details>
   </section>
   {% endif %}
 

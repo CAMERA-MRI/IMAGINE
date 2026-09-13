@@ -70,7 +70,7 @@
 
   <!-- Main Content Wrapper -->
   <main class="main-wrapper">
-    {% assign scanner = site.scanners | where: "scanner_id", page.scanner_id | first %}
+    
 
 <div class="component-page-container">
   <!-- Breadcrumb Navigation -->
@@ -97,8 +97,14 @@
         <h2 class="section-card-title"><i class="fa-solid fa-circle-info"></i> Component Overview</h2>
         <div class="section-card-body">
           <h2>Overview</h2>
-<p>The <strong>ERNIE Halbach Magnet Rings</strong> form the core of the educational scanner. The array consists of 7 modular rings containing 98 permanent neodymium magnet cubes (12×12×12 mm, grade N48).</p>
-<p>The angular distribution and axial ring positions were determined using genetic algorithm optimization to yield a 50 mT target field with maximal central uniformity.</p>
+<p>This section provides the <strong>.stl</strong> files that can be 3D printed out to assemble the ERNIE 1&amp;2 scanners. The scanner magnet array is made up of <strong>7 rings</strong> and their corresponding lids:</p>
+<ul>
+<li><strong>Ring_321</strong>: Placed at the center of the Halbach array.</li>
+<li><strong>Ring_288</strong>: Positioned on both sides of the center ring.</li>
+<li><strong>Ring_251</strong>: Positioned next on both outer sides.</li>
+<li><strong>Ring_42</strong>: Positioned at the outer ends of the array.</li>
+</ul>
+<p>The angular distribution and positions were optimized via a Genetic Algorithm (GA) to maximize central magnetic field homogeneity at approximately 50 mT.</p>
         </div>
       </section>
 
@@ -117,14 +123,18 @@
           
           
           <div class="markdown-guide-content">
-            <h4>Ring Printing and Magnet Loading</h4>
-<ol>
-<li><strong>3D Printing</strong>: Print the 7 housing rings (Rings 42 x2, Rings 251 x2, Rings 288 x2, Ring 321 x1) and corresponding lids using PLA with 20% infill.</li>
-<li><strong>Install Heat-Set Inserts</strong>: Press M3 brass heat-set inserts into each ring housing hole.</li>
-<li><strong>Polarity Marking</strong>: Using a compass and reference magnet, mark the north pole of all 98 NdFeB magnets.</li>
-<li><strong>Magnet Insertion</strong>: Carefully insert magnets into their slots following the exact rotational angles defined by the genetic algorithm.</li>
-<li><strong>Cover Fastening</strong>: Fasten the 3D-printed lids over the magnet pockets using M3 brass screws.</li>
-</ol>
+            <h3>🛠️ Magnet Assembly Procedure</h3>
+<p>The complete step-by-step magnet assembly guide is available as a PDF:<br />
+👉 <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/Build%20your%20own%20Design/Magnet/Instructions/How%20to%20assemble%20the%20magnet.pdf">How to assemble the magnet (PDF)</a></p>
+<p align="center"><img src="/IMAGINE/images/magnet_procedure.png" alt="Magnet Assembly Procedure Steps A through F" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" /></p>
+
+<p>The sequence of steps for the scanner magnet assembly is summarized as follows:<br />
+1. <strong>(A) Polarity Determination</strong>: Determine and mark all 98 NdFeB magnet polarities using a reference magnet and compass.<br />
+2. <strong>(B) Magnet Installation &amp; Alignment</strong>: Install magnets into the ring slots and verify alignment for each ring using a compass.<br />
+3. <strong>(C) Lid Covering</strong>: Cover each loaded ring with its corresponding 3D-printed lid.<br />
+4. <strong>(D) Fastening</strong>: Screw down each lid with non-magnetic brass screws.<br />
+5. <strong>(E) Rod &amp; Spacer Stacking</strong>: Assemble all 7 rings on threaded brass rods, supported by precision 3D-printed spacers.<br />
+6. <strong>(F) Complete Halbach Array</strong>: Secure the full array assembly as designed to produce the target homogeneous transverse B0 field.</p>
           </div>
         </div>
       </section>
@@ -134,10 +144,11 @@
         <h2 class="section-card-title"><i class="fa-solid fa-flask"></i> Testing & Calibration Procedures</h2>
         <div class="section-card-body">
           <div class="markdown-guide-content">
-            <h4>Ring Field Verification</h4>
+            <h3>🧪 Field Homogeneity &amp; Verification Testing</h3>
 <ol>
-<li>Measure magnetic field direction of each completed ring with a handheld Hall compass.</li>
-<li>Verify that there are no inverted or misaligned magnets prior to final stacking on the gantry rods.</li>
+<li><strong>Compass Alignment Check</strong>: Pass a magnetic compass around each individual ring perimeter prior to fastening lids to ensure no reversed poles exist.</li>
+<li><strong>Hall Probe Field Measurement</strong>: Using the 3-axis Field Mapping Robot, map the central field profile across a 20×20×20 mm DSV to verify B0 field strength (~50 mT) and calculate field homogeneity.</li>
+<li><strong>Multi-Site Reproducibility</strong>: Cross-reference field maps against benchmarks recorded in the <a href="https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/ERNIE/Training%20sessions/Reproducibility%20experiment.md">Reproducibility Experiment</a>.</li>
 </ol>
           </div>
         </div>

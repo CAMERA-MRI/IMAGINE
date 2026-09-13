@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // 1. Initial State Setup
   initializeDashboard();
-  parseMarkdownClientSide();
+  if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+    MathJax.typesetPromise();
+  }
 
   // 2. Subsystem Selector Event Listeners (Control / Gradients / RF / Magnet / Robot)
   const subsystemBtns = document.querySelectorAll(".subsystem-tab-btn");
@@ -101,8 +103,8 @@ function filterSidebarBySubsystem(targetSubsystem) {
 
   sidebarBtns.forEach(btn => {
     const btnSub = btn.getAttribute("data-subsystem");
-    if (!targetSubsystem || btnSub === targetSubsystem) {
-      btn.style.display = "";
+    if (btnSub === targetSubsystem) {
+      btn.style.display = "block";
       if (!firstVisibleBtn) {
         firstVisibleBtn = btn;
       }
@@ -191,13 +193,6 @@ function filterBomTable(inputElement) {
   }
 }
 
-/**
- * Client-Side Markdown Parser
- */
-function parseMarkdownClientSide() {
-  if (typeof marked === 'undefined') {
-    return;
-  }
 
   const targets = document.querySelectorAll(
     ".markdown-guide-content, .guide-steps-list, .sheet-article, .markdown-content, .component-subtitle-desc, .detail-short-desc, .page-subtitle"

@@ -680,9 +680,10 @@ a {
    ========================================================================== */
 .scanner-dashboard {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 460px 1fr;
   gap: 2.5rem;
   margin-top: 2rem;
+  align-items: start;
 }
 
 .dashboard-visual-column {
@@ -690,8 +691,11 @@ a {
   flex-direction: column;
   gap: 1.5rem;
   position: sticky;
-  top: 2rem;
-  height: max-content;
+  top: 5.5rem;
+  max-height: calc(100vh - 6.5rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding-right: 0.25rem;
 }
 
 .subsystem-selector-tabs {
@@ -855,9 +859,9 @@ a {
 }
 
 .sidebar-buttons-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
 .sidebar-node-btn {
@@ -1626,13 +1630,24 @@ a {
   }
 
   .scanner-dashboard {
-    grid-template-columns: 1fr;
-  }
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  align-items: start;
+}
 
   .dashboard-visual-column {
-    position: relative;
-    top: 0;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 5.5rem;
+  max-height: calc(100vh - 6.5rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding-right: 0.25rem;
+}
 
   .checklist-groups-wrapper {
     grid-template-columns: 1fr;
@@ -2737,44 +2752,176 @@ a {
   border-radius: var(--border-radius-sm);
 }
 
-/* Arbitrary Information Container on Scanner Pages */
+/* ==========================================================================
+   Scanner Information Accordion & Markdown Enhancements
+   ========================================================================== */
 .scanner-arbitrary-info-section {
-  margin-top: 4rem;
-  padding-top: 3rem;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
   border-top: 1px solid var(--color-border);
 }
 
-.arbitrary-info-container {
-  background: var(--color-beige-card);
+.scanner-info-accordion {
+  background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-md);
-  padding: 2.5rem;
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: var(--transition);
 }
 
-.arbitrary-info-container h2,
-.arbitrary-info-container h3 {
+.scanner-info-accordion:hover {
+  border-color: var(--color-emerald-light);
+  box-shadow: var(--shadow-md);
+}
+
+.scanner-info-accordion[open] {
+  border-color: var(--color-emerald-medium);
+  box-shadow: var(--shadow-md);
+}
+
+.scanner-info-accordion summary.accordion-header {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  background: var(--color-beige-card);
+  transition: var(--transition);
+}
+
+.scanner-info-accordion summary.accordion-header::-webkit-details-marker {
+  display: none;
+}
+
+.scanner-info-accordion summary.accordion-header:hover {
+  background: #f3efe6;
+}
+
+.scanner-info-accordion[open] summary.accordion-header {
+  border-bottom: 1px solid var(--color-border);
+  background: #efebe1;
+}
+
+.accordion-title {
+  font-family: var(--font-family-title);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-emerald-deep);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.accordion-title i {
+  color: var(--color-gold);
+  font-size: 1.2rem;
+}
+
+.accordion-icon {
+  color: var(--color-emerald-medium);
+  font-size: 1.1rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scanner-info-accordion[open] .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.scanner-content-body {
+  padding: 2.5rem;
+  line-height: 1.8;
+  color: var(--color-text-dark);
+}
+
+.scanner-content-body h2,
+.scanner-content-body h3,
+.scanner-content-body h4 {
   color: var(--color-emerald-deep);
   font-family: var(--font-family-title);
-  margin-top: 1.5rem;
-  margin-bottom: 0.8rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
-.arbitrary-info-container h2:first-child,
-.arbitrary-info-container h3:first-child {
+.scanner-content-body h2:first-child,
+.scanner-content-body h3:first-child {
   margin-top: 0;
 }
 
-.arbitrary-info-container p {
-  line-height: 1.7;
-  color: var(--color-text-dark);
-  margin-bottom: 1.2rem;
+/* Global Markdown & HTML Table Styling */
+.sheet-article table,
+.markdown-guide-content table,
+.markdown-content table,
+.scanner-content-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
 }
 
-.arbitrary-info-container img {
+.sheet-article th,
+.sheet-article td,
+.markdown-guide-content th,
+.markdown-guide-content td,
+.markdown-content th,
+.markdown-content td,
+.scanner-content-body th,
+.scanner-content-body td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.sheet-article th,
+.markdown-guide-content th,
+.markdown-content th,
+.scanner-content-body th {
+  background-color: var(--color-beige-card);
+  color: var(--color-emerald-deep);
+  font-weight: 600;
+}
+
+.sheet-article tr:nth-child(even),
+.markdown-guide-content tr:nth-child(even),
+.markdown-content tr:nth-child(even),
+.scanner-content-body tr:nth-child(even) {
+  background-color: #faf8f5;
+}
+
+.sheet-article img,
+.markdown-guide-content img,
+.markdown-content img,
+.scanner-content-body img {
   max-width: 100%;
   height: auto;
   border-radius: var(--border-radius-sm);
   display: block;
   margin: 1.5rem auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.scanner-score-badge-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-emerald-deep);
+  color: var(--color-white);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--border-radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 0.8rem;
+  border: 1px solid var(--color-gold);
+}
+
+.scanner-score-badge-card span.pts {
+  color: var(--color-gold);
+  font-weight: 800;
 }

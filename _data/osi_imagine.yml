@@ -1,94 +1,99 @@
-- category: "Readme"
+- category: Readme
   items:
-    - name: "README File Available"
-      satisfied: true
-      evidence: "Documented in README.md and Hardware/README.md"
-      location: "../../README.md"
-    - name: "Design Considerations Explained"
-      satisfied: true
-      evidence: "Documented in Hardware/Gradients/Gradient_Design.md and Hardware/Halbach Array/Part and build description.md"
-      location: "../../Hardware/Gradients/Gradient_Design.md"
-
-- category: "Bill of Materials"
+  - name: README File Available
+    satisfied: true
+    evidence: Documented in project root README.md and Hardware/README.md
+    location: https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/README.md
+  - name: Design Considerations Explained
+    satisfied: true
+    evidence: Documented in Hardware/Gradients/Gradient_Design.md and Hardware/Halbach
+      Array/Part and build description.md
+    location: https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Gradients/Gradient_Design.md
+- category: Bill of Materials
   items:
-    - name: "BoM Provided"
-      satisfied: true
-      evidence: "Documented in Hardware/Part list/Bill of Materials.md and Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv"
-      location: "../../Hardware/Part%20list/Bill%20of%20Materials.md"
-    - name: "BoM Best Practices Compliant"
-      satisfied: true
-      evidence: "Part lists contain exact manufacturer numbers, quantities, and supplier links in Hardware/Part list/Bill of Materials.md"
-      location: "../../Hardware/Part%20list/Bill%20of%20Materials.md"
-
-- category: "Source Files"
+  - name: BoM Provided
+    satisfied: true
+    evidence: Documented in Hardware/Part list/Bill of Materials.md and Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv
+    location: https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Part%20list/Bill%20of%20Materials.md
+  - name: BoM Best Practices Compliant
+    satisfied: true
+    evidence: Part lists contain exact manufacturer numbers, quantities, and supplier
+      links in Hardware/Part list/Bill of Materials.md and GPA BOM CSV
+    location: https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Part%20list/Bill%20of%20Materials.md
+- category: Source Files
   items:
-    - name: "Native Source Files Available"
-      satisfied: true
-      evidence: "Autodesk Inventor part/assembly source files (.ipt, .iam) in Hardware/Halbach Array/ITP Files/ and IAM files/"
-      location: "../../Hardware/Halbach%20Array/ITP%20Files/"
-
-- category: "Status of Freedom"
+  - name: Native Source Files Available
+    satisfied: true
+    evidence: Autodesk Inventor part/assembly source files (.ipt, .iam) in Hardware/Halbach
+      Array/ITP Files/ and IAM files/
+    location: https://github.com/CAMERA-MRI/IMAGINE/tree/gh-pages/Hardware/Halbach%20Array/ITP%20Files/
+- category: Status of Freedom
   items:
-    - name: "Editable with Open-Source Software"
-      satisfied: true
-      evidence: "Open STEP exchange models (.stp) and coordinates provided in Hardware/Halbach Array/STP Files/ and Hardware/Gradients/"
-      location: "../../Hardware/Halbach%20Array/STP%20Files/"
-
-- category: "Production Files"
+  - name: Editable with Open-Source Software
+    satisfied: true
+    evidence: Open STEP exchange models (.stp) and coordinates provided in Hardware/Halbach
+      Array/STP Files/ and Hardware/Gradients/
+    location: https://github.com/CAMERA-MRI/IMAGINE/tree/gh-pages/Hardware/Halbach%20Array/STP%20Files/
+- category: Production Files
   items:
-    - name: "Accessible Exports Available"
-      satisfied: true
-      evidence: "Production STL meshes for gradient formers in Hardware/Gradients/CAD/"
-      location: "../../Hardware/Gradients/CAD/"
-    - name: "Manufacturing Environment Defined"
-      satisfied: true
-      evidence: "3D printing parameters, winding tolerances, and CAD workflow in Hardware/Gradients/Gradient_Design.md"
-      location: "../../Hardware/Gradients/Gradient_Design.md"
-
-- category: "Assembly"
+  - name: Accessible Exports Available
+    satisfied: true
+    evidence: Production STL meshes for gradient formers in Hardware/Gradients/CAD/
+    location: https://github.com/CAMERA-MRI/IMAGINE/tree/gh-pages/Hardware/Gradients/CAD/
+  - name: Manufacturing Environment Defined
+    satisfied: true
+    evidence: 3D printing parameters, winding tolerances, and CAD workflow in Hardware/Gradients/Gradient_Design.md
+    location: https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Gradients/Gradient_Design.md
+- category: Assembly
   items:
-    - name: "Assembly Guidance"
-      satisfied: true
-      evidence: "Step-by-step mechanical assembly procedure in Hardware/Halbach Array/Part and build description.md"
-      location: "../../Hardware/Halbach%20Array/Part%20and%20build%20description.md"
-
-- category: "Development Tracking"
+  - name: Assembly Guidance
+    satisfied: true
+    evidence: Step-by-step mechanical assembly procedure in Hardware/Halbach Array/Part
+      and build description.md and Hardware/Gradients/Gradient_Design.md
+    location: https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Halbach%20Array/Part%20and%20build%20description.md
+- category: Development Tracking
   items:
-    - name: "Versioning Scheme Implemented"
-      satisfied: true
-      evidence: "Managed under Git version control in repository tracking all commit revisions"
-      location: "../../README.md"
-    - name: "Public Issue Tracking"
-      satisfied: true
-      evidence: "Issue tracker on GitHub repository for tracking bug reports and hardware revisions"
-      location: "https://github.com/CAMERA-MRI/IMAGINE/issues"
-    - name: "Public Communication Space"
-      satisfied: true
-      evidence: "CAMERA-MRI open-source initiative and discussion forums"
-      location: "https://www.camera-mri.org"
-
-- category: "Testing"
+  - name: Versioning Scheme Implemented
+    satisfied: true
+    evidence: Managed under Git version control in repository tracking all commit
+      revisions
+    location: https://github.com/CAMERA-MRI/IMAGINE
+  - name: Public Issue Tracking
+    satisfied: true
+    evidence: Issue tracker on GitHub repository for tracking bug reports and hardware
+      revisions
+    location: https://github.com/CAMERA-MRI/IMAGINE/issues
+  - name: Public Communication Space
+    satisfied: true
+    evidence: Community discussions and structured GitHub Issue templates (Bug Report,
+      Hardware Inquiry, Feature Request) in repository
+    location: https://github.com/CAMERA-MRI/IMAGINE/issues
+- category: Testing
   items:
-    - name: "Testing Routines Available"
-      satisfied: true
-      evidence: "Testing protocols in Hardware/Gradient_Power_Amplifier/README.md and Hardware/Gradients/Gradient_Design.md"
-      location: "../../Hardware/Gradient_Power_Amplifier/README.md"
-    - name: "Testing Routines Complete"
-      satisfied: true
-      evidence: "Calibration routines and current sensing validation in Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv"
-      location: "../../Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv"
-
-- category: "Use"
+  - name: Testing Routines Available
+    satisfied: true
+    evidence: 'Testing protocols available across all subsystems: Control (loopback
+      in Hardware/Control_System/), Gradients (inductance/resistance in Hardware/Gradients/Gradient_Design.md),
+      GPA (Hardware/Gradient_Power_Amplifier/README.md), RF (tuning in Hardware/RF_Coils/),
+      and Magnet (field mapping in Hardware/Halbach Array/)'
+    location: https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Gradient_Power_Amplifier/README.md
+  - name: Testing Routines Complete
+    satisfied: true
+    evidence: Calibration routines, current sensing validation, and coil bench testing
+      across GPA, Gradients, and RF chains
+    location: https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv
+- category: Use
   items:
-    - name: "User Manual Available"
-      satisfied: true
-      evidence: "Scanner integration instructions documented in Hardware/README.md"
-      location: "../../Hardware/README.md"
-    - name: "Risk Assessment & Safety Notice"
-      satisfied: true
-      evidence: "Magnetic hazard warnings and non-magnetic assembly protocols in Hardware/Halbach Array/Part and build description.md"
-      location: "../../Hardware/Halbach%20Array/Part%20and%20build%20description.md"
-    - name: "Replication History Documented"
-      satisfied: true
-      evidence: "Documented in about.html and global partner institutions map"
-      location: "../../about.html"
+  - name: User Manual Available
+    satisfied: true
+    evidence: Scanner integration instructions documented in Hardware/README.md
+    location: https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/README.md
+  - name: Risk Assessment & Safety Notice
+    satisfied: true
+    evidence: Magnetic hazard warnings and non-magnetic assembly protocols in Hardware/Halbach
+      Array/Part and build description.md
+    location: https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/Hardware/Halbach%20Array/Part%20and%20build%20description.md
+  - name: Replication History Documented
+    satisfied: true
+    evidence: Documented in about.html and global partner institutions map
+    location: https://github.com/CAMERA-MRI/IMAGINE/blob/gh-pages/about.html
