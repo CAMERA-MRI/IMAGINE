@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}">
+  <title>About Us & Team</title>
+  <meta name="description" content="Meet the researchers, developers, and supporting institutions behind the IMAGINE open-source MRI project.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,9 @@
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
+  <!-- Marked.js for Client-Side Markdown Parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
   <!-- Leaflet CSS & JS for Interactive Map (Local Assets) -->
   <link rel="stylesheet" href="/IMAGINE/assets/css/leaflet.css"/>
   <script src="/IMAGINE/assets/js/leaflet.js"></script>
@@ -40,7 +43,7 @@
   <header class="gradient-header-banner">
   <div class="header-logo-container">
     <div class="logo-circle">
-      <i class="fa-solid fa-brain text-gradient"></i>
+      <img src="/IMAGINE/assets/images/partners/camera.png" alt="CAMERA Logo" class="header-logo-img">
     </div>
     <div class="header-titles">
       <h1 class="site-main-title">IMAGINE</h1>
@@ -49,16 +52,16 @@
   </div>
   
   <nav class="pill-navigation-menu">
-    <a href="/IMAGINE/" class="nav-pill-btn {% if page.url == '/' %}active{% endif %}">
+    <a href="/IMAGINE/" class="nav-pill-btn ">
       <i class="fa-solid fa-house"></i> Home
     </a>
-    <a href="/IMAGINE/about/" class="nav-pill-btn {% if page.url contains '/about/' %}active{% endif %}">
+    <a href="/IMAGINE/about/" class="nav-pill-btn active">
       <i class="fa-solid fa-users"></i> About Us
     </a>
-    <a href="/IMAGINE/scanners/" class="nav-pill-btn {% if page.url contains '/scanners/' %}active{% endif %}">
+    <a href="/IMAGINE/scanners/" class="nav-pill-btn ">
       <i class="fa-solid fa-microchip"></i> Scanners
     </a>
-    <a href="/IMAGINE/events/" class="nav-pill-btn {% if page.url contains '/events/' %}active{% endif %}">
+    <a href="/IMAGINE/events/" class="nav-pill-btn ">
       <i class="fa-solid fa-calendar-check"></i> Events
     </a>
   </nav>
@@ -125,7 +128,7 @@
           
             <button class="contributor-list-item " data-index="0">
               <span class="item-contributor-name">Dr. Udunna Anazodo</span>
-              <span class="item-contributor-role">Lead Investigator & Neuroscientist</span>
+              <span class="item-contributor-role">Lead Investigator & Assistant Professor</span>
             </button>
           
             <button class="contributor-list-item " data-index="1">
@@ -145,7 +148,7 @@
           
             <button class="contributor-list-item " data-index="4">
               <span class="item-contributor-name">Guillermo Sahonero-Alvarez</span>
-              <span class="item-contributor-role">MR Physics & Systems Integration Developer</span>
+              <span class="item-contributor-role">MRI Researcher & Doctoral Candidate</span>
             </button>
           
             <button class="contributor-list-item " data-index="5">
@@ -160,7 +163,7 @@
           
             <button class="contributor-list-item " data-index="7">
               <span class="item-contributor-name">Dr. Johnes Obungoloch</span>
-              <span class="item-contributor-role">Senior Advisor & Head of Biomedical Engineering</span>
+              <span class="item-contributor-role">Senior Advisor & Associate Professor</span>
             </button>
           
             <button class="contributor-list-item " data-index="8">
@@ -210,9 +213,9 @@
     
       {
         name: "Dr. Udunna Anazodo",
-        role: "Lead Investigator &amp; Neuroscientist",
+        role: "Lead Investigator &amp; Assistant Professor",
         affiliation: "McConnell Brain Imaging Centre, The Neuro (McGill University)",
-        bio: "Dr. Anazodo leads the IMAGINE initiative. She is an Assistant Professor of Neurology and Neurosurgery at McGill University and Chairs CAMERA, focusing on making MRI technology globally accessible and sustainable, particularly for underserved populations in Sub-Saharan Africa and beyond.",
+        bio: "Dr. Anazodo leads the IMAGINE initiative and Chairs CAMERA (Consortium for Advancement of MRI Education &amp; Research in Africa). She is an Assistant Professor of Neurology and Neurosurgery at McGill University&#x27;s Montreal Neurological Institute (The Neuro), dedicated to democratizing accessible, low-field and sustainable diagnostic imaging in resource-limited settings globally.",
         image: "/assets/images/people/udunna.jpg"
       },
     
@@ -220,31 +223,31 @@
         name: "Maureen Nayebare",
         role: "Lead Researcher &amp; Workshop Instructor",
         affiliation: "McGill University / CAMERA",
-        bio: "Maureen is a graduate researcher at McGill University, focusing on RF coil prototyping, low-field MRI hardware, and open science capacity building. She has successfully led multiple hands-on construction and training workshops across Montreal (MNI, Douglas, Polytechnique, MGH).",
+        bio: "Maureen is a biomedical engineering researcher at McGill University working with CAMERA and the McConnell Brain Imaging Centre. Her research focuses on low-field MRI hardware, RF coil design and optimization, and hands-on capacity building, having directed construction workshops across multiple clinical and academic institutions in Montreal and internationally.",
         image: "/assets/images/people/maureen.jpg"
       },
     
       {
         name: "Marina Fernández-García",
         role: "CAMERA Operations Manager &amp; i3M Researcher",
-        affiliation: "Institute for Molecular Imaging and Instrumentation (i3M, UPV-CSIC)",
-        bio: "Marina serves as the Operations Manager for CAMERA and is a PhD researcher at i3M in Valencia. She specializes in low-field portable MRI systems, permanent Halbach magnet array optimization, and global health capacity building.",
+        affiliation: "Institute for Molecular Imaging and Instrumentation (i3M, CSIC - UPV)",
+        bio: "Marina serves as the Operations Manager for CAMERA and is a doctoral researcher at the Institute for Molecular Imaging and Instrumentation (i3M, UPV-CSIC) in Valencia. She specializes in low-field portable MRI systems, permanent Halbach magnet array development, quantitative hard-tissue imaging, and international training programs.",
         image: "/assets/images/people/marina.jpg"
       },
     
       {
         name: "Haile B. Kassahun",
         role: "Electromagnetics &amp; Gradient Optimization Engineer",
-        affiliation: "Mbarara University of Science and Technology (MUST)",
-        bio: "Haile focuses on electromagnetics and gradient former optimization for low-field portable scanners, developing advanced CAD models and implementing mathematical design patterns like the discrete wire method.",
+        affiliation: "Cairo University / Mbarara University of Science and Technology (MUST)",
+        bio: "Haile is a biomedical engineering researcher specializing in electromagnetics, numerical gradient design, and optimization for low-field portable scanners. He developed discrete wire method optimization frameworks for Halbach array scanners and authored key publications on power-efficient actively shielded gradient coils.",
         image: "/assets/images/people/haile.jpg"
       },
     
       {
         name: "Guillermo Sahonero-Alvarez",
-        role: "MR Physics &amp; Systems Integration Developer",
-        affiliation: "Institute for Biological and Medical Engineering, Pontificia Universidad Católica de Chile",
-        bio: "Guillermo is an MR physics developer focusing on the MaRCoS open-source console integration, sequence programming, low-field image reconstruction, and machine learning methods for portable MRI systems.",
+        role: "MRI Researcher &amp; Doctoral Candidate",
+        affiliation: "Institute for Biological and Medical Engineering (IIBM), Pontificia Universidad Católica de Chile",
+        bio: "Guillermo is a doctoral candidate at the Institute for Biological and Medical Engineering (IIBM) at Pontificia Universidad Católica de Chile, affiliated with the Center for Biomedical Imaging (CIB) and the Millennium Institute for Intelligent Healthcare Engineering (iHEALTH). His research works at the intersection of MRI physics, scientific computing (Julia &amp; Python), and artificial intelligence (deep learning and optimization), specializing in MRI simulations, sequence design, and optimization, and contributing to open-science initiatives such as MRI Together and CAMERA.",
         image: "/assets/images/people/guillermo.jpg"
       },
     
@@ -252,31 +255,31 @@
         name: "Sipan Hovsepian",
         role: "Robotics &amp; Automation Developer",
         affiliation: "McConnell Brain Imaging Centre, The Neuro (McGill University)",
-        bio: "Sipan is an automation developer at McGill, having designed the three-axis automated magnetic field mapping robot (Field Mapper Robot) used for B0 magnetic field homogenization, calibration, and shimming.",
+        bio: "Sipan is an automation engineer and developer collaborating with McGill University and NYU Abu Dhabi. He designed and built the automated 3-axis Field Mapping Robot used for magnetic field homogenization, calibration, and shimming, and authored genetic algorithm optimization frameworks for Halbach magnet arrays.",
         image: "/assets/images/people/sipan.jpg"
       },
     
       {
         name: "Timon Machtelinckx",
         role: "Magnetics &amp; Gradient Coil Designer",
-        affiliation: "CAMERA Collaborator",
-        bio: "Timon is a researcher specializing in magnetics and optimization. He developed the genetic algorithm models used for permanent Halbach magnet arrays and designed gradient coils optimized for low-field scanners.",
+        affiliation: "CAMERA Collaborator / LUMC",
+        bio: "Timon is a researcher in biomedical engineering and magnetics. He co-developed genetic algorithm models to optimize the field homogeneity of permanent Halbach magnet arrays and contributed to the numerical design and optimization of gradient coils for low-field Halbach scanners.",
         image: "/assets/images/people/timon.jpg"
       },
     
       {
         name: "Dr. Johnes Obungoloch",
-        role: "Senior Advisor &amp; Head of Biomedical Engineering",
+        role: "Senior Advisor &amp; Associate Professor",
         affiliation: "Mbarara University of Science and Technology (MUST), Uganda",
-        bio: "Dr. Obungoloch is the Head of the Department of Biomedical Engineering at MUST and a senior advisor for CAMERA. He has co-led on-site educational workshops in Uganda, supporting hardware replication and training programs.",
+        bio: "Dr. Obungoloch is an Associate Professor in the Department of Biomedical Engineering at MUST, Uganda, and a senior advisor for CAMERA. A pioneer in low-cost point-of-care MRI in low-resource settings, he has led the on-site construction of low-field scanners in Africa and advances global medical hardware education.",
         image: "/assets/images/people/johnes.jpg"
       },
     
       {
         name: "Stefan du Plessis",
         role: "Biomedical Systems Coordinator",
-        affiliation: "CAMERA / South African Collaborators",
-        bio: "Stefan coordinates low-field MRI development and training workshops in South Africa, overseeing on-site assembly, testing, and hardware verification for regional partner labs.",
+        affiliation: "Stellenbosch University / CAMERA Collaborator",
+        bio: "Stefan is a medical and neuroimaging researcher at Stellenbosch University and CAMERA collaborator in South Africa. He coordinates low-field MRI development, on-site hardware verification, and educational workshop activities in the region, co-authoring research on gradient coil optimization for low-field Halbach scanners.",
         image: "/assets/images/people/stefan.jpg"
       }
     
@@ -657,23 +660,18 @@
     });
     map.addLayer(markerClusterGroup);
 
-    const lightTileUrl = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
-    const darkTileUrl = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
-    const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
+    const osmTileUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+    const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors';
 
     let currentTileLayer = null;
 
     function setMapTheme(theme) {
-      if (currentTileLayer) {
-        map.removeLayer(currentTileLayer);
+      if (!currentTileLayer) {
+        currentTileLayer = L.tileLayer(osmTileUrl, {
+          attribution: attribution,
+          maxZoom: 19
+        }).addTo(map);
       }
-      
-      const url = theme === 'dark' ? darkTileUrl : lightTileUrl;
-      currentTileLayer = L.tileLayer(url, {
-        attribution: attribution,
-        subdomains: 'abcd',
-        maxZoom: 20
-      }).addTo(map);
 
       const mapContainer = document.getElementById("institutions-map");
       mapContainer.setAttribute("data-theme", theme);
@@ -929,6 +927,18 @@
     </div>
   </div>
 </footer>
+
+<!-- Bottom Floating Banner (Site Under Construction) -->
+<div class="under-construction-banner" id="under-construction-bar">
+  <div class="construction-content">
+    <i class="fa-solid fa-person-digging construction-icon"></i>
+    <span><strong>Notice:</strong> This website is currently under active construction and development. Some details, specifications, and CAD files may be updated or modified as work progresses.</span>
+  </div>
+  <button class="construction-dismiss-btn" onclick="document.getElementById('under-construction-bar').style.display='none'" aria-label="Dismiss banner">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+</div>
+
 
 
   <!-- Scripts -->

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}">
+  <title>ERNIE Scanner (Educational)</title>
+  <meta name="description" content="The CAMERA-IMAGINE-MRI Education (ERNIE) toolkit is a frugal educational toolkit for on-site construction of a 50 mT 'mice-like' brain MRI scanner. It is designed to facilitate hands-on learning of open-source low-field MRI engineering.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,9 @@
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
+  <!-- Marked.js for Client-Side Markdown Parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
   <!-- Leaflet CSS & JS for Interactive Map (Local Assets) -->
   <link rel="stylesheet" href="/IMAGINE/assets/css/leaflet.css"/>
   <script src="/IMAGINE/assets/js/leaflet.js"></script>
@@ -40,7 +43,7 @@
   <header class="gradient-header-banner">
   <div class="header-logo-container">
     <div class="logo-circle">
-      <i class="fa-solid fa-brain text-gradient"></i>
+      <img src="/IMAGINE/assets/images/partners/camera.png" alt="CAMERA Logo" class="header-logo-img">
     </div>
     <div class="header-titles">
       <h1 class="site-main-title">IMAGINE</h1>
@@ -49,16 +52,16 @@
   </div>
   
   <nav class="pill-navigation-menu">
-    <a href="/IMAGINE/" class="nav-pill-btn {% if page.url == '/' %}active{% endif %}">
+    <a href="/IMAGINE/" class="nav-pill-btn ">
       <i class="fa-solid fa-house"></i> Home
     </a>
-    <a href="/IMAGINE/about/" class="nav-pill-btn {% if page.url contains '/about/' %}active{% endif %}">
+    <a href="/IMAGINE/about/" class="nav-pill-btn ">
       <i class="fa-solid fa-users"></i> About Us
     </a>
-    <a href="/IMAGINE/scanners/" class="nav-pill-btn {% if page.url contains '/scanners/' %}active{% endif %}">
+    <a href="/IMAGINE/scanners/" class="nav-pill-btn ">
       <i class="fa-solid fa-microchip"></i> Scanners
     </a>
-    <a href="/IMAGINE/events/" class="nav-pill-btn {% if page.url contains '/events/' %}active{% endif %}">
+    <a href="/IMAGINE/events/" class="nav-pill-btn ">
       <i class="fa-solid fa-calendar-check"></i> Events
     </a>
   </nav>
@@ -71,8 +74,8 @@
 
 <div class="scanner-page-container">
   <div class="page-title-banner">
-    <h1 class="page-main-title">ERNIE Scanner Explorer</h1>
-    <p class="page-subtitle">Select nodes on the 3D magnet stack or mapping robot schematic below to examine their components, bill of materials, printable files, and assembly guides.</p>
+    <h1 class="page-main-title">ERNIE Scanner (Educational)</h1>
+    <p class="page-subtitle">The CAMERA-IMAGINE-MRI Education (ERNIE) toolkit is a frugal educational toolkit for on-site construction of a 50 mT 'mice-like' brain MRI scanner. It is designed to facilitate hands-on learning of open-source low-field MRI engineering.</p>
   </div>
 
   <div class="scanner-dashboard">
@@ -93,9 +96,9 @@
 
       <!-- Diagram Canvas Area -->
       <div class="interactive-diagram-canvas">
-        <p class="canvas-instruction-text"><i class="fa-solid fa-hand-pointer animate-bounce"></i> Click any block in the schematic below to explore its details</p>
+        <p class="canvas-instruction-text"><i class="fa-solid fa-hand-pointer animate-bounce"></i> Choose a component from the list below to explore specifications, BOM, CAD models, and assembly guides</p>
         
-        <!-- Interactive SVGs based on Scanner ID -->
+        <!-- Interactive SVGs and Diagrams based on Scanner ID -->
         
           
           <!-- ERNIE Magnet Schematic -->
@@ -113,41 +116,34 @@
                 <rect x="-10" y="5" width="420" height="4" fill="#a0a0a0" />
                 <rect x="-10" y="191" width="420" height="4" fill="#a0a0a0" />
 
-                <!-- Rings stack (Clicking any ring highlights the whole array) -->
-                <!-- Ring 10 back -->
-                <g class="interactive-node" data-component-id="ernie-7-ring-halbach-magnet" transform="translate(0, 10)">
+                <!-- Rings stack -->
+                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(0, 10)">
                   <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 10B</text>
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 42</text>
                 </g>
-                <!-- Ring 945 -->
-                <g class="interactive-node" data-component-id="ernie-7-ring-halbach-magnet" transform="translate(50, 10)">
+                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(50, 10)">
                   <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 945</text>
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 251</text>
                 </g>
-                <!-- Ring 1 -->
-                <g class="interactive-node" data-component-id="ernie-7-ring-halbach-magnet" transform="translate(100, 10)">
+                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(100, 10)">
                   <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 1</text>
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 288</text>
                 </g>
-                <!-- Ring 842 (Center) -->
-                <g class="interactive-node" data-component-id="ernie-7-ring-halbach-magnet" transform="translate(150, 10)">
+                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(150, 10)">
                   <rect x="0" y="0" width="40" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="20" y="95" transform="rotate(-90 20 95)" class="node-text" fill="#fff" style="font-weight:bold; font-size:10px;">Ring 842</text>
+                  <text x="20" y="95" transform="rotate(-90 20 95)" class="node-text" fill="#fff" style="font-weight:bold; font-size:10px;">Ring 321</text>
                 </g>
-                <!-- Ring 0 -->
-                <g class="interactive-node" data-component-id="ernie-7-ring-halbach-magnet" transform="translate(210, 10)">
+                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(210, 10)">
                   <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 0</text>
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 288</text>
                 </g>
-                <!-- Ring 1050 -->
-                <g class="interactive-node" data-component-id="ernie-7-ring-halbach-magnet" transform="translate(260, 10)">
+                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(260, 10)">
                   <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 1050</text>
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 251</text>
                 </g>
-                <!-- Ring 10 (Front) -->
-                <g class="interactive-node" data-component-id="ernie-7-ring-halbach-magnet" transform="translate(310, 10)">
+                <g class="interactive-node" data-component-id="ernie-halbach-magnet-rings" transform="translate(310, 10)">
                   <rect x="0" y="0" width="30" height="180" rx="4" class="node-rect" fill="#1b4332" />
-                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 10</text>
+                  <text x="15" y="95" transform="rotate(-90 15 95)" class="node-text" fill="#fff" style="font-size:10px;">Ring 42</text>
                 </g>
               </g>
             </svg>
@@ -159,45 +155,35 @@
               <rect width="100%" height="100%" fill="url(#grid)" />
               
               <!-- Stylized 3-Axis Field Mapping Gantry -->
-              <g class="interactive-node" data-component-id="field-mapping-robot" transform="translate(100, 30)">
-                <!-- Outer structural frame -->
+              <g class="interactive-node" data-component-id="ernie-3-axis-cartesian-gantry" transform="translate(100, 30)">
                 <rect x="0" y="0" width="400" height="270" rx="10" class="node-rect" fill="#153326" stroke="#255842" stroke-width="4" />
                 <text x="200" y="30" text-anchor="middle" fill="#c5a059" style="font-size: 14px; font-weight: bold; letter-spacing: 1px; font-family: var(--font-family-title);">3-AXIS AUTOMATED FIELD MAPPER</text>
                 
-                <!-- X-Axis Rails (Horizontal) -->
                 <line x1="30" y1="80" x2="370" y2="80" stroke="#808080" stroke-width="6" stroke-linecap="round" />
                 <line x1="30" y1="220" x2="370" y2="220" stroke="#808080" stroke-width="6" stroke-linecap="round" />
                 <text x="40" y="70" fill="#a0a0a0" style="font-size: 9px; font-family: var(--font-family-base);">X-Axis Guide Rails</text>
                 
-                <!-- Stepper Motors -->
                 <rect x="365" y="65" width="25" height="30" rx="3" fill="#333" stroke="#555" />
                 <rect x="365" y="205" width="25" height="30" rx="3" fill="#333" stroke="#555" />
                 
-                <!-- Y-Axis Vertical Carriage (moves horizontally on X rails) -->
                 <g transform="translate(160, 0)">
                   <rect x="0" y="60" width="80" height="180" rx="5" fill="#1b4332" stroke="#2d6a4f" stroke-width="3" />
                   <line x1="40" y1="75" x2="40" y2="225" stroke="#a0a0a0" stroke-width="4" />
                   
-                  <!-- Z-Axis Stage (moves vertically on Y carriage) -->
                   <g transform="translate(15, 90)">
                     <rect x="0" y="0" width="50" height="60" rx="4" fill="#0f241a" stroke="#c5a059" stroke-width="2" />
-                    
-                    <!-- Hall Probe sensor extending downwards -->
                     <line x1="25" y1="60" x2="25" y2="135" stroke="#ffd700" stroke-width="4" stroke-linecap="round" />
                     <circle cx="25" cy="135" r="5" fill="#ff4500" />
-                    
                     <text x="25" y="35" text-anchor="middle" fill="#fff" style="font-size: 9px; font-weight: bold; font-family: var(--font-family-base);">Z-Stage</text>
                   </g>
                 </g>
                 
-                <!-- Arduino Mega Controller Board -->
                 <g transform="translate(25, 120)">
                   <rect x="0" y="0" width="80" height="50" rx="4" fill="#006699" stroke="#004466" />
                   <rect x="5" y="5" width="20" height="15" fill="#a0a0a0" />
-                  <text x="40" y="30" text-anchor="middle" fill="#fff" style="font-size: 8px; font-weight: bold; font-family: var(--font-family-base);">Arduino Mega</text>
+                  <text x="40" y="30" text-anchor="middle" fill="#fff" style="font-size: 8px; font-weight: bold; font-family: var(--font-family-base);">Arduino Uno</text>
                 </g>
                 
-                <!-- Description text -->
                 <text x="200" y="255" text-anchor="middle" fill="#a0a0a0" style="font-size: 11px; font-family: var(--font-family-base);">Click anywhere on gantry to view controller & mechanical details</text>
               </g>
             </svg>
@@ -206,8 +192,37 @@
         
       </div>
       
-      <!-- Component Sidebar List (Synchronized with Map clicks) -->
-      
+      <!-- Component Sidebar List (Dynamically Filtered by Active Subsystem) -->
+      <div class="component-list-sidebar">
+        <h3 class="sidebar-title">Subsystem Components</h3>
+        <div class="sidebar-buttons-grid">
+          
+            <button class="sidebar-node-btn" data-component-id="ernie-mechanical-frame-spacers" data-subsystem="magnet">
+              ERNIE Mechanical Frame & Spacers
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="ernie-shimming-disassembly-system" data-subsystem="magnet">
+              ERNIE Shimming & Disassembly System
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="ernie-halbach-magnet-rings" data-subsystem="magnet">
+              ERNIE Halbach Magnet Rings
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="ernie-robot-controller-drivers" data-subsystem="robot">
+              ERNIE Robot Controller & Drivers
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="ernie-gaussmeter-hall-sensor" data-subsystem="robot">
+              ERNIE Gaussmeter & Hall Sensor
+            </button>
+            
+            <button class="sidebar-node-btn" data-component-id="ernie-3-axis-cartesian-gantry" data-subsystem="robot">
+              ERNIE 3-Axis Cartesian Gantry
+            </button>
+            
+        </div>
+      </div>
 
     </div>
 
@@ -216,11 +231,11 @@
       <div class="docs-card-panel">
         
         
-            <div class="component-detail-view" id="details-ernie-7-ring-halbach-magnet" data-subsystem="magnet">
+            <div class="component-detail-view" id="details-ernie-mechanical-frame-spacers" data-subsystem="magnet">
               <div class="detail-header-card">
                 <span class="detail-category-tag">MAGNET</span>
-                <h2 class="detail-title">ERNIE 7-Ring Halbach Magnet</h2>
-                <p class="detail-short-desc">The primary B0 field source for the ERNIE scanner: a 7-ring, 50 mT Halbach array optimized for a homogeneous bore field.</p>
+                <h2 class="detail-title">ERNIE Mechanical Frame & Spacers</h2>
+                <p class="detail-short-desc">The non-magnetic structural frame holding the ERNIE Halbach rings at their exact optimized axial spacing.</p>
               </div>
               
               <div class="detail-sections-tabs">
@@ -232,7 +247,8 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><p>The magnet is the heart of the ERNIE educational scanner. It is a 7-ring Halbach magnet array that produces an ultra-low-field of approximately 50 mT. The design leverages genetic algorithm optimization to define the magnet placements and ring spacings, creating a homogeneous field without the need for complex, heavy electromagnetic coils.</p></div>
+                  <div class="sheet-article"><h2>Overview</h2>
+<p>The <strong>Mechanical Frame &amp; Spacers</strong> maintain rigid structural integrity and precise axial positioning of the Halbach rings. All structural elements are non-magnetic (brass and PLA) to prevent distortion of the 50 mT field.</p></div>
                 </div>
                 
                 <div class="tab-sheet-content" data-section="bom">
@@ -256,44 +272,347 @@
                         <tbody>
                           
                     <tr>
-                      <td class="part-name"><strong>Neodymium Magnets (N48, 12x12x12mm)</strong></td>
-                      <td class="part-qty">98</td>
-                      <td class="part-price">Approx. $2.50 each</td>
-                      <td class="part-link"><a href="https://www.supermagnete.de/" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
-                    </tr>
-                    
-                    <tr>
-                      <td class="part-name"><strong>M4 Threaded Brass Rods (262mm long)</strong></td>
+                      <td class="part-name"><strong>M4 Threaded Brass Rods (180 mm, McMaster-Carr)</strong></td>
                       <td class="part-qty">8</td>
-                      <td class="part-price">$1.50 each</td>
+                      <td class="part-price">$39.54 CAD</td>
+                      <td class="part-link"><a href="https://www.mcmaster.com/catalog/131/3633/90162A050" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Ring Spacers (3D Printed PLA, ~100g total)</strong></td>
+                      <td class="part-qty">48</td>
+                      <td class="part-price">3D Printed (PLA)</td>
                       <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
                     </tr>
                     
                     <tr>
-                      <td class="part-name"><strong>M3x8mm Screws (to fasten lids)</strong></td>
-                      <td class="part-qty">125</td>
-                      <td class="part-price">$5.00 pack</td>
-                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                      <td class="part-name"><strong>M4 Brass Hex Nuts (Pack of 50)</strong></td>
+                      <td class="part-qty">8</td>
+                      <td class="part-price">$11.33 CAD</td>
+                      <td class="part-link"><a href="https://www.amazon.ca/100pcs-Solid-Brass-Copper-Screw/dp/B0CQGYC7JZ" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
                     </tr>
                     
                     <tr>
-                      <td class="part-name"><strong>M4 Hex Nuts (spacing adjustment)</strong></td>
-                      <td class="part-qty">160</td>
-                      <td class="part-price">$4.00 pack</td>
-                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                      <td class="part-name"><strong>M3 Brass Screws (60/pack)</strong></td>
+                      <td class="part-qty">54</td>
+                      <td class="part-price">$13.99 CAD</td>
+                      <td class="part-link"><a href="https://www.amazon.ca/dp/B0CT3W8148" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
                     </tr>
                     
                     <tr>
-                      <td class="part-name"><strong>M4 Dome Nuts</strong></td>
-                      <td class="part-qty">16</td>
-                      <td class="part-price">$3.00 pack</td>
-                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                      <td class="part-name"><strong>M4 Dome Nuts (McMaster-Carr)</strong></td>
+                      <td class="part-qty">8</td>
+                      <td class="part-price">$22.96 CAD</td>
+                      <td class="part-link"><a href="https://www.mcmaster.com/products/dome-nuts/thread-size~m4/" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
                     </tr>
                     
                     <tr>
                       <td class="part-name"><strong>M4 Nylon Washers</strong></td>
                       <td class="part-qty">16</td>
-                      <td class="part-price">$2.00 pack</td>
+                      <td class="part-price">$7.70 CAD</td>
+                      <td class="part-link"><a href="https://www.mcmaster.com/catalog/131/3696/95610A150" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>M3 Brass Heat-Set Inserts</strong></td>
+                      <td class="part-qty">54</td>
+                      <td class="part-price">$17.69 CAD</td>
+                      <td class="part-link"><a href="https://www.amazon.ca/dp/B0DC43HJKN" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Ring_spacers.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Ring Spacers STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>Frame Assembly and Spacing</h4>
+<ol>
+<li>Cut two 1-meter M4 solid brass threaded rods into ten 180 mm lengths (8 active rods + 2 spares).</li>
+<li>Slide the central ring onto the 8 brass rods.</li>
+<li>Thread PLA ring spacers and brass M4 hex nuts between consecutive rings to fix the precise inter-ring distance.</li>
+<li>Secure outer ends with nylon washers and brass dome nuts.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>Structural &amp; Parallelism Check</h4>
+<ol>
+<li>Measure inter-ring distances using digital Vernier calipers at 4 circumferential quadrants.</li>
+<li>Confirm parallelism tolerance is within ±0.2 mm across all rings.</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="component-detail-view" id="details-ernie-shimming-disassembly-system" data-subsystem="magnet">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">MAGNET</span>
+                <h2 class="detail-title">ERNIE Shimming & Disassembly System</h2>
+                <p class="detail-short-desc">Passive shimming trays and safety disassembly tooling for the ERNIE educational scanner.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button><button class="section-tab-btn" data-section="downloads"><i class="fa-solid fa-download"></i> CAD / STL</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><h2>Overview</h2>
+<p>The <strong>Shimming &amp; Disassembly System</strong> provides passive field correction trays and specialized non-magnetic tooling for safe hands-on disassembly during educational workshops.</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>Magnet Ouster (Wooden Chopsticks)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$11.54 CAD</td>
+                      <td class="part-link"><a href="https://www.amazon.ca/Heiwa-Wooden-Chospticks-Pairs-Pack/dp/B07B6LP24M" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>3D Printed Disassembly Tray (PLA)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">3D Printed (PLA)</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>3D Printed Disassembly Tray Cover (PLA)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">3D Printed (PLA)</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Spare N48 Neodymium Magnets</strong></td>
+                      <td class="part-qty">10</td>
+                      <td class="part-price">$58.70 CAD</td>
+                      <td class="part-link"><a href="https://www.magfine.ca/products/neodymium-magnet-square-13mm-x-12mm-x-5mm" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>M3 Non-magnetic Brass Screws & Inserts</strong></td>
+                      <td class="part-qty">9</td>
+                      <td class="part-price">$12.00 CAD</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner disassembly/Disassembly Tray.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Disassembly Tray STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner disassembly/Disassembly Tray_Cover.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Disassembly Tray Cover STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>Disassembly &amp; Safe Handling</h4>
+<ol>
+<li>Assemble the 3D-printed Disassembly Tray with M3 heat-set inserts.</li>
+<li>When extracting magnets, sharpen the wooden chopstick ouster to safely push magnets from their pockets into the covered tray.</li>
+<li>Never use ferromagnetic tools near the magnet rings.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>Safety Inspection</h4>
+<ol>
+<li>Check that all magnet pockets in the storage tray are properly isolated to prevent mutual attraction accidents.</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="component-detail-view" id="details-ernie-halbach-magnet-rings" data-subsystem="magnet">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">MAGNET</span>
+                <h2 class="detail-title">ERNIE Halbach Magnet Rings</h2>
+                <p class="detail-short-desc">The primary B0 field source for the ERNIE educational scanner: 7 3D-printed rings housing 98 N48 Neodymium magnets in an optimized Halbach geometry.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button><button class="section-tab-btn" data-section="downloads"><i class="fa-solid fa-download"></i> CAD / STL</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><h2>Overview</h2>
+<p>The <strong>ERNIE Halbach Magnet Rings</strong> form the core of the educational scanner. The array consists of 7 modular rings containing 98 permanent neodymium magnet cubes (12×12×12 mm, grade N48).</p>
+<p>The angular distribution and axial ring positions were determined using genetic algorithm optimization to yield a 50 mT target field with maximal central uniformity.</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>Ring 42 (3D Printed PLA, ~134g each)</strong></td>
+                      <td class="part-qty">2</td>
+                      <td class="part-price">3D Printed (PLA)</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Ring 251 (3D Printed PLA, ~134g each)</strong></td>
+                      <td class="part-qty">2</td>
+                      <td class="part-price">3D Printed (PLA)</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Ring 288 (3D Printed PLA, ~134g each)</strong></td>
+                      <td class="part-qty">2</td>
+                      <td class="part-price">3D Printed (PLA)</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Ring 321 (3D Printed PLA, ~134g)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">3D Printed (PLA)</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Lids for Ring 42 (~45g PLA each)</strong></td>
+                      <td class="part-qty">2</td>
+                      <td class="part-price">3D Printed (PLA)</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Lids for Rings 251 & 288 (~45g PLA each)</strong></td>
+                      <td class="part-qty">4</td>
+                      <td class="part-price">3D Printed (PLA)</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Lid for Ring 321 (~45g PLA)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">3D Printed (PLA)</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>N48 Neodymium Magnets (12x12x12mm, Magfine)</strong></td>
+                      <td class="part-qty">98</td>
+                      <td class="part-price">$575.26 CAD</td>
+                      <td class="part-link"><a href="https://www.magfine.ca/products/neodymium-magnet-square-13mm-x-12mm-x-5mm" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Reference Neodymium Magnets (marked polarity)</strong></td>
+                      <td class="part-qty">4</td>
+                      <td class="part-price">$23.48 CAD</td>
                       <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
                     </tr>
                     
@@ -354,17 +673,6 @@
                       <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
                     </a>
                     
-                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Ring_spacers.stl" download class="download-card">
-                      <div class="download-card-icon">
-                        <i class="fa-solid fa-cube text-primary"></i>
-                      </div>
-                      <div class="download-card-info">
-                        <span class="file-title">Ring Spacers STL</span>
-                        <span class="file-ext">STL File</span>
-                      </div>
-                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
-                    </a>
-                    
                     <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Lid_For_Ring_42.stl" download class="download-card">
                       <div class="download-card-icon">
                         <i class="fa-solid fa-cube text-primary"></i>
@@ -376,12 +684,12 @@
                       <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
                     </a>
                     
-                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Lid_For_Ring_321.stl" download class="download-card">
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Lid_For_Rings 288 and 251.stl" download class="download-card">
                       <div class="download-card-icon">
                         <i class="fa-solid fa-cube text-primary"></i>
                       </div>
                       <div class="download-card-info">
-                        <span class="file-title">Lid for Ring 321 STL</span>
+                        <span class="file-title">Lid for Rings 251 and 288 STL</span>
                         <span class="file-ext">STL File</span>
                       </div>
                       <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
@@ -403,47 +711,34 @@
                   <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
                 </div>
                 
-                    <div class="guide-steps-list"><h4>Phase 1: 3D Printing &amp; Prep</h4>
+                    <div class="guide-steps-list"><h4>Ring Printing and Magnet Loading</h4>
 <ol>
-<li>Print the 7 housing rings (Rings 42, 251, 288, 321, etc.) and matching lids.</li>
-<li>Prepare 8 M4 brass rods, cut to exactly 262mm.</li>
-</ol>
-<h4>Phase 2: Magnet Insertion</h4>
-<ol>
-<li>Carefully slide the 12x12x12mm neodymium magnets into the ring slots.</li>
-<li><strong>WARNING</strong>: Magnets must be placed in their exact Halbach orientations. Check polarity before locking!</li>
-<li>Secure the lids onto each ring using M3x8mm screws.</li>
-</ol>
-<h4>Phase 3: Ring Stacking</h4>
-<ol>
-<li>Stack the rings along the 8 brass rods in a mirrored fashion.</li>
-<li>Ring 842 acts as the central ring. Stack the others on either side symmetrically: 842 -&gt; 1 -&gt; 0 -&gt; 10 on one side, and 842 -&gt; 945 -&gt; 1050 -&gt; 10B on the other.</li>
-<li>All rings must face the same direction (magnet-side forward).</li>
-<li>Secure spacer rings in between to establish the correct axial spacing.</li>
+<li><strong>3D Printing</strong>: Print the 7 housing rings (Rings 42 x2, Rings 251 x2, Rings 288 x2, Ring 321 x1) and corresponding lids using PLA with 20% infill.</li>
+<li><strong>Install Heat-Set Inserts</strong>: Press M3 brass heat-set inserts into each ring housing hole.</li>
+<li><strong>Polarity Marking</strong>: Using a compass and reference magnet, mark the north pole of all 98 NdFeB magnets.</li>
+<li><strong>Magnet Insertion</strong>: Carefully insert magnets into their slots following the exact rotational angles defined by the genetic algorithm.</li>
+<li><strong>Cover Fastening</strong>: Fasten the 3D-printed lids over the magnet pockets using M3 brass screws.</li>
 </ol></div>
                   </div>
                 </div>
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
-                    <div class="guide-steps-list"><h4>B0 Field Homogeneity Mapping</h4>
+                    <div class="guide-steps-list"><h4>Ring Field Verification</h4>
 <ol>
-<li>Position the assembled magnet array on a flat, non-magnetic surface.</li>
-<li>Assemble the 3-axis Field Mapping Robot and position its Hall probe at the geometric center of the bore.</li>
-<li>Run the mapping script to measure the B0 field.</li>
-<li>Calculate homogeneity (expected: ~50 mT +/- 100 ppm over the target DSV).</li>
-<li>If necessary, insert custom shimming magnets into the shim trays to adjust homogeneity.</li>
+<li>Measure magnetic field direction of each completed ring with a handheld Hall compass.</li>
+<li>Verify that there are no inverted or misaligned magnets prior to final stacking on the gantry rods.</li>
 </ol></div>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div class="component-detail-view" id="details-field-mapping-robot" data-subsystem="robot">
+            <div class="component-detail-view" id="details-ernie-robot-controller-drivers" data-subsystem="robot">
               <div class="detail-header-card">
                 <span class="detail-category-tag">ROBOT</span>
-                <h2 class="detail-title">Field Mapping Robot</h2>
-                <p class="detail-short-desc">A automated 3-axis translation stage driven by stepper motors and programmed to profile the magnet's field homogeneity.</p>
+                <h2 class="detail-title">ERNIE Robot Controller & Drivers</h2>
+                <p class="detail-short-desc">The microcontroller electronics and motor drivers controlling the 3-axis field mapping robot.</p>
               </div>
               
               <div class="detail-sections-tabs">
@@ -455,7 +750,8 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><p>The <strong>Field Mapping Robot</strong> is an essential part of the ERNIE educational toolkit. To achieve high-contrast MR imaging, the magnetic field must be extremely homogeneous. The robot automates the tedious task of measuring the magnetic field in 3D space, logging the data to a host computer where shimming algorithms calculate the required shim magnet correction configurations.</p></div>
+                  <div class="sheet-article"><h2>Overview</h2>
+<p>The <strong>Robot Controller &amp; Drivers</strong> subsystem handles precise microstepping for all three axes. It interprets Cartesian coordinates sent from the host computer and controls the stepper motors synchronously.</p></div>
                 </div>
                 
                 <div class="tab-sheet-content" data-section="bom">
@@ -479,44 +775,177 @@
                         <tbody>
                           
                     <tr>
-                      <td class="part-name"><strong>Arduino Mega 2560 Board</strong></td>
+                      <td class="part-name"><strong>Arduino Uno R4 Minima</strong></td>
                       <td class="part-qty">1</td>
-                      <td class="part-price">$74.72</td>
-                      <td class="part-link"><a href="https://www.amazon.ca/Arduino-A000067-ARDUINO-MEGA2560-REVISION/dp/B0046AMGW0" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
+                      <td class="part-price">$33.50 CAD</td>
+                      <td class="part-link"><a href="https://thepihut.com/products/arduino-uno-r4-minima" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
                     </tr>
                     
                     <tr>
-                      <td class="part-name"><strong>NEMA 17 Stepper Motors</strong></td>
+                      <td class="part-name"><strong>Stepper Motor Drivers</strong></td>
                       <td class="part-qty">3</td>
-                      <td class="part-price">$35.00</td>
-                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                      <td class="part-price">$34.62 CAD</td>
+                      <td class="part-link"><a href="https://www.aliexpress.com/item/1005005967708477.html" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
                     </tr>
                     
                     <tr>
-                      <td class="part-name"><strong>A4988 Stepper Motor Driver Boards</strong></td>
-                      <td class="part-qty">3</td>
-                      <td class="part-price">$10.00</td>
-                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
-                    </tr>
-                    
-                    <tr>
-                      <td class="part-name"><strong>Power Supply for the Robot (12V 5A)</strong></td>
+                      <td class="part-name"><strong>Motor Driver + Arduino Casing (3D Printed PLA)</strong></td>
                       <td class="part-qty">1</td>
-                      <td class="part-price">$23.00</td>
+                      <td class="part-price">3D Printed (PLA)</td>
                       <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
                     </tr>
                     
                     <tr>
-                      <td class="part-name"><strong>Jumper Wires & Breadboard Pack</strong></td>
+                      <td class="part-name"><strong>Connecting Hookup Wires (22 AWG)</strong></td>
+                      <td class="part-qty">25</td>
+                      <td class="part-price">$23.99 CAD</td>
+                      <td class="part-link"><a href="https://www.amazon.ca/TUOFENG-Hookup-Wires-6-Different-Colored/dp/B0CM2Y7V1Z" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>DC Power Supply (24V, 3A, 72W)</strong></td>
                       <td class="part-qty">1</td>
-                      <td class="part-price">$23.00</td>
+                      <td class="part-price">$22.99 CAD</td>
+                      <td class="part-link"><a href="https://www.amazon.ca/dp/B0B9XGQQSR" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/Motor Driver Casing.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Motor Driver & Arduino Casing STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Robot/Field Mapping Software/Robot_code/Code_field_mapping_robot/Code_field_mapping_robot.ino" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Robot Control Firmware (Arduino)</span>
+                        <span class="file-ext">INO File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>Controller Wiring &amp; Flashing</h4>
+<ol>
+<li>Mount the Arduino Uno and 3 stepper motor driver modules into the 3D-printed casing.</li>
+<li>Connect motor step and direction pins to the designated digital pins on the Arduino.</li>
+<li>Wire the 24V power supply to the motor driver power inputs.</li>
+<li>Flash the Arduino with <code>Code_field_mapping_robot.ino</code> from the repository.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>Driver &amp; Motion Testing</h4>
+<ol>
+<li>Issue serial motion commands (G-code style coordinates) via serial monitor.</li>
+<li>Verify step accuracy: 10 mm commanded motion equals 10.0 mm measured on calipers.</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="component-detail-view" id="details-ernie-gaussmeter-hall-sensor" data-subsystem="robot">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">ROBOT</span>
+                <h2 class="detail-title">ERNIE Gaussmeter & Hall Sensor</h2>
+                <p class="detail-short-desc">High-precision AlphaLab GM2 Gaussmeter, 3D-printed probe holder, and zero-gauss calibrator chamber for B0 field mapping.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button><button class="section-tab-btn" data-section="downloads"><i class="fa-solid fa-download"></i> CAD / STL</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><h2>Overview</h2>
+<p>The <strong>Gaussmeter &amp; Hall Sensor</strong> subsystem measures the magnetic field with high precision (0.01 mT resolution). In conjunction with the 3D gantry and Python mapping software, it produces high-resolution 3D field maps used to evaluate magnet assembly quality and homogeneity.</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>AlphaLab GM2 Gaussmeter</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$1,200.00 CAD</td>
+                      <td class="part-link"><a href="https://www.alphalabinc.com/products/gm2/" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Gauss Meter Probe Holder Mount (3D Printed PLA)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">3D Printed (PLA)</td>
                       <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
                     </tr>
                     
                     <tr>
-                      <td class="part-name"><strong>Hall Effect Probe (e.g. Lakeshore or custom)</strong></td>
+                      <td class="part-name"><strong>Zero Gauss Chamber (Probe Calibrator, ZGC)</strong></td>
                       <td class="part-qty">1</td>
-                      <td class="part-price">Varies</td>
+                      <td class="part-price">$196.00 CAD</td>
+                      <td class="part-link"><a href="https://www.alphalabinc.com/products/zgc/" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Gauss Meter Protective Hard Casing</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$33.00 CAD</td>
+                      <td class="part-link"><a href="https://www.alphalabinc.com/products/hc-gm2/" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>9V Replacement Batteries (Interstate DRY0196)</strong></td>
+                      <td class="part-qty">1 Set (12)</td>
+                      <td class="part-price">$35.43 CAD</td>
                       <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
                     </tr>
                     
@@ -533,13 +962,13 @@
                     <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
                     <div class="download-links-grid">
                       
-                    <a href="/IMAGINEhttps://github.com/SipanHovsep/Field_mapper_robot" download class="download-card">
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/Sensor_mount_1.stl" download class="download-card">
                       <div class="download-card-icon">
-                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                        <i class="fa-solid fa-cube text-primary"></i>
                       </div>
                       <div class="download-card-info">
-                        <span class="file-title">Sipan's Robot Repository</span>
-                        <span class="file-ext">COM/SIPANHOVSEP/FIELD_MAPPER_ROBOT File</span>
+                        <span class="file-title">Gaussmeter Probe Holder STL</span>
+                        <span class="file-ext">STL File</span>
                       </div>
                       <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
                     </a>
@@ -552,105 +981,190 @@
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Assembly Instructions</h3>
                     
-                <div class="video-player-container">
-                  <video controls class="assembly-video">
-                    <source src="/IMAGINE/ERNIE/Build your own Design/Robot/Robot introductory video/ernie_robot_intro.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                  <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
-                </div>
-                
-                    <div class="guide-steps-list"><h4>Phase 1: Gantry Assembly</h4>
+                    <div class="guide-steps-list"><h4>Sensor Installation and Alignment</h4>
 <ol>
-<li>Print the 3-axis slider parts (X, Y, Z translation mounts) in PLA or PETG.</li>
-<li>Assemble the smooth rods and lead screws on the gantry frame.</li>
-<li>Mount the three NEMA 17 stepper motors onto the linear stages.</li>
-</ol>
-<h4>Phase 2: Electronics Wiring</h4>
-<ol>
-<li>Mount the A4988 drivers onto the Arduino CNC shield or wire directly on a breadboard.</li>
-<li>Connect the stepper motor coils to the driver outputs.</li>
-<li>Connect the stepper drivers' STEP and DIR pins to the designated digital outputs on the Arduino Mega.</li>
-<li>Wire the 12V power supply to the driver power rails.</li>
-</ol>
-<h4>Phase 3: Firmware Upload</h4>
-<ol>
-<li>Clone the firmware repository: <a href="https://github.com/SipanHovsep/Field_mapper_robot">Field Mapper Robot Repository</a>.</li>
-<li>Upload the Arduino stepper driver control sketch using the Arduino IDE.</li>
+<li>Mount the AlphaLab GM2 Hall effect probe into the 3D-printed probe holder attached to the Z-axis carriage.</li>
+<li>Align the sensor active area with the longitudinal axis of the bore.</li>
+<li>Connect the GM2 serial/analog output to the data acquisition laptop.</li>
 </ol></div>
                   </div>
                 </div>
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
-                    <div class="guide-steps-list"><h4>Robot Calibration and Hall Probe Verification</h4>
+                    <div class="guide-steps-list"><h4>Probe Calibration &amp; Mapping Routine</h4>
 <ol>
-<li>Power on the robot and verify that each axis moves smoothly without binding.</li>
-<li>Perform axis homing commands and measure actual travel distance against commanded steps.</li>
-<li>Wire the Hall probe to the analog/digital read pins.</li>
-<li>Run a 1D scan sweep along the Z-axis (through the center of the magnet bore) and compare the readings to the expected Halbach field curve.</li>
+<li>Place the Hall probe inside the Zero Gauss Chamber (ZGC) and zero the meter.</li>
+<li>Execute an automated 3D raster scan across a 50×50×50 mm grid at 2 mm resolution.</li>
+<li>Plot B0 field distribution and verify 50 mT field center.</li>
 </ol></div>
                   </div>
                 </div>
               </div>
             </div>
             
-    </tbody>
-  </table>
-</div>
-{% endif %}
-
-                  </div>
-                </div>
-              {% endif %}
-
-              <!-- Downloads Tab -->
+            <div class="component-detail-view" id="details-ernie-3-axis-cartesian-gantry" data-subsystem="robot">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">ROBOT</span>
+                <h2 class="detail-title">ERNIE 3-Axis Cartesian Gantry</h2>
+                <p class="detail-short-desc">The 3-axis automated mechanical positioning system used to move the Hall probe inside the magnet bore.</p>
+              </div>
               
-                              <i class="fa-solid fa-file-lines"></i>
-                            
-                          </div>
-                          <div class="download-card-info">
-                            <span class="file-title">{{ file.name }}</span>
-                            <span class="file-ext">{{ file.path | split: '.' | last | upcase }} File</span>
-                          </div>
-                          <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
-                        </a>
-                      {% endfor %}
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button><button class="section-tab-btn" data-section="downloads"><i class="fa-solid fa-download"></i> CAD / STL</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><h2>Overview</h2>
+<p>The <strong>3-Axis Cartesian Gantry</strong> provides smooth, automated scanning across the central bore of the ERNIE magnet. With 150 mm travel on all axes, it raster-scans the Hall sensor throughout the target field of view.</p></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>Linear Motion Rails (Set of 3, 150mm X/Y/Z, T06)</strong></td>
+                      <td class="part-qty">3</td>
+                      <td class="part-price">$273.78 CAD</td>
+                      <td class="part-link"><a href="https://www.aliexpress.com/item/1005005534966065.html" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>M4 & M3 Mounting Screws</strong></td>
+                      <td class="part-qty">8</td>
+                      <td class="part-price">Included with rails</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Scanner Base for Field Mapping (3D Printed PLA)</strong></td>
+                      <td class="part-qty">4</td>
+                      <td class="part-price">3D Printed (PLA)</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
-              {% endif %}
-
-              <!-- Assembly Tab -->
-              <div class="tab-sheet-content" data-section="assembly">
-                <div class="sheet-article">
-                  <h3 class="sheet-sub-title">Assembly Instructions</h3>
-                  
-                  
-
-                  <div class="guide-steps-list">
-                    {{ comp.assembly_guide | markdownify }}
+                
+                
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      
+                    <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/Scanner Base for field mapping.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Scanner Base for Field Mapping STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>Mechanical Gantry Construction</h4>
+<ol>
+<li>Fasten the 4 PLA Scanner Base mounting brackets to the work table.</li>
+<li>Assemble the X-axis linear slide onto the base mounts.</li>
+<li>Mount the Y-axis stage vertically perpendicular to X, then mount the Z-axis probe stage.</li>
+<li>Ensure all stages move smoothly along their full 150 mm travel without binding.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>Travel &amp; Orthogonality Validation</h4>
+<ol>
+<li>Check stage orthogonality with a precision machinist square.</li>
+<li>Test travel limits and zero position repeatability.</li>
+</ol></div>
                   </div>
                 </div>
               </div>
-
-              <!-- Testing Tab -->
-              <div class="tab-sheet-content" data-section="testing">
-                <div class="sheet-article">
-                  <h3 class="sheet-sub-title">Testing & Verification</h3>
-                  <div class="guide-steps-list">
-                    {{ comp.testing_guide | markdownify }}
-                  </div>
-                </div>
-              </div>
-
             </div>
-          </div>
-        {% endfor %}
+            
 
       </div>
     </div>
   </div>
+
+  <!-- Arbitrary Scanner Documentation Content (Rendered before OSII Scorecard) -->
+  
+  <section class="scanner-arbitrary-info-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+    <div class="scanner-content-body">
+      <p>The <strong>ERNIE Toolkit</strong> was designed as a reusable teaching resource consisting of:<br />
+- A 30-minute introductory lecture on open-source low-field MR engineering concepts.<br />
+- An assembly animation and guide of scanner, robot, and field mapping (quality assurance).<br />
+- Bill of materials and 3D printing files for the magnet and robotic field mapping parts.<br />
+- Simple, accessible tools for onsite assembly.<br />
+- Software to run the robot and map the magnet's field homogeneity.</p>
+<h3>Two identical kits: ERNIE 1 &amp; ERNIE 2</h3>
+<p>To demonstrate the reproducibility of open science hardware:<br />
+- <strong>ERNIE 1</strong> was first assembled at the 2025 ESMRMB pre-congress workshop in Vienna, and then re-assembled at the 2026 ISMRM conference in Cape Town, South Africa.<br />
+- <strong>ERNIE 2</strong> was first assembled at the Montreal Neurological Institute (MNI - The Neuro) and then re-assembled multiple times at the Montreal General Hospital, Polytechnique Montreal, The Douglas Mental Health University Institute, and the 2026 ISMRM conference.</p>
+<hr />
+<h2>👥 Educational Training Sessions &amp; Multi-Site Reproducibility</h2>
+<p>To evaluate the reproducibility of the ERNIE toolkit, multi-site reconstruction experiments were conducted in which independent teams rebuilt the scanner and robot across geographically distinct institutions using the same documentation, design package, and physical kit.</p>
+<h3>Evaluated Reproducibility Dimensions</h3>
+<ol>
+<li><strong>Assembly Reproducibility</strong>: Validating that independent teams of students, researchers, and engineers can successfully construct the 7-ring Halbach magnet array and 3-axis robot without specialized tooling.</li>
+<li><strong>Operational Reproducibility</strong>: Confirming that the Cartesian gantry, Arduino motor controller, and Hall gaussmeter consistently execute automated 3D raster field scans.</li>
+<li><strong>Field Map Consistency</strong>: Demonstrating that reconstructed magnets produce the target ~50 mT field strength with reproducible spatial homogeneity profiles.</li>
+</ol>
+<h3>Participating Institutions &amp; Workshops</h3>
+<ul>
+<li><strong>ESMRMB Pre-Congress Workshop</strong> (Vienna, Austria) – <em>ERNIE 1</em></li>
+<li><strong>The Neuro / Montreal Neurological Institute</strong> (Montreal, Canada) – <em>ERNIE 2</em></li>
+<li><strong>Polytechnique Montréal</strong> (Montreal, Canada) – <em>ERNIE 2</em></li>
+<li><strong>Montreal General Hospital</strong> (Montreal, Canada) – <em>ERNIE 2</em></li>
+<li><strong>The Douglas Mental Health University Institute</strong> (Montreal, Canada) – <em>ERNIE 2</em></li>
+<li><strong>ISMRM Annual Meeting Workshop</strong> (Cape Town, South Africa) – <em>ERNIE 1 &amp; ERNIE 2</em></li>
+</ul>
+<p>All participating sites successfully reconstructed the scanner and robot using the provided kit, confirming the operational reproducibility of the open-hardware architecture.</p>
+<h3>Curriculum &amp; Training Materials</h3>
+<p>Participants in the training sessions received preparatory educational resources:<br />
+- <strong>Building Your Own Low-Field MRI</strong>: Video lecture by Dr. Johnes Obungoloch (MRI Uganda) detailing frugal MR hardware design.<br />
+- <strong>Introductory Lecture on MRI</strong>: Theoretical foundations by Guillermo Sahonero-Alvarez covering spin physics, RF excitation, and low-field gradient encoding.<br />
+- <strong>Curriculum and Reading List</strong>: Comprehensive syllabus and publication repository for low-field magnetic resonance engineering.<br />
+- <strong>Pre- and Post-Workshop Surveys</strong>: Empirical evaluation of knowledge gain and participant confidence in open-source MRI engineering.</p>
+    </div>
+  </section>
+  
 
   <!-- OSII Standard Compliance Section for this Scanner -->
   <section class="scanner-compliance-section" style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--color-border);">
@@ -662,14 +1176,12 @@
       
       <!-- Score Display -->
       
-        {% assign osi_data = site.data.osi_ernie %}
-      
       
       
       
       <div class="compliance-score-badge" style="background-color: var(--color-emerald-deep); color: #ffffff; padding: 0.8rem 1.5rem; border-radius: var(--border-radius-sm); border: 2px solid var(--color-gold); text-align: center; box-shadow: var(--shadow-sm); flex-shrink: 0;">
         <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; display: block; color: var(--color-gold); margin-bottom: 0.2rem;">OSI² Score</span>
-        <span style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-family-title);">16 / 17</span>
+        <span style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-family-title);">17 / 17</span>
       </div>
     </div>
 
@@ -686,7 +1198,7 @@
                         <span class="item-name">README File Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Complete README file provided in the repository and individual component pages. <a href="/IMAGINE/scanners/ernie/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in ERNIE/README.md and ERNIE/Build your own Design/readme.md <a href="../../ERNIE/README.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -698,7 +1210,7 @@
                         <span class="item-name">Design Considerations Explained</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Optimizations via genetic algorithms are fully documented in the Magnet overview. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in ERNIE/Build your own Design/Magnet/readme.md and Instructions/Optimised design GA/ <a href="../../ERNIE/Build%20your%20own%20Design/Magnet/readme.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -717,7 +1229,7 @@
                         <span class="item-name">BoM Provided</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Complete Bill of Materials for Halbach magnet and gantry parts are embedded in the components. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/#details-ernie-7-ring-halbach-magnet"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in ERNIE/Build your own Design/readme.md and List of parts for (ERNIE 1&2).md <a href="../../ERNIE/Build%20your%20own%20Design/readme.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -729,7 +1241,7 @@
                         <span class="item-name">BoM Best Practices Compliant</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Part lists contain quantities, specifications, and direct links to suppliers (e.g. Supermagnete). <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Part lists with suppliers, part numbers, and costs in ERNIE/Build your own Design/List of parts for (ERNIE 1&2).md <a href="../../ERNIE/Build%20your%20own%20Design/List%20of%20parts%20for%20(ERNIE%201%262).md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -748,7 +1260,7 @@
                         <span class="item-name">Native Source Files Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Arduino control code and 3D printing geometries (.stl) are hosted directly in the repository. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Arduino robot control code in ERNIE/Build your own Design/Robot/Field Mapping Software/Robot_code/ <a href="../../ERNIE/Build%20your%20own%20Design/Robot/Field%20Mapping%20Software/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -767,7 +1279,7 @@
                         <span class="item-name">Editable with Open-Source Software</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Control scripts are written in C++ (Arduino IDE) and gcode, editable in any open editor. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Field mapping Python and Arduino scripts in ERNIE/Build your own Design/Robot/Field Mapping Software/ <a href="../../ERNIE/Build%20your%20own%20Design/Robot/Field%20Mapping%20Software/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -786,7 +1298,7 @@
                         <span class="item-name">Accessible Exports Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> STL mesh files are available for all 3D printed mechanical brackets, spacer rings, and lids. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> STL print files in ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ <a href="../../ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -798,7 +1310,7 @@
                         <span class="item-name">Manufacturing Environment Defined</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> FDM 3D printing recommendations (material type, infill, shell count) are defined in the assembly guides. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> FDM print specifications in ERNIE/Build your own Design/Magnet/Instructions/readme.md <a href="../../ERNIE/Build%20your%20own%20Design/Magnet/Instructions/readme.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -817,7 +1329,7 @@
                         <span class="item-name">Assembly Guidance</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Step-by-step documentation, assembly guides, and demonstration videos are embedded in the system dashboard. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Assembly guide in ERNIE/Build your own Design/Magnet/Instructions/How to build your own scanner.pdf <a href="../../ERNIE/Build%20your%20own%20Design/Magnet/Instructions/readme.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -836,7 +1348,7 @@
                         <span class="item-name">Versioning Scheme Implemented</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Managed under git version control on GitHub for code, models, and docs tracking. <a href="https://github.com/camera-mri/IMAGINE" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Git repository tracking in repository root <a href="../../README.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -848,7 +1360,7 @@
                         <span class="item-name">Public Issue Tracking</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Uses public GitHub Issues for bug reports, hardware revisions, and feature requests. <a href="https://github.com/camera-mri/IMAGINE/issues" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> GitHub Issues public tracker for bugs and suggestions <a href="https://github.com/CAMERA-MRI/IMAGINE/issues" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -860,7 +1372,7 @@
                         <span class="item-name">Public Communication Space</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Integrated into the CAMERA-MRI community and GitHub discussions forums. <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> CAMERA-MRI open-source imaging community space <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -879,19 +1391,19 @@
                         <span class="item-name">Testing Routines Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Hall probe calibration steps and 3-axis stage travel tests are specified. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Multi-site field mapping results in ERNIE/Training sessions/Reproducibility experiment.md <a href="../../ERNIE/Training%20sessions/Reproducibility%20experiment.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
                     </li>
                     
-                    <li class="unchecked">
-                      <span class="check-icon"><i class="fa-solid fa-circle-xmark" style="color: var(--color-text-light); opacity: 0.5;"></i></span>
+                    <li class="checked">
+                      <span class="check-icon"><i class="fa-solid fa-circle-check"></i></span>
                       <div class="item-details">
                         <span class="item-name">Testing Routines Complete</span>
                         
-                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.2rem; display: block; opacity: 0.7;">
-                          Not fully satisfied yet.
+                        <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
+                          <i class="fa-solid fa-square-poll-horizontal"></i> B0 mapping and multi-site verification in ERNIE/Training sessions/Readme.md <a href="../../ERNIE/Training%20sessions/Readme.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -910,7 +1422,7 @@
                         <span class="item-name">User Manual Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Operational guides for gantry control and mapping execution are available. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Curriculum and training materials in ERNIE/Training sessions/Training material/Readme.md <a href="../../ERNIE/Training%20sessions/Training%20material/Readme.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -922,7 +1434,7 @@
                         <span class="item-name">Risk Assessment & Safety Notice</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> NdFeB strong magnetic field and pinching safety warnings are clearly labeled in the magnet overview. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Safety surveys and magnet handling protocols in ERNIE/Training sessions/Training related surveys/Safety survey.pdf <a href="../../ERNIE/Training%20sessions/Training%20related%20surveys/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -934,7 +1446,7 @@
                         <span class="item-name">Replication History Documented</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Successfully replicated at several partner sites in South Africa and Uganda. <a href="/IMAGINE/about/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Replicated across 6 sites (ESMRMB, The Neuro, Polytechnique, MGH, Douglas, ISMRM) in ERNIE/Training sessions/Reproducibility experiment.md <a href="../../ERNIE/Training%20sessions/Reproducibility%20experiment.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -943,9 +1455,6 @@
                   </ul>
                 </div>
                 
-          </ul>
-        </div>
-      {% endfor %}
     </div>
   </section>
 </div>
@@ -999,6 +1508,18 @@
     </div>
   </div>
 </footer>
+
+<!-- Bottom Floating Banner (Site Under Construction) -->
+<div class="under-construction-banner" id="under-construction-bar">
+  <div class="construction-content">
+    <i class="fa-solid fa-person-digging construction-icon"></i>
+    <span><strong>Notice:</strong> This website is currently under active construction and development. Some details, specifications, and CAD files may be updated or modified as work progresses.</span>
+  </div>
+  <button class="construction-dismiss-btn" onclick="document.getElementById('under-construction-bar').style.display='none'" aria-label="Dismiss banner">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+</div>
+
 
 
   <!-- Scripts -->

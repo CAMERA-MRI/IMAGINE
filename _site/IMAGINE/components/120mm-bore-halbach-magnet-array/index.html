@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>120mm Bore Halbach Magnet Array</title>
+  <meta name="description" content="The primary B0 magnetic field source for the IMAGINE rat/preclinical scanner: a 120mm clear bore Halbach array producing ~50 mT with high homogeneity.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <!-- MathJax for LaTeX Equations -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <!-- Marked.js for Client-Side Markdown Parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+  <!-- Leaflet CSS & JS for Interactive Map (Local Assets) -->
+  <link rel="stylesheet" href="/IMAGINE/assets/css/leaflet.css"/>
+  <script src="/IMAGINE/assets/js/leaflet.js"></script>
+  <link rel="stylesheet" href="/IMAGINE/assets/css/MarkerCluster.css"/>
+  <link rel="stylesheet" href="/IMAGINE/assets/css/MarkerCluster.Default.css"/>
+  <script src="/IMAGINE/assets/js/leaflet.markercluster.js"></script>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/IMAGINE/assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation & Header Header -->
+  <header class="gradient-header-banner">
+  <div class="header-logo-container">
+    <div class="logo-circle">
+      <img src="/IMAGINE/assets/images/partners/camera.png" alt="CAMERA Logo" class="header-logo-img">
+    </div>
+    <div class="header-titles">
+      <h1 class="site-main-title">IMAGINE</h1>
+      <span class="site-tagline-text">Imaging Without Borders</span>
+    </div>
+  </div>
+  
+  <nav class="pill-navigation-menu">
+    <a href="/IMAGINE/" class="nav-pill-btn ">
+      <i class="fa-solid fa-house"></i> Home
+    </a>
+    <a href="/IMAGINE/about/" class="nav-pill-btn ">
+      <i class="fa-solid fa-users"></i> About Us
+    </a>
+    <a href="/IMAGINE/scanners/" class="nav-pill-btn ">
+      <i class="fa-solid fa-microchip"></i> Scanners
+    </a>
+    <a href="/IMAGINE/events/" class="nav-pill-btn ">
+      <i class="fa-solid fa-calendar-check"></i> Events
+    </a>
+  </nav>
+</header>
+
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+    {% assign scanner = site.scanners | where: "scanner_id", page.scanner_id | first %}
+
+<div class="component-page-container">
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-nav">
+    <a href="/IMAGINE/"><i class="fa-solid fa-house"></i> Home</a> &gt; 
+    <a href="/IMAGINE/scanners/">Scanners</a> &gt; 
+    
+    <span class="active-breadcrumb">120mm Bore Halbach Magnet Array</span>
+  </div>
+
+  <div class="component-header-section">
+    <span class="component-tag">MAGNET COMPONENT</span>
+    <h1 class="component-main-title">120mm Bore Halbach Magnet Array</h1>
+    <p class="component-subtitle-desc">The primary B0 magnetic field source for the IMAGINE rat/preclinical scanner: a 120mm clear bore Halbach array producing ~50 mT with high homogeneity.</p>
+  </div>
+
+  <div class="component-grid-layout">
+    
+    <!-- Left Column: Guidelines, Assembly and Testing -->
+    <div class="component-docs-main">
+      
+      <!-- Overview Card -->
+      <section class="docs-section-card">
+        <h2 class="section-card-title"><i class="fa-solid fa-circle-info"></i> Component Overview</h2>
+        <div class="section-card-body">
+          <h2>Overview</h2>
+<p>The <strong>120mm Bore Halbach Magnet Array</strong> is the primary magnetic field ($B_0$) source of the IMAGINE rat/preclinical MRI scanner. It produces a transverse static field of approximately 50 mT with high spatial homogeneity across the central volume.</p>
+<p>The array consists of stacked discrete rings housing 12×12×12 mm NdFeB permanent magnets. The ring positions, magnet orientations, and inter-ring spacings are optimized via genetic algorithms to maximize field uniformity while preserving an ample 120 mm internal clear bore for preclinical animal imaging, RF coils, and gradient inserts.</p>
+<h3>Structural Architecture</h3>
+<ul>
+<li><strong>Central Ring (Ring 842)</strong>: Sits at the axial midpoint and establishes the baseline field.</li>
+<li><strong>Mirrored Stacking</strong>: Rings are positioned symmetrically around Ring 842 along 8 non-magnetic M4 brass rods (262 mm length), secured by brass hex nuts and finished with dome nuts.</li>
+<li><strong>Passive Shimming</strong>: Ring 10 front and Ring 10 back feature integrated mounting slots for 16 passive shim trays, enabling fine-tuning of the $B_0$ homogeneity.</li>
+</ul>
+<h3>Design Documentation</h3>
+<ul>
+<li>Full assembly guide and parts: <a href="../../Hardware/Halbach%20Array/Part%20and%20build%20description.md">Part and build description.md</a></li>
+<li>Optimization theory: <a href="../../Hardware/Halbach%20Array/How%20to%20design%20magnet%20rings%20using%20genetic%20algorithms.md">How to design magnet rings using genetic algorithms.md</a></li>
+</ul>
+        </div>
+      </section>
+
+      <!-- Assembly Card -->
+      <section class="docs-section-card">
+        <h2 class="section-card-title"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly Instructions</h2>
+        <div class="section-card-body">
+          
+          
+          <div class="markdown-guide-content">
+            <h4>Mirrored Halbach Magnet Assembly Procedure</h4>
+<h5>Ring Housing &amp; Lid Preparation</h5>
+<ol>
+<li><strong>Print Components</strong>: 3D print all ring housings (<code>Ring_842</code>, <code>Ring_0</code>, <code>Ring_1</code>, <code>Ring_10_front</code>, <code>Ring_10_back</code>, <code>Ring_945</code>, <code>Ring_1050</code>) and their respective lids (<code>Lid_Loose</code> and <code>Lid_tight</code>).</li>
+<li><strong>Install Heat Inserts</strong>: Using a soldering iron with a heat-set insert tip, carefully install M3 brass heat-set inserts into the 4.2mm holes of each ring housing.</li>
+<li><strong>Insert Permanent Magnets</strong>: Slide the 12x12x12mm N48/N52 neodymium magnet cubes into the designated pockets, strictly observing the Halbach rotation angles for each azimuth.</li>
+<li><strong>Fasten Lids</strong>: Secure the lids with M3x8mm brass screws to physically retain the magnets against repulsive forces.</li>
+</ol>
+<h5>Mirrored Stacking on Brass Rods</h5>
+<ol>
+<li><strong>Central Reference</strong>: Position <code>Ring_842</code> at the geometric center ($z = 0$) along the 8 M4 brass rods (262mm length).</li>
+<li><strong>Mirrored Stacking</strong>: Stack the rings symmetrically on either side of <code>Ring_842</code>:</li>
+<li>Front section: <code>Ring_842</code> -&gt; <code>Ring_1</code> -&gt; <code>Ring_0</code> -&gt; <code>Ring_10_front</code></li>
+<li>Back section: <code>Ring_842</code> -&gt; <code>Ring_945</code> -&gt; <code>Ring_1050</code> -&gt; <code>Ring_10_back</code></li>
+<li><strong>Orientation Rule</strong>: Although ring positions are mirrored along $z$, <strong>the direction they face is not</strong>. All rings must be stacked with the magnet-facing side oriented in the exact same axial direction.</li>
+<li><strong>Lock Spacing</strong>: Use M4 hex nuts on either side of each ring housing to precisely set axial ring-to-ring spacings as determined by the genetic optimization algorithm. Cap rod ends with M4 nylon washers and M4 dome nuts.</li>
+</ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testing Card -->
+      <section class="docs-section-card">
+        <h2 class="section-card-title"><i class="fa-solid fa-flask"></i> Testing & Calibration Procedures</h2>
+        <div class="section-card-body">
+          <div class="markdown-guide-content">
+            <h4>B0 Field Mapping and Homogeneity Verification</h4>
+<ol>
+<li><strong>Geometric Alignment</strong>: Align the assembled Halbach magnet array on the non-magnetic scanner frame. Verify the 120mm bore clearance.</li>
+<li><strong>Robotic 3D Field Mapping</strong>: Mount the Hall probe of the 3-axis Field Mapping Robot at the center of the bore. Run automated grid raster scans covering the target spherical DSV.</li>
+<li><strong>Homogeneity Computation</strong>: Compute peak-to-peak and RMS homogeneity ($\Delta B_0 / B_0$ in ppm). The target field strength is ~50 mT ($47–52$ mT).</li>
+<li><strong>Passive Shimming</strong>: Insert shim trays into the front and back slots of <code>Ring_10</code> with custom small magnet cartridges to cancel residual low-order spherical harmonics ($Z_1, X, Y, Z_2$).</li>
+</ol>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Right Column: BOM & Downloads -->
+    <div class="component-docs-sidebar">
+      
+      <!-- BOM Card -->
+      
+        <section class="docs-section-card sidebar-card">
+          <h2 class="section-card-title"><i class="fa-solid fa-list-check"></i> Bill of Materials</h2>
+          <div class="section-card-body">
+            
+<div class="bom-table-wrapper">
+  <!-- Search/Filter Bar for BOM -->
+  <div class="bom-search-box">
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+  </div>
+
+  <table class="bom-table">
+    <thead>
+      <tr>
+        <th>Part Name / Description</th>
+        <th>Qty</th>
+        <th>Price (Est.)</th>
+        <th>Source / Purchase Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td class="part-name"><strong>M4 Threaded Brass Rods (262mm long)</strong></td>
+          <td class="part-qty">8</td>
+          <td class="part-price">$35.00 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>M4x3.2mm Hex Nuts (Brass/Non-magnetic)</strong></td>
+          <td class="part-qty">160</td>
+          <td class="part-price">$15.00 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>M4 Dome Nuts</strong></td>
+          <td class="part-qty">16</td>
+          <td class="part-price">$12.00 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>M4 Nylon Washers</strong></td>
+          <td class="part-qty">16</td>
+          <td class="part-price">$4.00 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>M3x8mm Screws (Lid fasteners)</strong></td>
+          <td class="part-qty">125</td>
+          <td class="part-price">$14.00 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>Lid Loose (for Rings 842, 945, 1050)</strong></td>
+          <td class="part-qty">5</td>
+          <td class="part-price">3D Printed (PLA)</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>Lid Tight (for Rings 0, 1, 10)</strong></td>
+          <td class="part-qty">6</td>
+          <td class="part-price">3D Printed (PLA)</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>N48/N52 Neodymium Permanent Magnets (12x12x12mm)</strong></td>
+          <td class="part-qty">168</td>
+          <td class="part-price">Approx. $420.00 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>M3 Brass Heat-Set Inserts</strong></td>
+          <td class="part-qty">125</td>
+          <td class="part-price">$18.00 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>Passive Shim Trays</strong></td>
+          <td class="part-qty">16</td>
+          <td class="part-price">3D Printed (PLA)</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+          </div>
+        </section>
+      
+
+      <!-- Downloads Card -->
+      
+        <section class="docs-section-card sidebar-card">
+          <h2 class="section-card-title"><i class="fa-solid fa-file-download"></i> Design Files</h2>
+          <div class="section-card-body">
+            <div class="download-links-grid vertical-grid">
+              
+                <a href="/IMAGINE/Hardware/Halbach Array/IAM files/Rat_Scanner_120_Ass.iam" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Full Magnet Assembly (Inventor IAM)</span>
+                    <span class="file-ext">/HARDWARE/HALBACH ARRAY/IAM FILES/RAT_SCANNER_120_ASS.IAM File</span>
+                  </div>
+                </a>
+              
+                <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_842.stp" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Central Ring 842 (STEP)</span>
+                    <span class="file-ext">/HARDWARE/HALBACH ARRAY/STP FILES/RING_842.STP File</span>
+                  </div>
+                </a>
+              
+                <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_0.stp" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Ring 0 (STEP)</span>
+                    <span class="file-ext">/HARDWARE/HALBACH ARRAY/STP FILES/RING_0.STP File</span>
+                  </div>
+                </a>
+              
+                <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_1.stp" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Ring 1 (STEP)</span>
+                    <span class="file-ext">/HARDWARE/HALBACH ARRAY/STP FILES/RING_1.STP File</span>
+                  </div>
+                </a>
+              
+                <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_945.stp" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Ring 945 (STEP)</span>
+                    <span class="file-ext">/HARDWARE/HALBACH ARRAY/STP FILES/RING_945.STP File</span>
+                  </div>
+                </a>
+              
+                <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_1050.stp" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Ring 1050 (STEP)</span>
+                    <span class="file-ext">/HARDWARE/HALBACH ARRAY/STP FILES/RING_1050.STP File</span>
+                  </div>
+                </a>
+              
+                <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_10_front.stp" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Ring 10 Front (STEP)</span>
+                    <span class="file-ext">/HARDWARE/HALBACH ARRAY/STP FILES/RING_10_FRONT.STP File</span>
+                  </div>
+                </a>
+              
+                <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_10_back.stp" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Ring 10 Back (STEP)</span>
+                    <span class="file-ext">/HARDWARE/HALBACH ARRAY/STP FILES/RING_10_BACK.STP File</span>
+                  </div>
+                </a>
+              
+                <a href="/IMAGINE/Hardware/Halbach Array/ITP Files/Shim_Tray.ipt" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Shim Tray (Inventor IPT)</span>
+                    <span class="file-ext">/HARDWARE/HALBACH ARRAY/ITP FILES/SHIM_TRAY.IPT File</span>
+                  </div>
+                </a>
+              
+            </div>
+          </div>
+        </section>
+      
+
+    </div>
+
+  </div>
+</div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-main-footer">
+  <div class="footer-sections-grid">
+    
+    <!-- Left Column: Mission -->
+    <div class="footer-col-desc">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-earth-africa"></i> IMAGINE Project</h3>
+      <p class="footer-para-text">
+        An open-source preclinical MRI initiative of the Consortium for Advancement of MRI Education and Research in Africa (CAMERA). Sustaining diagnostic health equity globally.
+      </p>
+      <div class="social-links-row">
+        <a href="https://www.linkedin.com/company/consortium-for-advancement-of-mri-education-research-in-africa/" target="_blank" class="social-icon-btn linkedin-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://x.com/CAMERAAfrica" target="_blank" class="social-icon-btn x-btn" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://bsky.app/profile/cameramriafrica.bsky.social" target="_blank" class="social-icon-btn bluesky-btn" title="BlueSky"><i class="fa-brands fa-bluesky"></i></a>
+        <a href="https://chat.whatsapp.com/BagIlZGHwfWHFJYnzpZkLB" target="_blank" class="social-icon-btn whatsapp-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@CAMERAAfrica" target="_blank" class="social-icon-btn youtube-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Center Column: Standards & Licensing -->
+    <div class="footer-col-licensing">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-scale-balanced"></i> Open Science Compliance</h3>
+      <p class="footer-para-text">
+        All hardware files are released under open-source hardware licenses. This project is developed to satisfy the requirements of the <strong>Open Source Imaging Initiative (OSI²)</strong>.
+      </p>
+    </div>
+
+    <!-- Right Column: Navigation and Quick links -->
+    <div class="footer-col-nav">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-link"></i> Navigation</h3>
+      <ul class="footer-links-list">
+        <li><a href="/IMAGINE/">Home</a></li>
+        <li><a href="/IMAGINE/about/">About Us & Team</a></li>
+        <li><a href="/IMAGINE/scanners/">Scanner Resources</a></li>
+        <li><a href="/IMAGINE/events/">Workshops & Events</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom-bar">
+    <div class="bottom-bar-content">
+      <span class="copyright-span">© 2026 CAMERA-MRI Consortium. Released under CERN OHL-W v2 / CC BY-SA 4.0.</span>
+      <span class="terms-span"><a href="#">Terms & Conditions</a> | <a href="https://www.opensourceimaging.org/" target="_blank">OSI² Portal</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Bottom Floating Banner (Site Under Construction) -->
+<div class="under-construction-banner" id="under-construction-bar">
+  <div class="construction-content">
+    <i class="fa-solid fa-person-digging construction-icon"></i>
+    <span><strong>Notice:</strong> This website is currently under active construction and development. Some details, specifications, and CAD files may be updated or modified as work progresses.</span>
+  </div>
+  <button class="construction-dismiss-btn" onclick="document.getElementById('under-construction-bar').style.display='none'" aria-label="Dismiss banner">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+</div>
+
+
+
+  <!-- Scripts -->
+  <script src="/IMAGINE/assets/js/interaction.js"></script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}">
+  <title>Gradient Coils (CAD & Winding)</title>
+  <meta name="description" content="Spatially encodes the MR signals using 3D-printed cylindrical formers with AWG copper wire wound in computer-optimized grooves based on the Discrete Wire Method.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,9 @@
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
+  <!-- Marked.js for Client-Side Markdown Parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
   <!-- Leaflet CSS & JS for Interactive Map (Local Assets) -->
   <link rel="stylesheet" href="/IMAGINE/assets/css/leaflet.css"/>
   <script src="/IMAGINE/assets/js/leaflet.js"></script>
@@ -40,7 +43,7 @@
   <header class="gradient-header-banner">
   <div class="header-logo-container">
     <div class="logo-circle">
-      <i class="fa-solid fa-brain text-gradient"></i>
+      <img src="/IMAGINE/assets/images/partners/camera.png" alt="CAMERA Logo" class="header-logo-img">
     </div>
     <div class="header-titles">
       <h1 class="site-main-title">IMAGINE</h1>
@@ -49,16 +52,16 @@
   </div>
   
   <nav class="pill-navigation-menu">
-    <a href="/IMAGINE/" class="nav-pill-btn {% if page.url == '/' %}active{% endif %}">
+    <a href="/IMAGINE/" class="nav-pill-btn ">
       <i class="fa-solid fa-house"></i> Home
     </a>
-    <a href="/IMAGINE/about/" class="nav-pill-btn {% if page.url contains '/about/' %}active{% endif %}">
+    <a href="/IMAGINE/about/" class="nav-pill-btn ">
       <i class="fa-solid fa-users"></i> About Us
     </a>
-    <a href="/IMAGINE/scanners/" class="nav-pill-btn {% if page.url contains '/scanners/' %}active{% endif %}">
+    <a href="/IMAGINE/scanners/" class="nav-pill-btn ">
       <i class="fa-solid fa-microchip"></i> Scanners
     </a>
-    <a href="/IMAGINE/events/" class="nav-pill-btn {% if page.url contains '/events/' %}active{% endif %}">
+    <a href="/IMAGINE/events/" class="nav-pill-btn ">
       <i class="fa-solid fa-calendar-check"></i> Events
     </a>
   </nav>
@@ -79,9 +82,9 @@
   </div>
 
   <div class="component-header-section">
-    <span class="component-tag">{{ page.category | upcase }} COMPONENT</span>
+    <span class="component-tag">GRADIENT COMPONENT</span>
     <h1 class="component-main-title">Gradient Coils (CAD & Winding)</h1>
-    <p class="component-subtitle-desc">Spatially encodes the MR signals using 3D-printed formers with AWG copper wire wound in computer-optimized grooves.</p>
+    <p class="component-subtitle-desc">Spatially encodes the MR signals using 3D-printed cylindrical formers with AWG copper wire wound in computer-optimized grooves based on the Discrete Wire Method.</p>
   </div>
 
   <div class="component-grid-layout">
@@ -93,7 +96,20 @@
       <section class="docs-section-card">
         <h2 class="section-card-title"><i class="fa-solid fa-circle-info"></i> Component Overview</h2>
         <div class="section-card-body">
-          <p>The <strong>Gradient Coils</strong> provide spatial encoding in the three orthogonal directions ($X$, $Y$, and $Z$). The coils are wound on cylindrical former surfaces, with grooves manufactured directly by 3D printing. The wire patterns are optimized using the <strong>Discrete Wire Method</strong> to produce highly linear gradients over the target field of view (FOV).</p>
+          <h2>Overview</h2>
+<p>The <strong>Gradient Coils</strong> provide spatial encoding in the three orthogonal directions ($X$, $Y$, and $Z$) for the IMAGINE low-field rat/preclinical MRI scanner. The coils are wound on concentric cylindrical former surfaces with precisely manufactured grooves produced via high-resolution 3D printing.</p>
+<p>The wire trajectories are optimized using the <strong>Discrete Wire Method</strong> to produce highly linear magnetic field gradients over the target spherical diameter volume (DSV), minimizing unwanted concomitant fields and heat dissipation.</p>
+<h3>Design and Optimization Reference</h3>
+<p>The scientific methodology, boundary conditions, and genetic/boundary-element optimization for these gradient coils are published in:</p>
+<blockquote>
+<p><strong>Kassahun, H.B., Nayebare, M., Machtelinckx, T., Yazdanbakhsh, P., Obungoloch, J., Du Plessis, S. and Anazodo, U.</strong>, 2025, July. <em>Design and Optimization of Gradient Coils for Low-field Halbach Array Scanners Using the Discrete Wire Method</em>. In <em>2025 47th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)</em> (pp. 1–6). IEEE.</p>
+</blockquote>
+<h3>CAD Model Files</h3>
+<p>STL files for manufacturing the X, Y, and Z gradient coil formers are available directly in the repository:<br />
+- <a href="../../Hardware/Gradients/CAD/X_Gradient_Coil_Former_Rat_Scanner.stl">X Gradient Coil Former STL</a><br />
+- <a href="../../Hardware/Gradients/CAD/Y_Gradient_Coil_Former_Rat_Scanner.stl">Y Gradient Coil Former STL</a><br />
+- <a href="../../Hardware/Gradients/CAD/Z_Gradient_Coil_Former_Rat_Scanner.stl">Z Gradient Coil Former STL</a><br />
+- <a href="../../Hardware/Gradients/Gradient_Design.md">Design Guide Markdown</a></p>
         </div>
       </section>
 
@@ -104,7 +120,36 @@
           
           
           <div class="markdown-guide-content">
-            {{ page.assembly_guide | markdownify }}
+            <h4>AutoCAD CAD Design &amp; 3D Fabrication Procedure</h4>
+<p>The complete manufacturing workflow for the gradient coil formers follows a four-phase procedure in Autodesk AutoCAD and FDM 3D printing:</p>
+<h5>Phase 1: Coordinate Import and Path Creation</h5>
+<ol>
+<li><strong>Data Preparation</strong>: Extract the optimized $x, y, z$ wire coordinates from the optimization script into CSV format. Ensure coordinates for each quadrant are formatted separately.</li>
+<li><strong>Coordinate Import</strong>: Use the <code>LINE</code> command in AutoCAD to import the wire track coordinates and visualize each quadrant.</li>
+<li><strong>Spiral Construction</strong>: Trim and connect the segments to form continuous spirals for each quadrant. Ensure current direction in adjacent quadrants is opposite to yield the gradient field. Define distinct input and output ports for each quadrant.</li>
+<li><strong>Path Integration</strong>: Join individual lines within each quadrant using <code>PEDIT</code> / <code>JOIN</code> to form a single continuous <code>3D POLYLINE</code>.</li>
+</ol>
+<h5>Phase 2: 3D Modeling and Sweeping</h5>
+<ol>
+<li><strong>Workspace Setup</strong>: Switch AutoCAD workspace to <strong>3D Modelling</strong> and change viewport to a 3D isometric view.</li>
+<li><strong>Profile Selection</strong>: Draw a circular profile with a diameter matching the wire gauge (including insulation), centered exactly on the starting port of each quadrant.</li>
+<li><strong>Sweep Operation</strong>: Execute the <code>SWEEP</code> command. Select the circular profile and set the continuous 3D polyline as the sweeping path.</li>
+<li><strong>Visual Verification</strong>: Switch to multiple viewports (Top, Side, Front) in Realistic Visual Style to verify wire groove spacing and clearances.</li>
+</ol>
+<h5>Phase 3: Cylinder and Groove Construction</h5>
+<ol>
+<li><strong>Base Geometry</strong>: Draw a concentric circle at the origin $(0, 0)$ matching the outer radius of the cylindrical gradient former.</li>
+<li><strong>Wall Thickness</strong>: Offset this circle inward by 3 mm to form the inner cylinder wall.</li>
+<li><strong>Extrusion</strong>: Extrude the concentric profile to half the coil former length ($L/2$). Draw and extrude the remaining half in the opposite direction.</li>
+<li><strong>Boolean Operations</strong>: Execute <code>UNION</code> to merge the half-cylinders into one solid former. Merge the four quadrant wire sweeps into a single solid using <code>UNION</code>.</li>
+<li><strong>Groove Creation</strong>: Execute <code>SUBTRACT</code> to remove the swept coil paths from the cylinder former, creating the precise wire-winding grooves.</li>
+</ol>
+<h5>Phase 4: Prototyping, Winding, and Assembly</h5>
+<ol>
+<li><strong>STL Export</strong>: Export the model using <code>STLOUT</code> for 3D printing.</li>
+<li><strong>3D Printing</strong>: Print using PETG or PLA with 100% concentric infill to ensure mechanical rigidity and heat resistance.</li>
+<li><strong>Wire Winding</strong>: Carefully press and wind the enamelled AWG copper wire into the manufactured grooves. Secure windings with Kapton tape and epoxy potting.</li>
+</ol>
           </div>
         </div>
       </section>
@@ -114,7 +159,13 @@
         <h2 class="section-card-title"><i class="fa-solid fa-flask"></i> Testing & Calibration Procedures</h2>
         <div class="section-card-body">
           <div class="markdown-guide-content">
-            {{ page.testing_guide | markdownify }}
+            <h4>Electromagnetic Simulation and Verification</h4>
+<ol>
+<li><strong>DC Resistance &amp; Inductance Measurement</strong>: Measure DC resistance ($R$) and self-inductance ($L$) for each coil channel ($G_x$, $G_y$, $G_z$) using an LCR meter at 1 kHz and 10 kHz. Confirm zero inter-axis shorts.</li>
+<li><strong>Field Profile Verification (Simulation vs. Measurement)</strong>: Compare measured magnetic field gradients against CST Studio Suite electromagnetic simulation predictions.</li>
+<li><strong>Gradient Efficiency ($T/m/A$)</strong>: Determine gradient coil efficiency by driving calibrated test currents (1–5 A) and recording field variation with a Hall magnetometer along each spatial axis.</li>
+<li><strong>Thermal Dissipation Test</strong>: Run continuous gradient pulses mimicking echo planar imaging (EPI) or fast spin echo (FSE) duty cycles. Verify thermal equilibrium remains well within former material limits (&lt; 50 °C).</li>
+</ol>
           </div>
         </div>
       </section>
@@ -147,18 +198,95 @@
       </tr>
     </thead>
     <tbody>
-      {% for part in page.bom %}
+      
         <tr>
-          <td class="part-name"><strong>{{ part.item }}</strong></td>
-          <td class="part-qty">{{ part.qty | default: 1 }}</td>
-          <td class="part-price">{{ part.price | default: "Included" }}</td>
+          <td class="part-name"><strong>X Gradient Former (3D Printed, Bambu PLA Basic Light Green)</strong></td>
+          <td class="part-qty">90.38 g</td>
+          <td class="part-price">$2.26 CAD</td>
           <td class="part-link">
             
               <span class="no-link-badge">Local/Custom</span>
             
           </td>
         </tr>
-      {% endfor %}
+      
+        <tr>
+          <td class="part-name"><strong>Y Gradient Former (3D Printed, Bambu PLA Basic)</strong></td>
+          <td class="part-qty">118.9 g</td>
+          <td class="part-price">$2.97 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>Z Gradient Former (3D Printed, Bambu PLA Basic)</strong></td>
+          <td class="part-qty">99.7 g</td>
+          <td class="part-price">$2.50 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>Enamelled Copper Wire for X Gradient (AWG)</strong></td>
+          <td class="part-qty">350 inches</td>
+          <td class="part-price">$4.86 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>Enamelled Copper Wire for Y Gradient (AWG)</strong></td>
+          <td class="part-qty">350 inches</td>
+          <td class="part-price">$4.86 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>Enamelled Copper Wire for Z Gradient (AWG)</strong></td>
+          <td class="part-qty">350 inches</td>
+          <td class="part-price">$4.86 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>Gradient Splice Connectors (18-22 AWG crimp, WM13851-ND)</strong></td>
+          <td class="part-qty">10</td>
+          <td class="part-price">$1.44 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>Kapton Insulating Tape (10mm)</strong></td>
+          <td class="part-qty">3</td>
+          <td class="part-price">$11.96 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
     </tbody>
   </table>
 </div>
@@ -166,7 +294,7 @@
 
           </div>
         </section>
-      {% endif %}
+      
 
       <!-- Downloads Card -->
       
@@ -174,23 +302,59 @@
           <h2 class="section-card-title"><i class="fa-solid fa-file-download"></i> Design Files</h2>
           <div class="section-card-body">
             <div class="download-links-grid vertical-grid">
-              {% for file in page.downloads %}
-                <a href="/IMAGINE{{ file.path }}" download class="download-card">
+              
+                <a href="/IMAGINE/Hardware/Gradients/CAD/X_Gradient_Coil_Former_Rat_Scanner.stl" download class="download-card">
                   <div class="download-card-icon">
-                    {% if file.path contains '.stl' %}
-                      <i class="fa-solid fa-cube text-primary"></i>
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
                     
                   </div>
                   <div class="download-card-info">
-                    <span class="file-title">{{ file.name }}</span>
-                    <span class="file-ext">{{ file.path | split: '.' | last | upcase }} File</span>
+                    <span class="file-title">X Gradient Coil Former STL</span>
+                    <span class="file-ext">/HARDWARE/GRADIENTS/CAD/X_GRADIENT_COIL_FORMER_RAT_SCANNER.STL File</span>
                   </div>
                 </a>
-              {% endfor %}
+              
+                <a href="/IMAGINE/Hardware/Gradients/CAD/Y_Gradient_Coil_Former_Rat_Scanner.stl" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Y Gradient Coil Former STL</span>
+                    <span class="file-ext">/HARDWARE/GRADIENTS/CAD/Y_GRADIENT_COIL_FORMER_RAT_SCANNER.STL File</span>
+                  </div>
+                </a>
+              
+                <a href="/IMAGINE/Hardware/Gradients/CAD/Z_Gradient_Coil_Former_Rat_Scanner.stl" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Z Gradient Coil Former STL</span>
+                    <span class="file-ext">/HARDWARE/GRADIENTS/CAD/Z_GRADIENT_COIL_FORMER_RAT_SCANNER.STL File</span>
+                  </div>
+                </a>
+              
+                <a href="/IMAGINE/Hardware/Gradients/CAD/README.md" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Gradients CAD Documentation</span>
+                    <span class="file-ext">/HARDWARE/GRADIENTS/CAD/README.MD File</span>
+                  </div>
+                </a>
+              
             </div>
           </div>
         </section>
-      {% endif %}
+      
 
     </div>
 
@@ -246,6 +410,18 @@
     </div>
   </div>
 </footer>
+
+<!-- Bottom Floating Banner (Site Under Construction) -->
+<div class="under-construction-banner" id="under-construction-bar">
+  <div class="construction-content">
+    <i class="fa-solid fa-person-digging construction-icon"></i>
+    <span><strong>Notice:</strong> This website is currently under active construction and development. Some details, specifications, and CAD files may be updated or modified as work progresses.</span>
+  </div>
+  <button class="construction-dismiss-btn" onclick="document.getElementById('under-construction-bar').style.display='none'" aria-label="Dismiss banner">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+</div>
+
 
 
   <!-- Scripts -->

@@ -134,34 +134,71 @@ class PreviewBuilder:
         def include_replacer(match):
             inc_name = match.group(1).replace(".html", "").strip()
             inc_content = self.includes.get(inc_name, "")
-            return self.render_template(inc_content, page_fm)
+            return self.render_includes(inc_content, page_fm)
             
         text = re.sub(r'{%\s*include\s+([a-zA-Z0-9_\-\.]+)\s*%}', include_replacer, text)
         return text
 
     def render_variables(self, text, page_fm):
         def var_replacer(match):
-            var_name = match.group(1).strip()
+            var_expr = match.group(1).strip()
+            parts = var_expr.split("|")
+            var_name = parts[0].strip()
             
+            val = ""
             if var_name == "content":
-                return page_fm.get("content", "")
-            if var_name == "site.baseurl":
-                return self.baseurl
-            if var_name == "site.title":
-                return self.site_data["title"]
-            if var_name == "site.description":
-                return self.site_data["description"]
-            
-            if var_name.startswith("page."):
+                val = page_fm.get("content", "")
+            elif var_name == "site.baseurl":
+                val = self.baseurl
+            elif var_name == "site.title":
+                val = self.site_data["title"]
+            elif var_name == "site.description":
+                val = self.site_data["description"]
+            elif var_name.startswith("page."):
                 key = var_name[5:]
                 val = page_fm.get(key, "")
-                if isinstance(val, list):
-                    return ""
-                return str(val)
+            elif var_name.startswith("site."):
+                key = var_name[5:]
+                val = self.site_data.get(key, "")
+            elif var_name.startswith("comp."):
+                key = var_name[5:]
+                val = page_fm.get(key, "")
+            else:
+                val = page_fm.get(var_name, "")
+                
+            if val is None:
+                val = ""
+                
+            if isinstance(val, list):
+                val = ""
+                
+            val = str(val)
             
-            return match.group(0)
+            # Apply filters
+            if len(parts) > 1:
+                for f in parts[1:]:
+                    filter_expr = f.strip()
+                    if filter_expr == "markdownify":
+                        val = render_markdown(val)
+                    elif filter_expr == "upcase":
+                        val = val.upper()
+                    elif filter_expr == "downcase":
+                        val = val.lower()
+                    elif filter_expr == "slugify":
+                        val = slugify(val)
+                    elif filter_expr.startswith("default:"):
+                        def_val = filter_expr[8:].strip()
+                        if def_val.startswith("site."):
+                            site_key = def_val[5:]
+                            def_val = self.site_data.get(site_key, "")
+                        else:
+                            def_val = def_val.strip("'\"")
+                        if not val or val.strip() == "":
+                            val = def_val
+            return val
             
-        text = re.sub(r'{{\s*([a-zA-Z0-9_\-\.]+)\s*}}', var_replacer, text)
+        # Match anything inside {{ ... }} including filters
+        text = re.sub(r'{{\s*([a-zA-Z0-9_\-\.\|\s\:\'\"_]+?)\s*}}', var_replacer, text)
         return text
 
     def render_conditionals(self, text, page_fm):
@@ -181,35 +218,105 @@ class PreviewBuilder:
             if op is None:
                 return bool(obj)
             
+            obj_str = str(obj or "")
+            val_str = str(val or "").strip("'\"")
+            
             if op == "==":
-                return str(obj) == str(val)
+                return obj_str == val_str
             if op == "!=":
-                return str(obj) != str(val)
+                return obj_str != val_str
+            if op == "contains":
+                return val_str in obj_str
             return False
 
-        def cond_replacer(match):
-            var_name = match.group(1).strip()
-            op = match.group(2)
-            val = match.group(3)
-            if val:
-                val = val.strip()
-            
-            if_body = match.group(4)
-            else_body = match.group(5) or ""
-            
-            if eval_condition(var_name, op, val):
-                return if_body
-            else:
-                return else_body
-
-        pattern = r'{%\s*if\s+([a-zA-Z0-9_\-\.]+)(?:\s*(==|!=)\s*[\'"]?([a-zA-Z0-9_\-]+)[\'"]?)?\s*%}(.*?)(?:{%\s*else\s*%}(.*?))?{%\s*endif\s*%}'
-        
-        for _ in range(5):
-            new_text = re.sub(pattern, cond_replacer, text, flags=re.DOTALL)
-            if new_text == text:
+        for _ in range(50):
+            # Find the first {% if ... %}
+            start_match = re.search(r'{%\s*if\s+([a-zA-Z0-9_\-\.]+)(?:\s*(==|!=|contains)\s*[\'"]?([a-zA-Z0-9_\-\.\/]+)[\'"]?)?\s*%}', text)
+            if not start_match:
                 break
-            text = new_text
+                
+            start_idx = start_match.start()
+            var_name = start_match.group(1).strip()
+            op = start_match.group(2)
+            val = start_match.group(3)
             
+            # Find the matching {% endif %}
+            pos = start_match.end()
+            if_count = 1
+            end_idx = -1
+            
+            while pos < len(text):
+                next_if = re.search(r'{%\s*if\s+.*?\s*%}', text[pos:])
+                next_endif = re.search(r'{%\s*endif\s*%}', text[pos:])
+                
+                if not next_endif:
+                    break
+                    
+                abs_next_if = pos + next_if.start() if next_if else 999999999
+                abs_next_endif = pos + next_endif.start()
+                
+                if abs_next_if < abs_next_endif:
+                    if_count += 1
+                    pos = abs_next_if + next_if.end() - next_if.start()
+                else:
+                    if_count -= 1
+                    pos = abs_next_endif + next_endif.end() - next_endif.start()
+                    if if_count == 0:
+                        end_idx = pos
+                        break
+            
+            if end_idx == -1:
+                # If no matching endif is found, just remove the start tag to avoid infinite loop
+                text = text[:start_idx] + text[start_match.end():]
+                continue
+                
+            # Content inside the if block (excluding start and end tags)
+            inner_content = text[start_match.end() : end_idx - len(next_endif.group(0))]
+            
+            # Find the matching else block at the same nesting level
+            else_idx = -1
+            inner_pos = 0
+            inner_if_count = 1
+            
+            while inner_pos < len(inner_content):
+                next_inner_if = re.search(r'{%\s*if\s+.*?\s*%}', inner_content[inner_pos:])
+                next_inner_endif = re.search(r'{%\s*endif\s*%}', inner_content[inner_pos:])
+                next_inner_else = re.search(r'{%\s*else\s*%}', inner_content[inner_pos:])
+                
+                # Check which one comes first
+                abs_if = inner_pos + next_inner_if.start() if next_inner_if else 999999999
+                abs_endif = inner_pos + next_inner_endif.start() if next_inner_endif else 999999999
+                abs_else = inner_pos + next_inner_else.start() if next_inner_else else 999999999
+                
+                first = min(abs_if, abs_endif, abs_else)
+                if first == 999999999:
+                    break
+                    
+                if first == abs_if:
+                    inner_if_count += 1
+                    inner_pos = abs_if + next_inner_if.end() - next_inner_if.start()
+                elif first == abs_endif:
+                    inner_if_count -= 1
+                    inner_pos = abs_endif + next_inner_endif.end() - next_inner_endif.start()
+                else: # else tag
+                    if inner_if_count == 1:
+                        else_idx = abs_else
+                        break
+                    inner_pos = abs_else + next_inner_else.end() - next_inner_else.start()
+            
+            if else_idx != -1:
+                if_body = inner_content[:else_idx]
+                else_body = inner_content[else_idx + len(next_inner_else.group(0)):]
+            else:
+                if_body = inner_content
+                else_body = ""
+                
+            # Evaluate condition
+            if eval_condition(var_name, op, val):
+                text = text[:start_idx] + if_body + text[end_idx:]
+            else:
+                text = text[:start_idx] + else_body + text[end_idx:]
+                
         return text
 
     def render_loops_and_conditionals(self, text, page_fm):
@@ -288,6 +395,77 @@ class PreviewBuilder:
         pattern = r'{%\s*for\s+([a-zA-Z0-9_]+)\s+in\s+(site\.data\.[a-zA-Z0-9_]+)\s*%}(.*?){%\s*endfor\s*%}'
         for _ in range(5):
             new_text = re.sub(pattern, loop_replacer, text, flags=re.DOTALL)
+            if new_text == text:
+                break
+            text = new_text
+
+        # 1b. Generic list loops compiler for page.bom, page.downloads, etc.
+        def list_loop_replacer(match):
+            item_var = match.group(1).strip()
+            list_var_expr = match.group(2).strip()
+            loop_body = match.group(3)
+            
+            # Resolve the list variable
+            obj = page_fm
+            parts = list_var_expr.split('.')
+            if parts[0] in ["page", "comp"]:
+                parts = parts[1:]
+            
+            for part in parts:
+                if isinstance(obj, dict):
+                    obj = obj.get(part, None)
+                else:
+                    obj = None
+                    break
+            
+            if not obj or not isinstance(obj, list):
+                return ""
+                
+            rendered_items = []
+            for idx, item in enumerate(obj):
+                item_content = loop_body
+                
+                # Replace loop variables: {{ item_var.name }} etc.
+                def var_sub(v_match):
+                    full_expr = v_match.group(1).strip()
+                    parts = full_expr.split("|")
+                    var_expr = parts[0].strip()
+                    
+                    val = ""
+                    if var_expr.startswith(f"{item_var}."):
+                        key = var_expr[len(item_var)+1:]
+                        if isinstance(item, dict):
+                            val = item.get(key, "")
+                        else:
+                            val = item
+                    elif var_expr == item_var:
+                        val = item
+                    else:
+                        return v_match.group(0)
+                        
+                    val = str(val)
+                    if len(parts) > 1:
+                        for f in parts[1:]:
+                            filter_name = f.strip()
+                            if filter_name == "escape":
+                                import html
+                                val = html.escape(val)
+                            elif filter_name == "upcase":
+                                val = val.upper()
+                            elif filter_name == "downcase":
+                                val = val.lower()
+                    return val
+                
+                item_content = re.sub(r'{{\s*([a-zA-Z0-9_\-\.\|\s\:\'\"_]+?)\s*}}', var_sub, item_content)
+                item_content = self.render_conditionals(item_content, {**page_fm, item_var: item})
+                rendered_items.append(item_content)
+                
+            return "".join(rendered_items)
+
+        # Match {% for file in page.downloads %} or {% for part in page.bom %}
+        pattern_list_loop = r'{%\s*for\s+([a-zA-Z0-9_]+)\s+in\s+((?:page\.|comp\.)?[a-zA-Z0-9_]+)\s*%}(.*?){%\s*endfor\s*%}'
+        for _ in range(5):
+            new_text = re.sub(pattern_list_loop, list_loop_replacer, text, flags=re.DOTALL)
             if new_text == text:
                 break
             text = new_text
@@ -441,7 +619,8 @@ class PreviewBuilder:
                         link_html = ""
                         if loc:
                             target = 'target="_blank"' if 'http' in loc else ""
-                            link_html = f'<a href="{loc if "http" in loc else self.baseurl + loc}" {target} style="text-decoration: underline; font-weight: 600;">[Link]</a>'
+                            target_url = loc if ("http" in loc or loc.startswith("..")) else self.baseurl + loc
+                            link_html = f'<a href="{target_url}" {target} style="text-decoration: underline; font-weight: 600;">[Link]</a>'
                         ernie_cell = f"""
                         <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
                           <i class="fa-solid fa-circle-check"></i> Satisfied
@@ -464,7 +643,8 @@ class PreviewBuilder:
                         link_html = ""
                         if loc:
                             target = 'target="_blank"' if 'http' in loc else ""
-                            link_html = f'<a href="{loc if "http" in loc else self.baseurl + loc}" {target} style="text-decoration: underline; font-weight: 600;">[Link]</a>'
+                            target_url = loc if ("http" in loc or loc.startswith("..")) else self.baseurl + loc
+                            link_html = f'<a href="{target_url}" {target} style="text-decoration: underline; font-weight: 600;">[Link]</a>'
                         imagine_cell = f"""
                         <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
                           <i class="fa-solid fa-circle-check"></i> Satisfied
@@ -664,15 +844,39 @@ class PreviewBuilder:
             """
             
         # 2. Match and replace the remaining loop (which is the detail views loop)
-        pattern_general = r'{%\s*for\s+comp\s+in\s+scanner_components\s*%}.*?{%\s*endfor\s*%}'
-        text = re.sub(pattern_general, detail_views, text, flags=re.DOTALL)
+        start_match = re.search(r'{%\s*for\s+comp\s+in\s+scanner_components\s*%}', text)
+        if start_match:
+            start_idx = start_match.start()
+            pos = start_match.end()
+            for_count = 1
+            end_idx = -1
+            
+            while pos < len(text):
+                next_for = re.search(r'{%\s*for\s+.*?\s*%}', text[pos:])
+                next_endfor = re.search(r'{%\s*endfor\s*%}', text[pos:])
+                
+                if not next_endfor:
+                    break
+                
+                if next_for and next_for.start() < next_endfor.start():
+                    for_count += 1
+                    pos += next_for.end()
+                else:
+                    for_count -= 1
+                    pos += next_endfor.end()
+                    if for_count == 0:
+                        end_idx = pos
+                        break
+            
+            if end_idx != -1:
+                text = text[:start_idx] + detail_views + text[end_idx:]
 
         # 3. Compile scanner compliance checklist if present
         if "{% for cat in osi_data %}" in text:
             osi_data = self.site_data["data"]["osi_ernie"] if scanner_id == "ernie" else self.site_data["data"]["osi_imagine"]
             
             # Remove Liquid conditionals and scores calculation block
-            text = re.sub(r'{%\s*if\s+page\.scanner_id\s*==.*?{%\s*endif\s*%}', '', text, flags=re.DOTALL)
+            text = re.sub(r'{%\s*if\s+page\.scanner_id\s*==\s*[\'"]ernie[\'"]\s*%}\s*{%\s*assign\s+osi_data\s*=\s*site\.data\.osi_ernie\s*%}\s*{%\s*else\s*%}\s*{%\s*assign\s+osi_data\s*=\s*site\.data\.osi_imagine\s*%}\s*{%\s*endif\s*%}', '', text, flags=re.DOTALL)
             text = re.sub(r'{%\s*assign\s+earned_pts\s*=.*?{%\s*endfor\s*%}\s*{%\s*endfor\s*%}', '', text, flags=re.DOTALL)
             
             # Calculate points
@@ -695,7 +899,8 @@ class PreviewBuilder:
                         loc = item.get("location", "")
                         if loc:
                             target = 'target="_blank"' if 'http' in loc else ""
-                            link_html = f'<a href="{loc if "http" in loc else self.baseurl + loc}" {target} style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>'
+                            target_url = loc if ("http" in loc or loc.startswith("..")) else self.baseurl + loc
+                            link_html = f'<a href="{target_url}" {target} style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>'
                         evidence_html = f"""
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
                           <i class="fa-solid fa-square-poll-horizontal"></i> {item.get('evidence', '')} {link_html}
@@ -738,15 +943,40 @@ class PreviewBuilder:
                   </ul>
                 </div>
                 """
-            text = re.sub(r'{%\s*for\s+cat\s+in\s+osi_data\s*%}.*?{%\s*endfor\s*%}', cats_html, text, flags=re.DOTALL)
+            start_match = re.search(r'{%\s*for\s+cat\s+in\s+osi_data\s*%}', text)
+            if start_match:
+                start_idx = start_match.start()
+                pos = start_match.end()
+                for_count = 1
+                end_idx = -1
+                
+                while pos < len(text):
+                    next_for = re.search(r'{%\s*for\s+.*?\s*%}', text[pos:])
+                    next_endfor = re.search(r'{%\s*endfor\s*%}', text[pos:])
+                    
+                    if not next_endfor:
+                        break
+                    
+                    if next_for and next_for.start() < next_endfor.start():
+                        for_count += 1
+                        pos += next_for.end()
+                    else:
+                        for_count -= 1
+                        pos += next_endfor.end()
+                        if for_count == 0:
+                            end_idx = pos
+                            break
+                
+                if end_idx != -1:
+                    text = text[:start_idx] + cats_html + text[end_idx:]
         
         return text
 
     def render_template(self, template_str, page_fm):
         template_str = self.render_includes(template_str, page_fm)
-        template_str = self.render_variables(template_str, page_fm)
-        template_str = self.render_loops_and_conditionals(template_str, page_fm)
         template_str = self.render_scanner_dashboard(template_str, page_fm)
+        template_str = self.render_loops_and_conditionals(template_str, page_fm)
+        template_str = self.render_variables(template_str, page_fm)
         return template_str
 
     def build_page(self, src_path, dest_dir, filename="index.html"):
@@ -758,7 +988,20 @@ class PreviewBuilder:
         else:
             page_content = body
             
-        page_fm = {**fm, "content": page_content}
+        # Calculate relative URL
+        rel_path = os.path.relpath(src_path, WORKSPACE)
+        rel_path = rel_path.replace("\\", "/")
+        if rel_path.endswith(".html") or rel_path.endswith(".md"):
+            rel_path = "/" + rel_path.rsplit(".", 1)[0]
+            if rel_path.endswith("index"):
+                rel_path = rel_path[:-5]
+            if not rel_path.endswith("/"):
+                rel_path += "/"
+        else:
+            rel_path = "/"
+            
+        url = self.baseurl + rel_path
+        page_fm = {**fm, "content": page_content, "url": url}
         
         rendered_content = page_content
         current_layout = layout_name
@@ -816,8 +1059,12 @@ class PreviewBuilder:
         self.build_page(os.path.join(WORKSPACE, "about.html"), os.path.join(SITE_DIR, "about"), "index.html")
         self.build_page(os.path.join(WORKSPACE, "events.html"), os.path.join(SITE_DIR, "events"), "index.html")
         self.build_page(os.path.join(WORKSPACE, "scanners", "index.html"), os.path.join(SITE_DIR, "scanners"), "index.html")
-        self.build_page(os.path.join(WORKSPACE, "scanners", "ernie.html"), os.path.join(SITE_DIR, "scanners", "ernie"), "index.html")
-        self.build_page(os.path.join(WORKSPACE, "scanners", "imagine.html"), os.path.join(SITE_DIR, "scanners", "imagine"), "index.html")
+        
+        # Build Scanner standalone pages directly using the collection entries loaded
+        for scanner in self.site_data["scanners"]:
+            name = os.path.basename(scanner["source_path"])
+            slug = os.path.splitext(name)[0]
+            self.build_page(scanner["source_path"], os.path.join(SITE_DIR, "scanners", slug), "index.html")
         
         # Build Component standalone pages directly using the collection entries loaded
         for comp in self.site_data["components"]:

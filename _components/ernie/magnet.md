@@ -1,9 +1,9 @@
 ---
 layout: component
-title: "ERNIE 7-Ring Halbach Magnet"
+title: "ERNIE Halbach Magnet Rings"
 scanner_id: ernie
 category: "magnet"
-description: "The primary B0 field source for the ERNIE scanner: a 7-ring, 50 mT Halbach array optimized for a homogeneous bore field."
+description: "The primary B0 field source for the ERNIE educational scanner: 7 3D-printed rings housing 98 N48 Neodymium magnets in an optimized Halbach geometry."
 video_url: "/ERNIE/Build your own Design/Magnet/Instructions/Animation/Assembly_Animation.mp4"
 downloads:
   - name: "Ring 42 STL"
@@ -14,53 +14,53 @@ downloads:
     path: "/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Ring 288.stl"
   - name: "Ring 321 STL"
     path: "/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Ring 321 (105mm_length).stl"
-  - name: "Ring Spacers STL"
-    path: "/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Ring_spacers.stl"
   - name: "Lid for Ring 42 STL"
     path: "/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Lid_For_Ring_42.stl"
-  - name: "Lid for Ring 321 STL"
-    path: "/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Lid_For_Ring_321.stl"
+  - name: "Lid for Rings 251 and 288 STL"
+    path: "/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Lid_For_Rings 288 and 251.stl"
 bom:
-  - item: "Neodymium Magnets (N48, 12x12x12mm)"
+  - item: "Ring 42 (3D Printed PLA, ~134g each)"
+    qty: 2
+    price: "3D Printed (PLA)"
+  - item: "Ring 251 (3D Printed PLA, ~134g each)"
+    qty: 2
+    price: "3D Printed (PLA)"
+  - item: "Ring 288 (3D Printed PLA, ~134g each)"
+    qty: 2
+    price: "3D Printed (PLA)"
+  - item: "Ring 321 (3D Printed PLA, ~134g)"
+    qty: 1
+    price: "3D Printed (PLA)"
+  - item: "Lids for Ring 42 (~45g PLA each)"
+    qty: 2
+    price: "3D Printed (PLA)"
+  - item: "Lids for Rings 251 & 288 (~45g PLA each)"
+    qty: 4
+    price: "3D Printed (PLA)"
+  - item: "Lid for Ring 321 (~45g PLA)"
+    qty: 1
+    price: "3D Printed (PLA)"
+  - item: "N48 Neodymium Magnets (12x12x12mm, Magfine)"
     qty: 98
-    price: "Approx. $2.50 each"
-    link: "https://www.supermagnete.de/"
-  - item: "M4 Threaded Brass Rods (262mm long)"
-    qty: 8
-    price: "$1.50 each"
-  - item: "M3x8mm Screws (to fasten lids)"
-    qty: 125
-    price: "$5.00 pack"
-  - item: "M4 Hex Nuts (spacing adjustment)"
-    qty: 160
-    price: "$4.00 pack"
-  - item: "M4 Dome Nuts"
-    qty: 16
-    price: "$3.00 pack"
-  - item: "M4 Nylon Washers"
-    qty: 16
-    price: "$2.00 pack"
+    price: "$575.26 CAD"
+    link: "https://www.magfine.ca/products/neodymium-magnet-square-13mm-x-12mm-x-5mm"
+  - item: "Reference Neodymium Magnets (marked polarity)"
+    qty: 4
+    price: "$23.48 CAD"
 assembly_guide: |
-  #### Phase 1: 3D Printing & Prep
-  1. Print the 7 housing rings (Rings 42, 251, 288, 321, etc.) and matching lids.
-  2. Prepare 8 M4 brass rods, cut to exactly 262mm.
-  
-  #### Phase 2: Magnet Insertion
-  1. Carefully slide the 12x12x12mm neodymium magnets into the ring slots.
-  2. **WARNING**: Magnets must be placed in their exact Halbach orientations. Check polarity before locking!
-  3. Secure the lids onto each ring using M3x8mm screws.
-  
-  #### Phase 3: Ring Stacking
-  1. Stack the rings along the 8 brass rods in a mirrored fashion.
-  2. Ring 842 acts as the central ring. Stack the others on either side symmetrically: 842 -> 1 -> 0 -> 10 on one side, and 842 -> 945 -> 1050 -> 10B on the other.
-  3. All rings must face the same direction (magnet-side forward).
-  4. Secure spacer rings in between to establish the correct axial spacing.
+  #### Ring Printing and Magnet Loading
+  1. **3D Printing**: Print the 7 housing rings (Rings 42 x2, Rings 251 x2, Rings 288 x2, Ring 321 x1) and corresponding lids using PLA with 20% infill.
+  2. **Install Heat-Set Inserts**: Press M3 brass heat-set inserts into each ring housing hole.
+  3. **Polarity Marking**: Using a compass and reference magnet, mark the north pole of all 98 NdFeB magnets.
+  4. **Magnet Insertion**: Carefully insert magnets into their slots following the exact rotational angles defined by the genetic algorithm.
+  5. **Cover Fastening**: Fasten the 3D-printed lids over the magnet pockets using M3 brass screws.
 testing_guide: |
-  #### B0 Field Homogeneity Mapping
-  1. Position the assembled magnet array on a flat, non-magnetic surface.
-  2. Assemble the 3-axis Field Mapping Robot and position its Hall probe at the geometric center of the bore.
-  3. Run the mapping script to measure the B0 field.
-  4. Calculate homogeneity (expected: ~50 mT +/- 100 ppm over the target DSV).
-  5. If necessary, insert custom shimming magnets into the shim trays to adjust homogeneity.
+  #### Ring Field Verification
+  1. Measure magnetic field direction of each completed ring with a handheld Hall compass.
+  2. Verify that there are no inverted or misaligned magnets prior to final stacking on the gantry rods.
 ---
-The magnet is the heart of the ERNIE educational scanner. It is a 7-ring Halbach magnet array that produces an ultra-low-field of approximately 50 mT. The design leverages genetic algorithm optimization to define the magnet placements and ring spacings, creating a homogeneous field without the need for complex, heavy electromagnetic coils.
+## Overview
+
+The **ERNIE Halbach Magnet Rings** form the core of the educational scanner. The array consists of 7 modular rings containing 98 permanent neodymium magnet cubes (12×12×12 mm, grade N48).
+
+The angular distribution and axial ring positions were determined using genetic algorithm optimization to yield a 50 mT target field with maximal central uniformity.

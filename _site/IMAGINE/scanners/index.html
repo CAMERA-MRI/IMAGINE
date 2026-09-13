@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}">
+  <title>MRI Scanners & Components</title>
+  <meta name="description" content="Select an open-source MRI scanner design to explore CAD models, parts lists, assembly videos, and testing instructions.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,9 @@
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
+  <!-- Marked.js for Client-Side Markdown Parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
   <!-- Leaflet CSS & JS for Interactive Map (Local Assets) -->
   <link rel="stylesheet" href="/IMAGINE/assets/css/leaflet.css"/>
   <script src="/IMAGINE/assets/js/leaflet.js"></script>
@@ -40,7 +43,7 @@
   <header class="gradient-header-banner">
   <div class="header-logo-container">
     <div class="logo-circle">
-      <i class="fa-solid fa-brain text-gradient"></i>
+      <img src="/IMAGINE/assets/images/partners/camera.png" alt="CAMERA Logo" class="header-logo-img">
     </div>
     <div class="header-titles">
       <h1 class="site-main-title">IMAGINE</h1>
@@ -49,16 +52,16 @@
   </div>
   
   <nav class="pill-navigation-menu">
-    <a href="/IMAGINE/" class="nav-pill-btn {% if page.url == '/' %}active{% endif %}">
+    <a href="/IMAGINE/" class="nav-pill-btn ">
       <i class="fa-solid fa-house"></i> Home
     </a>
-    <a href="/IMAGINE/about/" class="nav-pill-btn {% if page.url contains '/about/' %}active{% endif %}">
+    <a href="/IMAGINE/about/" class="nav-pill-btn ">
       <i class="fa-solid fa-users"></i> About Us
     </a>
-    <a href="/IMAGINE/scanners/" class="nav-pill-btn {% if page.url contains '/scanners/' %}active{% endif %}">
+    <a href="/IMAGINE/scanners/" class="nav-pill-btn active">
       <i class="fa-solid fa-microchip"></i> Scanners
     </a>
-    <a href="/IMAGINE/events/" class="nav-pill-btn {% if page.url contains '/events/' %}active{% endif %}">
+    <a href="/IMAGINE/events/" class="nav-pill-btn ">
       <i class="fa-solid fa-calendar-check"></i> Events
     </a>
   </nav>
@@ -145,7 +148,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Complete README file provided in the repository and individual component pages. <a href="/IMAGINE/scanners/ernie/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Documented in ERNIE/README.md and ERNIE/Build your own Design/readme.md <a href="../../ERNIE/README.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -155,7 +158,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Complete README file provided in the repository and individual component pages. <a href="/IMAGINE/scanners/imagine/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Documented in README.md and Hardware/README.md <a href="../../README.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -172,7 +175,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Optimizations via genetic algorithms are fully documented in the Magnet overview. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Documented in ERNIE/Build your own Design/Magnet/readme.md and Instructions/Optimised design GA/ <a href="../../ERNIE/Build%20your%20own%20Design/Magnet/readme.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -182,7 +185,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Electromagnetic calculations and design considerations are documented in the GPA and control system pages. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Documented in Hardware/Gradients/Gradient_Design.md and Hardware/Halbach Array/Part and build description.md <a href="../../Hardware/Gradients/Gradient_Design.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -205,7 +208,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Complete Bill of Materials for Halbach magnet and gantry parts are embedded in the components. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/#details-ernie-7-ring-halbach-magnet"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Documented in ERNIE/Build your own Design/readme.md and List of parts for (ERNIE 1&2).md <a href="../../ERNIE/Build%20your%20own%20Design/readme.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -215,7 +218,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Bills of Materials for all PCB assemblies and custom components are detailed. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Documented in Hardware/Part list/Bill of Materials.md and Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv <a href="../../Hardware/Part%20list/Bill%20of%20Materials.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -232,7 +235,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Part lists contain quantities, specifications, and direct links to suppliers (e.g. Supermagnete). <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Part lists with suppliers, part numbers, and costs in ERNIE/Build your own Design/List of parts for (ERNIE 1&2).md <a href="../../ERNIE/Build%20your%20own%20Design/List%20of%20parts%20for%20(ERNIE%201%262).md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -242,7 +245,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Tables contain exact manufacturer part numbers, suppliers, quantities, and direct DigiKey purchase links. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Part lists contain exact manufacturer numbers, quantities, and supplier links in Hardware/Part list/Bill of Materials.md <a href="../../Hardware/Part%20list/Bill%20of%20Materials.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -265,7 +268,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Arduino control code and 3D printing geometries (.stl) are hosted directly in the repository. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Arduino robot control code in ERNIE/Build your own Design/Robot/Field Mapping Software/Robot_code/ <a href="../../ERNIE/Build%20your%20own%20Design/Robot/Field%20Mapping%20Software/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -275,7 +278,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Native KiCAD PCB schematic and layout projects, as well as FreeCAD drawings, are hosted in the repository. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Autodesk Inventor part/assembly source files (.ipt, .iam) in Hardware/Halbach Array/ITP Files/ and IAM files/ <a href="../../Hardware/Halbach%20Array/ITP%20Files/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -298,7 +301,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Control scripts are written in C++ (Arduino IDE) and gcode, editable in any open editor. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Field mapping Python and Arduino scripts in ERNIE/Build your own Design/Robot/Field Mapping Software/ <a href="../../ERNIE/Build%20your%20own%20Design/Robot/Field%20Mapping%20Software/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -308,7 +311,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          All PCB designs are in KiCAD, mechanical elements in FreeCAD, and softcore firmware in open C++ (Arduino). <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Open STEP exchange models (.stp) and coordinates provided in Hardware/Halbach Array/STP Files/ and Hardware/Gradients/ <a href="../../Hardware/Halbach%20Array/STP%20Files/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -331,7 +334,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          STL mesh files are available for all 3D printed mechanical brackets, spacer rings, and lids. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          STL print files in ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ <a href="../../ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -341,7 +344,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Gerber fabrication files, drill maps, STL meshes, and STEP files are ready for manufacturing. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Production STL meshes for gradient formers in Hardware/Gradients/CAD/ <a href="../../Hardware/Gradients/CAD/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -358,7 +361,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          FDM 3D printing recommendations (material type, infill, shell count) are defined in the assembly guides. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          FDM print specifications in ERNIE/Build your own Design/Magnet/Instructions/readme.md <a href="../../ERNIE/Build%20your%20own%20Design/Magnet/Instructions/readme.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -368,7 +371,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          PCB stack-up specifications, copper weight, and coil winding guides are fully described. <a href="/IMAGINE/components/gradient-coils-cad-winding/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          3D printing parameters, winding tolerances, and CAD workflow in Hardware/Gradients/Gradient_Design.md <a href="../../Hardware/Gradients/Gradient_Design.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -391,7 +394,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Step-by-step documentation, assembly guides, and demonstration videos are embedded in the system dashboard. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Assembly guide in ERNIE/Build your own Design/Magnet/Instructions/How to build your own scanner.pdf <a href="../../ERNIE/Build%20your%20own%20Design/Magnet/Instructions/readme.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -401,7 +404,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Detailed schematics, PCB silkscreens, component placement guides, and custom board adapter wiring diagrams are provided. <a href="/IMAGINE/components/redpitaya-to-gpa-adapter-board/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Step-by-step mechanical assembly procedure in Hardware/Halbach Array/Part and build description.md <a href="../../Hardware/Halbach%20Array/Part%20and%20build%20description.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -424,7 +427,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Managed under git version control on GitHub for code, models, and docs tracking. <a href="https://github.com/camera-mri/IMAGINE" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Git repository tracking in repository root <a href="../../README.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -434,7 +437,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Controlled using git on GitHub, tracking all schematic updates and firmware revisions. <a href="https://github.com/camera-mri/IMAGINE" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Managed under Git version control in repository tracking all commit revisions <a href="../../README.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -451,7 +454,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Uses public GitHub Issues for bug reports, hardware revisions, and feature requests. <a href="https://github.com/camera-mri/IMAGINE/issues" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          GitHub Issues public tracker for bugs and suggestions <a href="https://github.com/CAMERA-MRI/IMAGINE/issues" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -461,7 +464,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Public issue tracking is available for hardware bugs and software integration tasks. <a href="https://github.com/camera-mri/IMAGINE/issues" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Issue tracker on GitHub repository for tracking bug reports and hardware revisions <a href="https://github.com/CAMERA-MRI/IMAGINE/issues" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -478,7 +481,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Integrated into the CAMERA-MRI community and GitHub discussions forums. <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          CAMERA-MRI open-source imaging community space <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -488,7 +491,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          A shared developer forum and GitHub discussions space are used for technical exchange. <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          CAMERA-MRI open-source initiative and discussion forums <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -511,7 +514,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Hall probe calibration steps and 3-axis stage travel tests are specified. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Multi-site field mapping results in ERNIE/Training sessions/Reproducibility experiment.md <a href="../../ERNIE/Training%20sessions/Reproducibility%20experiment.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -521,7 +524,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Instructions for Red Pitaya board validation, GPA power testing, and coil tuning/matching are detailed. <a href="/IMAGINE/components/rf-coil-tuning-and-matching/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Testing protocols in Hardware/Gradient_Power_Amplifier/README.md and Hardware/Gradients/Gradient_Design.md <a href="../../Hardware/Gradient_Power_Amplifier/README.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -534,8 +537,11 @@
                       </td>
                       <td style="padding: 1rem; text-align: center; border-left: 1px solid var(--color-border); vertical-align: top;">
                         
-                        <span style="color: var(--color-text-light); opacity: 0.6; display: inline-flex; align-items: center; gap: 0.3rem;">
-                          <i class="fa-solid fa-circle-xmark"></i> Pending
+                        <span style="color: var(--color-emerald); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <i class="fa-solid fa-circle-check"></i> Satisfied
+                        </span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
+                          B0 mapping and multi-site verification in ERNIE/Training sessions/Readme.md <a href="../../ERNIE/Training%20sessions/Readme.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -545,7 +551,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Comprehensive hardware verification checklist is available for all electronics modules. <a href="/IMAGINE/components/gpa-fhdo-power-amplifier/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Calibration routines and current sensing validation in Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv <a href="../../Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -568,7 +574,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Operational guides for gantry control and mapping execution are available. <a href="/IMAGINE/components/field-mapping-robot/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Curriculum and training materials in ERNIE/Training sessions/Training material/Readme.md <a href="../../ERNIE/Training%20sessions/Training%20material/Readme.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -578,7 +584,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          System integration and operation manuals are provided. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Scanner integration instructions documented in Hardware/README.md <a href="../../Hardware/README.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -595,7 +601,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          NdFeB strong magnetic field and pinching safety warnings are clearly labeled in the magnet overview. <a href="/IMAGINE/components/ernie-7-ring-halbach-magnet/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Safety surveys and magnet handling protocols in ERNIE/Training sessions/Training related surveys/Safety survey.pdf <a href="../../ERNIE/Training%20sessions/Training%20related%20surveys/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -605,7 +611,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          High voltage and RF power warning labels and safety protocols are prominent. <a href="/IMAGINE/components/gpa-fhdo-power-amplifier/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Magnetic hazard warnings and non-magnetic assembly protocols in Hardware/Halbach Array/Part and build description.md <a href="../../Hardware/Halbach%20Array/Part%20and%20build%20description.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -622,7 +628,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Successfully replicated at several partner sites in South Africa and Uganda. <a href="/IMAGINE/about/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Replicated across 6 sites (ESMRMB, The Neuro, Polytechnique, MGH, Douglas, ISMRM) in ERNIE/Training sessions/Reproducibility experiment.md <a href="../../ERNIE/Training%20sessions/Reproducibility%20experiment.md"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -632,7 +638,7 @@
                           <i class="fa-solid fa-circle-check"></i> Satisfied
                         </span>
                         <span style="display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 0.3rem;">
-                          Replicated and successfully tested at several university laboratories globally. <a href="/IMAGINE/about/"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
+                          Documented in about.html and global partner institutions map <a href="../../about.html"  style="text-decoration: underline; font-weight: 600;">[Link]</a>
                         </span>
                         
                       </td>
@@ -693,6 +699,18 @@
     </div>
   </div>
 </footer>
+
+<!-- Bottom Floating Banner (Site Under Construction) -->
+<div class="under-construction-banner" id="under-construction-bar">
+  <div class="construction-content">
+    <i class="fa-solid fa-person-digging construction-icon"></i>
+    <span><strong>Notice:</strong> This website is currently under active construction and development. Some details, specifications, and CAD files may be updated or modified as work progresses.</span>
+  </div>
+  <button class="construction-dismiss-btn" onclick="document.getElementById('under-construction-bar').style.display='none'" aria-label="Dismiss banner">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+</div>
+
 
 
   <!-- Scripts -->

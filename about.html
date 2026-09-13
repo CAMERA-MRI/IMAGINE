@@ -401,23 +401,18 @@ description: "Meet the researchers, developers, and supporting institutions behi
     });
     map.addLayer(markerClusterGroup);
 
-    const lightTileUrl = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
-    const darkTileUrl = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
-    const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
+    const osmTileUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+    const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors';
 
     let currentTileLayer = null;
 
     function setMapTheme(theme) {
-      if (currentTileLayer) {
-        map.removeLayer(currentTileLayer);
+      if (!currentTileLayer) {
+        currentTileLayer = L.tileLayer(osmTileUrl, {
+          attribution: attribution,
+          maxZoom: 19
+        }).addTo(map);
       }
-      
-      const url = theme === 'dark' ? darkTileUrl : lightTileUrl;
-      currentTileLayer = L.tileLayer(url, {
-        attribution: attribution,
-        subdomains: 'abcd',
-        maxZoom: 20
-      }).addTo(map);
 
       const mapContainer = document.getElementById("institutions-map");
       mapContainer.setAttribute("data-theme", theme);

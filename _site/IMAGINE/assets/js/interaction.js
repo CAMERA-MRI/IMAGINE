@@ -7,8 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // 1. Initial State Setup
   initializeDashboard();
+  parseMarkdownClientSide();
 
-  // 2. Subsystem Selector Event Listeners (Control / Gradients / RF / etc.)
+  // 2. Subsystem Selector Event Listeners (Control / Gradients / RF / Magnet / Robot)
   const subsystemBtns = document.querySelectorAll(".subsystem-tab-btn");
   subsystemBtns.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -27,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
         targetSchematic.classList.add("active");
       }
 
-      // Automatically select the first component of this subsystem in the list
-      selectFirstComponentInSubsystem(targetSubsystem);
+      // Filter the component list in the sidebar and activate the first one
+      filterSidebarBySubsystem(targetSubsystem);
     });
   });
 
@@ -37,7 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
   svgNodes.forEach(node => {
     node.addEventListener("click", () => {
       const componentId = node.getAttribute("data-component-id");
-      activateComponent(componentId);
+      if (componentId) {
+        activateComponent(componentId);
+      }
     });
   });
 
@@ -46,7 +49,9 @@ document.addEventListener("DOMContentLoaded", function() {
   sidebarBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       const componentId = btn.getAttribute("data-component-id");
-      activateComponent(componentId);
+      if (componentId) {
+        activateComponent(componentId);
+      }
     });
   });
 
@@ -58,14 +63,12 @@ document.addEventListener("DOMContentLoaded", function() {
       const parentView = btn.closest(".component-detail-view");
       
       if (parentView) {
-        // Deactivate all tab buttons and sheet content within this specific view
         const btns = parentView.querySelectorAll(".section-tab-btn");
         btns.forEach(b => b.classList.remove("active"));
         
         const sheets = parentView.querySelectorAll(".tab-sheet-content");
         sheets.forEach(s => s.classList.remove("active"));
         
-        // Activate current tab button and sheet
         btn.classList.add("active");
         const activeSheet = parentView.querySelector(`.tab-sheet-content[data-section="${section}"]`);
         if (activeSheet) {
@@ -79,50 +82,52 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /**
  * Initialize Dashboard state.
- * Selects the first available component to display on load.
+ * Selects the first available subsystem and filters components.
  */
 function initializeDashboard() {
   const activeSubBtn = document.querySelector(".subsystem-tab-btn.active");
   if (activeSubBtn) {
     const activeSub = activeSubBtn.getAttribute("data-subsystem");
-    selectFirstComponentInSubsystem(activeSub);
+    filterSidebarBySubsystem(activeSub);
   }
 }
 
 /**
- * Find the first component in a given subsystem and activate it.
+ * Filter sidebar buttons dynamically by the active subsystem.
  */
-function selectFirstComponentInSubsystem(subsystemId) {
-  if (subsystemId === "magnet") {
-    activateComponent("ernie-7-ring-halbach-magnet");
-    return;
-  }
-  if (subsystemId === "robot") {
-    activateComponent("field-mapping-robot");
-    return;
-  }
+function filterSidebarBySubsystem(targetSubsystem) {
+  const sidebarBtns = document.querySelectorAll(".sidebar-node-btn");
+  let firstVisibleBtn = null;
 
-  // Find first sidebar button matching this subsystem
-  const firstBtn = document.querySelector(`.sidebar-node-btn[data-subsystem="${subsystemId}"]`);
-  if (firstBtn) {
-    const componentId = firstBtn.getAttribute("data-component-id");
+  sidebarBtns.forEach(btn => {
+    const btnSub = btn.getAttribute("data-subsystem");
+    if (!targetSubsystem || btnSub === targetSubsystem) {
+      btn.style.display = "";
+      if (!firstVisibleBtn) {
+        firstVisibleBtn = btn;
+      }
+    } else {
+      btn.style.display = "none";
+    }
+  });
+
+  if (firstVisibleBtn) {
+    const componentId = firstVisibleBtn.getAttribute("data-component-id");
     activateComponent(componentId);
   }
 }
 
 /**
- * Activate a component across the entire dashboard:
- * - Highlights the SVG node (matching data-component-id)
- * - Highlights the Sidebar button (matching data-component-id)
- * - Shows the documentation detail panel (matching id = details-{component-id})
+ * Activate a component across the entire dashboard.
  */
 function activateComponent(componentId) {
+  if (!componentId) return;
+
   // 1. Update SVG Nodes
   const svgNodes = document.querySelectorAll(".interactive-node");
   svgNodes.forEach(node => {
     if (node.getAttribute("data-component-id") === componentId) {
       node.classList.add("active");
-      // If there's an internal rect shape inside the node group, style it
       const rect = node.querySelector(".node-rect");
       if (rect) {
         rect.style.stroke = "var(--color-gold)";
@@ -153,8 +158,6 @@ function activateComponent(componentId) {
   detailPanels.forEach(panel => {
     if (panel.id === `details-${componentId}`) {
       panel.classList.add("active");
-      
-      // Auto-reset tabs within the newly activated panel to 'Overview'
       const firstTab = panel.querySelector(".section-tab-btn[data-section='overview']");
       if (firstTab) {
         firstTab.click();
@@ -167,7 +170,6 @@ function activateComponent(componentId) {
 
 /**
  * Interactive BOM search filter function.
- * Triggered onkeyup in the BOM search box.
  */
 function filterBomTable(inputElement) {
   const filterText = inputElement.value.toLowerCase();
@@ -186,5 +188,64 @@ function filterBomTable(inputElement) {
         }
       }
     });
+  }
+}
+
+/**
+ * Client-Side Markdown Parser
+ */
+function parseMarkdownClientSide() {
+  if (typeof marked === 'undefined') {
+    return;
+  }
+
+  const targets = document.querySelectorAll(
+    ".markdown-guide-content, .guide-steps-list, .sheet-article, .markdown-content, .component-subtitle-desc, .detail-short-desc, .page-subtitle"
+  );
+
+  targets.forEach(el => {
+    if (el.dataset.markdownParsed === "true") return;
+    
+    let rawText = el.innerHTML.trim();
+    if (!rawText) return;
+
+    const hasMarkdown = /#{1,6}\s|[*\-_`\[\]]/.test(rawText) || rawText.includes("$$") || rawText.includes("$");
+    
+    if (hasMarkdown) {
+      const mathBlocks = [];
+      
+      rawText = rawText.replace(/\$\$([\s\S]*?)\$\$/g, (match) => {
+        mathBlocks.push(match);
+        return `__MATH_PLACEHOLDER_${mathBlocks.length - 1}__`;
+      });
+      
+      rawText = rawText.replace(/\$([^\$\n]+?)\$/g, (match) => {
+        mathBlocks.push(match);
+        return `__MATH_PLACEHOLDER_${mathBlocks.length - 1}__`;
+      });
+
+      rawText = rawText.replace(/\\\(([\s\S]*?)\\\)/g, (match) => {
+        mathBlocks.push(match);
+        return `__MATH_PLACEHOLDER_${mathBlocks.length - 1}__`;
+      });
+
+      rawText = rawText.replace(/\\\[([\s\S]*?)\\\]/g, (match) => {
+        mathBlocks.push(match);
+        return `__MATH_PLACEHOLDER_${mathBlocks.length - 1}__`;
+      });
+
+      let htmlContent = marked.parse(rawText);
+
+      htmlContent = htmlContent.replace(/__MATH_PLACEHOLDER_(\d+)__/g, (match, index) => {
+        return mathBlocks[parseInt(index)];
+      });
+
+      el.innerHTML = htmlContent;
+      el.dataset.markdownParsed = "true";
+    }
+  });
+
+  if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+    MathJax.typesetPromise();
   }
 }

@@ -1,12 +1,12 @@
+# Overview
+
 <p style="text-align: justify;">
  
 <p align="left"> The Kit includes the IMAGINE Field Mapping Robot. For detailed description on parts and assembly of the robot, <b> refer to </b>:
  
 1. How-to-Video: [Video Link](https://github.com/CAMERA-MRI/IMAGINE/tree/main/ERNIE/Build%20your%20own%20Design/Robot/Robot%20introductory%20video)
-2. Parts and Assembly Guide Repository: https://github.com/SipanHovsep/Field_mapper_robot 
-3. Field Mapping Software: 
- a) Installation guide and codes (AlphaLab): 
- b) Installation guide and codes (Metrolab): 
+2. Parts and Assembly Guide Repository:   [Repo](https://github.com/SipanHovsep/Field_mapper_robot)
+3. [🤖 Robot Field Mapping Software](https://github.com/CAMERA-MRI/IMAGINE/tree/main/ERNIE/Build%20your%20own%20Design/Robot/Field%20Mapping%20Software)
  
 <p align="center"> <img width="624" height="311" alt="robot t" src="https://github.com/user-attachments/assets/2f99bd10-c2ce-4600-a0f0-4ecded089762" /> </p>
 </p>

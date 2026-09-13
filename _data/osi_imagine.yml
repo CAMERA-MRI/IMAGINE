@@ -2,93 +2,93 @@
   items:
     - name: "README File Available"
       satisfied: true
-      evidence: "Complete README file provided in the repository and individual component pages."
-      location: "/scanners/imagine/"
+      evidence: "Documented in README.md and Hardware/README.md"
+      location: "../../README.md"
     - name: "Design Considerations Explained"
       satisfied: true
-      evidence: "Electromagnetic calculations and design considerations are documented in the GPA and control system pages."
-      location: "/components/marcos-control-system/"
+      evidence: "Documented in Hardware/Gradients/Gradient_Design.md and Hardware/Halbach Array/Part and build description.md"
+      location: "../../Hardware/Gradients/Gradient_Design.md"
 
 - category: "Bill of Materials"
   items:
     - name: "BoM Provided"
       satisfied: true
-      evidence: "Bills of Materials for all PCB assemblies and custom components are detailed."
-      location: "/components/marcos-control-system/"
+      evidence: "Documented in Hardware/Part list/Bill of Materials.md and Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv"
+      location: "../../Hardware/Part%20list/Bill%20of%20Materials.md"
     - name: "BoM Best Practices Compliant"
       satisfied: true
-      evidence: "Tables contain exact manufacturer part numbers, suppliers, quantities, and direct DigiKey purchase links."
-      location: "/components/marcos-control-system/"
+      evidence: "Part lists contain exact manufacturer numbers, quantities, and supplier links in Hardware/Part list/Bill of Materials.md"
+      location: "../../Hardware/Part%20list/Bill%20of%20Materials.md"
 
 - category: "Source Files"
   items:
     - name: "Native Source Files Available"
       satisfied: true
-      evidence: "Native KiCAD PCB schematic and layout projects, as well as FreeCAD drawings, are hosted in the repository."
-      location: "/components/marcos-control-system/"
+      evidence: "Autodesk Inventor part/assembly source files (.ipt, .iam) in Hardware/Halbach Array/ITP Files/ and IAM files/"
+      location: "../../Hardware/Halbach%20Array/ITP%20Files/"
 
 - category: "Status of Freedom"
   items:
     - name: "Editable with Open-Source Software"
       satisfied: true
-      evidence: "All PCB designs are in KiCAD, mechanical elements in FreeCAD, and softcore firmware in open C++ (Arduino)."
-      location: "/components/marcos-control-system/"
+      evidence: "Open STEP exchange models (.stp) and coordinates provided in Hardware/Halbach Array/STP Files/ and Hardware/Gradients/"
+      location: "../../Hardware/Halbach%20Array/STP%20Files/"
 
 - category: "Production Files"
   items:
     - name: "Accessible Exports Available"
       satisfied: true
-      evidence: "Gerber fabrication files, drill maps, STL meshes, and STEP files are ready for manufacturing."
-      location: "/components/marcos-control-system/"
+      evidence: "Production STL meshes for gradient formers in Hardware/Gradients/CAD/"
+      location: "../../Hardware/Gradients/CAD/"
     - name: "Manufacturing Environment Defined"
       satisfied: true
-      evidence: "PCB stack-up specifications, copper weight, and coil winding guides are fully described."
-      location: "/components/gradient-coils-cad-winding/"
+      evidence: "3D printing parameters, winding tolerances, and CAD workflow in Hardware/Gradients/Gradient_Design.md"
+      location: "../../Hardware/Gradients/Gradient_Design.md"
 
 - category: "Assembly"
   items:
     - name: "Assembly Guidance"
       satisfied: true
-      evidence: "Detailed schematics, PCB silkscreens, component placement guides, and custom board adapter wiring diagrams are provided."
-      location: "/components/redpitaya-to-gpa-adapter-board/"
+      evidence: "Step-by-step mechanical assembly procedure in Hardware/Halbach Array/Part and build description.md"
+      location: "../../Hardware/Halbach%20Array/Part%20and%20build%20description.md"
 
 - category: "Development Tracking"
   items:
     - name: "Versioning Scheme Implemented"
       satisfied: true
-      evidence: "Controlled using git on GitHub, tracking all schematic updates and firmware revisions."
-      location: "https://github.com/camera-mri/IMAGINE"
+      evidence: "Managed under Git version control in repository tracking all commit revisions"
+      location: "../../README.md"
     - name: "Public Issue Tracking"
       satisfied: true
-      evidence: "Public issue tracking is available for hardware bugs and software integration tasks."
-      location: "https://github.com/camera-mri/IMAGINE/issues"
+      evidence: "Issue tracker on GitHub repository for tracking bug reports and hardware revisions"
+      location: "https://github.com/CAMERA-MRI/IMAGINE/issues"
     - name: "Public Communication Space"
       satisfied: true
-      evidence: "A shared developer forum and GitHub discussions space are used for technical exchange."
+      evidence: "CAMERA-MRI open-source initiative and discussion forums"
       location: "https://www.camera-mri.org"
 
 - category: "Testing"
   items:
     - name: "Testing Routines Available"
       satisfied: true
-      evidence: "Instructions for Red Pitaya board validation, GPA power testing, and coil tuning/matching are detailed."
-      location: "/components/rf-coil-tuning-and-matching/"
+      evidence: "Testing protocols in Hardware/Gradient_Power_Amplifier/README.md and Hardware/Gradients/Gradient_Design.md"
+      location: "../../Hardware/Gradient_Power_Amplifier/README.md"
     - name: "Testing Routines Complete"
       satisfied: true
-      evidence: "Comprehensive hardware verification checklist is available for all electronics modules."
-      location: "/components/gpa-fhdo-power-amplifier/"
+      evidence: "Calibration routines and current sensing validation in Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv"
+      location: "../../Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv"
 
 - category: "Use"
   items:
     - name: "User Manual Available"
       satisfied: true
-      evidence: "System integration and operation manuals are provided."
-      location: "/components/marcos-control-system/"
+      evidence: "Scanner integration instructions documented in Hardware/README.md"
+      location: "../../Hardware/README.md"
     - name: "Risk Assessment & Safety Notice"
       satisfied: true
-      evidence: "High voltage and RF power warning labels and safety protocols are prominent."
-      location: "/components/gpa-fhdo-power-amplifier/"
+      evidence: "Magnetic hazard warnings and non-magnetic assembly protocols in Hardware/Halbach Array/Part and build description.md"
+      location: "../../Hardware/Halbach%20Array/Part%20and%20build%20description.md"
     - name: "Replication History Documented"
       satisfied: true
-      evidence: "Replicated and successfully tested at several university laboratories globally."
-      location: "/about/"
+      evidence: "Documented in about.html and global partner institutions map"
+      location: "../../about.html"

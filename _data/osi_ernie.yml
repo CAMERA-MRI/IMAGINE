@@ -2,93 +2,93 @@
   items:
     - name: "README File Available"
       satisfied: true
-      evidence: "Complete README file provided in the repository and individual component pages."
-      location: "/scanners/ernie/"
+      evidence: "Documented in ERNIE/README.md and ERNIE/Build your own Design/readme.md"
+      location: "../../ERNIE/README.md"
     - name: "Design Considerations Explained"
       satisfied: true
-      evidence: "Optimizations via genetic algorithms are fully documented in the Magnet overview."
-      location: "/components/ernie-7-ring-halbach-magnet/"
+      evidence: "Documented in ERNIE/Build your own Design/Magnet/readme.md and Instructions/Optimised design GA/"
+      location: "../../ERNIE/Build%20your%20own%20Design/Magnet/readme.md"
 
 - category: "Bill of Materials"
   items:
     - name: "BoM Provided"
       satisfied: true
-      evidence: "Complete Bill of Materials for Halbach magnet and gantry parts are embedded in the components."
-      location: "/components/ernie-7-ring-halbach-magnet/#details-ernie-7-ring-halbach-magnet"
+      evidence: "Documented in ERNIE/Build your own Design/readme.md and List of parts for (ERNIE 1&2).md"
+      location: "../../ERNIE/Build%20your%20own%20Design/readme.md"
     - name: "BoM Best Practices Compliant"
       satisfied: true
-      evidence: "Part lists contain quantities, specifications, and direct links to suppliers (e.g. Supermagnete)."
-      location: "/components/ernie-7-ring-halbach-magnet/"
+      evidence: "Part lists with suppliers, part numbers, and costs in ERNIE/Build your own Design/List of parts for (ERNIE 1&2).md"
+      location: "../../ERNIE/Build%20your%20own%20Design/List%20of%20parts%20for%20(ERNIE%201%262).md"
 
 - category: "Source Files"
   items:
     - name: "Native Source Files Available"
       satisfied: true
-      evidence: "Arduino control code and 3D printing geometries (.stl) are hosted directly in the repository."
-      location: "/components/field-mapping-robot/"
+      evidence: "Arduino robot control code in ERNIE/Build your own Design/Robot/Field Mapping Software/Robot_code/"
+      location: "../../ERNIE/Build%20your%20own%20Design/Robot/Field%20Mapping%20Software/"
 
 - category: "Status of Freedom"
   items:
     - name: "Editable with Open-Source Software"
       satisfied: true
-      evidence: "Control scripts are written in C++ (Arduino IDE) and gcode, editable in any open editor."
-      location: "/components/field-mapping-robot/"
+      evidence: "Field mapping Python and Arduino scripts in ERNIE/Build your own Design/Robot/Field Mapping Software/"
+      location: "../../ERNIE/Build%20your%20own%20Design/Robot/Field%20Mapping%20Software/"
 
 - category: "Production Files"
   items:
     - name: "Accessible Exports Available"
       satisfied: true
-      evidence: "STL mesh files are available for all 3D printed mechanical brackets, spacer rings, and lids."
-      location: "/components/ernie-7-ring-halbach-magnet/"
+      evidence: "STL print files in ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/"
+      location: "../../ERNIE/Build%20your%20own%20Design/Magnet/Scanner%20parts%20for%203D%20printing/"
     - name: "Manufacturing Environment Defined"
       satisfied: true
-      evidence: "FDM 3D printing recommendations (material type, infill, shell count) are defined in the assembly guides."
-      location: "/components/ernie-7-ring-halbach-magnet/"
+      evidence: "FDM print specifications in ERNIE/Build your own Design/Magnet/Instructions/readme.md"
+      location: "../../ERNIE/Build%20your%20own%20Design/Magnet/Instructions/readme.md"
 
 - category: "Assembly"
   items:
     - name: "Assembly Guidance"
       satisfied: true
-      evidence: "Step-by-step documentation, assembly guides, and demonstration videos are embedded in the system dashboard."
-      location: "/components/ernie-7-ring-halbach-magnet/"
+      evidence: "Assembly guide in ERNIE/Build your own Design/Magnet/Instructions/How to build your own scanner.pdf"
+      location: "../../ERNIE/Build%20your%20own%20Design/Magnet/Instructions/readme.md"
 
 - category: "Development Tracking"
   items:
     - name: "Versioning Scheme Implemented"
       satisfied: true
-      evidence: "Managed under git version control on GitHub for code, models, and docs tracking."
-      location: "https://github.com/camera-mri/IMAGINE"
+      evidence: "Git repository tracking in repository root"
+      location: "../../README.md"
     - name: "Public Issue Tracking"
       satisfied: true
-      evidence: "Uses public GitHub Issues for bug reports, hardware revisions, and feature requests."
-      location: "https://github.com/camera-mri/IMAGINE/issues"
+      evidence: "GitHub Issues public tracker for bugs and suggestions"
+      location: "https://github.com/CAMERA-MRI/IMAGINE/issues"
     - name: "Public Communication Space"
       satisfied: true
-      evidence: "Integrated into the CAMERA-MRI community and GitHub discussions forums."
+      evidence: "CAMERA-MRI open-source imaging community space"
       location: "https://www.camera-mri.org"
 
 - category: "Testing"
   items:
     - name: "Testing Routines Available"
       satisfied: true
-      evidence: "Hall probe calibration steps and 3-axis stage travel tests are specified."
-      location: "/components/field-mapping-robot/"
+      evidence: "Multi-site field mapping results in ERNIE/Training sessions/Reproducibility experiment.md"
+      location: "../../ERNIE/Training%20sessions/Reproducibility%20experiment.md"
     - name: "Testing Routines Complete"
-      satisfied: false
-      evidence: "Advanced field mapping verification algorithms are still under active development."
-      location: "/components/field-mapping-robot/"
+      satisfied: true
+      evidence: "B0 mapping and multi-site verification in ERNIE/Training sessions/Readme.md"
+      location: "../../ERNIE/Training%20sessions/Readme.md"
 
 - category: "Use"
   items:
     - name: "User Manual Available"
       satisfied: true
-      evidence: "Operational guides for gantry control and mapping execution are available."
-      location: "/components/field-mapping-robot/"
+      evidence: "Curriculum and training materials in ERNIE/Training sessions/Training material/Readme.md"
+      location: "../../ERNIE/Training%20sessions/Training%20material/Readme.md"
     - name: "Risk Assessment & Safety Notice"
       satisfied: true
-      evidence: "NdFeB strong magnetic field and pinching safety warnings are clearly labeled in the magnet overview."
-      location: "/components/ernie-7-ring-halbach-magnet/"
+      evidence: "Safety surveys and magnet handling protocols in ERNIE/Training sessions/Training related surveys/Safety survey.pdf"
+      location: "../../ERNIE/Training%20sessions/Training%20related%20surveys/"
     - name: "Replication History Documented"
       satisfied: true
-      evidence: "Successfully replicated at several partner sites in South Africa and Uganda."
-      location: "/about/"
+      evidence: "Replicated across 6 sites (ESMRMB, The Neuro, Polytechnique, MGH, Douglas, ISMRM) in ERNIE/Training sessions/Reproducibility experiment.md"
+      location: "../../ERNIE/Training%20sessions/Reproducibility%20experiment.md"

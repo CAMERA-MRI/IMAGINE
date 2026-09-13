@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ERNIE Shimming & Disassembly System</title>
+  <meta name="description" content="Passive shimming trays and safety disassembly tooling for the ERNIE educational scanner.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <!-- MathJax for LaTeX Equations -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <!-- Marked.js for Client-Side Markdown Parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+  <!-- Leaflet CSS & JS for Interactive Map (Local Assets) -->
+  <link rel="stylesheet" href="/IMAGINE/assets/css/leaflet.css"/>
+  <script src="/IMAGINE/assets/js/leaflet.js"></script>
+  <link rel="stylesheet" href="/IMAGINE/assets/css/MarkerCluster.css"/>
+  <link rel="stylesheet" href="/IMAGINE/assets/css/MarkerCluster.Default.css"/>
+  <script src="/IMAGINE/assets/js/leaflet.markercluster.js"></script>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/IMAGINE/assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation & Header Header -->
+  <header class="gradient-header-banner">
+  <div class="header-logo-container">
+    <div class="logo-circle">
+      <img src="/IMAGINE/assets/images/partners/camera.png" alt="CAMERA Logo" class="header-logo-img">
+    </div>
+    <div class="header-titles">
+      <h1 class="site-main-title">IMAGINE</h1>
+      <span class="site-tagline-text">Imaging Without Borders</span>
+    </div>
+  </div>
+  
+  <nav class="pill-navigation-menu">
+    <a href="/IMAGINE/" class="nav-pill-btn ">
+      <i class="fa-solid fa-house"></i> Home
+    </a>
+    <a href="/IMAGINE/about/" class="nav-pill-btn ">
+      <i class="fa-solid fa-users"></i> About Us
+    </a>
+    <a href="/IMAGINE/scanners/" class="nav-pill-btn ">
+      <i class="fa-solid fa-microchip"></i> Scanners
+    </a>
+    <a href="/IMAGINE/events/" class="nav-pill-btn ">
+      <i class="fa-solid fa-calendar-check"></i> Events
+    </a>
+  </nav>
+</header>
+
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+    {% assign scanner = site.scanners | where: "scanner_id", page.scanner_id | first %}
+
+<div class="component-page-container">
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-nav">
+    <a href="/IMAGINE/"><i class="fa-solid fa-house"></i> Home</a> &gt; 
+    <a href="/IMAGINE/scanners/">Scanners</a> &gt; 
+    
+    <span class="active-breadcrumb">ERNIE Shimming & Disassembly System</span>
+  </div>
+
+  <div class="component-header-section">
+    <span class="component-tag">MAGNET COMPONENT</span>
+    <h1 class="component-main-title">ERNIE Shimming & Disassembly System</h1>
+    <p class="component-subtitle-desc">Passive shimming trays and safety disassembly tooling for the ERNIE educational scanner.</p>
+  </div>
+
+  <div class="component-grid-layout">
+    
+    <!-- Left Column: Guidelines, Assembly and Testing -->
+    <div class="component-docs-main">
+      
+      <!-- Overview Card -->
+      <section class="docs-section-card">
+        <h2 class="section-card-title"><i class="fa-solid fa-circle-info"></i> Component Overview</h2>
+        <div class="section-card-body">
+          <h2>Overview</h2>
+<p>The <strong>Shimming &amp; Disassembly System</strong> provides passive field correction trays and specialized non-magnetic tooling for safe hands-on disassembly during educational workshops.</p>
+        </div>
+      </section>
+
+      <!-- Assembly Card -->
+      <section class="docs-section-card">
+        <h2 class="section-card-title"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly Instructions</h2>
+        <div class="section-card-body">
+          
+          
+          <div class="markdown-guide-content">
+            <h4>Disassembly &amp; Safe Handling</h4>
+<ol>
+<li>Assemble the 3D-printed Disassembly Tray with M3 heat-set inserts.</li>
+<li>When extracting magnets, sharpen the wooden chopstick ouster to safely push magnets from their pockets into the covered tray.</li>
+<li>Never use ferromagnetic tools near the magnet rings.</li>
+</ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testing Card -->
+      <section class="docs-section-card">
+        <h2 class="section-card-title"><i class="fa-solid fa-flask"></i> Testing & Calibration Procedures</h2>
+        <div class="section-card-body">
+          <div class="markdown-guide-content">
+            <h4>Safety Inspection</h4>
+<ol>
+<li>Check that all magnet pockets in the storage tray are properly isolated to prevent mutual attraction accidents.</li>
+</ol>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Right Column: BOM & Downloads -->
+    <div class="component-docs-sidebar">
+      
+      <!-- BOM Card -->
+      
+        <section class="docs-section-card sidebar-card">
+          <h2 class="section-card-title"><i class="fa-solid fa-list-check"></i> Bill of Materials</h2>
+          <div class="section-card-body">
+            
+<div class="bom-table-wrapper">
+  <!-- Search/Filter Bar for BOM -->
+  <div class="bom-search-box">
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+  </div>
+
+  <table class="bom-table">
+    <thead>
+      <tr>
+        <th>Part Name / Description</th>
+        <th>Qty</th>
+        <th>Price (Est.)</th>
+        <th>Source / Purchase Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td class="part-name"><strong>Magnet Ouster (Wooden Chopsticks)</strong></td>
+          <td class="part-qty">1</td>
+          <td class="part-price">$11.54 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>3D Printed Disassembly Tray (PLA)</strong></td>
+          <td class="part-qty">1</td>
+          <td class="part-price">3D Printed (PLA)</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>3D Printed Disassembly Tray Cover (PLA)</strong></td>
+          <td class="part-qty">1</td>
+          <td class="part-price">3D Printed (PLA)</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>Spare N48 Neodymium Magnets</strong></td>
+          <td class="part-qty">10</td>
+          <td class="part-price">$58.70 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="part-name"><strong>M3 Non-magnetic Brass Screws & Inserts</strong></td>
+          <td class="part-qty">9</td>
+          <td class="part-price">$12.00 CAD</td>
+          <td class="part-link">
+            
+              <span class="no-link-badge">Local/Custom</span>
+            
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+          </div>
+        </section>
+      
+
+      <!-- Downloads Card -->
+      
+        <section class="docs-section-card sidebar-card">
+          <h2 class="section-card-title"><i class="fa-solid fa-file-download"></i> Design Files</h2>
+          <div class="section-card-body">
+            <div class="download-links-grid vertical-grid">
+              
+                <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner disassembly/Disassembly Tray.stl" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Disassembly Tray STL</span>
+                    <span class="file-ext">/ERNIE/BUILD YOUR OWN DESIGN/MAGNET/SCANNER DISASSEMBLY/DISASSEMBLY TRAY.STL File</span>
+                  </div>
+                </a>
+              
+                <a href="/IMAGINE/ERNIE/Build your own Design/Magnet/Scanner disassembly/Disassembly Tray_Cover.stl" download class="download-card">
+                  <div class="download-card-icon">
+                    
+                      <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                    
+                  </div>
+                  <div class="download-card-info">
+                    <span class="file-title">Disassembly Tray Cover STL</span>
+                    <span class="file-ext">/ERNIE/BUILD YOUR OWN DESIGN/MAGNET/SCANNER DISASSEMBLY/DISASSEMBLY TRAY_COVER.STL File</span>
+                  </div>
+                </a>
+              
+            </div>
+          </div>
+        </section>
+      
+
+    </div>
+
+  </div>
+</div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-main-footer">
+  <div class="footer-sections-grid">
+    
+    <!-- Left Column: Mission -->
+    <div class="footer-col-desc">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-earth-africa"></i> IMAGINE Project</h3>
+      <p class="footer-para-text">
+        An open-source preclinical MRI initiative of the Consortium for Advancement of MRI Education and Research in Africa (CAMERA). Sustaining diagnostic health equity globally.
+      </p>
+      <div class="social-links-row">
+        <a href="https://www.linkedin.com/company/consortium-for-advancement-of-mri-education-research-in-africa/" target="_blank" class="social-icon-btn linkedin-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://x.com/CAMERAAfrica" target="_blank" class="social-icon-btn x-btn" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://bsky.app/profile/cameramriafrica.bsky.social" target="_blank" class="social-icon-btn bluesky-btn" title="BlueSky"><i class="fa-brands fa-bluesky"></i></a>
+        <a href="https://chat.whatsapp.com/BagIlZGHwfWHFJYnzpZkLB" target="_blank" class="social-icon-btn whatsapp-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@CAMERAAfrica" target="_blank" class="social-icon-btn youtube-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Center Column: Standards & Licensing -->
+    <div class="footer-col-licensing">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-scale-balanced"></i> Open Science Compliance</h3>
+      <p class="footer-para-text">
+        All hardware files are released under open-source hardware licenses. This project is developed to satisfy the requirements of the <strong>Open Source Imaging Initiative (OSI²)</strong>.
+      </p>
+    </div>
+
+    <!-- Right Column: Navigation and Quick links -->
+    <div class="footer-col-nav">
+      <h3 class="footer-title-h3"><i class="fa-solid fa-link"></i> Navigation</h3>
+      <ul class="footer-links-list">
+        <li><a href="/IMAGINE/">Home</a></li>
+        <li><a href="/IMAGINE/about/">About Us & Team</a></li>
+        <li><a href="/IMAGINE/scanners/">Scanner Resources</a></li>
+        <li><a href="/IMAGINE/events/">Workshops & Events</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom-bar">
+    <div class="bottom-bar-content">
+      <span class="copyright-span">© 2026 CAMERA-MRI Consortium. Released under CERN OHL-W v2 / CC BY-SA 4.0.</span>
+      <span class="terms-span"><a href="#">Terms & Conditions</a> | <a href="https://www.opensourceimaging.org/" target="_blank">OSI² Portal</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Bottom Floating Banner (Site Under Construction) -->
+<div class="under-construction-banner" id="under-construction-bar">
+  <div class="construction-content">
+    <i class="fa-solid fa-person-digging construction-icon"></i>
+    <span><strong>Notice:</strong> This website is currently under active construction and development. Some details, specifications, and CAD files may be updated or modified as work progresses.</span>
+  </div>
+  <button class="construction-dismiss-btn" onclick="document.getElementById('under-construction-bar').style.display='none'" aria-label="Dismiss banner">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+</div>
+
+
+
+  <!-- Scripts -->
+  <script src="/IMAGINE/assets/js/interaction.js"></script>
+</body>
+</html>

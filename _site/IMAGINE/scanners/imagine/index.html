@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}">
+  <title>IMAGINE Preclinical Scanner</title>
+  <meta name="description" content="The main IMAGINE scanner is an open-source, ultra-low-field (50 mT) preclinical MRI scanner designed for rodent and sample imaging. It implements modular, affordable electronics, custom gradient amplifiers, and a solenoid RF coil.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,9 @@
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
+  <!-- Marked.js for Client-Side Markdown Parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
   <!-- Leaflet CSS & JS for Interactive Map (Local Assets) -->
   <link rel="stylesheet" href="/IMAGINE/assets/css/leaflet.css"/>
   <script src="/IMAGINE/assets/js/leaflet.js"></script>
@@ -40,7 +43,7 @@
   <header class="gradient-header-banner">
   <div class="header-logo-container">
     <div class="logo-circle">
-      <i class="fa-solid fa-brain text-gradient"></i>
+      <img src="/IMAGINE/assets/images/partners/camera.png" alt="CAMERA Logo" class="header-logo-img">
     </div>
     <div class="header-titles">
       <h1 class="site-main-title">IMAGINE</h1>
@@ -49,16 +52,16 @@
   </div>
   
   <nav class="pill-navigation-menu">
-    <a href="/IMAGINE/" class="nav-pill-btn {% if page.url == '/' %}active{% endif %}">
+    <a href="/IMAGINE/" class="nav-pill-btn ">
       <i class="fa-solid fa-house"></i> Home
     </a>
-    <a href="/IMAGINE/about/" class="nav-pill-btn {% if page.url contains '/about/' %}active{% endif %}">
+    <a href="/IMAGINE/about/" class="nav-pill-btn ">
       <i class="fa-solid fa-users"></i> About Us
     </a>
-    <a href="/IMAGINE/scanners/" class="nav-pill-btn {% if page.url contains '/scanners/' %}active{% endif %}">
+    <a href="/IMAGINE/scanners/" class="nav-pill-btn ">
       <i class="fa-solid fa-microchip"></i> Scanners
     </a>
-    <a href="/IMAGINE/events/" class="nav-pill-btn {% if page.url contains '/events/' %}active{% endif %}">
+    <a href="/IMAGINE/events/" class="nav-pill-btn ">
       <i class="fa-solid fa-calendar-check"></i> Events
     </a>
   </nav>
@@ -71,8 +74,8 @@
 
 <div class="scanner-page-container">
   <div class="page-title-banner">
-    <h1 class="page-main-title">IMAGINE Preclinical Scanner Explorer</h1>
-    <p class="page-subtitle">Explore the Control, Gradient, and RF circuits. Select nodes on the schematic below to view BOMs, CAD models, wiring diagrams, and calibration procedures.</p>
+    <h1 class="page-main-title">IMAGINE Preclinical Scanner</h1>
+    <p class="page-subtitle">The main IMAGINE scanner is an open-source, ultra-low-field (50 mT) preclinical MRI scanner designed for rodent and sample imaging. It implements modular, affordable electronics, custom gradient amplifiers, and a solenoid RF coil.</p>
   </div>
 
   <div class="scanner-dashboard">
@@ -86,157 +89,50 @@
             <i class="fa-solid fa-microchip"></i> Control System
           </button>
           <button class="subsystem-tab-btn" data-subsystem="gradient">
-            <i class="fa-solid fa-wave-square"></i> Gradient Circuit
+            <i class="fa-solid fa-wave-square"></i> Gradients
           </button>
           <button class="subsystem-tab-btn" data-subsystem="rf">
             <i class="fa-solid fa-tower-broadcast"></i> RF Circuit
+          </button>
+          <button class="subsystem-tab-btn" data-subsystem="magnet">
+            <i class="fa-solid fa-magnet"></i> Magnet Array
           </button>
         
       </div>
 
       <!-- Diagram Canvas Area -->
       <div class="interactive-diagram-canvas">
-        <p class="canvas-instruction-text"><i class="fa-solid fa-hand-pointer animate-bounce"></i> Click any block in the schematic below to explore its details</p>
+        <p class="canvas-instruction-text"><i class="fa-solid fa-hand-pointer animate-bounce"></i> Choose a component from the list below to explore specifications, BOM, CAD models, and assembly guides</p>
         
-        <!-- Interactive SVGs based on Scanner ID -->
+        <!-- Interactive SVGs and Diagrams based on Scanner ID -->
         
           
           <!-- Control System Schematic -->
           <div class="schematic-view active" id="schematic-control">
-            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
-              <!-- Grid background -->
-              <defs>
-                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-                </pattern>
-                <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#1b4332" />
-                  <stop offset="100%" stop-color="#0f241a" />
-                </linearGradient>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#grid)" />
-              
-              <!-- Connection Lines -->
-              <path d="M 150 150 L 250 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
-              <path d="M 370 150 L 470 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
-              
-              <!-- Nodes -->
-              <!-- Computer -->
-              <g class="interactive-node" data-component-id="computer" transform="translate(40, 95)">
-                <rect width="110" height="110" rx="8" class="node-rect" />
-                <i class="fa-solid fa-desktop node-icon-fa" style="transform: translate(40px, 35px);"></i>
-                <text x="55" y="85" class="node-text">Host PC (MARGE)</text>
-              </g>
-              <!-- RedPitaya -->
-              <g class="interactive-node" data-component-id="redpitaya" transform="translate(250, 95)">
-                <rect width="120" height="110" rx="8" class="node-rect" />
-                <text x="60" y="45" class="node-icon">🍓</text>
-                <text x="60" y="85" class="node-text">RedPitaya (SDR)</text>
-              </g>
-              <!-- MaRCoS Enclosure -->
-              <g class="interactive-node" data-component-id="marcos-enclosure" transform="translate(470, 95)">
-                <rect width="110" height="110" rx="8" class="node-rect" />
-                <i class="fa-solid fa-box-open node-icon-fa" style="transform: translate(40px, 35px);"></i>
-                <text x="55" y="85" class="node-text">MaRCoS Box</text>
-              </g>
-            </svg>
+            <img src="/IMAGINE/images/scanner1.svg" alt="Control System Schematic" class="subsystem-diagram-img" />
           </div>
 
           <!-- Gradient Circuit Schematic -->
           <div class="schematic-view" id="schematic-gradient">
-            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
-              <rect width="100%" height="100%" fill="url(#grid)" />
-              
-              <!-- Connection Lines -->
-              <path d="M 130 150 L 190 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
-              <path d="M 310 150 L 370 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
-              <path d="M 470 150 L 510 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
-              
-              <!-- Nodes -->
-              <!-- RedPitaya GPA Adapter -->
-              <g class="interactive-node" data-component-id="rp-gpa-adapter" transform="translate(20, 95)">
-                <rect width="110" height="110" rx="8" class="node-rect" />
-                <i class="fa-solid fa-circle-nodes node-icon-fa" style="transform: translate(40px, 35px);"></i>
-                <text x="55" y="80" class="node-text">RP GPA</text>
-                <text x="55" y="95" class="node-text">Adapter Board</text>
-              </g>
-              <!-- GPA-FHDO -->
-              <g class="interactive-node" data-component-id="gpa-fhdo" transform="translate(190, 95)">
-                <rect width="120" height="110" rx="8" class="node-rect" />
-                <i class="fa-solid fa-bolt-lightning node-icon-fa" style="transform: translate(45px, 35px);"></i>
-                <text x="60" y="85" class="node-text">GPA FHDO Amp</text>
-              </g>
-              <!-- Filter Schaffner -->
-              <g class="interactive-node" data-component-id="gradient-filter" transform="translate(370, 95)">
-                <rect width="100" height="110" rx="8" class="node-rect" />
-                <i class="fa-solid fa-filter node-icon-fa" style="transform: translate(35px, 35px);"></i>
-                <text x="50" y="85" class="node-text">Low-Pass Filter</text>
-              </g>
-              <!-- Gradient Coils -->
-              <g class="interactive-node" data-component-id="gradients" transform="translate(510, 95)">
-                <rect width="80" height="110" rx="8" class="node-rect" />
-                <i class="fa-solid fa-spiral node-icon-fa" style="transform: translate(25px, 35px);"></i>
-                <text x="40" y="80" class="node-text">Gradient</text>
-                <text x="40" y="95" class="node-text">Coils</text>
-              </g>
-            </svg>
+            <img src="/IMAGINE/images/gradients1.svg" alt="Gradients Schematic" class="subsystem-diagram-img" />
           </div>
 
           <!-- RF Circuit Schematic -->
           <div class="schematic-view" id="schematic-rf">
-            <svg viewBox="0 0 600 350" class="interactive-circuit-svg">
-              <rect width="100%" height="100%" fill="url(#grid)" />
-              
-              <!-- Connection Lines TX path -->
-              <path d="M 120 100 L 170 100" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
-              <path d="M 270 100 L 320 100" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
-              <!-- TxRx Switch to Coil path -->
-              <path d="M 430 150 L 510 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
-              <!-- RX path switch to LNA -->
-              <path d="M 380 200 L 380 230 L 270 230" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
-              <path d="M 170 230 L 70 230 L 70 150" class="connector-line arrow" stroke="#c5a059" stroke-width="3" fill="none" />
+            <img src="/IMAGINE/images/RF_ADC_control1.svg" alt="RF Circuit Schematic" class="subsystem-diagram-img" />
+          </div>
 
-              <!-- Nodes -->
-              <!-- RedPitaya RF Port -->
-              <g class="interactive-node" data-component-id="redpitaya-rf" transform="translate(20, 50)">
-                <rect width="100" height="90" rx="8" class="node-rect" />
-                <i class="fa-solid fa-microchip node-icon-fa" style="transform: translate(35px, 25px);"></i>
-                <text x="50" y="70" class="node-text">RedPitaya RF</text>
-              </g>
-              <!-- RFPA -->
-              <g class="interactive-node" data-component-id="rfpa" transform="translate(170, 50)">
-                <rect width="100" height="90" rx="8" class="node-rect" />
-                <i class="fa-solid fa-gauge-high node-icon-fa" style="transform: translate(35px, 25px);"></i>
-                <text x="50" y="70" class="node-text">RF Power Amp</text>
-              </g>
-              <!-- TxRx Switch -->
-              <g class="interactive-node" data-component-id="tx-rx-switch" transform="translate(320, 100)">
-                <rect width="110" height="100" rx="8" class="node-rect" />
-                <i class="fa-solid fa-toggle-on node-icon-fa" style="transform: translate(40px, 30px);"></i>
-                <text x="55" y="80" class="node-text">Tx/Rx Switch</text>
-              </g>
-              <!-- LNA -->
-              <g class="interactive-node" data-component-id="lna" transform="translate(170, 185)">
-                <rect width="100" height="90" rx="8" class="node-rect" />
-                <i class="fa-solid fa-signal node-icon-fa" style="transform: translate(35px, 25px);"></i>
-                <text x="50" y="70" class="node-text">LNA Amp</text>
-              </g>
-              <!-- RF Coil -->
-              <g class="interactive-node" data-component-id="rf-coil" transform="translate(510, 100)">
-                <rect width="80" height="100" rx="8" class="node-rect" />
-                <i class="fa-solid fa-ring node-icon-fa" style="transform: translate(25px, 30px);"></i>
-                <text x="40" y="80" class="node-text">RF Coil</text>
-              </g>
-            </svg>
+          <!-- Magnet Array Schematic -->
+          <div class="schematic-view" id="schematic-magnet">
+            <img src="/IMAGINE/images/Ring_ordering.png" alt="Halbach Magnet Ring Ordering" class="subsystem-diagram-img" />
           </div>
 
         
       </div>
       
-      <!-- Component Sidebar List (Synchronized with Map clicks) -->
-      
+      <!-- Component Sidebar List (Dynamically Filtered by Active Subsystem) -->
       <div class="component-list-sidebar">
-        <h3 class="sidebar-title">Components List</h3>
+        <h3 class="sidebar-title">Subsystem Components</h3>
         <div class="sidebar-buttons-grid">
           
             <button class="sidebar-node-btn" data-component-id="marcos-control-system" data-subsystem="control">
@@ -259,6 +155,10 @@
               Low Noise Amplifier (LNA)
             </button>
             
+            <button class="sidebar-node-btn" data-component-id="120mm-bore-halbach-magnet-array" data-subsystem="magnet">
+              120mm Bore Halbach Magnet Array
+            </button>
+            
             <button class="sidebar-node-btn" data-component-id="rf-coil-tuning-and-matching" data-subsystem="rf">
               RF Coil & Tuning and Matching
             </button>
@@ -277,7 +177,6 @@
             
         </div>
       </div>
-      
 
     </div>
 
@@ -448,11 +347,11 @@
               <div class="detail-header-card">
                 <span class="detail-category-tag">GRADIENT</span>
                 <h2 class="detail-title">GPA-FHDO Power Amplifier</h2>
-                <p class="detail-short-desc">The Gradient Power Amplifier (GPA) design from FHDO Dortmund, delivering controlled high-current drives to the gradient coils.</p>
+                <p class="detail-short-desc">The open-source 4-channel Gradient Power Amplifier (GPA-FHDO) from Fachhochschule Dortmund, adapted to drive the X, Y, and Z gradient coils in the IMAGINE scanner.</p>
               </div>
               
               <div class="detail-sections-tabs">
-                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button>
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button><button class="section-tab-btn" data-section="downloads"><i class="fa-solid fa-download"></i> CAD / STL</button>
             <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
             <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
             
@@ -460,7 +359,22 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><p>The <strong>GPA-FHDO</strong> is a specialized Gradient Power Amplifier design developed by the Fachhochschule Dortmund (FHDO). Unlike traditional audio amplifiers, GPAs are designed to drive highly inductive loads (like gradient coils) with fast rise times and stable, controlled currents, which is essential for accurate spatial encoding in MR imaging.</p></div>
+                  <div class="sheet-article"><h2>Overview</h2>
+<p>The IMAGINE MRI scanner uses the open-source <strong><a href="https://github.com/menkueclab/GPA-FHDO">GPA-FHDO gradient power amplifier</a></strong> developed by the Fachhochschule Dortmund (FHDO) to drive the $X$, $Y$, and $Z$ gradient coils.</p>
+<p>The GPA-FHDO is a modular four-channel gradient power amplifier specifically designed for low-field MRI applications. In the IMAGINE preclinical scanner, three channels are dedicated to driving the orthogonal gradient axes ($G_x$, $G_y$, $G_z$), with the fourth channel available for auxiliary $B_0$ shimming or secondary coils.</p>
+<blockquote>
+<p><strong>Implementation Note:</strong> The GPA used in the IMAGINE scanner is based directly on the original GPA-FHDO design. Several active and passive components and implementation details were customized for our scanner configuration, including dedicated filter networks, upgraded current sensing shunts, and direct integration with the RedPitaya STEMlab / MaRCoS platform.</p>
+</blockquote>
+<h3>Bill of Materials</h3>
+<p>The complete procurement bill of materials for the IMAGINE GPA implementation is tracked in the repository:<br />
+- <a href="../../Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.xlsx">Download IMAGINE GPA BOM (XLSX)</a><br />
+- <a href="../../Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv">View IMAGINE GPA BOM (CSV)</a></p>
+<p>The BOM encompasses active ICs, passive feedback networks, PCB fabrication via JLCPCB, external power supply, cabling, and dedicated testing equipment (TekPower supply, current probe, and Arduino diagnostic tools).</p>
+<h3>Original GPA-FHDO Reference Documentation</h3>
+<ul>
+<li>Original GitHub Repository: <a href="https://github.com/menkueclab/GPA-FHDO">menkueclab/GPA-FHDO</a></li>
+<li>Official ReadTheDocs Documentation: <a href="https://gpa-fhdo.readthedocs.io/en/latest/">https://gpa-fhdo.readthedocs.io/en/latest/</a></li>
+</ul></div>
                 </div>
                 
                 <div class="tab-sheet-content" data-section="bom">
@@ -484,23 +398,100 @@
                         <tbody>
                           
                     <tr>
-                      <td class="part-name"><strong>Schaffner FN7563-63-M6 Filter Capacitor</strong></td>
-                      <td class="part-qty">3</td>
-                      <td class="part-price">Included in GPA budget</td>
-                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                      <td class="part-name"><strong>OPA549 Power Operational Amplifier</strong></td>
+                      <td class="part-qty">8</td>
+                      <td class="part-price">$430.80 CAD</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/texas-instruments/OPA549T/379854" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
                     </tr>
                     
                     <tr>
-                      <td class="part-name"><strong>High-Current DC Power Supply for FHDO</strong></td>
+                      <td class="part-name"><strong>TekPower TP1560E Switching DC Power Supply (15V, 60A)</strong></td>
                       <td class="part-qty">1</td>
-                      <td class="part-price">Varies</td>
+                      <td class="part-price">$623.09 CAD</td>
+                      <td class="part-link"><a href="https://www.amazon.ca/TekPower-TP1560E-Switching-Power-Supply/dp/B073XJBN4F" target="_blank" class="buy-btn"><i class="fa-brands fa-amazon"></i> Amazon</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>ADS8684 4-Channel 16-Bit ADC</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$23.11 CAD</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/texas-instruments/ADS8684IDBTR/4988771" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>DAC80504 4-Channel 16-Bit Voltage Output DAC</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$20.93 CAD</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/texas-instruments/DAC80504RTER/10134444" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>ADUM4150 High-Speed SPI Isolator</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$26.01 CAD</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/analog-devices-inc/ADUM4150BRIZ/4462118" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Differential Operational Amplifiers</strong></td>
+                      <td class="part-qty">4</td>
+                      <td class="part-price">$56.20 CAD</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/texas-instruments/THS4521IDR/2353347" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>MP725 200mΩ 25W DPAK Shunt Resistors</strong></td>
+                      <td class="part-qty">4</td>
+                      <td class="part-price">$44.29 CAD</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/caddock-electronics-inc/MP725-0.20-1/237207" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Precision 5K Resistors</strong></td>
+                      <td class="part-qty">2</td>
+                      <td class="part-price">$38.24 CAD</td>
                       <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
                     </tr>
                     
                     <tr>
-                      <td class="part-name"><strong>High-current output terminal connectors</strong></td>
-                      <td class="part-qty">6</td>
-                      <td class="part-price">$10.00</td>
+                      <td class="part-name"><strong>Precision 50K Resistors</strong></td>
+                      <td class="part-qty">2</td>
+                      <td class="part-price">$15.72 CAD</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>FHDO GPA Printed Circuit Boards</strong></td>
+                      <td class="part-qty">5</td>
+                      <td class="part-price">$59.52 CAD</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Extruded Aluminum Heatsinks</strong></td>
+                      <td class="part-qty">4</td>
+                      <td class="part-price">$33.48 CAD</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Voltage Regulators (12V & 5V) + 2.5V Reference</strong></td>
+                      <td class="part-qty">3</td>
+                      <td class="part-price">$8.92 CAD</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Molex High-Current Output Coil Connectors & Plugs</strong></td>
+                      <td class="part-qty">8</td>
+                      <td class="part-price">$11.16 CAD</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Shielded 20 AWG Data Cable (16 feet)</strong></td>
+                      <td class="part-qty">1</td>
+                      <td class="part-price">$149.51 CAD</td>
                       <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
                     </tr>
                     
@@ -511,16 +502,60 @@
                 </div>
                 
                 
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      
+                    <a href="/IMAGINE/Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.xlsx" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">IMAGINE GPA Bill of Materials (Excel)</span>
+                        <span class="file-ext">XLSX File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">IMAGINE GPA Bill of Materials (CSV)</span>
+                        <span class="file-ext">CSV File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/images/gradients1.svg" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">GPA-FHDO Schematic Diagram (SVG)</span>
+                        <span class="file-ext">SVG File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    </div>
+                  </div>
+                </div>
+                
                 <div class="tab-sheet-content" data-section="assembly">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Assembly Instructions</h3>
                     
                     <div class="guide-steps-list"><h4>GPA Installation and Integration</h4>
 <ol>
-<li>Mount the GPA-FHDO boards on a secure chassis with passive/active heatsink cooling.</li>
-<li>Setup the high-current DC power supply, ensuring proper voltage and current limits are configured.</li>
-<li>Wire the outputs of the RedPitaya GPA adapter to the GPA-FHDO input channels.</li>
-<li>Connect the output of the GPA-FHDO to the low-pass filter circuit.</li>
+<li><strong>PCB Inspection &amp; Preparation</strong>: Verify solder joints on the JLCPCB 4-layer boards, particularly thermal pads beneath the OPA549 high-current power op-amps and MP725 DPAK shunt resistors.</li>
+<li><strong>Heatsink Assembly</strong>: Secure the four extruded aluminum heatsinks (HS-343-ND) to the OPA549 amplifier pairs using thermal paste and retaining clips (115000F00000G-ND).</li>
+<li><strong>Power Bus Wiring</strong>: Connect the high-current DC switching power supply (TekPower TP1560E) to the VCC barrier strip (WM 21 367-ND), ensuring polarity and ground bonding.</li>
+<li><strong>Interface Connection</strong>: Wire the SPI control bus from the RedPitaya GPA adapter board through the ADUM4150 digital isolators to the DAC80504 and ADS8684 ADC channels.</li>
+<li><strong>Output Routing</strong>: Route the high-current coil output connectors (WM-13112) through the gradient filter circuit before connecting to the physical gradient coils.</li>
 </ol></div>
                   </div>
                 </div>
@@ -529,10 +564,11 @@
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
                     <div class="guide-steps-list"><h4>GPA Calibration &amp; Protection Test</h4>
 <ol>
-<li>Power up the GPA board and verify the bias currents and voltage references.</li>
-<li>With dummy load resistors (equivalent to gradient coil resistance/inductance), apply test pulses (e.g. 1A, 2A steps).</li>
-<li>Monitor current waveforms on an oscilloscope using a current probe. Verify there is no waveform distortion or excessive ringing.</li>
-<li>Verify that thermal shutdown and over-current protection trigger at correct thresholds.</li>
+<li><strong>Power-On Voltage Verification</strong>: Power up the low-voltage auxiliary rails (+12V, +5V, +2.5V reference). Check U7, U21, and U22 outputs on a digital multimeter.</li>
+<li><strong>Dummy Load Pulsing</strong>: Connect non-inductive high-power dummy load resistors (matched to coil impedance, ~1–2 Ω, 100 μH) across each channel.</li>
+<li><strong>Step Response &amp; Linearity</strong>: Inject trapezoidal gradient pulse sequences from MaRGE / MaRCoS (0.5A to 5A steps). Measure output current using an oscilloscope with a current probe (CP6220-EU).</li>
+<li><strong>Feedback Loop Tuning</strong>: Verify that differential feedback op-amps (THS4521) provide stable closed-loop regulation without overshoot, oscillation, or excessive ringing.</li>
+<li><strong>Thermal &amp; Over-Current Safeguards</strong>: Verify that thermal shutdown and limit protection trip correctly under sustained maximum-current conditions.</li>
 </ol></div>
                   </div>
                 </div>
@@ -637,7 +673,7 @@
               <div class="detail-header-card">
                 <span class="detail-category-tag">GRADIENT</span>
                 <h2 class="detail-title">Gradient Coils (CAD & Winding)</h2>
-                <p class="detail-short-desc">Spatially encodes the MR signals using 3D-printed formers with AWG copper wire wound in computer-optimized grooves.</p>
+                <p class="detail-short-desc">Spatially encodes the MR signals using 3D-printed cylindrical formers with AWG copper wire wound in computer-optimized grooves based on the Discrete Wire Method.</p>
               </div>
               
               <div class="detail-sections-tabs">
@@ -649,7 +685,20 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><p>The <strong>Gradient Coils</strong> provide spatial encoding in the three orthogonal directions ($X$, $Y$, and $Z$). The coils are wound on cylindrical former surfaces, with grooves manufactured directly by 3D printing. The wire patterns are optimized using the <strong>Discrete Wire Method</strong> to produce highly linear gradients over the target field of view (FOV).</p></div>
+                  <div class="sheet-article"><h2>Overview</h2>
+<p>The <strong>Gradient Coils</strong> provide spatial encoding in the three orthogonal directions ($X$, $Y$, and $Z$) for the IMAGINE low-field rat/preclinical MRI scanner. The coils are wound on concentric cylindrical former surfaces with precisely manufactured grooves produced via high-resolution 3D printing.</p>
+<p>The wire trajectories are optimized using the <strong>Discrete Wire Method</strong> to produce highly linear magnetic field gradients over the target spherical diameter volume (DSV), minimizing unwanted concomitant fields and heat dissipation.</p>
+<h3>Design and Optimization Reference</h3>
+<p>The scientific methodology, boundary conditions, and genetic/boundary-element optimization for these gradient coils are published in:</p>
+<blockquote>
+<p><strong>Kassahun, H.B., Nayebare, M., Machtelinckx, T., Yazdanbakhsh, P., Obungoloch, J., Du Plessis, S. and Anazodo, U.</strong>, 2025, July. <em>Design and Optimization of Gradient Coils for Low-field Halbach Array Scanners Using the Discrete Wire Method</em>. In <em>2025 47th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)</em> (pp. 1–6). IEEE.</p>
+</blockquote>
+<h3>CAD Model Files</h3>
+<p>STL files for manufacturing the X, Y, and Z gradient coil formers are available directly in the repository:<br />
+- <a href="../../Hardware/Gradients/CAD/X_Gradient_Coil_Former_Rat_Scanner.stl">X Gradient Coil Former STL</a><br />
+- <a href="../../Hardware/Gradients/CAD/Y_Gradient_Coil_Former_Rat_Scanner.stl">Y Gradient Coil Former STL</a><br />
+- <a href="../../Hardware/Gradients/CAD/Z_Gradient_Coil_Former_Rat_Scanner.stl">Z Gradient Coil Former STL</a><br />
+- <a href="../../Hardware/Gradients/Gradient_Design.md">Design Guide Markdown</a></p></div>
                 </div>
                 
                 <div class="tab-sheet-content" data-section="bom">
@@ -673,23 +722,58 @@
                         <tbody>
                           
                     <tr>
-                      <td class="part-name"><strong>AWG copper wire (American Wire Gauge)</strong></td>
-                      <td class="part-qty">Varies</td>
-                      <td class="part-price">$20.00</td>
+                      <td class="part-name"><strong>X Gradient Former (3D Printed, Bambu PLA Basic Light Green)</strong></td>
+                      <td class="part-qty">90.38 g</td>
+                      <td class="part-price">$2.26 CAD</td>
+                      <td class="part-link"><a href="https://ca.store.bambulab.com/products/pla-basic-filament" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Y Gradient Former (3D Printed, Bambu PLA Basic)</strong></td>
+                      <td class="part-qty">118.9 g</td>
+                      <td class="part-price">$2.97 CAD</td>
+                      <td class="part-link"><a href="https://ca.store.bambulab.com/products/pla-basic-filament" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Z Gradient Former (3D Printed, Bambu PLA Basic)</strong></td>
+                      <td class="part-qty">99.7 g</td>
+                      <td class="part-price">$2.50 CAD</td>
+                      <td class="part-link"><a href="https://ca.store.bambulab.com/products/pla-basic-filament" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Enamelled Copper Wire for X Gradient (AWG)</strong></td>
+                      <td class="part-qty">350 inches</td>
+                      <td class="part-price">$4.86 CAD</td>
                       <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
                     </tr>
                     
                     <tr>
-                      <td class="part-name"><strong>3D Printed Former (PETG/PLA)</strong></td>
-                      <td class="part-qty">1</td>
-                      <td class="part-price">$30.00</td>
+                      <td class="part-name"><strong>Enamelled Copper Wire for Y Gradient (AWG)</strong></td>
+                      <td class="part-qty">350 inches</td>
+                      <td class="part-price">$4.86 CAD</td>
                       <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
                     </tr>
                     
                     <tr>
-                      <td class="part-name"><strong>Gradient Connectors (Splices)</strong></td>
-                      <td class="part-qty">1</td>
-                      <td class="part-price">$15.00</td>
+                      <td class="part-name"><strong>Enamelled Copper Wire for Z Gradient (AWG)</strong></td>
+                      <td class="part-qty">350 inches</td>
+                      <td class="part-price">$4.86 CAD</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Gradient Splice Connectors (18-22 AWG crimp, WM13851-ND)</strong></td>
+                      <td class="part-qty">10</td>
+                      <td class="part-price">$1.44 CAD</td>
+                      <td class="part-link"><a href="https://www.digikey.ca/en/products/detail/molex/0192150009/2436407" target="_blank" class="buy-btn"><i class="fa-solid fa-microchip"></i> DigiKey</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Kapton Insulating Tape (10mm)</strong></td>
+                      <td class="part-qty">3</td>
+                      <td class="part-price">$11.96 CAD</td>
                       <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
                     </tr>
                     
@@ -706,13 +790,46 @@
                     <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
                     <div class="download-links-grid">
                       
-                    <a href="/IMAGINE/Hardware/Gradients/CAD files" download class="download-card">
+                    <a href="/IMAGINE/Hardware/Gradients/CAD/X_Gradient_Coil_Former_Rat_Scanner.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">X Gradient Coil Former STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/Hardware/Gradients/CAD/Y_Gradient_Coil_Former_Rat_Scanner.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Y Gradient Coil Former STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/Hardware/Gradients/CAD/Z_Gradient_Coil_Former_Rat_Scanner.stl" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-cube text-primary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Z Gradient Coil Former STL</span>
+                        <span class="file-ext">STL File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/Hardware/Gradients/CAD/README.md" download class="download-card">
                       <div class="download-card-icon">
                         <i class="fa-solid fa-drafting-compass text-secondary"></i>
                       </div>
                       <div class="download-card-info">
-                        <span class="file-title">Gradient Coil CAD Files (AutoCAD)</span>
-                        <span class="file-ext">/HARDWARE/GRADIENTS/CAD FILES File</span>
+                        <span class="file-title">Gradients CAD Documentation</span>
+                        <span class="file-ext">MD File</span>
                       </div>
                       <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
                     </a>
@@ -725,13 +842,36 @@
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Assembly Instructions</h3>
                     
-                    <div class="guide-steps-list"><h4>AutoCAD CAD Design &amp; Print</h4>
-<p>The steps for the CAD design of the gradient winding grooves in AutoCAD:<br />
-1. <strong>Coordinate Import</strong>: Copy x, y, z coordinates from simulation outputs into Excel and save as a CSV. Use the <code>LINE</code> command in AutoCAD to import and visualize each quadrant.<br />
-2. <strong>Spiral Construction</strong>: Connect lines to form spirals, ensuring the current direction in adjacent quadrants is opposite. Each quadrant must have two distinct ports (input/output). Join lines into a single continuous <code>3D POLYLINE</code>.<br />
-3. <strong>3D Sweeping</strong>: Draw a circle equal to the wire width. Centering it on one of the ports, run <code>SWEEP</code> along the polyline path.<br />
-4. <strong>Groove Creation</strong>: Draw concentric circles representing the former cylinder walls. Extrude them to the required height ($L/2$). Use <code>UNION</code> to combine cylinder half sections. Merge all four coil quadrant sweeps using <code>UNION</code>. Finally, execute <code>SUBTRACT</code> to subtract the coil quadrants from the cylinder, creating the winding grooves.<br />
-5. <strong>Fabrication</strong>: Export the STL file using <code>STLOUT</code>. 3D print the former and wind the AWG copper wires into the manufactured grooves.</p></div>
+                    <div class="guide-steps-list"><h4>AutoCAD CAD Design &amp; 3D Fabrication Procedure</h4>
+<p>The complete manufacturing workflow for the gradient coil formers follows a four-phase procedure in Autodesk AutoCAD and FDM 3D printing:</p>
+<h5>Phase 1: Coordinate Import and Path Creation</h5>
+<ol>
+<li><strong>Data Preparation</strong>: Extract the optimized $x, y, z$ wire coordinates from the optimization script into CSV format. Ensure coordinates for each quadrant are formatted separately.</li>
+<li><strong>Coordinate Import</strong>: Use the <code>LINE</code> command in AutoCAD to import the wire track coordinates and visualize each quadrant.</li>
+<li><strong>Spiral Construction</strong>: Trim and connect the segments to form continuous spirals for each quadrant. Ensure current direction in adjacent quadrants is opposite to yield the gradient field. Define distinct input and output ports for each quadrant.</li>
+<li><strong>Path Integration</strong>: Join individual lines within each quadrant using <code>PEDIT</code> / <code>JOIN</code> to form a single continuous <code>3D POLYLINE</code>.</li>
+</ol>
+<h5>Phase 2: 3D Modeling and Sweeping</h5>
+<ol>
+<li><strong>Workspace Setup</strong>: Switch AutoCAD workspace to <strong>3D Modelling</strong> and change viewport to a 3D isometric view.</li>
+<li><strong>Profile Selection</strong>: Draw a circular profile with a diameter matching the wire gauge (including insulation), centered exactly on the starting port of each quadrant.</li>
+<li><strong>Sweep Operation</strong>: Execute the <code>SWEEP</code> command. Select the circular profile and set the continuous 3D polyline as the sweeping path.</li>
+<li><strong>Visual Verification</strong>: Switch to multiple viewports (Top, Side, Front) in Realistic Visual Style to verify wire groove spacing and clearances.</li>
+</ol>
+<h5>Phase 3: Cylinder and Groove Construction</h5>
+<ol>
+<li><strong>Base Geometry</strong>: Draw a concentric circle at the origin $(0, 0)$ matching the outer radius of the cylindrical gradient former.</li>
+<li><strong>Wall Thickness</strong>: Offset this circle inward by 3 mm to form the inner cylinder wall.</li>
+<li><strong>Extrusion</strong>: Extrude the concentric profile to half the coil former length ($L/2$). Draw and extrude the remaining half in the opposite direction.</li>
+<li><strong>Boolean Operations</strong>: Execute <code>UNION</code> to merge the half-cylinders into one solid former. Merge the four quadrant wire sweeps into a single solid using <code>UNION</code>.</li>
+<li><strong>Groove Creation</strong>: Execute <code>SUBTRACT</code> to remove the swept coil paths from the cylinder former, creating the precise wire-winding grooves.</li>
+</ol>
+<h5>Phase 4: Prototyping, Winding, and Assembly</h5>
+<ol>
+<li><strong>STL Export</strong>: Export the model using <code>STLOUT</code> for 3D printing.</li>
+<li><strong>3D Printing</strong>: Print using PETG or PLA with 100% concentric infill to ensure mechanical rigidity and heat resistance.</li>
+<li><strong>Wire Winding</strong>: Carefully press and wind the enamelled AWG copper wire into the manufactured grooves. Secure windings with Kapton tape and epoxy potting.</li>
+</ol></div>
                   </div>
                 </div>
                 <div class="tab-sheet-content" data-section="testing">
@@ -739,10 +879,10 @@
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
                     <div class="guide-steps-list"><h4>Electromagnetic Simulation and Verification</h4>
 <ol>
-<li>Measure coil resistance and inductance using a multimeter/LCR meter. Verify there are no short circuits between the X, Y, Z channels or the system frame.</li>
-<li>Save the final CAD coordinates and simulate the expected magnetic field profile ($G_x$, $G_y$, $G_z$) using CST Studio Suite or EM simulation packages.</li>
-<li>Verify gradient efficiency (field gradient amplitude per unit current: T/m/A).</li>
-<li>Run testing currents through the coils and measure heat dissipation over time.</li>
+<li><strong>DC Resistance &amp; Inductance Measurement</strong>: Measure DC resistance ($R$) and self-inductance ($L$) for each coil channel ($G_x$, $G_y$, $G_z$) using an LCR meter at 1 kHz and 10 kHz. Confirm zero inter-axis shorts.</li>
+<li><strong>Field Profile Verification (Simulation vs. Measurement)</strong>: Compare measured magnetic field gradients against CST Studio Suite electromagnetic simulation predictions.</li>
+<li><strong>Gradient Efficiency ($T/m/A$)</strong>: Determine gradient coil efficiency by driving calibrated test currents (1–5 A) and recording field variation with a Hall magnetometer along each spatial axis.</li>
+<li><strong>Thermal Dissipation Test</strong>: Run continuous gradient pulses mimicking echo planar imaging (EPI) or fast spin echo (FSE) duty cycles. Verify thermal equilibrium remains well within former material limits (&lt; 50 °C).</li>
 </ol></div>
                   </div>
                 </div>
@@ -838,6 +978,282 @@
 <li>Measure the LNA output on a spectrum analyzer to check the noise floor.</li>
 <li>Apply a weak reference signal (e.g. -80 dBm at 2 MHz) and verify LNA gain (expected: ~20-30 dB) and stability.</li>
 <li>Verify that the LNA does not oscillate under different loading conditions.</li>
+</ol></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="component-detail-view" id="details-120mm-bore-halbach-magnet-array" data-subsystem="magnet">
+              <div class="detail-header-card">
+                <span class="detail-category-tag">MAGNET</span>
+                <h2 class="detail-title">120mm Bore Halbach Magnet Array</h2>
+                <p class="detail-short-desc">The primary B0 magnetic field source for the IMAGINE rat/preclinical scanner: a 120mm clear bore Halbach array producing ~50 mT with high homogeneity.</p>
+              </div>
+              
+              <div class="detail-sections-tabs">
+                <button class="section-tab-btn active" data-section="overview"><i class="fa-solid fa-info-circle"></i> Overview</button><button class="section-tab-btn" data-section="bom"><i class="fa-solid fa-list-check"></i> BOM</button><button class="section-tab-btn" data-section="downloads"><i class="fa-solid fa-download"></i> CAD / STL</button>
+            <button class="section-tab-btn" data-section="assembly"><i class="fa-solid fa-screwdriver-wrench"></i> Assembly</button>
+            <button class="section-tab-btn" data-section="testing"><i class="fa-solid fa-flask"></i> Testing & QA</button>
+            
+              </div>
+              
+              <div class="detail-tab-sheets">
+                <div class="tab-sheet-content active" data-section="overview">
+                  <div class="sheet-article"><h2>Overview</h2>
+<p>The <strong>120mm Bore Halbach Magnet Array</strong> is the primary magnetic field ($B_0$) source of the IMAGINE rat/preclinical MRI scanner. It produces a transverse static field of approximately 50 mT with high spatial homogeneity across the central volume.</p>
+<p>The array consists of stacked discrete rings housing 12×12×12 mm NdFeB permanent magnets. The ring positions, magnet orientations, and inter-ring spacings are optimized via genetic algorithms to maximize field uniformity while preserving an ample 120 mm internal clear bore for preclinical animal imaging, RF coils, and gradient inserts.</p>
+<h3>Structural Architecture</h3>
+<ul>
+<li><strong>Central Ring (Ring 842)</strong>: Sits at the axial midpoint and establishes the baseline field.</li>
+<li><strong>Mirrored Stacking</strong>: Rings are positioned symmetrically around Ring 842 along 8 non-magnetic M4 brass rods (262 mm length), secured by brass hex nuts and finished with dome nuts.</li>
+<li><strong>Passive Shimming</strong>: Ring 10 front and Ring 10 back feature integrated mounting slots for 16 passive shim trays, enabling fine-tuning of the $B_0$ homogeneity.</li>
+</ul>
+<h3>Design Documentation</h3>
+<ul>
+<li>Full assembly guide and parts: <a href="../../Hardware/Halbach%20Array/Part%20and%20build%20description.md">Part and build description.md</a></li>
+<li>Optimization theory: <a href="../../Hardware/Halbach%20Array/How%20to%20design%20magnet%20rings%20using%20genetic%20algorithms.md">How to design magnet rings using genetic algorithms.md</a></li>
+</ul></div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="bom">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Bill of Materials</h3>
+                    <p class="sheet-desc">List of off-the-shelf and custom parts required to reproduce this component:</p>
+                    <div class="bom-table-wrapper">
+                      <div class="bom-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="bom-filter-input" placeholder="Search parts by name, vendor, or specifications..." onkeyup="filterBomTable(this)">
+                      </div>
+                      <table class="bom-table">
+                        <thead>
+                          <tr>
+                            <th>Part Name / Description</th>
+                            <th>Qty</th>
+                            <th>Price (Est.)</th>
+                            <th>Source / Purchase Link</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                    <tr>
+                      <td class="part-name"><strong>M4 Threaded Brass Rods (262mm long)</strong></td>
+                      <td class="part-qty">8</td>
+                      <td class="part-price">$35.00 CAD</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>M4x3.2mm Hex Nuts (Brass/Non-magnetic)</strong></td>
+                      <td class="part-qty">160</td>
+                      <td class="part-price">$15.00 CAD</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>M4 Dome Nuts</strong></td>
+                      <td class="part-qty">16</td>
+                      <td class="part-price">$12.00 CAD</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>M4 Nylon Washers</strong></td>
+                      <td class="part-qty">16</td>
+                      <td class="part-price">$4.00 CAD</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>M3x8mm Screws (Lid fasteners)</strong></td>
+                      <td class="part-qty">125</td>
+                      <td class="part-price">$14.00 CAD</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Lid Loose (for Rings 842, 945, 1050)</strong></td>
+                      <td class="part-qty">5</td>
+                      <td class="part-price">3D Printed (PLA)</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Lid Tight (for Rings 0, 1, 10)</strong></td>
+                      <td class="part-qty">6</td>
+                      <td class="part-price">3D Printed (PLA)</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>N48/N52 Neodymium Permanent Magnets (12x12x12mm)</strong></td>
+                      <td class="part-qty">168</td>
+                      <td class="part-price">Approx. $420.00 CAD</td>
+                      <td class="part-link"><a href="https://www.supermagnete.de/" target="_blank" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i> Purchase</a></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>M3 Brass Heat-Set Inserts</strong></td>
+                      <td class="part-qty">125</td>
+                      <td class="part-price">$18.00 CAD</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="part-name"><strong>Passive Shim Trays</strong></td>
+                      <td class="part-qty">16</td>
+                      <td class="part-price">3D Printed (PLA)</td>
+                      <td class="part-link"><span class="no-link-badge">Local/Custom</span></td>
+                    </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="tab-sheet-content" data-section="downloads">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Design & Manufacturing Files</h3>
+                    <p class="sheet-desc">Download custom CAD geometries and manufacturing files directly from the repository:</p>
+                    <div class="download-links-grid">
+                      
+                    <a href="/IMAGINE/Hardware/Halbach Array/IAM files/Rat_Scanner_120_Ass.iam" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Full Magnet Assembly (Inventor IAM)</span>
+                        <span class="file-ext">IAM File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_842.stp" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Central Ring 842 (STEP)</span>
+                        <span class="file-ext">STP File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_0.stp" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Ring 0 (STEP)</span>
+                        <span class="file-ext">STP File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_1.stp" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Ring 1 (STEP)</span>
+                        <span class="file-ext">STP File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_945.stp" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Ring 945 (STEP)</span>
+                        <span class="file-ext">STP File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_1050.stp" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Ring 1050 (STEP)</span>
+                        <span class="file-ext">STP File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_10_front.stp" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Ring 10 Front (STEP)</span>
+                        <span class="file-ext">STP File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/Hardware/Halbach Array/STP Files/Ring_10_back.stp" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Ring 10 Back (STEP)</span>
+                        <span class="file-ext">STP File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    <a href="/IMAGINE/Hardware/Halbach Array/ITP Files/Shim_Tray.ipt" download class="download-card">
+                      <div class="download-card-icon">
+                        <i class="fa-solid fa-drafting-compass text-secondary"></i>
+                      </div>
+                      <div class="download-card-info">
+                        <span class="file-title">Shim Tray (Inventor IPT)</span>
+                        <span class="file-ext">IPT File</span>
+                      </div>
+                      <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
+                    </a>
+                    
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tab-sheet-content" data-section="assembly">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Assembly Instructions</h3>
+                    
+                    <div class="guide-steps-list"><h4>Mirrored Halbach Magnet Assembly Procedure</h4>
+<h5>Ring Housing &amp; Lid Preparation</h5>
+<ol>
+<li><strong>Print Components</strong>: 3D print all ring housings (<code>Ring_842</code>, <code>Ring_0</code>, <code>Ring_1</code>, <code>Ring_10_front</code>, <code>Ring_10_back</code>, <code>Ring_945</code>, <code>Ring_1050</code>) and their respective lids (<code>Lid_Loose</code> and <code>Lid_tight</code>).</li>
+<li><strong>Install Heat Inserts</strong>: Using a soldering iron with a heat-set insert tip, carefully install M3 brass heat-set inserts into the 4.2mm holes of each ring housing.</li>
+<li><strong>Insert Permanent Magnets</strong>: Slide the 12x12x12mm N48/N52 neodymium magnet cubes into the designated pockets, strictly observing the Halbach rotation angles for each azimuth.</li>
+<li><strong>Fasten Lids</strong>: Secure the lids with M3x8mm brass screws to physically retain the magnets against repulsive forces.</li>
+</ol>
+<h5>Mirrored Stacking on Brass Rods</h5>
+<ol>
+<li><strong>Central Reference</strong>: Position <code>Ring_842</code> at the geometric center ($z = 0$) along the 8 M4 brass rods (262mm length).</li>
+<li><strong>Mirrored Stacking</strong>: Stack the rings symmetrically on either side of <code>Ring_842</code>:</li>
+<li>Front section: <code>Ring_842</code> -&gt; <code>Ring_1</code> -&gt; <code>Ring_0</code> -&gt; <code>Ring_10_front</code></li>
+<li>Back section: <code>Ring_842</code> -&gt; <code>Ring_945</code> -&gt; <code>Ring_1050</code> -&gt; <code>Ring_10_back</code></li>
+<li><strong>Orientation Rule</strong>: Although ring positions are mirrored along $z$, <strong>the direction they face is not</strong>. All rings must be stacked with the magnet-facing side oriented in the exact same axial direction.</li>
+<li><strong>Lock Spacing</strong>: Use M4 hex nuts on either side of each ring housing to precisely set axial ring-to-ring spacings as determined by the genetic optimization algorithm. Cap rod ends with M4 nylon washers and M4 dome nuts.</li>
+</ol></div>
+                  </div>
+                </div>
+                <div class="tab-sheet-content" data-section="testing">
+                  <div class="sheet-article">
+                    <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    <div class="guide-steps-list"><h4>B0 Field Mapping and Homogeneity Verification</h4>
+<ol>
+<li><strong>Geometric Alignment</strong>: Align the assembled Halbach magnet array on the non-magnetic scanner frame. Verify the 120mm bore clearance.</li>
+<li><strong>Robotic 3D Field Mapping</strong>: Mount the Hall probe of the 3-axis Field Mapping Robot at the center of the bore. Run automated grid raster scans covering the target spherical DSV.</li>
+<li><strong>Homogeneity Computation</strong>: Compute peak-to-peak and RMS homogeneity ($\Delta B_0 / B_0$ in ppm). The target field strength is ~50 mT ($47–52$ mT).</li>
+<li><strong>Passive Shimming</strong>: Insert shim trays into the front and back slots of <code>Ring_10</code> with custom small magnet cartridges to cancel residual low-order spherical harmonics ($Z_1, X, Y, Z_2$).</li>
 </ol></div>
                   </div>
                 </div>
@@ -1437,62 +1853,24 @@
               </div>
             </div>
             
-    </tbody>
-  </table>
-</div>
-{% endif %}
-
-                  </div>
-                </div>
-              {% endif %}
-
-              <!-- Downloads Tab -->
-              
-                              <i class="fa-solid fa-file-lines"></i>
-                            
-                          </div>
-                          <div class="download-card-info">
-                            <span class="file-title">{{ file.name }}</span>
-                            <span class="file-ext">{{ file.path | split: '.' | last | upcase }} File</span>
-                          </div>
-                          <span class="download-arrow"><i class="fa-solid fa-arrow-down-long"></i></span>
-                        </a>
-                      {% endfor %}
-                    </div>
-                  </div>
-                </div>
-              {% endif %}
-
-              <!-- Assembly Tab -->
-              <div class="tab-sheet-content" data-section="assembly">
-                <div class="sheet-article">
-                  <h3 class="sheet-sub-title">Assembly Instructions</h3>
-                  
-                  
-
-                  <div class="guide-steps-list">
-                    {{ comp.assembly_guide | markdownify }}
-                  </div>
-                </div>
-              </div>
-
-              <!-- Testing Tab -->
-              <div class="tab-sheet-content" data-section="testing">
-                <div class="sheet-article">
-                  <h3 class="sheet-sub-title">Testing & Verification</h3>
-                  <div class="guide-steps-list">
-                    {{ comp.testing_guide | markdownify }}
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        {% endfor %}
 
       </div>
     </div>
   </div>
+
+  <!-- Arbitrary Scanner Documentation Content (Rendered before OSII Scorecard) -->
+  
+  <section class="scanner-arbitrary-info-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+    <div class="scanner-content-body">
+      <p>The <strong>IMAGINE Preclinical Scanner</strong> is designed to sustainably democratize diagnostic imaging and make preclinical MR systems accessible to clinicians and researchers in resource-limited settings globally. It incorporates:<br />
+- A 120mm bore Halbach array magnet assembly.<br />
+- Custom-wound 3D-printed gradient coils driven by the GPA-FHDO amplifier.<br />
+- A custom 27-turn RF solenoid coil and passive/active TxRx switches.<br />
+- An open-source electronic control system (MaRCoS) controlled via the user-friendly MARGE GUI.</p>
+<p>All modules are designed using standard parts, making them easy to purchase and assemble with local tools. Follow the interactive block diagrams on the left to inspect the design details of the Control System, Gradient Circuit, and RF Circuit.</p>
+    </div>
+  </section>
+  
 
   <!-- OSII Standard Compliance Section for this Scanner -->
   <section class="scanner-compliance-section" style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--color-border);">
@@ -1503,8 +1881,6 @@
       </div>
       
       <!-- Score Display -->
-      
-        {% assign osi_data = site.data.osi_imagine %}
       
       
       
@@ -1528,7 +1904,7 @@
                         <span class="item-name">README File Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Complete README file provided in the repository and individual component pages. <a href="/IMAGINE/scanners/imagine/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in README.md and Hardware/README.md <a href="../../README.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1540,7 +1916,7 @@
                         <span class="item-name">Design Considerations Explained</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Electromagnetic calculations and design considerations are documented in the GPA and control system pages. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in Hardware/Gradients/Gradient_Design.md and Hardware/Halbach Array/Part and build description.md <a href="../../Hardware/Gradients/Gradient_Design.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1559,7 +1935,7 @@
                         <span class="item-name">BoM Provided</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Bills of Materials for all PCB assemblies and custom components are detailed. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in Hardware/Part list/Bill of Materials.md and Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv <a href="../../Hardware/Part%20list/Bill%20of%20Materials.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1571,7 +1947,7 @@
                         <span class="item-name">BoM Best Practices Compliant</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Tables contain exact manufacturer part numbers, suppliers, quantities, and direct DigiKey purchase links. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Part lists contain exact manufacturer numbers, quantities, and supplier links in Hardware/Part list/Bill of Materials.md <a href="../../Hardware/Part%20list/Bill%20of%20Materials.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1590,7 +1966,7 @@
                         <span class="item-name">Native Source Files Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Native KiCAD PCB schematic and layout projects, as well as FreeCAD drawings, are hosted in the repository. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Autodesk Inventor part/assembly source files (.ipt, .iam) in Hardware/Halbach Array/ITP Files/ and IAM files/ <a href="../../Hardware/Halbach%20Array/ITP%20Files/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1609,7 +1985,7 @@
                         <span class="item-name">Editable with Open-Source Software</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> All PCB designs are in KiCAD, mechanical elements in FreeCAD, and softcore firmware in open C++ (Arduino). <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Open STEP exchange models (.stp) and coordinates provided in Hardware/Halbach Array/STP Files/ and Hardware/Gradients/ <a href="../../Hardware/Halbach%20Array/STP%20Files/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1628,7 +2004,7 @@
                         <span class="item-name">Accessible Exports Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Gerber fabrication files, drill maps, STL meshes, and STEP files are ready for manufacturing. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Production STL meshes for gradient formers in Hardware/Gradients/CAD/ <a href="../../Hardware/Gradients/CAD/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1640,7 +2016,7 @@
                         <span class="item-name">Manufacturing Environment Defined</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> PCB stack-up specifications, copper weight, and coil winding guides are fully described. <a href="/IMAGINE/components/gradient-coils-cad-winding/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> 3D printing parameters, winding tolerances, and CAD workflow in Hardware/Gradients/Gradient_Design.md <a href="../../Hardware/Gradients/Gradient_Design.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1659,7 +2035,7 @@
                         <span class="item-name">Assembly Guidance</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Detailed schematics, PCB silkscreens, component placement guides, and custom board adapter wiring diagrams are provided. <a href="/IMAGINE/components/redpitaya-to-gpa-adapter-board/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Step-by-step mechanical assembly procedure in Hardware/Halbach Array/Part and build description.md <a href="../../Hardware/Halbach%20Array/Part%20and%20build%20description.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1678,7 +2054,7 @@
                         <span class="item-name">Versioning Scheme Implemented</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Controlled using git on GitHub, tracking all schematic updates and firmware revisions. <a href="https://github.com/camera-mri/IMAGINE" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Managed under Git version control in repository tracking all commit revisions <a href="../../README.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1690,7 +2066,7 @@
                         <span class="item-name">Public Issue Tracking</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Public issue tracking is available for hardware bugs and software integration tasks. <a href="https://github.com/camera-mri/IMAGINE/issues" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Issue tracker on GitHub repository for tracking bug reports and hardware revisions <a href="https://github.com/CAMERA-MRI/IMAGINE/issues" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1702,7 +2078,7 @@
                         <span class="item-name">Public Communication Space</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> A shared developer forum and GitHub discussions space are used for technical exchange. <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> CAMERA-MRI open-source initiative and discussion forums <a href="https://www.camera-mri.org" target="_blank" style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1721,7 +2097,7 @@
                         <span class="item-name">Testing Routines Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Instructions for Red Pitaya board validation, GPA power testing, and coil tuning/matching are detailed. <a href="/IMAGINE/components/rf-coil-tuning-and-matching/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Testing protocols in Hardware/Gradient_Power_Amplifier/README.md and Hardware/Gradients/Gradient_Design.md <a href="../../Hardware/Gradient_Power_Amplifier/README.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1733,7 +2109,7 @@
                         <span class="item-name">Testing Routines Complete</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Comprehensive hardware verification checklist is available for all electronics modules. <a href="/IMAGINE/components/gpa-fhdo-power-amplifier/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Calibration routines and current sensing validation in Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv <a href="../../Hardware/Gradient_Power_Amplifier/IMAGINE_GPA_BOM.csv"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1752,7 +2128,7 @@
                         <span class="item-name">User Manual Available</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> System integration and operation manuals are provided. <a href="/IMAGINE/components/marcos-control-system/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Scanner integration instructions documented in Hardware/README.md <a href="../../Hardware/README.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1764,7 +2140,7 @@
                         <span class="item-name">Risk Assessment & Safety Notice</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> High voltage and RF power warning labels and safety protocols are prominent. <a href="/IMAGINE/components/gpa-fhdo-power-amplifier/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Magnetic hazard warnings and non-magnetic assembly protocols in Hardware/Halbach Array/Part and build description.md <a href="../../Hardware/Halbach%20Array/Part%20and%20build%20description.md"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1776,7 +2152,7 @@
                         <span class="item-name">Replication History Documented</span>
                         
                         <span class="item-evidence" style="font-size: 0.8rem; color: var(--color-emerald-deep); font-weight: 500; margin-top: 0.2rem; display: block;">
-                          <i class="fa-solid fa-square-poll-horizontal"></i> Replicated and successfully tested at several university laboratories globally. <a href="/IMAGINE/about/"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
+                          <i class="fa-solid fa-square-poll-horizontal"></i> Documented in about.html and global partner institutions map <a href="../../about.html"  style="text-decoration: underline; margin-left: 0.3rem;">[Link]</a>
                         </span>
                         
                       </div>
@@ -1785,9 +2161,6 @@
                   </ul>
                 </div>
                 
-          </ul>
-        </div>
-      {% endfor %}
     </div>
   </section>
 </div>
@@ -1841,6 +2214,18 @@
     </div>
   </div>
 </footer>
+
+<!-- Bottom Floating Banner (Site Under Construction) -->
+<div class="under-construction-banner" id="under-construction-bar">
+  <div class="construction-content">
+    <i class="fa-solid fa-person-digging construction-icon"></i>
+    <span><strong>Notice:</strong> This website is currently under active construction and development. Some details, specifications, and CAD files may be updated or modified as work progresses.</span>
+  </div>
+  <button class="construction-dismiss-btn" onclick="document.getElementById('under-construction-bar').style.display='none'" aria-label="Dismiss banner">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+</div>
+
 
 
   <!-- Scripts -->
