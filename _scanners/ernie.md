@@ -39,8 +39,65 @@ To evaluate the reproducibility of the ERNIE toolkit, multi-site reconstruction 
 All participating sites successfully reconstructed the scanner and robot using the provided kit, confirming the operational reproducibility of the open-hardware architecture.
 
 ### Curriculum & Training Materials
-Participants in the training sessions received preparatory educational resources:
-- **Building Your Own Low-Field MRI**: Video lecture by Dr. Johnes Obungoloch (MRI Uganda) detailing frugal MR hardware design.
-- **Introductory Lecture on MRI**: Theoretical foundations by Guillermo Sahonero-Alvarez covering spin physics, RF excitation, and low-field gradient encoding.
+Participants in the training sessions received preparatory educational resources and recorded masterclasses:
+
+#### 🎥 Lecture 1: Building Your Own Low-Field MRI Scanner
+Presented by **Dr. Johnes Obungoloch** (Mbarara University of Science & Technology / MRI Uganda), this lecture breaks down the frugal engineering principles, permanent magnet Halbach arrays, gradient coils, RF probes, and spectrometer design necessary to build accessible low-field MRI scanners in low-resource environments.
+
+<div class="video-player-container">
+  <video controls preload="metadata" playsinline class="assembly-video">
+    <source src="{{ site.baseurl }}/ERNIE/Training sessions/Training material/Building your own Low field MRI_Dr Johnes_( MRI Uganda ).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-footer-meta">
+    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Building Your Own Low-Field MRI — Dr. Johnes Obungoloch (MRI Uganda)</span>
+    <a href="{{ site.baseurl }}/ERNIE/Training sessions/Training material/Building your own Low field MRI_Dr Johnes_( MRI Uganda ).mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4 - 506 MB)</a>
+  </div>
+</div>
+
+#### 🎥 Lecture 2: Introductory Lecture on Low-Field MRI Theory
+Presented by **Guillermo Sahonero-Alvarez**, this foundational session covers the core physics of magnetic resonance imaging, including nuclear precession, Larmor frequency, RF excitation pulses, $T_1$ and $T_2$ relaxation times, spatial frequency encoding (k-space), and gradient switching dynamics at 50 mT.
+
+<div class="video-player-container">
+  <video controls preload="metadata" playsinline class="assembly-video">
+    <source src="{{ site.baseurl }}/ERNIE/Training sessions/Training material/Introductory lecture on MRI_Guillermo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-footer-meta">
+    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Introductory Lecture on MRI Physics & Gradient Encoding — Guillermo Sahonero-Alvarez</span>
+    <a href="{{ site.baseurl }}/ERNIE/Training sessions/Training material/Introductory lecture on MRI_Guillermo.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4 - 183 MB)</a>
+  </div>
+</div>
+
+---
+
+## 🛠️ Visual Assembly & Field Mapping Media
+
+The following demonstration and animation videos guide builders through constructing the 7-ring Halbach magnet array and assembling the automated 3-axis Cartesian robot for quality-assurance field mapping:
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
+  <div class="video-player-container" style="margin: 0;">
+    <video controls preload="metadata" playsinline class="assembly-video">
+      <source src="{{ site.baseurl }}/assets/videos/Assembly_Animation.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-footer-meta">
+      <span class="video-caption"><i class="fa-solid fa-circle-play"></i> 7-Ring Halbach Magnet Assembly Animation</span>
+      <a href="{{ site.baseurl }}/assets/videos/Assembly_Animation.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Animation (MP4)</a>
+    </div>
+  </div>
+  <div class="video-player-container" style="margin: 0;">
+    <video controls preload="metadata" playsinline class="assembly-video">
+      <source src="{{ site.baseurl }}/assets/videos/ernie_robot_intro.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-footer-meta">
+      <span class="video-caption"><i class="fa-solid fa-circle-play"></i> 3-Axis Robot Setup & Mapping Video</span>
+      <a href="{{ site.baseurl }}/assets/videos/ernie_robot_intro.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4)</a>
+    </div>
+  </div>
+</div>
+
+### Additional Workshop Resources
 - **Curriculum and Reading List**: Comprehensive syllabus and publication repository for low-field magnetic resonance engineering.
 - **Pre- and Post-Workshop Surveys**: Empirical evaluation of knowledge gain and participant confidence in open-source MRI engineering.

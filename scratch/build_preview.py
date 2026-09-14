@@ -805,8 +805,23 @@ class PreviewBuilder:
                     Your browser does not support the video tag.
                   </video>
                   <div class="video-footer-meta">
-                    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Animation</span>
+                    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> {c.get('video_caption', 'Assembly Demonstration Video')}</span>
                     <a href="{self.baseurl}{c['video_url']}" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4)</a>
+                  </div>
+                </div>
+                """
+
+            testing_video_html = ""
+            if "testing_video_url" in c and c["testing_video_url"]:
+                testing_video_html = f"""
+                <div class="video-player-container">
+                  <video controls preload="metadata" playsinline class="assembly-video">
+                    <source src="{self.baseurl}{c['testing_video_url']}" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <div class="video-footer-meta">
+                    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> {c.get('testing_video_caption', 'Testing Demonstration Video')}</span>
+                    <a href="{self.baseurl}{c['testing_video_url']}" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4)</a>
                   </div>
                 </div>
                 """
@@ -849,6 +864,7 @@ class PreviewBuilder:
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    {testing_video_html}
                     <div class="guide-steps-list">{c.get('testing_guide_html', '')}</div>
                   </div>
                 </div>

@@ -4,6 +4,8 @@ title: "ERNIE Gaussmeter & Hall Sensor"
 scanner_id: ernie
 category: "robot"
 description: "High-precision AlphaLab GM2 Gaussmeter, 3D-printed probe holder, and zero-gauss calibrator chamber for B0 field mapping."
+testing_video_url: "/assets/videos/ernie_robot_intro.mp4"
+testing_video_caption: "Hall Sensor 3D Raster Mapping in Action"
 downloads:
   - name: "Gaussmeter Probe Holder STL"
     path: "/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/Sensor_mount_1.stl"
@@ -38,8 +40,8 @@ assembly_guide: |
 testing_guide: |
   #### Probe Calibration & Mapping Routine
   1. Place the Hall probe inside the Zero Gauss Chamber (ZGC) and zero the meter.
-  2. Execute an automated 3D raster scan across a 50×50×50 mm grid at 2 mm resolution.
-  3. Plot B0 field distribution and verify 50 mT field center.
+  2. Execute an automated 3D raster scan across a 50×50×50 mm grid at 2 mm resolution (watch the demonstration video above to observe automated probe translation).
+  3. Plot B0 field distribution and verify 50 mT field center and spherical harmonics.
 ---
 ## Overview
 

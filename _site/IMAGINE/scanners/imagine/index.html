@@ -329,6 +329,7 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
                     <div class="guide-steps-list"><h4>Red Pitaya Signal Verification</h4>
 <ol>
 <li>Connect the Red Pitaya to the host PC via Ethernet.</li>
@@ -560,6 +561,7 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
                     <div class="guide-steps-list"><h4>GPA Calibration &amp; Protection Test</h4>
 <ol>
 <li><strong>Power-On Voltage Verification</strong>: Power up the low-voltage auxiliary rails (+12V, +5V, +2.5V reference). Check U7, U21, and U22 outputs on a digital multimeter.</li>
@@ -656,6 +658,7 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
                     <div class="guide-steps-list"><h4>Filter Performance Verification</h4>
 <ol>
 <li>Use a network analyzer (VNA) or oscilloscope to perform a frequency sweep from 1 kHz to 10 MHz.</li>
@@ -875,6 +878,7 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
                     <div class="guide-steps-list"><h4>Electromagnetic Simulation and Verification</h4>
 <ol>
 <li><strong>DC Resistance &amp; Inductance Measurement</strong>: Measure DC resistance ($R$) and self-inductance ($L$) for each coil channel ($G_x$, $G_y$, $G_z$) using an LCR meter at 1 kHz and 10 kHz. Confirm zero inter-axis shorts.</li>
@@ -970,6 +974,7 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
                     <div class="guide-steps-list"><h4>LNA Gain &amp; Noise Floor Test</h4>
 <ol>
 <li>Connect a 50 Ohm dummy resistor to the LNA input.</li>
@@ -1228,7 +1233,19 @@
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Assembly Instructions</h3>
                     
+                <div class="video-player-container">
+                  <video controls preload="metadata" playsinline class="assembly-video">
+                    <source src="/IMAGINE/assets/videos/Assembly_Animation.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <div class="video-footer-meta">
+                    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Halbach Magnet Array Stacking & Assembly Demonstration Animation</span>
+                    <a href="/IMAGINE/assets/videos/Assembly_Animation.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4)</a>
+                  </div>
+                </div>
+                
                     <div class="guide-steps-list"><h4>Mirrored Halbach Magnet Assembly Procedure</h4>
+<p><em>Watch the assembly demonstration animation above to observe the mechanical sequence of inserting permanent magnet cubes into 3D-printed ring housings, fastening retention lids, and stacking rings onto non-magnetic brass rods with precise axial spacing.</em></p>
 <h5>Ring Housing &amp; Lid Preparation</h5>
 <ol>
 <li><strong>Print Components</strong>: 3D print all ring housings (<code>Ring_842</code>, <code>Ring_0</code>, <code>Ring_1</code>, <code>Ring_10_front</code>, <code>Ring_10_back</code>, <code>Ring_945</code>, <code>Ring_1050</code>) and their respective lids (<code>Lid_Loose</code> and <code>Lid_tight</code>).</li>
@@ -1250,7 +1267,20 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
+                <div class="video-player-container">
+                  <video controls preload="metadata" playsinline class="assembly-video">
+                    <source src="/IMAGINE/assets/videos/ernie_robot_intro.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <div class="video-footer-meta">
+                    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Automated 3D Field Mapping Robot Operation Video</span>
+                    <a href="/IMAGINE/assets/videos/ernie_robot_intro.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4)</a>
+                  </div>
+                </div>
+                
                     <div class="guide-steps-list"><h4>B0 Field Mapping and Homogeneity Verification</h4>
+<p><em>Refer to the automated 3D field mapping robot video above to inspect how the 3-axis Cartesian gantry and Hall sensor probe conduct raster mapping across the magnet bore.</em></p>
 <ol>
 <li><strong>Geometric Alignment</strong>: Align the assembled Halbach magnet array on the non-magnetic scanner frame. Verify the 120mm bore clearance.</li>
 <li><strong>Robotic 3D Field Mapping</strong>: Mount the Hall probe of the 3-axis Field Mapping Robot at the center of the bore. Run automated grid raster scans covering the target spherical DSV.</li>
@@ -1401,6 +1431,7 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
                     <div class="guide-steps-list"><h4>Tuning and Impedance Matching Guide</h4>
 <ol>
 <li><strong>Integration</strong>: Place the RF coil inside the MRI scanner, complete with gradient coils and the RF shield.</li>
@@ -1501,6 +1532,7 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
                     <div class="guide-steps-list"><h4>RFPA Gain and Compression Verification</h4>
 <ol>
 <li><strong>WARNING</strong>: Always connect a 50 Ohm dummy load to the RFPA output before powering on. Never run the amplifier open-circuit!</li>
@@ -1625,6 +1657,7 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
                     <div class="guide-steps-list"><h4>Connectivity &amp; Level Shifting Test</h4>
 <ol>
 <li>Mount the adapter board onto the Red Pitaya GPIO pins.</li>
@@ -1763,6 +1796,7 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
                     <div class="guide-steps-list"><h4>VNA Reflection &amp; Transmission Calibration</h4>
 <p>Using a VNA calibrated to the magnet's working Larmor frequency, measure the reflection (S11/S22) and transmission (S21/S12) coefficients in both <strong>Transmit Mode</strong> (Switch ON) and <strong>Receive Mode</strong> (Switch OFF). All ports not under test must be terminated with a 50 Ohm load.</p>
 <p>Verify your switch measurements match the reference performance table:</p>
@@ -1878,6 +1912,60 @@
 - A custom 27-turn RF solenoid coil and passive/active TxRx switches.<br />
 - An open-source electronic control system (MaRCoS) controlled via the user-friendly MARGE GUI.</p>
 <p>All modules are designed using standard parts, making them easy to purchase and assemble with local tools. Follow the interactive block diagrams on the left to inspect the design details of the Control System, Gradient Circuit, and RF Circuit.</p>
+<hr />
+<h2>🛠️ Visual Assembly &amp; Quality Assurance Media</h2>
+<p>The following videos demonstrate the mechanical assembly techniques and automated field mapping procedures used to construct and calibrate the IMAGINE preclinical scanner:</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
+  <div class="video-player-container" style="margin: 0;">
+    <video controls preload="metadata" playsinline class="assembly-video">
+      <source src="/IMAGINE/assets/videos/Assembly_Animation.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-footer-meta">
+      <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Halbach Magnet Array Assembly Animation</span>
+      <a href="/IMAGINE/assets/videos/Assembly_Animation.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Animation (MP4)</a>
+    </div>
+  </div>
+  <div class="video-player-container" style="margin: 0;">
+    <video controls preload="metadata" playsinline class="assembly-video">
+      <source src="/IMAGINE/assets/videos/ernie_robot_intro.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-footer-meta">
+      <span class="video-caption"><i class="fa-solid fa-circle-play"></i> 3-Axis Field Mapping Robot Demonstration</span>
+      <a href="/IMAGINE/assets/videos/ernie_robot_intro.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4)</a>
+    </div>
+  </div>
+</div>
+
+<hr />
+<h2>🎓 Low-Field MRI Engineering Masterclasses</h2>
+<p>To support researchers, clinicians, and engineers replicating the IMAGINE preclinical system, comprehensive recorded lectures detailing low-field MRI engineering principles are provided below:</p>
+<h4>🎥 Lecture 1: Building Your Own Low-Field MRI Scanner</h4>
+<p>Presented by <strong>Dr. Johnes Obungoloch</strong> (Mbarara University of Science &amp; Technology / MRI Uganda), this masterclass covers the full hardware pipeline of open-source low-field MRI: permanent magnet Halbach arrays, gradient coils, RF probes, transmit/receive switching, and spectrometer instrumentation.</p>
+<div class="video-player-container">
+  <video controls preload="metadata" playsinline class="assembly-video">
+    <source src="/IMAGINE/ERNIE/Training sessions/Training material/Building your own Low field MRI_Dr Johnes_( MRI Uganda ).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-footer-meta">
+    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Building Your Own Low-Field MRI — Dr. Johnes Obungoloch (MRI Uganda)</span>
+    <a href="/IMAGINE/ERNIE/Training sessions/Training material/Building your own Low field MRI_Dr Johnes_( MRI Uganda ).mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4 - 506 MB)</a>
+  </div>
+</div>
+
+<h4>🎥 Lecture 2: Introductory Lecture on Low-Field MRI Theory</h4>
+<p>Presented by <strong>Guillermo Sahonero-Alvarez</strong>, this foundational lecture provides the theoretical framework of magnetic resonance physics: spin dynamics, RF excitation, relaxation mechanisms ($T_1$/$T_2$), k-space sampling trajectories, and gradient encoding considerations at 50 mT.</p>
+<div class="video-player-container">
+  <video controls preload="metadata" playsinline class="assembly-video">
+    <source src="/IMAGINE/ERNIE/Training sessions/Training material/Introductory lecture on MRI_Guillermo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-footer-meta">
+    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Introductory Lecture on MRI Physics & Gradient Encoding — Guillermo Sahonero-Alvarez</span>
+    <a href="/IMAGINE/ERNIE/Training sessions/Training material/Introductory lecture on MRI_Guillermo.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4 - 183 MB)</a>
+  </div>
+</div>
       </div>
     </details>
   </section>

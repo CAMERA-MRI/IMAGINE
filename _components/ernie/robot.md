@@ -4,6 +4,8 @@ title: "ERNIE 3-Axis Cartesian Gantry"
 scanner_id: ernie
 category: "robot"
 description: "The 3-axis automated mechanical positioning system used to move the Hall probe inside the magnet bore."
+video_url: "/assets/videos/ernie_robot_intro.mp4"
+video_caption: "ERNIE 3-Axis Field Mapping Robot Setup & Operation Video"
 downloads:
   - name: "Scanner Base for Field Mapping STL"
     path: "/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/Scanner Base for field mapping.stl"
@@ -20,15 +22,19 @@ bom:
     qty: 4
     price: "3D Printed (PLA)"
 assembly_guide: |
-  #### Mechanical Gantry Construction
-  1. Fasten the 4 PLA Scanner Base mounting brackets to the work table.
-  2. Assemble the X-axis linear slide onto the base mounts.
-  3. Mount the Y-axis stage vertically perpendicular to X, then mount the Z-axis probe stage.
-  4. Ensure all stages move smoothly along their full 150 mm travel without binding.
+  #### 🤖 Mechanical Gantry Construction & Setup
+
+  Watch the introductory and assembly video above demonstrating the 3-axis robot mechanics, motion stages, and stepper drive alignment.
+
+  1. **Base Mounting**: Secure the 4 3D-printed PLA Scanner Base brackets to the rigid non-magnetic assembly table.
+  2. **X-Axis Installation**: Mount the primary horizontal linear rail onto the base brackets and tighten the M4 fastening screws.
+  3. **Y-Axis & Z-Axis Assembly**: Attach the vertical Y-axis stage perpendicularly to the X carriage, then mount the forward Z-axis probe carriage.
+  4. **Smooth Travel Verification**: Manually slide each stage across its full 150 mm range to verify zero mechanical binding or backlash before attaching motor couplings.
 testing_guide: |
-  #### Travel & Orthogonality Validation
-  1. Check stage orthogonality with a precision machinist square.
-  2. Test travel limits and zero position repeatability.
+  #### ⚙️ Travel, Orthogonality & Raster Mapping Validation
+  1. **Orthogonality Check**: Use a precision machinist square to verify 90° orthogonality across X, Y, and Z stages.
+  2. **Automated Motion Test**: Run test raster scan routines via the Arduino firmware (as demonstrated in the robot intro video) to confirm smooth step response, speed ramps, and reproducible return-to-origin positioning.
+  3. **Probe Clearance**: Verify that the Hall probe carriage translates safely into and out of the magnet bore without contacting ring inner walls.
 ---
 ## Overview
 

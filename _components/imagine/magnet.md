@@ -4,6 +4,10 @@ title: "120mm Bore Halbach Magnet Array"
 scanner_id: imagine
 category: "magnet"
 description: "The primary B0 magnetic field source for the IMAGINE rat/preclinical scanner: a 120mm clear bore Halbach array producing ~50 mT with high homogeneity."
+video_url: "/assets/videos/Assembly_Animation.mp4"
+video_caption: "Halbach Magnet Array Stacking & Assembly Demonstration Animation"
+testing_video_url: "/assets/videos/ernie_robot_intro.mp4"
+testing_video_caption: "Automated 3D Field Mapping Robot Operation Video"
 downloads:
   - name: "Full Magnet Assembly (Inventor IAM)"
     path: "/Hardware/Halbach Array/IAM files/Rat_Scanner_120_Ass.iam"
@@ -66,6 +70,8 @@ bom:
 assembly_guide: |
   #### Mirrored Halbach Magnet Assembly Procedure
 
+  *Watch the assembly demonstration animation above to observe the mechanical sequence of inserting permanent magnet cubes into 3D-printed ring housings, fastening retention lids, and stacking rings onto non-magnetic brass rods with precise axial spacing.*
+
   ##### Ring Housing & Lid Preparation
   1. **Print Components**: 3D print all ring housings (`Ring_842`, `Ring_0`, `Ring_1`, `Ring_10_front`, `Ring_10_back`, `Ring_945`, `Ring_1050`) and their respective lids (`Lid_Loose` and `Lid_tight`).
   2. **Install Heat Inserts**: Using a soldering iron with a heat-set insert tip, carefully install M3 brass heat-set inserts into the 4.2mm holes of each ring housing.
@@ -81,6 +87,9 @@ assembly_guide: |
   8. **Lock Spacing**: Use M4 hex nuts on either side of each ring housing to precisely set axial ring-to-ring spacings as determined by the genetic optimization algorithm. Cap rod ends with M4 nylon washers and M4 dome nuts.
 testing_guide: |
   #### B0 Field Mapping and Homogeneity Verification
+
+  *Refer to the automated 3D field mapping robot video above to inspect how the 3-axis Cartesian gantry and Hall sensor probe conduct raster mapping across the magnet bore.*
+
   1. **Geometric Alignment**: Align the assembled Halbach magnet array on the non-magnetic scanner frame. Verify the 120mm bore clearance.
   2. **Robotic 3D Field Mapping**: Mount the Hall probe of the 3-axis Field Mapping Robot at the center of the bore. Run automated grid raster scans covering the target spherical DSV.
   3. **Homogeneity Computation**: Compute peak-to-peak and RMS homogeneity ($\Delta B_0 / B_0$ in ppm). The target field strength is ~50 mT ($47–52$ mT).

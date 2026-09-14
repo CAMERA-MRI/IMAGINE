@@ -284,6 +284,7 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
                     <div class="guide-steps-list"><h4>Structural &amp; Parallelism Check</h4>
 <ol>
 <li>Measure inter-ring distances using digital Vernier calipers at 4 circumferential quadrants.</li>
@@ -423,6 +424,7 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
                     <div class="guide-steps-list"><h4>Safety Inspection</h4>
 <ol>
 <li>Check that all magnet pockets in the storage tray are properly isolated to prevent mutual attraction accidents.</li>
@@ -635,7 +637,7 @@
                     Your browser does not support the video tag.
                   </video>
                   <div class="video-footer-meta">
-                    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Animation</span>
+                    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> ERNIE 7-Ring Halbach Magnet Array 3D CAD Assembly Animation</span>
                     <a href="/IMAGINE/assets/videos/Assembly_Animation.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4)</a>
                   </div>
                 </div>
@@ -657,6 +659,7 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
                     <div class="guide-steps-list"><h3>🧪 Field Homogeneity &amp; Verification Testing</h3>
 <ol>
 <li><strong>Compass Alignment Check</strong>: Pass a magnetic compass around each individual ring perimeter prior to fastening lids to ensure no reversed poles exist.</li>
@@ -798,6 +801,7 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
                     <div class="guide-steps-list"><h4>Driver &amp; Motion Testing</h4>
 <ol>
 <li>Issue serial motion commands (G-code style coordinates) via serial monitor.</li>
@@ -926,11 +930,23 @@
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
+                    
+                <div class="video-player-container">
+                  <video controls preload="metadata" playsinline class="assembly-video">
+                    <source src="/IMAGINE/assets/videos/ernie_robot_intro.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <div class="video-footer-meta">
+                    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Hall Sensor 3D Raster Mapping in Action</span>
+                    <a href="/IMAGINE/assets/videos/ernie_robot_intro.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4)</a>
+                  </div>
+                </div>
+                
                     <div class="guide-steps-list"><h4>Probe Calibration &amp; Mapping Routine</h4>
 <ol>
 <li>Place the Hall probe inside the Zero Gauss Chamber (ZGC) and zero the meter.</li>
-<li>Execute an automated 3D raster scan across a 50×50×50 mm grid at 2 mm resolution.</li>
-<li>Plot B0 field distribution and verify 50 mT field center.</li>
+<li>Execute an automated 3D raster scan across a 50×50×50 mm grid at 2 mm resolution (watch the demonstration video above to observe automated probe translation).</li>
+<li>Plot B0 field distribution and verify 50 mT field center and spherical harmonics.</li>
 </ol></div>
                   </div>
                 </div>
@@ -1030,22 +1046,36 @@
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Assembly Instructions</h3>
                     
-                    <div class="guide-steps-list"><h4>Mechanical Gantry Construction</h4>
+                <div class="video-player-container">
+                  <video controls preload="metadata" playsinline class="assembly-video">
+                    <source src="/IMAGINE/assets/videos/ernie_robot_intro.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <div class="video-footer-meta">
+                    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> ERNIE 3-Axis Field Mapping Robot Setup & Operation Video</span>
+                    <a href="/IMAGINE/assets/videos/ernie_robot_intro.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4)</a>
+                  </div>
+                </div>
+                
+                    <div class="guide-steps-list"><h4>🤖 Mechanical Gantry Construction &amp; Setup</h4>
+<p>Watch the introductory and assembly video above demonstrating the 3-axis robot mechanics, motion stages, and stepper drive alignment.</p>
 <ol>
-<li>Fasten the 4 PLA Scanner Base mounting brackets to the work table.</li>
-<li>Assemble the X-axis linear slide onto the base mounts.</li>
-<li>Mount the Y-axis stage vertically perpendicular to X, then mount the Z-axis probe stage.</li>
-<li>Ensure all stages move smoothly along their full 150 mm travel without binding.</li>
+<li><strong>Base Mounting</strong>: Secure the 4 3D-printed PLA Scanner Base brackets to the rigid non-magnetic assembly table.</li>
+<li><strong>X-Axis Installation</strong>: Mount the primary horizontal linear rail onto the base brackets and tighten the M4 fastening screws.</li>
+<li><strong>Y-Axis &amp; Z-Axis Assembly</strong>: Attach the vertical Y-axis stage perpendicularly to the X carriage, then mount the forward Z-axis probe carriage.</li>
+<li><strong>Smooth Travel Verification</strong>: Manually slide each stage across its full 150 mm range to verify zero mechanical binding or backlash before attaching motor couplings.</li>
 </ol></div>
                   </div>
                 </div>
                 <div class="tab-sheet-content" data-section="testing">
                   <div class="sheet-article">
                     <h3 class="sheet-sub-title">Testing & Verification</h3>
-                    <div class="guide-steps-list"><h4>Travel &amp; Orthogonality Validation</h4>
+                    
+                    <div class="guide-steps-list"><h4>⚙️ Travel, Orthogonality &amp; Raster Mapping Validation</h4>
 <ol>
-<li>Check stage orthogonality with a precision machinist square.</li>
-<li>Test travel limits and zero position repeatability.</li>
+<li><strong>Orthogonality Check</strong>: Use a precision machinist square to verify 90° orthogonality across X, Y, and Z stages.</li>
+<li><strong>Automated Motion Test</strong>: Run test raster scan routines via the Arduino firmware (as demonstrated in the robot intro video) to confirm smooth step response, speed ramps, and reproducible return-to-origin positioning.</li>
+<li><strong>Probe Clearance</strong>: Verify that the Hall probe carriage translates safely into and out of the magnet bore without contacting ring inner walls.</li>
 </ol></div>
                   </div>
                 </div>
@@ -1099,11 +1129,64 @@
 </ul>
 <p>All participating sites successfully reconstructed the scanner and robot using the provided kit, confirming the operational reproducibility of the open-hardware architecture.</p>
 <h3>Curriculum &amp; Training Materials</h3>
-<p>Participants in the training sessions received preparatory educational resources:<br />
-- <strong>Building Your Own Low-Field MRI</strong>: Video lecture by Dr. Johnes Obungoloch (MRI Uganda) detailing frugal MR hardware design.<br />
-- <strong>Introductory Lecture on MRI</strong>: Theoretical foundations by Guillermo Sahonero-Alvarez covering spin physics, RF excitation, and low-field gradient encoding.<br />
-- <strong>Curriculum and Reading List</strong>: Comprehensive syllabus and publication repository for low-field magnetic resonance engineering.<br />
-- <strong>Pre- and Post-Workshop Surveys</strong>: Empirical evaluation of knowledge gain and participant confidence in open-source MRI engineering.</p>
+<p>Participants in the training sessions received preparatory educational resources and recorded masterclasses:</p>
+<h4>🎥 Lecture 1: Building Your Own Low-Field MRI Scanner</h4>
+<p>Presented by <strong>Dr. Johnes Obungoloch</strong> (Mbarara University of Science &amp; Technology / MRI Uganda), this lecture breaks down the frugal engineering principles, permanent magnet Halbach arrays, gradient coils, RF probes, and spectrometer design necessary to build accessible low-field MRI scanners in low-resource environments.</p>
+<div class="video-player-container">
+  <video controls preload="metadata" playsinline class="assembly-video">
+    <source src="/IMAGINE/ERNIE/Training sessions/Training material/Building your own Low field MRI_Dr Johnes_( MRI Uganda ).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-footer-meta">
+    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Building Your Own Low-Field MRI — Dr. Johnes Obungoloch (MRI Uganda)</span>
+    <a href="/IMAGINE/ERNIE/Training sessions/Training material/Building your own Low field MRI_Dr Johnes_( MRI Uganda ).mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4 - 506 MB)</a>
+  </div>
+</div>
+
+<h4>🎥 Lecture 2: Introductory Lecture on Low-Field MRI Theory</h4>
+<p>Presented by <strong>Guillermo Sahonero-Alvarez</strong>, this foundational session covers the core physics of magnetic resonance imaging, including nuclear precession, Larmor frequency, RF excitation pulses, $T_1$ and $T_2$ relaxation times, spatial frequency encoding (k-space), and gradient switching dynamics at 50 mT.</p>
+<div class="video-player-container">
+  <video controls preload="metadata" playsinline class="assembly-video">
+    <source src="/IMAGINE/ERNIE/Training sessions/Training material/Introductory lecture on MRI_Guillermo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-footer-meta">
+    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Introductory Lecture on MRI Physics & Gradient Encoding — Guillermo Sahonero-Alvarez</span>
+    <a href="/IMAGINE/ERNIE/Training sessions/Training material/Introductory lecture on MRI_Guillermo.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4 - 183 MB)</a>
+  </div>
+</div>
+
+<hr />
+<h2>🛠️ Visual Assembly &amp; Field Mapping Media</h2>
+<p>The following demonstration and animation videos guide builders through constructing the 7-ring Halbach magnet array and assembling the automated 3-axis Cartesian robot for quality-assurance field mapping:</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
+  <div class="video-player-container" style="margin: 0;">
+    <video controls preload="metadata" playsinline class="assembly-video">
+      <source src="/IMAGINE/assets/videos/Assembly_Animation.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-footer-meta">
+      <span class="video-caption"><i class="fa-solid fa-circle-play"></i> 7-Ring Halbach Magnet Assembly Animation</span>
+      <a href="/IMAGINE/assets/videos/Assembly_Animation.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Animation (MP4)</a>
+    </div>
+  </div>
+  <div class="video-player-container" style="margin: 0;">
+    <video controls preload="metadata" playsinline class="assembly-video">
+      <source src="/IMAGINE/assets/videos/ernie_robot_intro.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-footer-meta">
+      <span class="video-caption"><i class="fa-solid fa-circle-play"></i> 3-Axis Robot Setup & Mapping Video</span>
+      <a href="/IMAGINE/assets/videos/ernie_robot_intro.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4)</a>
+    </div>
+  </div>
+</div>
+
+<h3>Additional Workshop Resources</h3>
+<ul>
+<li><strong>Curriculum and Reading List</strong>: Comprehensive syllabus and publication repository for low-field magnetic resonance engineering.</li>
+<li><strong>Pre- and Post-Workshop Surveys</strong>: Empirical evaluation of knowledge gain and participant confidence in open-source MRI engineering.</li>
+</ul>
       </div>
     </details>
   </section>
