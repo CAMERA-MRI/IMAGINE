@@ -114,11 +114,14 @@
         <div class="section-card-body">
           
             <div class="video-player-container standalone-video">
-              <video controls class="assembly-video">
-                <source src="/IMAGINE/ERNIE/Build your own Design/Magnet/Instructions/Animation/Assembly_Animation.mp4" type="video/mp4">
+              <video controls preload="metadata" playsinline class="assembly-video">
+                <source src="/IMAGINE/assets/videos/Assembly_Animation.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
-              <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
+              <div class="video-footer-meta">
+                <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Animation</span>
+                <a href="/IMAGINE/assets/videos/Assembly_Animation.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4)</a>
+              </div>
             </div>
           
           

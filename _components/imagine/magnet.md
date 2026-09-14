@@ -90,6 +90,10 @@ testing_guide: |
 
 The **120mm Bore Halbach Magnet Array** is the primary magnetic field ($B_0$) source of the IMAGINE rat/preclinical MRI scanner. It produces a transverse static field of approximately 50 mT with high spatial homogeneity across the central volume.
 
+<p align="center">
+  <img src="/IMAGINE/images/imagine_magnet_assembly.png" alt="120mm Preclinical Halbach Magnet Array 3D CAD Assembly" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.25);" />
+</p>
+
 The array consists of stacked discrete rings housing 12×12×12 mm NdFeB permanent magnets. The ring positions, magnet orientations, and inter-ring spacings are optimized via genetic algorithms to maximize field uniformity while preserving an ample 120 mm internal clear bore for preclinical animal imaging, RF coils, and gradient inserts.
 
 ### Structural Architecture

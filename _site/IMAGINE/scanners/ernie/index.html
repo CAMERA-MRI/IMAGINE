@@ -167,7 +167,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><h2>Overview</h2>
+                  <div class="sheet-article markdown-content"><h2>Overview</h2>
 <p>The <strong>Mechanical Frame &amp; Spacers</strong> maintain rigid structural integrity and precise axial positioning of the Halbach rings. All structural elements are non-magnetic (brass and PLA) to prevent distortion of the 50 mT field.</p></div>
                 </div>
                 
@@ -310,7 +310,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><h2>Overview</h2>
+                  <div class="sheet-article markdown-content"><h2>Overview</h2>
 <p>The <strong>Shimming &amp; Disassembly System</strong> provides passive field correction trays and specialized non-magnetic tooling for safe hands-on disassembly during educational workshops.</p></div>
                 </div>
                 
@@ -448,7 +448,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><h2>Overview</h2>
+                  <div class="sheet-article markdown-content"><h2>Overview</h2>
 <p>This section provides the <strong>.stl</strong> files that can be 3D printed out to assemble the ERNIE 1&amp;2 scanners. The scanner magnet array is made up of <strong>7 rings</strong> and their corresponding lids:</p>
 <ul>
 <li><strong>Ring_321</strong>: Placed at the center of the Halbach array.</li>
@@ -630,11 +630,14 @@
                     <h3 class="sheet-sub-title">Assembly Instructions</h3>
                     
                 <div class="video-player-container">
-                  <video controls class="assembly-video">
-                    <source src="/IMAGINE/ERNIE/Build your own Design/Magnet/Instructions/Animation/Assembly_Animation.mp4" type="video/mp4">
+                  <video controls preload="metadata" playsinline class="assembly-video">
+                    <source src="/IMAGINE/assets/videos/Assembly_Animation.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                   </video>
-                  <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
+                  <div class="video-footer-meta">
+                    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Animation</span>
+                    <a href="/IMAGINE/assets/videos/Assembly_Animation.mp4" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4)</a>
+                  </div>
                 </div>
                 
                     <div class="guide-steps-list"><h3>🛠️ Magnet Assembly Procedure</h3>
@@ -681,7 +684,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><h2>Overview</h2>
+                  <div class="sheet-article markdown-content"><h2>Overview</h2>
 <p>The <strong>Robot Controller &amp; Drivers</strong> subsystem handles precise microstepping for all three axes. It interprets Cartesian coordinates sent from the host computer and controls the stepper motors synchronously.</p></div>
                 </div>
                 
@@ -821,7 +824,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><h2>Overview</h2>
+                  <div class="sheet-article markdown-content"><h2>Overview</h2>
 <p>The <strong>Gaussmeter &amp; Hall Sensor</strong> subsystem measures the magnetic field with high precision (0.01 mT resolution). In conjunction with the 3D gantry and Python mapping software, it produces high-resolution 3D field maps used to evaluate magnet assembly quality and homogeneity.</p></div>
                 </div>
                 
@@ -950,7 +953,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><h2>Overview</h2>
+                  <div class="sheet-article markdown-content"><h2>Overview</h2>
 <p>The <strong>3-Axis Cartesian Gantry</strong> provides smooth, automated scanning across the central bore of the ERNIE magnet. With 150 mm travel on all axes, it raster-scans the Hall sensor throughout the target field of view.</p></div>
                 </div>
                 
@@ -1105,6 +1108,38 @@
     </details>
   </section>
   
+
+  <!-- Community Feedback & GitHub Issues Notice -->
+  <section class="scanner-community-notice-section">
+    <div class="community-notice-card">
+      <div class="community-notice-main">
+        <div class="community-notice-icon-box">
+          <i class="fa-solid fa-code-pull-request"></i>
+        </div>
+        <div class="community-notice-text-content">
+          <span class="community-notice-tag">Open Hardware Collaboration</span>
+          <h3 class="community-notice-title">Something missing? Want to report an issue or suggest an improvement?</h3>
+          <p class="community-notice-desc">
+            This scanner is part of the IMAGINE open-source imaging project. If you notice missing CAD files, BOM discrepancies, or documentation gaps, or if you would like to propose an enhancement, please open an issue on GitHub using our community templates.
+          </p>
+        </div>
+      </div>
+      <div class="community-notice-actions">
+        <a href="https://github.com/CAMERA-MRI/IMAGINE/issues/new?template=bug_report.md" target="_blank" class="notice-action-btn btn-bug">
+          <i class="fa-solid fa-bug"></i> Report Bug / Error
+        </a>
+        <a href="https://github.com/CAMERA-MRI/IMAGINE/issues/new?template=hardware_inquiry.md" target="_blank" class="notice-action-btn btn-hardware">
+          <i class="fa-solid fa-microchip"></i> Hardware Inquiry
+        </a>
+        <a href="https://github.com/CAMERA-MRI/IMAGINE/issues/new?template=feature_request.md" target="_blank" class="notice-action-btn btn-suggest">
+          <i class="fa-solid fa-lightbulb"></i> Suggest Improvement
+        </a>
+        <a href="https://github.com/CAMERA-MRI/IMAGINE/issues" target="_blank" class="notice-action-btn btn-all">
+          <i class="fa-brands fa-github"></i> Browse All Issues
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- OSII Standard Compliance Section for this Scanner -->
   <section class="scanner-compliance-section" style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--color-border);">

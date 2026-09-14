@@ -4,7 +4,7 @@ title: "ERNIE Halbach Magnet Rings"
 scanner_id: ernie
 category: "magnet"
 description: "The primary B0 field source for the ERNIE educational scanner: 7 3D-printed rings housing 98 N48 Neodymium magnets in an optimized Halbach geometry."
-video_url: "/ERNIE/Build your own Design/Magnet/Instructions/Animation/Assembly_Animation.mp4"
+video_url: "/assets/videos/Assembly_Animation.mp4"
 downloads:
   - name: "Ring 42 STL"
     path: "/ERNIE/Build your own Design/Magnet/Scanner parts for 3D printing/ERNIE 1&2 rings and lids (.stl)/Ring 42 (105mm_length ).stl"

@@ -6,6 +6,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   
   // 1. Initial State Setup
+  renderUnparsedMarkdown();
   initializeDashboard();
   if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
     MathJax.typesetPromise();
@@ -191,4 +192,22 @@ function filterBomTable(inputElement) {
       }
     });
   }
+}
+
+/**
+ * Safely parse markdown in any element where raw markdown text was output,
+ * strictly skipping elements that already contain rendered HTML tags (tables, headings, paragraphs).
+ */
+function renderUnparsedMarkdown() {
+  if (typeof marked === 'undefined') return;
+  const elements = document.querySelectorAll('.markdown-content, .sheet-article');
+  elements.forEach(el => {
+    // If element has NO child HTML elements (pure text node) and contains markdown tokens
+    if (!el.querySelector('p, h1, h2, h3, h4, h5, h6, ul, ol, table, div')) {
+      const raw = el.textContent || el.innerText;
+      if (raw && (raw.includes('#') || raw.includes('**') || raw.includes('* ') || raw.includes('- ') || raw.includes('👉'))) {
+        el.innerHTML = marked.parse(raw);
+      }
+    }
+  });
 }

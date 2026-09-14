@@ -122,7 +122,7 @@
 
           <!-- Magnet Array Schematic -->
           <div class="schematic-view" id="schematic-magnet">
-            <img src="/IMAGINE/images/Ring_ordering.png" alt="Halbach Magnet Ring Ordering" class="subsystem-diagram-img" />
+            <img src="/IMAGINE/images/imagine_magnet_assembly.png" alt="120mm Preclinical Halbach Magnet Array 3D CAD Assembly" class="subsystem-diagram-img" />
           </div>
 
                 
@@ -199,7 +199,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><p>The <strong>Control System</strong> handles the execution of MRI pulse sequences. It coordinates the radiofrequency (RF) transmit/receive timing and the gradient coil currents. <strong>MaRCoS</strong> (Magnetic Resonance Control System) is an open-source console console firmware running on a Red Pitaya board, replacing traditional expensive commercial consoles. The console is fully controlled via the <strong>MARGE</strong> graphical user interface.</p></div>
+                  <div class="sheet-article markdown-content"><p>The <strong>Control System</strong> handles the execution of MRI pulse sequences. It coordinates the radiofrequency (RF) transmit/receive timing and the gradient coil currents. <strong>MaRCoS</strong> (Magnetic Resonance Control System) is an open-source console console firmware running on a Red Pitaya board, replacing traditional expensive commercial consoles. The console is fully controlled via the <strong>MARGE</strong> graphical user interface.</p></div>
                 </div>
                 
                 <div class="tab-sheet-content" data-section="bom">
@@ -357,7 +357,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><h2>Overview</h2>
+                  <div class="sheet-article markdown-content"><h2>Overview</h2>
 <p>The IMAGINE MRI scanner uses the open-source <strong><a href="https://github.com/menkueclab/GPA-FHDO">GPA-FHDO gradient power amplifier</a></strong> developed by the Fachhochschule Dortmund (FHDO) to drive the $X$, $Y$, and $Z$ gradient coils.</p>
 <p>The GPA-FHDO is a modular four-channel gradient power amplifier specifically designed for low-field MRI applications. In the IMAGINE preclinical scanner, three channels are dedicated to driving the orthogonal gradient axes ($G_x$, $G_y$, $G_z$), with the fourth channel available for auxiliary $B_0$ shimming or secondary coils.</p>
 <blockquote>
@@ -589,7 +589,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><p>The <strong>Gradient Low-Pass Filter</strong> prevents high-frequency switching noise from the GPA-FHDO from radiating into the scanner bore. Since the Larmor frequency is close to 2 MHz, any high-frequency switching noise on the gradient lines can directly couple into the RF coil and saturate the LNA, causing severe image artifacts.</p></div>
+                  <div class="sheet-article markdown-content"><p>The <strong>Gradient Low-Pass Filter</strong> prevents high-frequency switching noise from the GPA-FHDO from radiating into the scanner bore. Since the Larmor frequency is close to 2 MHz, any high-frequency switching noise on the gradient lines can directly couple into the RF coil and saturate the LNA, causing severe image artifacts.</p></div>
                 </div>
                 
                 <div class="tab-sheet-content" data-section="bom">
@@ -683,7 +683,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><h2>Overview</h2>
+                  <div class="sheet-article markdown-content"><h2>Overview</h2>
 <p>The <strong>Gradient Coils</strong> provide spatial encoding in the three orthogonal directions ($X$, $Y$, and $Z$) for the IMAGINE low-field rat/preclinical MRI scanner. The coils are wound on concentric cylindrical former surfaces with precisely manufactured grooves produced via high-resolution 3D printing.</p>
 <p>The wire trajectories are optimized using the <strong>Discrete Wire Method</strong> to produce highly linear magnetic field gradients over the target spherical diameter volume (DSV), minimizing unwanted concomitant fields and heat dissipation.</p>
 <h3>Design and Optimization Reference</h3>
@@ -903,7 +903,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><p>The <strong>Low Noise Amplifier (LNA)</strong> is the first stage in the MRI receiver chain. Because the nuclear magnetic resonance (NMR) signal from a 50 mT scanner is in the microvolt range, the LNA must provide high gain with extremely low added noise (low Noise Figure) to prevent drowning the signal in the thermal noise of the electronics.</p></div>
+                  <div class="sheet-article markdown-content"><p>The <strong>Low Noise Amplifier (LNA)</strong> is the first stage in the MRI receiver chain. Because the nuclear magnetic resonance (NMR) signal from a 50 mT scanner is in the microvolt range, the LNA must provide high gain with extremely low added noise (low Noise Figure) to prevent drowning the signal in the thermal noise of the electronics.</p></div>
                 </div>
                 
                 <div class="tab-sheet-content" data-section="bom">
@@ -998,8 +998,12 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><h2>Overview</h2>
+                  <div class="sheet-article markdown-content"><h2>Overview</h2>
 <p>The <strong>120mm Bore Halbach Magnet Array</strong> is the primary magnetic field ($B_0$) source of the IMAGINE rat/preclinical MRI scanner. It produces a transverse static field of approximately 50 mT with high spatial homogeneity across the central volume.</p>
+<p align="center">
+  <img src="/IMAGINE/images/imagine_magnet_assembly.png" alt="120mm Preclinical Halbach Magnet Array 3D CAD Assembly" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.25);" />
+</p>
+
 <p>The array consists of stacked discrete rings housing 12×12×12 mm NdFeB permanent magnets. The ring positions, magnet orientations, and inter-ring spacings are optimized via genetic algorithms to maximize field uniformity while preserving an ample 120 mm internal clear bore for preclinical animal imaging, RF coils, and gradient inserts.</p>
 <h3>Structural Architecture</h3>
 <ul>
@@ -1274,7 +1278,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><p>The <strong>RF Coil</strong> transmits the excitation pulse and receives the echo signal. It is built as a solenoid coil wound on a 3D-printed former. Since low-field MRI signals are weak, the RF coil must be tuned to the exact Larmor frequency of the system and matched to 50 Ohms to ensure maximum power transfer and high signal-to-noise ratio (SNR).</p></div>
+                  <div class="sheet-article markdown-content"><p>The <strong>RF Coil</strong> transmits the excitation pulse and receives the echo signal. It is built as a solenoid coil wound on a 3D-printed former. Since low-field MRI signals are weak, the RF coil must be tuned to the exact Larmor frequency of the system and matched to 50 Ohms to ensure maximum power transfer and high signal-to-noise ratio (SNR).</p></div>
                 </div>
                 
                 <div class="tab-sheet-content" data-section="bom">
@@ -1426,7 +1430,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><p>The <strong>RF Power Amplifier (RFPA)</strong> boosts the weak RF pulses generated by the Red Pitaya console (STEMlab) to the high-power levels (tens of watts) required to rotate the nuclear spins in the preclinical sample. It is enclosed in a shielded aluminum box to prevent RF leakage and powered by a low-noise linear power supply to avoid switching noise.</p></div>
+                  <div class="sheet-article markdown-content"><p>The <strong>RF Power Amplifier (RFPA)</strong> boosts the weak RF pulses generated by the Red Pitaya console (STEMlab) to the high-power levels (tens of watts) required to rotate the nuclear spins in the preclinical sample. It is enclosed in a shielded aluminum box to prevent RF leakage and powered by a low-noise linear power supply to avoid switching noise.</p></div>
                 </div>
                 
                 <div class="tab-sheet-content" data-section="bom">
@@ -1525,7 +1529,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><p>The <strong>RedPitaya GPA Adapter</strong> is an interface board that bridges the Red Pitaya console board and the Gradient Power Amplifiers. It provides buffering, signal isolation, and clean level shifting via Schmitt triggers, protecting the console from currents and ensuring noise-free gradient control signals.</p></div>
+                  <div class="sheet-article markdown-content"><p>The <strong>RedPitaya GPA Adapter</strong> is an interface board that bridges the Red Pitaya console board and the Gradient Power Amplifiers. It provides buffering, signal isolation, and clean level shifting via Schmitt triggers, protecting the console from currents and ensuring noise-free gradient control signals.</p></div>
                 </div>
                 
                 <div class="tab-sheet-content" data-section="bom">
@@ -1649,7 +1653,7 @@
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article"><p>The <strong>Tx/Rx Switch</strong> acts as a fast RF router. During transmission, it blocks the high-voltage RF pulses (which could destroy the sensitive LNA receiver) and directs them straight to the RF Coil. During reception, it acts as a low-loss path to route the extremely weak MRI echo signals from the RF Coil to the LNA. The passive switch design is based on the <strong>Open Source Imaging Initiative (OSI²)</strong> passive TR switch reference.</p></div>
+                  <div class="sheet-article markdown-content"><p>The <strong>Tx/Rx Switch</strong> acts as a fast RF router. During transmission, it blocks the high-voltage RF pulses (which could destroy the sensitive LNA receiver) and directs them straight to the RF Coil. During reception, it acts as a low-loss path to route the extremely weak MRI echo signals from the RF Coil to the LNA. The passive switch design is based on the <strong>Open Source Imaging Initiative (OSI²)</strong> passive TR switch reference.</p></div>
                 </div>
                 
                 <div class="tab-sheet-content" data-section="bom">
@@ -1878,6 +1882,38 @@
     </details>
   </section>
   
+
+  <!-- Community Feedback & GitHub Issues Notice -->
+  <section class="scanner-community-notice-section">
+    <div class="community-notice-card">
+      <div class="community-notice-main">
+        <div class="community-notice-icon-box">
+          <i class="fa-solid fa-code-pull-request"></i>
+        </div>
+        <div class="community-notice-text-content">
+          <span class="community-notice-tag">Open Hardware Collaboration</span>
+          <h3 class="community-notice-title">Something missing? Want to report an issue or suggest an improvement?</h3>
+          <p class="community-notice-desc">
+            This scanner is part of the IMAGINE open-source imaging project. If you notice missing CAD files, BOM discrepancies, or documentation gaps, or if you would like to propose an enhancement, please open an issue on GitHub using our community templates.
+          </p>
+        </div>
+      </div>
+      <div class="community-notice-actions">
+        <a href="https://github.com/CAMERA-MRI/IMAGINE/issues/new?template=bug_report.md" target="_blank" class="notice-action-btn btn-bug">
+          <i class="fa-solid fa-bug"></i> Report Bug / Error
+        </a>
+        <a href="https://github.com/CAMERA-MRI/IMAGINE/issues/new?template=hardware_inquiry.md" target="_blank" class="notice-action-btn btn-hardware">
+          <i class="fa-solid fa-microchip"></i> Hardware Inquiry
+        </a>
+        <a href="https://github.com/CAMERA-MRI/IMAGINE/issues/new?template=feature_request.md" target="_blank" class="notice-action-btn btn-suggest">
+          <i class="fa-solid fa-lightbulb"></i> Suggest Improvement
+        </a>
+        <a href="https://github.com/CAMERA-MRI/IMAGINE/issues" target="_blank" class="notice-action-btn btn-all">
+          <i class="fa-brands fa-github"></i> Browse All Issues
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- OSII Standard Compliance Section for this Scanner -->
   <section class="scanner-compliance-section" style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--color-border);">

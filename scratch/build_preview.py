@@ -800,11 +800,14 @@ class PreviewBuilder:
             if "video_url" in c and c["video_url"]:
                 video_html = f"""
                 <div class="video-player-container">
-                  <video controls class="assembly-video">
+                  <video controls preload="metadata" playsinline class="assembly-video">
                     <source src="{self.baseurl}{c['video_url']}" type="video/mp4">
                     Your browser does not support the video tag.
                   </video>
-                  <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Video</span>
+                  <div class="video-footer-meta">
+                    <span class="video-caption"><i class="fa-solid fa-circle-play"></i> Assembly Demonstration Animation</span>
+                    <a href="{self.baseurl}{c['video_url']}" target="_blank" download class="video-fallback-link"><i class="fa-solid fa-arrow-down"></i> Download Video (MP4)</a>
+                  </div>
                 </div>
                 """
             
@@ -832,7 +835,7 @@ class PreviewBuilder:
               
               <div class="detail-tab-sheets">
                 <div class="tab-sheet-content active" data-section="overview">
-                  <div class="sheet-article">{c.get('content', '')}</div>
+                  <div class="sheet-article markdown-content">{c.get('content', '')}</div>
                 </div>
                 {bom_html}
                 {downloads_html}
