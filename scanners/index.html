@@ -20,7 +20,6 @@ description: "Select an open-source MRI scanner design to explore CAD models, pa
         <span class="scanner-tag">Educational / Low-Cost</span>
         <h2 class="scanner-name">ERNIE Scanner</h2>
         <p class="scanner-desc">A mouse-sized 50 mT Halbach array scanner design meant for quick assembly on-site. Contains a 3-axis automated mapping robot to teach magnetic field homogeneity and shimming.</p>
-        <div class="scanner-score-badge-card"><i class="fa-solid fa-square-check"></i> OSI² Score: <span class="pts">17 / 17</span></div>
         <a href="{{ site.baseurl }}/scanners/ernie/" class="explore-btn">
           Explore ERNIE <i class="fa-solid fa-arrow-right"></i>
         </a>
@@ -36,7 +35,6 @@ description: "Select an open-source MRI scanner design to explore CAD models, pa
         <span class="scanner-tag">Preclinical / Research</span>
         <h2 class="scanner-name">IMAGINE Preclinical Scanner</h2>
         <p class="scanner-desc">Our flagship 120mm bore preclinical scanner design. Documents full gradient and RF transmit/receive circuit systems, custom amplifier filters, and the MaRCoS console.</p>
-        <div class="scanner-score-badge-card"><i class="fa-solid fa-square-check"></i> OSI² Score: <span class="pts">17 / 17</span></div>
         <a href="{{ site.baseurl }}/scanners/imagine/" class="explore-btn">
           Explore IMAGINE <i class="fa-solid fa-arrow-right"></i>
         </a>
@@ -54,14 +52,45 @@ description: "Select an open-source MRI scanner design to explore CAD models, pa
       </p>
     </div>
 
+    <!-- Overall Score Summary Cards -->
+    <div class="compliance-summary-score-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+      <div class="compliance-summary-card" style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--border-radius-md); padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-sm);">
+        <div>
+          <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: var(--color-emerald-deep); display: block;">ERNIE Scanner</span>
+          <span style="font-size: 0.85rem; color: var(--color-text-light);">Educational MRI Kit</span>
+        </div>
+        <div style="background-color: var(--color-emerald-deep); color: #fff; padding: 0.5rem 1.2rem; border-radius: var(--border-radius-sm); border: 1.5px solid var(--color-gold); text-align: center;">
+          <span style="font-size: 0.65rem; text-transform: uppercase; font-weight: 700; color: var(--color-gold); display: block;">OSI² Score</span>
+          <span style="font-size: 1.3rem; font-weight: 800; font-family: var(--font-family-title);">{{ ernie_score }} / {{ ernie_total }}</span>
+        </div>
+      </div>
+
+      <div class="compliance-summary-card" style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--border-radius-md); padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-sm);">
+        <div>
+          <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: var(--color-emerald-deep); display: block;">IMAGINE Scanner</span>
+          <span style="font-size: 0.85rem; color: var(--color-text-light);">Preclinical Research System</span>
+        </div>
+        <div style="background-color: var(--color-emerald-deep); color: #fff; padding: 0.5rem 1.2rem; border-radius: var(--border-radius-sm); border: 1.5px solid var(--color-gold); text-align: center;">
+          <span style="font-size: 0.65rem; text-transform: uppercase; font-weight: 700; color: var(--color-gold); display: block;">OSI² Score</span>
+          <span style="font-size: 1.3rem; font-weight: 800; font-family: var(--font-family-title);">{{ imagine_score }} / {{ imagine_total }}</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Comparative Table -->
     <div class="compliance-table-wrapper" style="overflow-x: auto; background-color: var(--color-beige-card); border-radius: var(--border-radius-md); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); padding: 1.5rem;">
       <table class="compliance-compare-table" style="width: 100%; border-collapse: collapse; text-align: left;">
         <thead>
           <tr style="border-bottom: 2px solid var(--color-border);">
             <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title);">OSII Standard Criteria</th>
-            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title); text-align: center; width: 40%;">ERNIE Scanner</th>
-            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title); text-align: center; width: 40%;">IMAGINE Preclinical</th>
+            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title); text-align: center; width: 40%;">
+              ERNIE Scanner
+              <span style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--color-gold-dark); margin-top: 0.2rem;">Score: {{ ernie_score }} / {{ ernie_total }}</span>
+            </th>
+            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title); text-align: center; width: 40%;">
+              IMAGINE Preclinical
+              <span style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--color-gold-dark); margin-top: 0.2rem;">Score: {{ imagine_score }} / {{ imagine_total }}</span>
+            </th>
           </tr>
         </thead>
         <tbody>

@@ -87,7 +87,6 @@
         <span class="scanner-tag">Educational / Low-Cost</span>
         <h2 class="scanner-name">ERNIE Scanner</h2>
         <p class="scanner-desc">A mouse-sized 50 mT Halbach array scanner design meant for quick assembly on-site. Contains a 3-axis automated mapping robot to teach magnetic field homogeneity and shimming.</p>
-        <div class="scanner-score-badge-card"><i class="fa-solid fa-square-check"></i> OSI² Score: <span class="pts">17 / 17</span></div>
         <a href="/IMAGINE/scanners/ernie/" class="explore-btn">
           Explore ERNIE <i class="fa-solid fa-arrow-right"></i>
         </a>
@@ -103,7 +102,6 @@
         <span class="scanner-tag">Preclinical / Research</span>
         <h2 class="scanner-name">IMAGINE Preclinical Scanner</h2>
         <p class="scanner-desc">Our flagship 120mm bore preclinical scanner design. Documents full gradient and RF transmit/receive circuit systems, custom amplifier filters, and the MaRCoS console.</p>
-        <div class="scanner-score-badge-card"><i class="fa-solid fa-square-check"></i> OSI² Score: <span class="pts">17 / 17</span></div>
         <a href="/IMAGINE/scanners/imagine/" class="explore-btn">
           Explore IMAGINE <i class="fa-solid fa-arrow-right"></i>
         </a>
@@ -121,14 +119,45 @@
       </p>
     </div>
 
+    <!-- Overall Score Summary Cards -->
+    <div class="compliance-summary-score-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+      <div class="compliance-summary-card" style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--border-radius-md); padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-sm);">
+        <div>
+          <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: var(--color-emerald-deep); display: block;">ERNIE Scanner</span>
+          <span style="font-size: 0.85rem; color: var(--color-text-light);">Educational MRI Kit</span>
+        </div>
+        <div style="background-color: var(--color-emerald-deep); color: #fff; padding: 0.5rem 1.2rem; border-radius: var(--border-radius-sm); border: 1.5px solid var(--color-gold); text-align: center;">
+          <span style="font-size: 0.65rem; text-transform: uppercase; font-weight: 700; color: var(--color-gold); display: block;">OSI² Score</span>
+          <span style="font-size: 1.3rem; font-weight: 800; font-family: var(--font-family-title);">17 / 17</span>
+        </div>
+      </div>
+
+      <div class="compliance-summary-card" style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--border-radius-md); padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-sm);">
+        <div>
+          <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: var(--color-emerald-deep); display: block;">IMAGINE Scanner</span>
+          <span style="font-size: 0.85rem; color: var(--color-text-light);">Preclinical Research System</span>
+        </div>
+        <div style="background-color: var(--color-emerald-deep); color: #fff; padding: 0.5rem 1.2rem; border-radius: var(--border-radius-sm); border: 1.5px solid var(--color-gold); text-align: center;">
+          <span style="font-size: 0.65rem; text-transform: uppercase; font-weight: 700; color: var(--color-gold); display: block;">OSI² Score</span>
+          <span style="font-size: 1.3rem; font-weight: 800; font-family: var(--font-family-title);">17 / 17</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Comparative Table -->
     <div class="compliance-table-wrapper" style="overflow-x: auto; background-color: var(--color-beige-card); border-radius: var(--border-radius-md); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); padding: 1.5rem;">
       <table class="compliance-compare-table" style="width: 100%; border-collapse: collapse; text-align: left;">
         <thead>
           <tr style="border-bottom: 2px solid var(--color-border);">
             <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title);">OSII Standard Criteria</th>
-            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title); text-align: center; width: 40%;">ERNIE Scanner</th>
-            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title); text-align: center; width: 40%;">IMAGINE Preclinical</th>
+            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title); text-align: center; width: 40%;">
+              ERNIE Scanner
+              <span style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--color-gold-dark); margin-top: 0.2rem;">Score: 17 / 17</span>
+            </th>
+            <th style="padding: 1rem; color: var(--color-emerald-deep); font-weight: 700; font-family: var(--font-family-title); text-align: center; width: 40%;">
+              IMAGINE Preclinical
+              <span style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--color-gold-dark); margin-top: 0.2rem;">Score: 17 / 17</span>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -702,16 +731,37 @@
   </div>
 </footer>
 
-<!-- Bottom Floating Banner (Site Under Construction) -->
-<div class="under-construction-banner" id="under-construction-bar">
+<!-- Subtle Floating Badge (Site Under Construction) -->
+<aside class="under-construction-banner" id="under-construction-bar" aria-label="Under construction notice">
   <div class="construction-content">
-    <i class="fa-solid fa-person-digging construction-icon"></i>
-    <span><strong>Notice:</strong> This website is currently under active construction and development. Some details, specifications, and CAD files may be updated or modified as work progresses.</span>
+    <span class="construction-pulse-dot" aria-hidden="true"></span>
+    <span class="construction-text"><strong>Work in Progress:</strong> Details & CAD may update.</span>
   </div>
-  <button class="construction-dismiss-btn" onclick="document.getElementById('under-construction-bar').style.display='none'" aria-label="Dismiss banner">
+  <button class="construction-dismiss-btn" onclick="dismissConstructionBanner()" aria-label="Dismiss notice">
     <i class="fa-solid fa-xmark"></i>
   </button>
-</div>
+</aside>
+<script>
+  (function() {
+    try {
+      if (sessionStorage.getItem('hideConstructionNotice') === 'true') {
+        var bar = document.getElementById('under-construction-bar');
+        if (bar) bar.style.display = 'none';
+      }
+    } catch(e) {}
+  })();
+  function dismissConstructionBanner() {
+    var bar = document.getElementById('under-construction-bar');
+    if (bar) {
+      bar.style.opacity = '0';
+      bar.style.transform = 'translateY(10px)';
+      setTimeout(function() { bar.style.display = 'none'; }, 200);
+    }
+    try {
+      sessionStorage.setItem('hideConstructionNotice', 'true');
+    } catch(e) {}
+  }
+</script>
 
 
 

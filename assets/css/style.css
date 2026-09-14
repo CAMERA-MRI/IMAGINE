@@ -3,20 +3,20 @@
    Core Theme: Emerald Green & Gold / Premium Open-Source Hardware Portal
    ========================================================================== */
 
-/* Variables */
+/* Variables - Option 3: Refined Nordic Petrol / Surgical Teal & Warm Champagne */
 :root {
-  --color-emerald-deep: #0f2c1f;
-  --color-emerald-medium: #1b4332;
-  --color-emerald-light: #2d6a4f;
-  --color-emerald-bg: #e8f5e9;
-  --color-gold: #c5a059;
-  --color-gold-hover: #b48e47;
-  --color-gold-light: #f5eedc;
-  --color-beige-card: #f8f6f0;
-  --color-text-dark: #2c3e35;
-  --color-text-light: #6c7a72;
+  --color-emerald-deep: #061d24;
+  --color-emerald-medium: #0d6e6e;
+  --color-emerald-light: #0d9488;
+  --color-emerald-bg: #f0fdfa;
+  --color-gold: #d49438;
+  --color-gold-hover: #b87c28;
+  --color-gold-light: #fef3c7;
+  --color-beige-card: #f8fafc;
+  --color-text-dark: #0f172a;
+  --color-text-light: #475569;
   --color-white: #ffffff;
-  --color-border: #d2dbd6;
+  --color-border: #e2e8f0;
   --font-family-title: 'Outfit', sans-serif;
   --font-family-body: 'Inter', sans-serif;
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -60,7 +60,7 @@ a {
    Header and Navigation Banner
    ========================================================================== */
 .gradient-header-banner {
-  background: linear-gradient(120deg, var(--color-emerald-deep) 0%, var(--color-emerald-medium) 50%, var(--color-gold) 100%);
+  background: linear-gradient(125deg, #05191f 0%, #0a333c 50%, #0d6e6e 100%);
   padding: 2.5rem 3rem;
   display: flex;
   justify-content: space-between;
@@ -736,8 +736,8 @@ a {
 }
 
 .interactive-diagram-canvas {
-  background-color: #0b1a13;
-  border: 1px solid #1c392b;
+  background-color: #04151a;
+  border: 1px solid #0c323b;
   border-radius: var(--border-radius-md);
   padding: 1.5rem;
   box-shadow: var(--shadow-lg);
@@ -772,8 +772,8 @@ a {
 }
 
 .interactive-node .node-rect {
-  fill: #153326;
-  stroke: #255842;
+  fill: #09252d;
+  stroke: #134e5a;
   stroke-width: 2px;
   transition: var(--transition);
 }
@@ -786,7 +786,7 @@ a {
 }
 
 .interactive-node:hover .node-rect {
-  fill: #1b4332;
+  fill: #0d5c63;
   stroke: var(--color-gold);
   transform: scale(1.02);
   transform-origin: center;
@@ -2679,67 +2679,94 @@ a {
 /* Floating Under-Construction Banner */
 .under-construction-banner {
   position: fixed;
-  bottom: 1.2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(15, 36, 26, 0.95);
-  color: #ffffff;
-  border: 1px solid var(--color-gold);
+  bottom: 1rem;
+  right: 1.25rem;
+  left: auto;
+  transform: none;
+  background: rgba(15, 23, 42, 0.88);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--border-radius-pill);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 0.65rem 1.4rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.4rem 0.9rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.65rem;
   z-index: 9999;
-  font-size: 0.88rem;
-  max-width: 90vw;
-  animation: slideUpFade 0.4s ease-out;
+  font-size: 0.78rem;
+  font-family: var(--font-family-body);
+  max-width: 380px;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  animation: fadeInCorner 0.5s ease-out;
 }
 
-@keyframes slideUpFade {
+@keyframes fadeInCorner {
   from {
     opacity: 0;
-    transform: translate(-50%, 20px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, 0);
+    transform: translateY(0);
   }
 }
 
 .construction-content {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
+  white-space: nowrap;
 }
 
-.construction-icon {
-  color: var(--color-gold);
-  font-size: 1.1rem;
+.construction-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #f59e0b;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
+  display: inline-block;
   flex-shrink: 0;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15); }
+}
+
+.construction-text {
+  color: #cbd5e1;
+  font-weight: 400;
+}
+
+.construction-text strong {
+  color: #f8fafc;
+  font-weight: 600;
 }
 
 .construction-dismiss-btn {
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  font-size: 1rem;
-  padding: 0.2rem;
-  margin-left: 0.4rem;
+  font-size: 0.8rem;
+  padding: 0.15rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
   transition: var(--transition);
+  margin-left: 0.2rem;
 }
 
 .construction-dismiss-btn:hover {
-  color: var(--color-gold);
-  transform: scale(1.15);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  transform: none;
 }
+
 
 /* Subsystem Vector Diagram Image */
 .subsystem-diagram-img {
@@ -2797,12 +2824,12 @@ a {
 }
 
 .scanner-info-accordion summary.accordion-header:hover {
-  background: #f3efe6;
+  background: #f1f5f9;
 }
 
 .scanner-info-accordion[open] summary.accordion-header {
   border-bottom: 1px solid var(--color-border);
-  background: #efebe1;
+  background: #e2e8f0;
 }
 
 .accordion-title {
@@ -2892,7 +2919,7 @@ a {
 .markdown-guide-content tr:nth-child(even),
 .markdown-content tr:nth-child(even),
 .scanner-content-body tr:nth-child(even) {
-  background-color: #faf8f5;
+  background-color: #f8fafc;
 }
 
 .sheet-article img,

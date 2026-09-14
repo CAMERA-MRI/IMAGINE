@@ -139,8 +139,8 @@ function activateComponent(componentId) {
       node.classList.remove("active");
       const rect = node.querySelector(".node-rect");
       if (rect) {
-        rect.style.stroke = "#255842";
-        rect.style.fill = "#153326";
+        rect.style.stroke = "#134e5a";
+        rect.style.fill = "#09252d";
       }
     }
   });
@@ -190,57 +190,5 @@ function filterBomTable(inputElement) {
         }
       }
     });
-  }
-}
-
-
-  const targets = document.querySelectorAll(
-    ".markdown-guide-content, .guide-steps-list, .sheet-article, .markdown-content, .component-subtitle-desc, .detail-short-desc, .page-subtitle"
-  );
-
-  targets.forEach(el => {
-    if (el.dataset.markdownParsed === "true") return;
-    
-    let rawText = el.innerHTML.trim();
-    if (!rawText) return;
-
-    const hasMarkdown = /#{1,6}\s|[*\-_`\[\]]/.test(rawText) || rawText.includes("$$") || rawText.includes("$");
-    
-    if (hasMarkdown) {
-      const mathBlocks = [];
-      
-      rawText = rawText.replace(/\$\$([\s\S]*?)\$\$/g, (match) => {
-        mathBlocks.push(match);
-        return `__MATH_PLACEHOLDER_${mathBlocks.length - 1}__`;
-      });
-      
-      rawText = rawText.replace(/\$([^\$\n]+?)\$/g, (match) => {
-        mathBlocks.push(match);
-        return `__MATH_PLACEHOLDER_${mathBlocks.length - 1}__`;
-      });
-
-      rawText = rawText.replace(/\\\(([\s\S]*?)\\\)/g, (match) => {
-        mathBlocks.push(match);
-        return `__MATH_PLACEHOLDER_${mathBlocks.length - 1}__`;
-      });
-
-      rawText = rawText.replace(/\\\[([\s\S]*?)\\\]/g, (match) => {
-        mathBlocks.push(match);
-        return `__MATH_PLACEHOLDER_${mathBlocks.length - 1}__`;
-      });
-
-      let htmlContent = marked.parse(rawText);
-
-      htmlContent = htmlContent.replace(/__MATH_PLACEHOLDER_(\d+)__/g, (match, index) => {
-        return mathBlocks[parseInt(index)];
-      });
-
-      el.innerHTML = htmlContent;
-      el.dataset.markdownParsed = "true";
-    }
-  });
-
-  if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
-    MathJax.typesetPromise();
   }
 }

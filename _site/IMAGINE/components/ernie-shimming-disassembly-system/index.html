@@ -315,16 +315,37 @@
   </div>
 </footer>
 
-<!-- Bottom Floating Banner (Site Under Construction) -->
-<div class="under-construction-banner" id="under-construction-bar">
+<!-- Subtle Floating Badge (Site Under Construction) -->
+<aside class="under-construction-banner" id="under-construction-bar" aria-label="Under construction notice">
   <div class="construction-content">
-    <i class="fa-solid fa-person-digging construction-icon"></i>
-    <span><strong>Notice:</strong> This website is currently under active construction and development. Some details, specifications, and CAD files may be updated or modified as work progresses.</span>
+    <span class="construction-pulse-dot" aria-hidden="true"></span>
+    <span class="construction-text"><strong>Work in Progress:</strong> Details & CAD may update.</span>
   </div>
-  <button class="construction-dismiss-btn" onclick="document.getElementById('under-construction-bar').style.display='none'" aria-label="Dismiss banner">
+  <button class="construction-dismiss-btn" onclick="dismissConstructionBanner()" aria-label="Dismiss notice">
     <i class="fa-solid fa-xmark"></i>
   </button>
-</div>
+</aside>
+<script>
+  (function() {
+    try {
+      if (sessionStorage.getItem('hideConstructionNotice') === 'true') {
+        var bar = document.getElementById('under-construction-bar');
+        if (bar) bar.style.display = 'none';
+      }
+    } catch(e) {}
+  })();
+  function dismissConstructionBanner() {
+    var bar = document.getElementById('under-construction-bar');
+    if (bar) {
+      bar.style.opacity = '0';
+      bar.style.transform = 'translateY(10px)';
+      setTimeout(function() { bar.style.display = 'none'; }, 200);
+    }
+    try {
+      sessionStorage.setItem('hideConstructionNotice', 'true');
+    } catch(e) {}
+  }
+</script>
 
 
 

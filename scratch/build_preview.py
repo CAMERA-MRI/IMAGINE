@@ -564,10 +564,20 @@ class PreviewBuilder:
                 """
             text = re.sub(r'{%\s*for\s+cat\s+in\s+site\.data\.osi_checklist\s*%}.*?{%\s*endfor\s*%}', cats_html, text, flags=re.DOTALL)
 
-        if "{% for compare_cat in site.data.osi_checklist %}" in text:
+        if "{% for compare_cat in site.data.osi_checklist %}" in text or "{{ ernie_score }}" in text:
             checklist = self.site_data["data"]["osi_checklist"] or []
             ernie_data = self.site_data["data"]["osi_ernie"] or []
             imagine_data = self.site_data["data"]["osi_imagine"] or []
+            
+            ernie_earned = sum(1 for c in ernie_data for i in c.get("items", []) if i.get("satisfied"))
+            ernie_total = sum(1 for c in ernie_data for i in c.get("items", []))
+            imagine_earned = sum(1 for c in imagine_data for i in c.get("items", []) if i.get("satisfied"))
+            imagine_total = sum(1 for c in imagine_data for i in c.get("items", []))
+            
+            text = text.replace("{{ ernie_score }}", str(ernie_earned))
+            text = text.replace("{{ ernie_total }}", str(ernie_total))
+            text = text.replace("{{ imagine_score }}", str(imagine_earned))
+            text = text.replace("{{ imagine_total }}", str(imagine_total))
             
             compare_rows = ""
             for cat in checklist:
