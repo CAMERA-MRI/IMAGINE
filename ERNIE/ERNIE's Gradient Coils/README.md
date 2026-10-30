@@ -1,1 +1,1 @@
-
+For detailed instructions on gradient coil design and fabrication, please refer to the [Gradient Coil Design and Fabrication Guide](https://github.com/CAMERA-MRI/IMAGINE/blob/main/Hardware/Gradients/Gradient_Design.md).
