@@ -7,4 +7,3 @@ For detailed information on the amplifier design, assembly, operation, and testi
 
 The amplifier design follows the original FHDO implementation, with selected components modified or substituted to meet the requirements of the IMAGINE scanner. These changes are documented in the updated Bill of Materials (BOM).
 
-The complete [IMAGINE Gradient Amplifier BOM](BOM.xlsx) is provided in this folder.
